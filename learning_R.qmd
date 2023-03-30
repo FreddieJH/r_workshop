@@ -2,6 +2,8 @@
 title: "Learning R"
 author: "Freddie Heather"
 format: revealjs
+project:
+  output-dir: docs
 ---
 
 # The basics
@@ -181,41 +183,40 @@ paste("My name is", first_name, last_name)
 
 ## What's a function?
 
-- Using just `+`, `()` and `/`, calculate the mean of 5, 10, and 3.
+-   Using just `+`, `()` and `/`, calculate the mean of 5, 10, and 3.
 
-::: {.fragment}
+::: fragment
 ```{r }
 (5+10+3)/3
 ```
 :::
 
-::: {.fragment}
-- Instead, let's use the `mean()` function to calculate the mean:
+::: fragment
+-   Instead, let's use the `mean()` function to calculate the mean:
 :::
 
-::: {.fragment}
+::: fragment
 ```{r }
 mean(x = c(5,10,3))
 ```
 
-- `mean` is the **function** (always immediately followed by the open-parenthesis)
-- `x` is the **argument** of the function
-- we pass `c(5,10,3)` to the x argument of the function
+-   `mean` is the **function** (always immediately followed by the open-parenthesis)
+-   `x` is the **argument** of the function
+-   we pass `c(5,10,3)` to the x argument of the function
 :::
 
 ## Functions
 
-- somebody wrote the code for the `mean()` function
-- `mean()` is a very simple function, but other functions can be extremely complex
-- Some commonly used functions come readily installed when you install R, others you must download
-- Other functions are stored within packages - **packages are just a collection of functions**
-
+-   somebody wrote the code for the `mean()` function
+-   `mean()` is a very simple function, but other functions can be extremely complex
+-   Some commonly used functions come readily installed when you install R, others you must download
+-   Other functions are stored within packages - **packages are just a collection of functions**
 
 ## Packages
 
-- A very commonly installed package is called `readr`
-- This package contains the very useful function `read_csv()`, which allows us to read in excel data (in comma-separated-value format, .csv)
-- To install and load a package:
+-   A very commonly installed package is called `readr`
+-   This package contains the very useful function `read_csv()`, which allows us to read in excel data (in comma-separated-value format, .csv)
+-   To install and load a package:
 
 ```{r}
 #install.packages("readr") # once per installation of R
@@ -224,8 +225,8 @@ library(readr) # at the top of the script of every analysis that uses it
 
 ## Reading in data
 
-- Save your **csv** file into your working directory
-- Read the data into R using the `read_csv()` function
+-   Save your **csv** file into your working directory
+-   Read the data into R using the `read_csv()` function
 
 ```{r}
 read_csv("example_data.csv")
@@ -233,23 +234,22 @@ read_csv("example_data.csv")
 
 ## Check the data imported correctly
 
-- First six rows only
+-   First six rows only
 
 ```{r}
 fish_size <- read_csv("example_data.csv")
 head(fish_size)
 ```
 
-----------------------
-- Using the `glimpse()` function from the `dplyr` package
+------------------------------------------------------------------------
+
+-   Using the `glimpse()` function from the `dplyr` package
 
 ```{r}
 library(dplyr)
 glimpse(fish_size)
 ```
 
+## Next session:
 
-
-## Next session: 
-
-- Manipulating and cleaning the data
+-   Manipulating and cleaning the data
