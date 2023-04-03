@@ -198,13 +198,12 @@ s1*n1
 
 ## Types of classes
 
-| Name             | Examples      | Syntax  |
-|------------------|---------------|---------|
-| Numeric          | 6.7, 8.9, 1.0 | `dbl` |
-| Character string | "cat", "dog"  | `chr` |
-| Boolean/logical  | TRUE, FALSE   | `lgl` |
-| Integer          | 2, 5, 149     | `int` |
-
+| Name             | Examples      | Syntax |
+|------------------|---------------|--------|
+| Numeric          | 6.7, 8.9, 1.0 | `dbl`  |
+| Character string | "cat", "dog"  | `chr`  |
+| Boolean/logical  | TRUE, FALSE   | `lgl`  |
+| Integer          | 2, 5, 149     | `int`  |
 
 ## Logic statements
 
@@ -223,7 +222,6 @@ s1*n1
 x = 5
 x
 ```
-
 
 # Packages and functions
 
