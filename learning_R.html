@@ -6,13 +6,11 @@
 <script src="learning_R_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="learning_R_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="learning_R_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="learning_R_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="learning_R_files/libs/quarto-contrib/videojs/video.min.js"></script>
-<link href="learning_R_files/libs/quarto-contrib/videojs/video-js.css" rel="stylesheet"><meta charset="utf-8">
+<link href="learning_R_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.3.34">
 
   <meta name="author" content="Freddie Heather">
-  <title>Learning R</title>
+  <title>Getting started with R</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -390,7 +388,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Learning R</h1>
+  <h1 class="title">Getting started with R</h1>
+  <p class="subtitle">Session 1 of 4</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -413,12 +412,6 @@ Freddie Heather
 <li>Very popular in scientific data analysis</li>
 </ul>
 <p><img data-src="images/r-analysis.PNG" class="fragment absolute" style="bottom: 100px; right: 300px; width: 500px; height: 300px; "> <img data-src="images/r-art.PNG" class="fragment absolute" style="bottom: 100px; right: 300px; width: 500px; height: 300px; "> <img data-src="images/r-chess.PNG" class="fragment absolute" style="bottom: 100px; right: 300px; width: 500px; height: 300px; "> <img data-src="images/r-presentation.PNG" class="fragment absolute" style="bottom: 100px; right: 300px; width: 500px; height: 300px; "> <img data-src="images/r-analysis.PNG" class="fragment absolute" style="bottom: 100px; right: 300px; width: 500px; height: 300px; "></p>
-</section>
-<section id="error-checking-with-r" class="slide level2">
-<h2>Error checking with R</h2>
-<ul>
-<li>looking for geographical outliers in 700 fish species <video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="images/video1.webm"></video></li>
-</ul>
 </section>
 <section id="r-vs-rstudio" class="slide level2">
 <h2>R vs RStudio</h2>
@@ -525,7 +518,7 @@ Freddie Heather
 <h3 id="objects">Objects</h3>
 <ul>
 <li>An “object” can be anything: a number, a word, a plot, an equation, etc.</li>
-<li>The code to create an object is <code>&lt;-</code></li>
+<li>The code to create an object is <code>&lt;-</code>. This is called the “assignment operator”</li>
 </ul>
 <p><strong>Task:</strong> Create an object called <code>x</code> and make it equal to 5, and then modify <code>x</code>.</p>
 <div class="cell">
@@ -565,9 +558,10 @@ Freddie Heather
 </section>
 <section class="slide level2">
 
-<p>Not everything is a number</p>
 <ul>
-<li>instead of a numeric variable, an object may be a “character string” (aka. a word or sentence)</li>
+<li>Not everything is a number</li>
+<li>Instead of a numeric variable, an object may be a “character string” (aka. a word or sentence)</li>
+<li>The data type (e.g.&nbsp;numeric, character) of the object is called the class.</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># character strings</span></span>
@@ -577,6 +571,173 @@ Freddie Heather
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "My name is Freddie Heather"</code></pre>
 </div>
+</div>
+</section>
+<section id="object-classes" class="slide level2">
+<h2>Object classes</h2>
+<ul>
+<li>We can use the appropriately named <code>class()</code> function to see what the class of an object is</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>x <span class="ot">&lt;-</span> <span class="dv">89</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a>y <span class="ot">&lt;-</span> <span class="st">"hello there"</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a>z <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">class</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "numeric"</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">class</span>(y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">class</span>(z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "logical"</code></pre>
+</div>
+</div>
+</section>
+<section id="class-is-important" class="slide level2">
+<h2>Class is important</h2>
+<ul>
+<li>Some functions will only work with certain types of data classes</li>
+<li>E.g. you cannot multiple a character string and a numeric</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>s1 <span class="ot">&lt;-</span> <span class="st">"oops"</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a>n1 <span class="ot">&lt;-</span> <span class="dv">9</span></span>
+<span id="cb25-3"><a href="#cb25-3"></a></span>
+<span id="cb25-4"><a href="#cb25-4"></a>s1<span class="sc">*</span>n1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in s1 * n1: non-numeric argument to binary operator</code></pre>
+</div>
+</div>
+</section>
+<section id="types-of-classes" class="slide level2">
+<h2>Types of classes</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th>Examples</th>
+<th>Syntax</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Numeric</td>
+<td>6.7, 8.9, 1.0</td>
+<td><code>dbl</code></td>
+</tr>
+<tr class="even">
+<td>Character string</td>
+<td>“cat”, “dog”</td>
+<td><code>chr</code></td>
+</tr>
+<tr class="odd">
+<td>Boolean/logical</td>
+<td>TRUE, FALSE</td>
+<td><code>lgl</code></td>
+</tr>
+<tr class="even">
+<td>Integer</td>
+<td>2, 5, 149</td>
+<td><code>int</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="logic-statements" class="slide level2">
+<h2>Logic statements</h2>
+<ul>
+<li>We can use the <code>==</code> syntax to see if two things are equal</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>(<span class="dv">2</span><span class="sc">+</span><span class="dv">3</span>) <span class="sc">==</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+<ul>
+<li>Note this is different from using a single equals (<code>=</code>)</li>
+<li><code>=</code> behaves similar to the assignment operator <code>&lt;-</code>, but avoid using it</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>x <span class="ot">=</span> <span class="dv">5</span></span>
+<span id="cb29-2"><a href="#cb29-2"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+</div>
+</section></section>
+<section>
+<section id="packages-and-functions" class="title-slide slide level1 center">
+<h1>Packages and functions</h1>
+
+</section>
+<section id="whats-a-function" class="slide level2">
+<h2>What’s a function?</h2>
+<ul>
+<li>Using just <code>+</code>, <code>()</code> and <code>/</code>, calculate the mean of 5, 10, and 3.</li>
+</ul>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>(<span class="dv">5</span><span class="sc">+</span><span class="dv">10</span><span class="sc">+</span><span class="dv">3</span>)<span class="sc">/</span><span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li>Instead, let’s use the <code>mean()</code> function to calculate the mean:</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="fu">mean</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">10</span>,<span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6</code></pre>
+</div>
+</div>
+<ul>
+<li><code>mean</code> is the <strong>function</strong></li>
+<li>functions are always followed by brackets</li>
+<li><code>x</code> is the <strong>argument</strong> of the function</li>
+<li>we pass <code>c(5,10,3)</code> to the x argument of the function</li>
+</ul>
+</div>
+</section>
+<section id="functions" class="slide level2">
+<h2>Functions</h2>
+<ul>
+<li>Some people wrote the code for the <code>mean()</code> function</li>
+<li><code>mean()</code> is a very simple function, but other functions can be extremely complex</li>
+<li>Some commonly used functions come readily installed when you install R, others you must download</li>
+<li>Other functions are stored within packages - <strong>packages are just a collection of functions</strong></li>
+</ul>
+</section>
+<section id="confused-about-a-function" class="slide level2">
+<h2>Confused about a function?</h2>
+<ul>
+<li>Use the <code>?functionname</code> notation to see information about the function</li>
+</ul>
+</section>
+<section id="packages" class="slide level2">
+<h2>Packages</h2>
+<ul>
+<li>A very commonly installed package is called <code>readr</code></li>
+<li>This package contains the very useful function <code>read_csv()</code>, which allows us to read in excel data (in comma-separated-value format, .csv)</li>
+<li>To install and load a package:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="co">#install.packages("readr") # once per installation of R</span></span>
+<span id="cb35-2"><a href="#cb35-2"></a><span class="fu">library</span>(readr) <span class="co"># at the top of the script of every analysis that uses it</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section></section>
 <section>
@@ -600,73 +761,1831 @@ Freddie Heather
 <li>Write anything (e.g.&nbsp;a comment with your name or title on line 1)</li>
 <li>Save As “analysis.R”</li>
 </ul>
-</section></section>
-<section>
-<section id="packages-and-functions" class="title-slide slide level1 center">
-<h1>Packages and functions</h1>
-
-</section>
-<section id="whats-a-function" class="slide level2">
-<h2>What’s a function?</h2>
-<ul>
-<li>Using just <code>+</code>, <code>()</code> and <code>/</code>, calculate the mean of 5, 10, and 3.</li>
-</ul>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>(<span class="dv">5</span><span class="sc">+</span><span class="dv">10</span><span class="sc">+</span><span class="dv">3</span>)<span class="sc">/</span><span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 6</code></pre>
-</div>
-</div>
-</div>
-<div class="fragment">
-<ul>
-<li>Instead, let’s use the <code>mean()</code> function to calculate the mean:</li>
-</ul>
-</div>
-<div class="fragment">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">mean</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">5</span>,<span class="dv">10</span>,<span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 6</code></pre>
-</div>
-</div>
-<ul>
-<li><code>mean</code> is the <strong>function</strong> (always immediately followed by the open-parenthesis)</li>
-<li><code>x</code> is the <strong>argument</strong> of the function</li>
-<li>we pass <code>c(5,10,3)</code> to the x argument of the function</li>
-</ul>
-</div>
-</section>
-<section id="functions" class="slide level2">
-<h2>Functions</h2>
-<ul>
-<li>somebody wrote the code for the <code>mean()</code> function</li>
-<li><code>mean()</code> is a very simple function, but other functions can be extremely complex</li>
-<li>Some commonly used functions come readily installed when you install R, others you must download</li>
-<li>Other functions are stored within packages - <strong>packages are just a collection of functions</strong></li>
-</ul>
-</section>
-<section id="packages" class="slide level2">
-<h2>Packages</h2>
-<ul>
-<li>A very commonly installed package is called <code>readr</code></li>
-<li>This package contains the very useful function <code>read_csv()</code>, which allows us to read in excel data (in comma-separated-value format, .csv)</li>
-<li>To install and load a package:</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="co">#install.packages("readr") # once per installation of R</span></span>
-<span id="cb22-2"><a href="#cb22-2"></a><span class="fu">library</span>(readr) <span class="co"># at the top of the script of every analysis that uses it</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 </section>
 <section id="reading-in-data" class="slide level2">
 <h2>Reading in data</h2>
 <ul>
-<li>Save your <strong>csv</strong> file into your working directory</li>
-<li>Read the data into R using the <code>read_csv()</code> function</li>
+<li>R does not like excel (.xlsx) files, it loves .csv files</li>
+<li>R has a built-in function to read CSV files: <code>read.csv()</code></li>
+<li>Because we are working in a project, R knows where to look for the file</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">read_csv</span>(<span class="st">"example_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="fu">read.csv</span>(<span class="st">"example_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    survey_id country                      area
+1   923401390  Canada Newfoundland and Labrador
+2   923401390  Canada Newfoundland and Labrador
+3   923401390  Canada Newfoundland and Labrador
+4   923401390  Canada Newfoundland and Labrador
+5   923401390  Canada Newfoundland and Labrador
+6   923401390  Canada Newfoundland and Labrador
+7   923401389  Canada Newfoundland and Labrador
+8   923401389  Canada Newfoundland and Labrador
+9   923401389  Canada Newfoundland and Labrador
+10  923401388  Canada Newfoundland and Labrador
+11  923401388  Canada Newfoundland and Labrador
+12  923401387  Canada Newfoundland and Labrador
+13  923401387  Canada Newfoundland and Labrador
+14  923401387  Canada Newfoundland and Labrador
+15  923401387  Canada Newfoundland and Labrador
+16  923401387  Canada Newfoundland and Labrador
+17  923401387  Canada Newfoundland and Labrador
+18  923401387  Canada Newfoundland and Labrador
+19  923401387  Canada Newfoundland and Labrador
+20  923401386  Canada Newfoundland and Labrador
+21  923401386  Canada Newfoundland and Labrador
+22  923401386  Canada Newfoundland and Labrador
+23  923401386  Canada Newfoundland and Labrador
+24  923401386  Canada Newfoundland and Labrador
+25  923401386  Canada Newfoundland and Labrador
+26  923401386  Canada Newfoundland and Labrador
+27  923401386  Canada Newfoundland and Labrador
+28  923401386  Canada Newfoundland and Labrador
+29  923401386  Canada Newfoundland and Labrador
+30  923401385  Canada Newfoundland and Labrador
+31  923401385  Canada Newfoundland and Labrador
+32  923401385  Canada Newfoundland and Labrador
+33  923401385  Canada Newfoundland and Labrador
+34  923401385  Canada Newfoundland and Labrador
+35  923401385  Canada Newfoundland and Labrador
+36  923401385  Canada Newfoundland and Labrador
+37  923401385  Canada Newfoundland and Labrador
+38  923401385  Canada Newfoundland and Labrador
+39  923401385  Canada Newfoundland and Labrador
+40  923401384  Canada Newfoundland and Labrador
+41  923401384  Canada Newfoundland and Labrador
+42  923401384  Canada Newfoundland and Labrador
+43  923401384  Canada Newfoundland and Labrador
+44  923401384  Canada Newfoundland and Labrador
+45  923401384  Canada Newfoundland and Labrador
+46  923401384  Canada Newfoundland and Labrador
+47  923401384  Canada Newfoundland and Labrador
+48  923401384  Canada Newfoundland and Labrador
+49  923401383  Canada Newfoundland and Labrador
+50  923401383  Canada Newfoundland and Labrador
+51  923401383  Canada Newfoundland and Labrador
+52  923401383  Canada Newfoundland and Labrador
+53  923401383  Canada Newfoundland and Labrador
+54  923401383  Canada Newfoundland and Labrador
+55  923401383  Canada Newfoundland and Labrador
+56  923401383  Canada Newfoundland and Labrador
+57  923401382  Canada Newfoundland and Labrador
+58  923401382  Canada Newfoundland and Labrador
+59  923401382  Canada Newfoundland and Labrador
+60  923401382  Canada Newfoundland and Labrador
+61  923401382  Canada Newfoundland and Labrador
+62  923401382  Canada Newfoundland and Labrador
+63  923401382  Canada Newfoundland and Labrador
+64  923401382  Canada Newfoundland and Labrador
+65  923401382  Canada Newfoundland and Labrador
+66  923401382  Canada Newfoundland and Labrador
+67  923401382  Canada Newfoundland and Labrador
+68  923401381  Canada Newfoundland and Labrador
+69  923401381  Canada Newfoundland and Labrador
+70  923401381  Canada Newfoundland and Labrador
+71  923401381  Canada Newfoundland and Labrador
+72  923401381  Canada Newfoundland and Labrador
+73  923401381  Canada Newfoundland and Labrador
+74  923401381  Canada Newfoundland and Labrador
+75  923401381  Canada Newfoundland and Labrador
+76  923401381  Canada Newfoundland and Labrador
+77  923401381  Canada Newfoundland and Labrador
+78  923401381  Canada Newfoundland and Labrador
+79  923401381  Canada Newfoundland and Labrador
+80  923401381  Canada Newfoundland and Labrador
+81  923401381  Canada Newfoundland and Labrador
+82  923401381  Canada Newfoundland and Labrador
+83  923401380  Canada Newfoundland and Labrador
+84  923401380  Canada Newfoundland and Labrador
+85  923401380  Canada Newfoundland and Labrador
+86  923401380  Canada Newfoundland and Labrador
+87  923401380  Canada Newfoundland and Labrador
+88  923401380  Canada Newfoundland and Labrador
+89  923401380  Canada Newfoundland and Labrador
+90  923401380  Canada Newfoundland and Labrador
+91  923401380  Canada Newfoundland and Labrador
+92  923401380  Canada Newfoundland and Labrador
+93  923401380  Canada Newfoundland and Labrador
+94  923401380  Canada Newfoundland and Labrador
+95  923401379  Canada Newfoundland and Labrador
+96  923401379  Canada Newfoundland and Labrador
+97  923401379  Canada Newfoundland and Labrador
+98  923401379  Canada Newfoundland and Labrador
+99  923401379  Canada Newfoundland and Labrador
+100 923401379  Canada Newfoundland and Labrador
+101 923401379  Canada Newfoundland and Labrador
+102 923401379  Canada Newfoundland and Labrador
+103 923401379  Canada Newfoundland and Labrador
+104 923401379  Canada Newfoundland and Labrador
+105 923401379  Canada Newfoundland and Labrador
+106 923401379  Canada Newfoundland and Labrador
+107 923401379  Canada Newfoundland and Labrador
+108 923401379  Canada Newfoundland and Labrador
+109 923401379  Canada Newfoundland and Labrador
+110 923401379  Canada Newfoundland and Labrador
+111 923401379  Canada Newfoundland and Labrador
+112 923401377  Canada Newfoundland and Labrador
+113 923401377  Canada Newfoundland and Labrador
+114 923401376  Canada Newfoundland and Labrador
+115 923401376  Canada Newfoundland and Labrador
+116 923401376  Canada Newfoundland and Labrador
+117 923401376  Canada Newfoundland and Labrador
+118 923401376  Canada Newfoundland and Labrador
+119 923401376  Canada Newfoundland and Labrador
+120 923401376  Canada Newfoundland and Labrador
+121 923401376  Canada Newfoundland and Labrador
+122 923401376  Canada Newfoundland and Labrador
+123 923401376  Canada Newfoundland and Labrador
+124 923401376  Canada Newfoundland and Labrador
+125 923401375  Canada Newfoundland and Labrador
+126 923401375  Canada Newfoundland and Labrador
+127 923401375  Canada Newfoundland and Labrador
+128 923401375  Canada Newfoundland and Labrador
+129 923401375  Canada Newfoundland and Labrador
+130 923401375  Canada Newfoundland and Labrador
+131 923401374  Canada Newfoundland and Labrador
+132 923401374  Canada Newfoundland and Labrador
+133 923401374  Canada Newfoundland and Labrador
+134 923401373  Canada Newfoundland and Labrador
+135 923401373  Canada Newfoundland and Labrador
+136 923401373  Canada Newfoundland and Labrador
+137 923401373  Canada Newfoundland and Labrador
+138 923401373  Canada Newfoundland and Labrador
+139 923401373  Canada Newfoundland and Labrador
+140 923401373  Canada Newfoundland and Labrador
+141 923401373  Canada Newfoundland and Labrador
+142 923401373  Canada Newfoundland and Labrador
+143 923401373  Canada Newfoundland and Labrador
+144 923401373  Canada Newfoundland and Labrador
+145 923401373  Canada Newfoundland and Labrador
+146 923401373  Canada Newfoundland and Labrador
+147 923401372  Canada Newfoundland and Labrador
+148 923401372  Canada Newfoundland and Labrador
+149 923401372  Canada Newfoundland and Labrador
+150 923401372  Canada Newfoundland and Labrador
+151 923401372  Canada Newfoundland and Labrador
+152 923401371  Canada Newfoundland and Labrador
+153 923401371  Canada Newfoundland and Labrador
+154 923401371  Canada Newfoundland and Labrador
+155 923401371  Canada Newfoundland and Labrador
+156 923401371  Canada Newfoundland and Labrador
+157 923401371  Canada Newfoundland and Labrador
+158 923401371  Canada Newfoundland and Labrador
+159 923401371  Canada Newfoundland and Labrador
+160 923401371  Canada Newfoundland and Labrador
+161 923401371  Canada Newfoundland and Labrador
+162 923401371  Canada Newfoundland and Labrador
+163 923401370  Canada Newfoundland and Labrador
+164 923401370  Canada Newfoundland and Labrador
+165 923401370  Canada Newfoundland and Labrador
+166 923401370  Canada Newfoundland and Labrador
+167 923401370  Canada Newfoundland and Labrador
+168 923401370  Canada Newfoundland and Labrador
+169 923401370  Canada Newfoundland and Labrador
+170 923401370  Canada Newfoundland and Labrador
+171 923401370  Canada Newfoundland and Labrador
+172 923401369  Canada Newfoundland and Labrador
+173 923401369  Canada Newfoundland and Labrador
+174 923401368  Canada Newfoundland and Labrador
+175 923401368  Canada Newfoundland and Labrador
+176 923401366  Canada Newfoundland and Labrador
+177 923401366  Canada Newfoundland and Labrador
+178 923401366  Canada Newfoundland and Labrador
+179 923401366  Canada Newfoundland and Labrador
+180 923401366  Canada Newfoundland and Labrador
+181 923401366  Canada Newfoundland and Labrador
+182 923401366  Canada Newfoundland and Labrador
+183 923401366  Canada Newfoundland and Labrador
+184 923401366  Canada Newfoundland and Labrador
+185 923401366  Canada Newfoundland and Labrador
+186 923401365  Canada Newfoundland and Labrador
+187 923401365  Canada Newfoundland and Labrador
+188 923401365  Canada Newfoundland and Labrador
+189 923401365  Canada Newfoundland and Labrador
+190 923401365  Canada Newfoundland and Labrador
+191 923401365  Canada Newfoundland and Labrador
+192 923401365  Canada Newfoundland and Labrador
+193 923401365  Canada Newfoundland and Labrador
+194 923401365  Canada Newfoundland and Labrador
+195 923401365  Canada Newfoundland and Labrador
+196 923401364  Canada Newfoundland and Labrador
+197 923401364  Canada Newfoundland and Labrador
+198 923401364  Canada Newfoundland and Labrador
+199 923401363  Canada Newfoundland and Labrador
+                                       ecoregion                       realm
+1       Northern Grand Banks - Southern Labrador                      Arctic
+2       Northern Grand Banks - Southern Labrador                      Arctic
+3       Northern Grand Banks - Southern Labrador                      Arctic
+4       Northern Grand Banks - Southern Labrador                      Arctic
+5       Northern Grand Banks - Southern Labrador                      Arctic
+6       Northern Grand Banks - Southern Labrador                      Arctic
+7       Northern Grand Banks - Southern Labrador                      Arctic
+8       Northern Grand Banks - Southern Labrador                      Arctic
+9       Northern Grand Banks - Southern Labrador                      Arctic
+10      Northern Grand Banks - Southern Labrador                      Arctic
+11      Northern Grand Banks - Southern Labrador                      Arctic
+12      Northern Grand Banks - Southern Labrador                      Arctic
+13      Northern Grand Banks - Southern Labrador                      Arctic
+14      Northern Grand Banks - Southern Labrador                      Arctic
+15      Northern Grand Banks - Southern Labrador                      Arctic
+16      Northern Grand Banks - Southern Labrador                      Arctic
+17      Northern Grand Banks - Southern Labrador                      Arctic
+18      Northern Grand Banks - Southern Labrador                      Arctic
+19      Northern Grand Banks - Southern Labrador                      Arctic
+20      Northern Grand Banks - Southern Labrador                      Arctic
+21      Northern Grand Banks - Southern Labrador                      Arctic
+22      Northern Grand Banks - Southern Labrador                      Arctic
+23      Northern Grand Banks - Southern Labrador                      Arctic
+24      Northern Grand Banks - Southern Labrador                      Arctic
+25      Northern Grand Banks - Southern Labrador                      Arctic
+26      Northern Grand Banks - Southern Labrador                      Arctic
+27      Northern Grand Banks - Southern Labrador                      Arctic
+28      Northern Grand Banks - Southern Labrador                      Arctic
+29      Northern Grand Banks - Southern Labrador                      Arctic
+30      Northern Grand Banks - Southern Labrador                      Arctic
+31      Northern Grand Banks - Southern Labrador                      Arctic
+32      Northern Grand Banks - Southern Labrador                      Arctic
+33      Northern Grand Banks - Southern Labrador                      Arctic
+34      Northern Grand Banks - Southern Labrador                      Arctic
+35      Northern Grand Banks - Southern Labrador                      Arctic
+36      Northern Grand Banks - Southern Labrador                      Arctic
+37      Northern Grand Banks - Southern Labrador                      Arctic
+38      Northern Grand Banks - Southern Labrador                      Arctic
+39      Northern Grand Banks - Southern Labrador                      Arctic
+40      Northern Grand Banks - Southern Labrador                      Arctic
+41      Northern Grand Banks - Southern Labrador                      Arctic
+42      Northern Grand Banks - Southern Labrador                      Arctic
+43      Northern Grand Banks - Southern Labrador                      Arctic
+44      Northern Grand Banks - Southern Labrador                      Arctic
+45      Northern Grand Banks - Southern Labrador                      Arctic
+46      Northern Grand Banks - Southern Labrador                      Arctic
+47      Northern Grand Banks - Southern Labrador                      Arctic
+48      Northern Grand Banks - Southern Labrador                      Arctic
+49      Northern Grand Banks - Southern Labrador                      Arctic
+50      Northern Grand Banks - Southern Labrador                      Arctic
+51      Northern Grand Banks - Southern Labrador                      Arctic
+52      Northern Grand Banks - Southern Labrador                      Arctic
+53      Northern Grand Banks - Southern Labrador                      Arctic
+54      Northern Grand Banks - Southern Labrador                      Arctic
+55      Northern Grand Banks - Southern Labrador                      Arctic
+56      Northern Grand Banks - Southern Labrador                      Arctic
+57      Northern Grand Banks - Southern Labrador                      Arctic
+58      Northern Grand Banks - Southern Labrador                      Arctic
+59      Northern Grand Banks - Southern Labrador                      Arctic
+60      Northern Grand Banks - Southern Labrador                      Arctic
+61      Northern Grand Banks - Southern Labrador                      Arctic
+62      Northern Grand Banks - Southern Labrador                      Arctic
+63      Northern Grand Banks - Southern Labrador                      Arctic
+64      Northern Grand Banks - Southern Labrador                      Arctic
+65      Northern Grand Banks - Southern Labrador                      Arctic
+66      Northern Grand Banks - Southern Labrador                      Arctic
+67      Northern Grand Banks - Southern Labrador                      Arctic
+68      Northern Grand Banks - Southern Labrador                      Arctic
+69      Northern Grand Banks - Southern Labrador                      Arctic
+70      Northern Grand Banks - Southern Labrador                      Arctic
+71      Northern Grand Banks - Southern Labrador                      Arctic
+72      Northern Grand Banks - Southern Labrador                      Arctic
+73      Northern Grand Banks - Southern Labrador                      Arctic
+74      Northern Grand Banks - Southern Labrador                      Arctic
+75      Northern Grand Banks - Southern Labrador                      Arctic
+76      Northern Grand Banks - Southern Labrador                      Arctic
+77      Northern Grand Banks - Southern Labrador                      Arctic
+78      Northern Grand Banks - Southern Labrador                      Arctic
+79      Northern Grand Banks - Southern Labrador                      Arctic
+80      Northern Grand Banks - Southern Labrador                      Arctic
+81      Northern Grand Banks - Southern Labrador                      Arctic
+82      Northern Grand Banks - Southern Labrador                      Arctic
+83      Northern Grand Banks - Southern Labrador                      Arctic
+84      Northern Grand Banks - Southern Labrador                      Arctic
+85      Northern Grand Banks - Southern Labrador                      Arctic
+86      Northern Grand Banks - Southern Labrador                      Arctic
+87      Northern Grand Banks - Southern Labrador                      Arctic
+88      Northern Grand Banks - Southern Labrador                      Arctic
+89      Northern Grand Banks - Southern Labrador                      Arctic
+90      Northern Grand Banks - Southern Labrador                      Arctic
+91      Northern Grand Banks - Southern Labrador                      Arctic
+92      Northern Grand Banks - Southern Labrador                      Arctic
+93      Northern Grand Banks - Southern Labrador                      Arctic
+94      Northern Grand Banks - Southern Labrador                      Arctic
+95      Northern Grand Banks - Southern Labrador                      Arctic
+96      Northern Grand Banks - Southern Labrador                      Arctic
+97      Northern Grand Banks - Southern Labrador                      Arctic
+98      Northern Grand Banks - Southern Labrador                      Arctic
+99      Northern Grand Banks - Southern Labrador                      Arctic
+100     Northern Grand Banks - Southern Labrador                      Arctic
+101     Northern Grand Banks - Southern Labrador                      Arctic
+102     Northern Grand Banks - Southern Labrador                      Arctic
+103     Northern Grand Banks - Southern Labrador                      Arctic
+104     Northern Grand Banks - Southern Labrador                      Arctic
+105     Northern Grand Banks - Southern Labrador                      Arctic
+106     Northern Grand Banks - Southern Labrador                      Arctic
+107     Northern Grand Banks - Southern Labrador                      Arctic
+108     Northern Grand Banks - Southern Labrador                      Arctic
+109     Northern Grand Banks - Southern Labrador                      Arctic
+110     Northern Grand Banks - Southern Labrador                      Arctic
+111     Northern Grand Banks - Southern Labrador                      Arctic
+112     Northern Grand Banks - Southern Labrador                      Arctic
+113     Northern Grand Banks - Southern Labrador                      Arctic
+114     Northern Grand Banks - Southern Labrador                      Arctic
+115     Northern Grand Banks - Southern Labrador                      Arctic
+116     Northern Grand Banks - Southern Labrador                      Arctic
+117     Northern Grand Banks - Southern Labrador                      Arctic
+118     Northern Grand Banks - Southern Labrador                      Arctic
+119     Northern Grand Banks - Southern Labrador                      Arctic
+120     Northern Grand Banks - Southern Labrador                      Arctic
+121     Northern Grand Banks - Southern Labrador                      Arctic
+122     Northern Grand Banks - Southern Labrador                      Arctic
+123     Northern Grand Banks - Southern Labrador                      Arctic
+124     Northern Grand Banks - Southern Labrador                      Arctic
+125     Northern Grand Banks - Southern Labrador                      Arctic
+126     Northern Grand Banks - Southern Labrador                      Arctic
+127     Northern Grand Banks - Southern Labrador                      Arctic
+128     Northern Grand Banks - Southern Labrador                      Arctic
+129     Northern Grand Banks - Southern Labrador                      Arctic
+130     Northern Grand Banks - Southern Labrador                      Arctic
+131     Northern Grand Banks - Southern Labrador                      Arctic
+132     Northern Grand Banks - Southern Labrador                      Arctic
+133     Northern Grand Banks - Southern Labrador                      Arctic
+134     Northern Grand Banks - Southern Labrador                      Arctic
+135     Northern Grand Banks - Southern Labrador                      Arctic
+136     Northern Grand Banks - Southern Labrador                      Arctic
+137     Northern Grand Banks - Southern Labrador                      Arctic
+138     Northern Grand Banks - Southern Labrador                      Arctic
+139     Northern Grand Banks - Southern Labrador                      Arctic
+140     Northern Grand Banks - Southern Labrador                      Arctic
+141     Northern Grand Banks - Southern Labrador                      Arctic
+142     Northern Grand Banks - Southern Labrador                      Arctic
+143     Northern Grand Banks - Southern Labrador                      Arctic
+144     Northern Grand Banks - Southern Labrador                      Arctic
+145     Northern Grand Banks - Southern Labrador                      Arctic
+146     Northern Grand Banks - Southern Labrador                      Arctic
+147     Northern Grand Banks - Southern Labrador                      Arctic
+148     Northern Grand Banks - Southern Labrador                      Arctic
+149     Northern Grand Banks - Southern Labrador                      Arctic
+150     Northern Grand Banks - Southern Labrador                      Arctic
+151     Northern Grand Banks - Southern Labrador                      Arctic
+152     Northern Grand Banks - Southern Labrador                      Arctic
+153     Northern Grand Banks - Southern Labrador                      Arctic
+154     Northern Grand Banks - Southern Labrador                      Arctic
+155     Northern Grand Banks - Southern Labrador                      Arctic
+156     Northern Grand Banks - Southern Labrador                      Arctic
+157     Northern Grand Banks - Southern Labrador                      Arctic
+158     Northern Grand Banks - Southern Labrador                      Arctic
+159     Northern Grand Banks - Southern Labrador                      Arctic
+160     Northern Grand Banks - Southern Labrador                      Arctic
+161     Northern Grand Banks - Southern Labrador                      Arctic
+162     Northern Grand Banks - Southern Labrador                      Arctic
+163     Northern Grand Banks - Southern Labrador                      Arctic
+164     Northern Grand Banks - Southern Labrador                      Arctic
+165     Northern Grand Banks - Southern Labrador                      Arctic
+166     Northern Grand Banks - Southern Labrador                      Arctic
+167     Northern Grand Banks - Southern Labrador                      Arctic
+168     Northern Grand Banks - Southern Labrador                      Arctic
+169     Northern Grand Banks - Southern Labrador                      Arctic
+170     Northern Grand Banks - Southern Labrador                      Arctic
+171     Northern Grand Banks - Southern Labrador                      Arctic
+172     Northern Grand Banks - Southern Labrador                      Arctic
+173     Northern Grand Banks - Southern Labrador                      Arctic
+174     Northern Grand Banks - Southern Labrador                      Arctic
+175     Northern Grand Banks - Southern Labrador                      Arctic
+176 Gulf of St. Lawrence - Eastern Scotian Shelf Temperate Northern Atlantic
+177 Gulf of St. Lawrence - Eastern Scotian Shelf Temperate Northern Atlantic
+178 Gulf of St. Lawrence - Eastern Scotian Shelf Temperate Northern Atlantic
+179 Gulf of St. Lawrence - Eastern Scotian Shelf Temperate Northern Atlantic
+180 Gulf of St. Lawrence - Eastern Scotian Shelf Temperate Northern Atlantic
+181 Gulf of St. Lawrence - Eastern Scotian Shelf Temperate Northern Atlantic
+182 Gulf of St. Lawrence - Eastern Scotian Shelf Temperate Northern Atlantic
+183 Gulf of St. Lawrence - Eastern Scotian Shelf Temperate Northern Atlantic
+184 Gulf of St. Lawrence - Eastern Scotian Shelf Temperate Northern Atlantic
+185 Gulf of St. Lawrence - Eastern Scotian Shelf Temperate Northern Atlantic
+186 Gulf of St. Lawrence - Eastern Scotian Shelf Temperate Northern Atlantic
+187 Gulf of St. Lawrence - Eastern Scotian Shelf Temperate Northern Atlantic
+188 Gulf of St. Lawrence - Eastern Scotian Shelf Temperate Northern Atlantic
+189 Gulf of St. Lawrence - Eastern Scotian Shelf Temperate Northern Atlantic
+190 Gulf of St. Lawrence - Eastern Scotian Shelf Temperate Northern Atlantic
+191 Gulf of St. Lawrence - Eastern Scotian Shelf Temperate Northern Atlantic
+192 Gulf of St. Lawrence - Eastern Scotian Shelf Temperate Northern Atlantic
+193 Gulf of St. Lawrence - Eastern Scotian Shelf Temperate Northern Atlantic
+194 Gulf of St. Lawrence - Eastern Scotian Shelf Temperate Northern Atlantic
+195 Gulf of St. Lawrence - Eastern Scotian Shelf Temperate Northern Atlantic
+196     Northern Grand Banks - Southern Labrador                      Arctic
+197     Northern Grand Banks - Southern Labrador                      Arctic
+198     Northern Grand Banks - Southern Labrador                      Arctic
+199     Northern Grand Banks - Southern Labrador                      Arctic
+        location site_code          site_name latitude longitude survey_date
+1   Newfoundland     NFLD2       Tappers Cove 47.66498 -52.72689   3/10/2022
+2   Newfoundland     NFLD2       Tappers Cove 47.66498 -52.72689   3/10/2022
+3   Newfoundland     NFLD2       Tappers Cove 47.66498 -52.72689   3/10/2022
+4   Newfoundland     NFLD2       Tappers Cove 47.66498 -52.72689   3/10/2022
+5   Newfoundland     NFLD2       Tappers Cove 47.66498 -52.72689   3/10/2022
+6   Newfoundland     NFLD2       Tappers Cove 47.66498 -52.72689   3/10/2022
+7   Newfoundland    NFLD12      Biscayan Cove 47.80373 -52.78744   5/10/2022
+8   Newfoundland    NFLD12      Biscayan Cove 47.80373 -52.78744   5/10/2022
+9   Newfoundland    NFLD12      Biscayan Cove 47.80373 -52.78744   5/10/2022
+10  Newfoundland     NFLD1        Middle Cove 47.65214 -52.69617   6/10/2022
+11  Newfoundland     NFLD1        Middle Cove 47.65214 -52.69617   6/10/2022
+12  Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769   4/10/2022
+13  Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769   4/10/2022
+14  Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769   4/10/2022
+15  Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769   4/10/2022
+16  Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769   4/10/2022
+17  Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769   4/10/2022
+18  Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769   4/10/2022
+19  Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769   4/10/2022
+20  Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769   4/10/2022
+21  Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769   4/10/2022
+22  Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769   4/10/2022
+23  Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769   4/10/2022
+24  Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769   4/10/2022
+25  Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769   4/10/2022
+26  Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769   4/10/2022
+27  Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769   4/10/2022
+28  Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769   4/10/2022
+29  Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769   4/10/2022
+30  Newfoundland    NFLD13            Bauline 47.72256 -52.83522   5/10/2022
+31  Newfoundland    NFLD13            Bauline 47.72256 -52.83522   5/10/2022
+32  Newfoundland    NFLD13            Bauline 47.72256 -52.83522   5/10/2022
+33  Newfoundland    NFLD13            Bauline 47.72256 -52.83522   5/10/2022
+34  Newfoundland    NFLD13            Bauline 47.72256 -52.83522   5/10/2022
+35  Newfoundland    NFLD13            Bauline 47.72256 -52.83522   5/10/2022
+36  Newfoundland    NFLD13            Bauline 47.72256 -52.83522   5/10/2022
+37  Newfoundland    NFLD13            Bauline 47.72256 -52.83522   5/10/2022
+38  Newfoundland    NFLD13            Bauline 47.72256 -52.83522   5/10/2022
+39  Newfoundland    NFLD13            Bauline 47.72256 -52.83522   5/10/2022
+40  Newfoundland     NFLD2       Tappers Cove 47.66498 -52.72689   3/10/2022
+41  Newfoundland     NFLD2       Tappers Cove 47.66498 -52.72689   3/10/2022
+42  Newfoundland     NFLD2       Tappers Cove 47.66498 -52.72689   3/10/2022
+43  Newfoundland     NFLD2       Tappers Cove 47.66498 -52.72689   3/10/2022
+44  Newfoundland     NFLD2       Tappers Cove 47.66498 -52.72689   3/10/2022
+45  Newfoundland     NFLD2       Tappers Cove 47.66498 -52.72689   3/10/2022
+46  Newfoundland     NFLD2       Tappers Cove 47.66498 -52.72689   3/10/2022
+47  Newfoundland     NFLD2       Tappers Cove 47.66498 -52.72689   3/10/2022
+48  Newfoundland     NFLD2       Tappers Cove 47.66498 -52.72689   3/10/2022
+49  Newfoundland     NFLD2       Tappers Cove 47.66498 -52.72689  20/07/2021
+50  Newfoundland     NFLD2       Tappers Cove 47.66498 -52.72689  20/07/2021
+51  Newfoundland     NFLD2       Tappers Cove 47.66498 -52.72689  20/07/2021
+52  Newfoundland     NFLD2       Tappers Cove 47.66498 -52.72689  20/07/2021
+53  Newfoundland     NFLD2       Tappers Cove 47.66498 -52.72689  20/07/2021
+54  Newfoundland     NFLD2       Tappers Cove 47.66498 -52.72689  20/07/2021
+55  Newfoundland     NFLD2       Tappers Cove 47.66498 -52.72689  20/07/2021
+56  Newfoundland     NFLD2       Tappers Cove 47.66498 -52.72689  20/07/2021
+57  Newfoundland     NFLD1        Middle Cove 47.65214 -52.69617  19/07/2021
+58  Newfoundland     NFLD1        Middle Cove 47.65214 -52.69617  19/07/2021
+59  Newfoundland     NFLD1        Middle Cove 47.65214 -52.69617  19/07/2021
+60  Newfoundland     NFLD1        Middle Cove 47.65214 -52.69617  19/07/2021
+61  Newfoundland     NFLD1        Middle Cove 47.65214 -52.69617  19/07/2021
+62  Newfoundland     NFLD1        Middle Cove 47.65214 -52.69617  19/07/2021
+63  Newfoundland     NFLD1        Middle Cove 47.65214 -52.69617  19/07/2021
+64  Newfoundland     NFLD1        Middle Cove 47.65214 -52.69617  19/07/2021
+65  Newfoundland     NFLD1        Middle Cove 47.65214 -52.69617  19/07/2021
+66  Newfoundland     NFLD1        Middle Cove 47.65214 -52.69617  19/07/2021
+67  Newfoundland     NFLD1        Middle Cove 47.65214 -52.69617  19/07/2021
+68  Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769  19/07/2021
+69  Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769  19/07/2021
+70  Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769  19/07/2021
+71  Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769  19/07/2021
+72  Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769  19/07/2021
+73  Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769  19/07/2021
+74  Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769  19/07/2021
+75  Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769  19/07/2021
+76  Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769  19/07/2021
+77  Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769  19/07/2021
+78  Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769  19/07/2021
+79  Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769  19/07/2021
+80  Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769  19/07/2021
+81  Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769  19/07/2021
+82  Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769  19/07/2021
+83  Newfoundland     NFLD2       Tappers Cove 47.66498 -52.72689  20/07/2021
+84  Newfoundland     NFLD2       Tappers Cove 47.66498 -52.72689  20/07/2021
+85  Newfoundland     NFLD2       Tappers Cove 47.66498 -52.72689  20/07/2021
+86  Newfoundland     NFLD2       Tappers Cove 47.66498 -52.72689  20/07/2021
+87  Newfoundland     NFLD2       Tappers Cove 47.66498 -52.72689  20/07/2021
+88  Newfoundland     NFLD2       Tappers Cove 47.66498 -52.72689  20/07/2021
+89  Newfoundland     NFLD2       Tappers Cove 47.66498 -52.72689  20/07/2021
+90  Newfoundland     NFLD2       Tappers Cove 47.66498 -52.72689  20/07/2021
+91  Newfoundland     NFLD2       Tappers Cove 47.66498 -52.72689  20/07/2021
+92  Newfoundland     NFLD2       Tappers Cove 47.66498 -52.72689  20/07/2021
+93  Newfoundland     NFLD2       Tappers Cove 47.66498 -52.72689  20/07/2021
+94  Newfoundland     NFLD2       Tappers Cove 47.66498 -52.72689  20/07/2021
+95  Newfoundland    NFLD13            Bauline 47.72256 -52.83522  21/07/2021
+96  Newfoundland    NFLD13            Bauline 47.72256 -52.83522  21/07/2021
+97  Newfoundland    NFLD13            Bauline 47.72256 -52.83522  21/07/2021
+98  Newfoundland    NFLD13            Bauline 47.72256 -52.83522  21/07/2021
+99  Newfoundland    NFLD13            Bauline 47.72256 -52.83522  21/07/2021
+100 Newfoundland    NFLD13            Bauline 47.72256 -52.83522  21/07/2021
+101 Newfoundland    NFLD13            Bauline 47.72256 -52.83522  21/07/2021
+102 Newfoundland    NFLD13            Bauline 47.72256 -52.83522  21/07/2021
+103 Newfoundland    NFLD13            Bauline 47.72256 -52.83522  21/07/2021
+104 Newfoundland    NFLD13            Bauline 47.72256 -52.83522  21/07/2021
+105 Newfoundland    NFLD13            Bauline 47.72256 -52.83522  21/07/2021
+106 Newfoundland    NFLD13            Bauline 47.72256 -52.83522  21/07/2021
+107 Newfoundland    NFLD13            Bauline 47.72256 -52.83522  21/07/2021
+108 Newfoundland    NFLD13            Bauline 47.72256 -52.83522  21/07/2021
+109 Newfoundland    NFLD13            Bauline 47.72256 -52.83522  21/07/2021
+110 Newfoundland    NFLD13            Bauline 47.72256 -52.83522  21/07/2021
+111 Newfoundland    NFLD13            Bauline 47.72256 -52.83522  21/07/2021
+112 Newfoundland    NFLD19          Seal Cove 47.18782 -52.84240   6/09/2020
+113 Newfoundland    NFLD19          Seal Cove 47.18782 -52.84240   6/09/2020
+114 Newfoundland    NFLD17 Harbour Main Beach 47.44140 -53.15701  16/08/2020
+115 Newfoundland    NFLD17 Harbour Main Beach 47.44140 -53.15701  16/08/2020
+116 Newfoundland    NFLD17 Harbour Main Beach 47.44140 -53.15701  16/08/2020
+117 Newfoundland    NFLD17 Harbour Main Beach 47.44140 -53.15701  16/08/2020
+118 Newfoundland    NFLD17 Harbour Main Beach 47.44140 -53.15701  16/08/2020
+119 Newfoundland    NFLD17 Harbour Main Beach 47.44140 -53.15701  16/08/2020
+120 Newfoundland    NFLD17 Harbour Main Beach 47.44140 -53.15701  16/08/2020
+121 Newfoundland    NFLD17 Harbour Main Beach 47.44140 -53.15701  16/08/2020
+122 Newfoundland    NFLD17 Harbour Main Beach 47.44140 -53.15701  16/08/2020
+123 Newfoundland    NFLD17 Harbour Main Beach 47.44140 -53.15701  16/08/2020
+124 Newfoundland    NFLD17 Harbour Main Beach 47.44140 -53.15701  16/08/2020
+125 Newfoundland    NFLD18         Bacon Cove 47.48194 -53.16665  20/08/2020
+126 Newfoundland    NFLD18         Bacon Cove 47.48194 -53.16665  20/08/2020
+127 Newfoundland    NFLD18         Bacon Cove 47.48194 -53.16665  20/08/2020
+128 Newfoundland    NFLD18         Bacon Cove 47.48194 -53.16665  20/08/2020
+129 Newfoundland    NFLD18         Bacon Cove 47.48194 -53.16665  20/08/2020
+130 Newfoundland    NFLD18         Bacon Cove 47.48194 -53.16665  20/08/2020
+131 Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769  16/09/2020
+132 Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769  16/09/2020
+133 Newfoundland     NFLD4      Portugal Cove 47.62729 -52.85769  16/09/2020
+134 Newfoundland    NFLD13            Bauline 47.72256 -52.83522  21/09/2020
+135 Newfoundland    NFLD13            Bauline 47.72256 -52.83522  21/09/2020
+136 Newfoundland    NFLD13            Bauline 47.72256 -52.83522  21/09/2020
+137 Newfoundland    NFLD13            Bauline 47.72256 -52.83522  21/09/2020
+138 Newfoundland    NFLD13            Bauline 47.72256 -52.83522  21/09/2020
+139 Newfoundland    NFLD13            Bauline 47.72256 -52.83522  21/09/2020
+140 Newfoundland    NFLD13            Bauline 47.72256 -52.83522  21/09/2020
+141 Newfoundland    NFLD13            Bauline 47.72256 -52.83522  21/09/2020
+142 Newfoundland    NFLD13            Bauline 47.72256 -52.83522  21/09/2020
+143 Newfoundland    NFLD13            Bauline 47.72256 -52.83522  21/09/2020
+144 Newfoundland    NFLD13            Bauline 47.72256 -52.83522  21/09/2020
+145 Newfoundland    NFLD13            Bauline 47.72256 -52.83522  21/09/2020
+146 Newfoundland    NFLD13            Bauline 47.72256 -52.83522  21/09/2020
+147 Newfoundland    NFLD17 Harbour Main Beach 47.44140 -53.15701  16/08/2020
+148 Newfoundland    NFLD17 Harbour Main Beach 47.44140 -53.15701  16/08/2020
+149 Newfoundland    NFLD17 Harbour Main Beach 47.44140 -53.15701  16/08/2020
+150 Newfoundland    NFLD17 Harbour Main Beach 47.44140 -53.15701  16/08/2020
+151 Newfoundland    NFLD17 Harbour Main Beach 47.44140 -53.15701  16/08/2020
+152 Newfoundland    NFLD16          Tors Cove 47.21234 -52.84495  25/07/2020
+153 Newfoundland    NFLD16          Tors Cove 47.21234 -52.84495  25/07/2020
+154 Newfoundland    NFLD16          Tors Cove 47.21234 -52.84495  25/07/2020
+155 Newfoundland    NFLD16          Tors Cove 47.21234 -52.84495  25/07/2020
+156 Newfoundland    NFLD16          Tors Cove 47.21234 -52.84495  25/07/2020
+157 Newfoundland    NFLD16          Tors Cove 47.21234 -52.84495  25/07/2020
+158 Newfoundland    NFLD16          Tors Cove 47.21234 -52.84495  25/07/2020
+159 Newfoundland    NFLD16          Tors Cove 47.21234 -52.84495  25/07/2020
+160 Newfoundland    NFLD16          Tors Cove 47.21234 -52.84495  25/07/2020
+161 Newfoundland    NFLD16          Tors Cove 47.21234 -52.84495  25/07/2020
+162 Newfoundland    NFLD16          Tors Cove 47.21234 -52.84495  25/07/2020
+163 Newfoundland    NFLD16          Tors Cove 47.21234 -52.84495  25/07/2020
+164 Newfoundland    NFLD16          Tors Cove 47.21234 -52.84495  25/07/2020
+165 Newfoundland    NFLD16          Tors Cove 47.21234 -52.84495  25/07/2020
+166 Newfoundland    NFLD16          Tors Cove 47.21234 -52.84495  25/07/2020
+167 Newfoundland    NFLD16          Tors Cove 47.21234 -52.84495  25/07/2020
+168 Newfoundland    NFLD16          Tors Cove 47.21234 -52.84495  25/07/2020
+169 Newfoundland    NFLD16          Tors Cove 47.21234 -52.84495  25/07/2020
+170 Newfoundland    NFLD16          Tors Cove 47.21234 -52.84495  25/07/2020
+171 Newfoundland    NFLD16          Tors Cove 47.21234 -52.84495  25/07/2020
+172 Newfoundland    NFLD12      Biscayan Cove 47.80373 -52.78744  26/07/2020
+173 Newfoundland    NFLD12      Biscayan Cove 47.80373 -52.78744  26/07/2020
+174 Newfoundland    NFLD12      Biscayan Cove 47.80373 -52.78744  26/07/2020
+175 Newfoundland    NFLD12      Biscayan Cove 47.80373 -52.78744  26/07/2020
+176 Newfoundland    NFLD20         Love Shack 49.51448 -57.91873  24/08/2020
+177 Newfoundland    NFLD20         Love Shack 49.51448 -57.91873  24/08/2020
+178 Newfoundland    NFLD20         Love Shack 49.51448 -57.91873  24/08/2020
+179 Newfoundland    NFLD20         Love Shack 49.51448 -57.91873  24/08/2020
+180 Newfoundland    NFLD20         Love Shack 49.51448 -57.91873  24/08/2020
+181 Newfoundland    NFLD20         Love Shack 49.51448 -57.91873  24/08/2020
+182 Newfoundland    NFLD20         Love Shack 49.51448 -57.91873  24/08/2020
+183 Newfoundland    NFLD20         Love Shack 49.51448 -57.91873  24/08/2020
+184 Newfoundland    NFLD20         Love Shack 49.51448 -57.91873  24/08/2020
+185 Newfoundland    NFLD20         Love Shack 49.51448 -57.91873  24/08/2020
+186 Newfoundland    NFLD20         Love Shack 49.51448 -57.91873  24/08/2020
+187 Newfoundland    NFLD20         Love Shack 49.51448 -57.91873  24/08/2020
+188 Newfoundland    NFLD20         Love Shack 49.51448 -57.91873  24/08/2020
+189 Newfoundland    NFLD20         Love Shack 49.51448 -57.91873  24/08/2020
+190 Newfoundland    NFLD20         Love Shack 49.51448 -57.91873  24/08/2020
+191 Newfoundland    NFLD20         Love Shack 49.51448 -57.91873  24/08/2020
+192 Newfoundland    NFLD20         Love Shack 49.51448 -57.91873  24/08/2020
+193 Newfoundland    NFLD20         Love Shack 49.51448 -57.91873  24/08/2020
+194 Newfoundland    NFLD20         Love Shack 49.51448 -57.91873  24/08/2020
+195 Newfoundland    NFLD20         Love Shack 49.51448 -57.91873  24/08/2020
+196 Newfoundland    NFLD10      Admirals Cove 47.09484 -52.90504   9/08/2020
+197 Newfoundland    NFLD10      Admirals Cove 47.09484 -52.90504   9/08/2020
+198 Newfoundland    NFLD10      Admirals Cove 47.09484 -52.90504   9/08/2020
+199 Newfoundland    NFLD10      Admirals Cove 47.09484 -52.90504   9/08/2020
+    depth                                               geom program visibility
+1     6.0 0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54740     RLS          5
+2     6.0 0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54740     RLS          5
+3     6.0 0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54740     RLS          5
+4     6.0 0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54740     RLS          5
+5     6.0 0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54740     RLS          5
+6     6.0 0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54740     RLS          5
+7     8.0 0101000020E610000057D0B4C4CA644AC0F2785A7EE0E64740     RLS          5
+8     8.0 0101000020E610000057D0B4C4CA644AC0F2785A7EE0E64740     RLS          5
+9     8.0 0101000020E610000057D0B4C4CA644AC0F2785A7EE0E64740     RLS          5
+10    5.5 0101000020E6100000683A3B191C594AC0EC34D25279D34740     RLS          4
+11    5.5 0101000020E6100000683A3B191C594AC0EC34D25279D34740     RLS          4
+12    6.5 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          4
+13    6.5 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          4
+14    6.5 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          4
+15    6.5 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          4
+16    6.5 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          4
+17    6.5 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          4
+18    6.5 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          4
+19    6.5 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          4
+20    8.5 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          3
+21    8.5 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          3
+22    8.5 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          3
+23    8.5 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          3
+24    8.5 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          3
+25    8.5 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          3
+26    8.5 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          3
+27    8.5 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          3
+28    8.5 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          3
+29    8.5 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          3
+30    9.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          5
+31    9.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          5
+32    9.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          5
+33    9.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          5
+34    9.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          5
+35    9.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          5
+36    9.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          5
+37    9.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          5
+38    9.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          5
+39    9.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          5
+40    9.0 0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54740     RLS          4
+41    9.0 0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54740     RLS          4
+42    9.0 0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54740     RLS          4
+43    9.0 0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54740     RLS          4
+44    9.0 0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54740     RLS          4
+45    9.0 0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54740     RLS          4
+46    9.0 0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54740     RLS          4
+47    9.0 0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54740     RLS          4
+48    9.0 0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54740     RLS          4
+49    6.0 0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54740     RLS          5
+50    6.0 0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54740     RLS          5
+51    6.0 0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54740     RLS          5
+52    6.0 0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54740     RLS          5
+53    6.0 0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54740     RLS          5
+54    6.0 0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54740     RLS          5
+55    6.0 0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54740     RLS          5
+56    6.0 0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54740     RLS          5
+57    5.0 0101000020E6100000683A3B191C594AC0EC34D25279D34740     RLS          7
+58    5.0 0101000020E6100000683A3B191C594AC0EC34D25279D34740     RLS          7
+59    5.0 0101000020E6100000683A3B191C594AC0EC34D25279D34740     RLS          7
+60    5.0 0101000020E6100000683A3B191C594AC0EC34D25279D34740     RLS          7
+61    5.0 0101000020E6100000683A3B191C594AC0EC34D25279D34740     RLS          7
+62    5.0 0101000020E6100000683A3B191C594AC0EC34D25279D34740     RLS          7
+63    5.0 0101000020E6100000683A3B191C594AC0EC34D25279D34740     RLS          7
+64    5.0 0101000020E6100000683A3B191C594AC0EC34D25279D34740     RLS          7
+65    5.0 0101000020E6100000683A3B191C594AC0EC34D25279D34740     RLS          7
+66    5.0 0101000020E6100000683A3B191C594AC0EC34D25279D34740     RLS          7
+67    5.0 0101000020E6100000683A3B191C594AC0EC34D25279D34740     RLS          7
+68    8.0 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          6
+69    8.0 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          6
+70    8.0 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          6
+71    8.0 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          6
+72    8.0 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          6
+73    8.0 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          6
+74    8.0 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          6
+75    8.0 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          6
+76    8.0 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          6
+77    8.0 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          6
+78    8.0 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          6
+79    8.0 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          6
+80    8.0 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          6
+81    8.0 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          6
+82    8.0 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          6
+83    9.0 0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54740     RLS          5
+84    9.0 0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54740     RLS          5
+85    9.0 0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54740     RLS          5
+86    9.0 0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54740     RLS          5
+87    9.0 0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54740     RLS          5
+88    9.0 0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54740     RLS          5
+89    9.0 0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54740     RLS          5
+90    9.0 0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54740     RLS          5
+91    9.0 0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54740     RLS          5
+92    9.0 0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54740     RLS          5
+93    9.0 0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54740     RLS          5
+94    9.0 0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54740     RLS          5
+95    8.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          3
+96    8.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          3
+97    8.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          3
+98    8.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          3
+99    8.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          3
+100   8.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          3
+101   8.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          3
+102   8.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          3
+103   8.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          3
+104   8.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          3
+105   8.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          3
+106   8.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          3
+107   8.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          3
+108   8.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          3
+109   8.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          3
+110   8.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          3
+111   8.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          3
+112   6.0 0101000020E6100000000000C0D36B4AC0000000800A984740     RLS          5
+113   6.0 0101000020E6100000000000C0D36B4AC0000000800A984740     RLS          5
+114   5.0 0101000020E6100000000000E018944AC0000000C07FB84740     RLS          3
+115   5.0 0101000020E6100000000000E018944AC0000000C07FB84740     RLS          3
+116   5.0 0101000020E6100000000000E018944AC0000000C07FB84740     RLS          3
+117   5.0 0101000020E6100000000000E018944AC0000000C07FB84740     RLS          3
+118   5.0 0101000020E6100000000000E018944AC0000000C07FB84740     RLS          3
+119   5.0 0101000020E6100000000000E018944AC0000000C07FB84740     RLS          3
+120   5.0 0101000020E6100000000000E018944AC0000000C07FB84740     RLS          3
+121   5.0 0101000020E6100000000000E018944AC0000000C07FB84740     RLS          3
+122   5.0 0101000020E6100000000000E018944AC0000000C07FB84740     RLS          3
+123   5.0 0101000020E6100000000000E018944AC0000000C07FB84740     RLS          3
+124   5.0 0101000020E6100000000000E018944AC0000000C07FB84740     RLS          3
+125   6.0 0101000020E6100000000000C054954AC000000040B0BD4740     RLS          3
+126   6.0 0101000020E6100000000000C054954AC000000040B0BD4740     RLS          3
+127   6.0 0101000020E6100000000000C054954AC000000040B0BD4740     RLS          3
+128   6.0 0101000020E6100000000000C054954AC000000040B0BD4740     RLS          3
+129   6.0 0101000020E6100000000000C054954AC000000040B0BD4740     RLS          3
+130   6.0 0101000020E6100000000000C054954AC000000040B0BD4740     RLS          3
+131   8.0 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          8
+132   8.0 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          8
+133   8.0 0101000020E61000009A0D32C9C86D4AC0CE8DE9094BD04740     RLS          8
+134  10.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          5
+135  10.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          5
+136  10.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          5
+137  10.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          5
+138  10.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          5
+139  10.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          5
+140  10.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          5
+141  10.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          5
+142  10.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          5
+143  10.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          5
+144  10.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          5
+145  10.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          5
+146  10.0 0101000020E6100000E983656CE86A4AC01A3735D07CDC4740     RLS          5
+147  11.0 0101000020E6100000000000E018944AC0000000C07FB84740     RLS          3
+148  11.0 0101000020E6100000000000E018944AC0000000C07FB84740     RLS          3
+149  11.0 0101000020E6100000000000E018944AC0000000C07FB84740     RLS          3
+150  11.0 0101000020E6100000000000E018944AC0000000C07FB84740     RLS          3
+151  11.0 0101000020E6100000000000E018944AC0000000C07FB84740     RLS          3
+152   5.0 0101000020E610000000000060276C4AC0000000002E9B4740     RLS          5
+153   5.0 0101000020E610000000000060276C4AC0000000002E9B4740     RLS          5
+154   5.0 0101000020E610000000000060276C4AC0000000002E9B4740     RLS          5
+155   5.0 0101000020E610000000000060276C4AC0000000002E9B4740     RLS          5
+156   5.0 0101000020E610000000000060276C4AC0000000002E9B4740     RLS          5
+157   5.0 0101000020E610000000000060276C4AC0000000002E9B4740     RLS          5
+158   5.0 0101000020E610000000000060276C4AC0000000002E9B4740     RLS          5
+159   5.0 0101000020E610000000000060276C4AC0000000002E9B4740     RLS          5
+160   5.0 0101000020E610000000000060276C4AC0000000002E9B4740     RLS          5
+161   5.0 0101000020E610000000000060276C4AC0000000002E9B4740     RLS          5
+162   5.0 0101000020E610000000000060276C4AC0000000002E9B4740     RLS          5
+163   5.5 0101000020E610000000000060276C4AC0000000002E9B4740     RLS          5
+164   5.5 0101000020E610000000000060276C4AC0000000002E9B4740     RLS          5
+165   5.5 0101000020E610000000000060276C4AC0000000002E9B4740     RLS          5
+166   5.5 0101000020E610000000000060276C4AC0000000002E9B4740     RLS          5
+167   5.5 0101000020E610000000000060276C4AC0000000002E9B4740     RLS          5
+168   5.5 0101000020E610000000000060276C4AC0000000002E9B4740     RLS          5
+169   5.5 0101000020E610000000000060276C4AC0000000002E9B4740     RLS          5
+170   5.5 0101000020E610000000000060276C4AC0000000002E9B4740     RLS          5
+171   5.5 0101000020E610000000000060276C4AC0000000002E9B4740     RLS          5
+172   7.0 0101000020E610000057D0B4C4CA644AC0F2785A7EE0E64740     RLS          6
+173   7.0 0101000020E610000057D0B4C4CA644AC0F2785A7EE0E64740     RLS          6
+174   6.0 0101000020E610000057D0B4C4CA644AC0F2785A7EE0E64740     RLS          6
+175   6.0 0101000020E610000057D0B4C4CA644AC0F2785A7EE0E64740     RLS          6
+176   3.5 0101000020E61000000000000099F54CC000000080DAC14840     RLS         NA
+177   3.5 0101000020E61000000000000099F54CC000000080DAC14840     RLS         NA
+178   3.5 0101000020E61000000000000099F54CC000000080DAC14840     RLS         NA
+179   3.5 0101000020E61000000000000099F54CC000000080DAC14840     RLS         NA
+180   3.5 0101000020E61000000000000099F54CC000000080DAC14840     RLS         NA
+181   3.5 0101000020E61000000000000099F54CC000000080DAC14840     RLS         NA
+182   3.5 0101000020E61000000000000099F54CC000000080DAC14840     RLS         NA
+183   3.5 0101000020E61000000000000099F54CC000000080DAC14840     RLS         NA
+184   3.5 0101000020E61000000000000099F54CC000000080DAC14840     RLS         NA
+185   3.5 0101000020E61000000000000099F54CC000000080DAC14840     RLS         NA
+186   3.6 0101000020E61000000000000099F54CC000000080DAC14840     RLS         NA
+187   3.6 0101000020E61000000000000099F54CC000000080DAC14840     RLS         NA
+188   3.6 0101000020E61000000000000099F54CC000000080DAC14840     RLS         NA
+189   3.6 0101000020E61000000000000099F54CC000000080DAC14840     RLS         NA
+190   3.6 0101000020E61000000000000099F54CC000000080DAC14840     RLS         NA
+191   3.6 0101000020E61000000000000099F54CC000000080DAC14840     RLS         NA
+192   3.6 0101000020E61000000000000099F54CC000000080DAC14840     RLS         NA
+193   3.6 0101000020E61000000000000099F54CC000000080DAC14840     RLS         NA
+194   3.6 0101000020E61000000000000099F54CC000000080DAC14840     RLS         NA
+195   3.6 0101000020E61000000000000099F54CC000000080DAC14840     RLS         NA
+196  11.0 0101000020E610000000000060D8734AC0000000C0238C4740     RLS          6
+197  11.0 0101000020E610000000000060D8734AC0000000C0238C4740     RLS          6
+198  11.0 0101000020E610000000000060D8734AC0000000C0238C4740     RLS          6
+199   5.0 0101000020E610000000000060D8734AC0000000C0238C4740     RLS          6
+        hour survey_latitude survey_longitude            diver method block
+1   12:10:00        47.66498        -52.72689  Jasmin Schuster      1     1
+2   12:10:00        47.66498        -52.72689  Jasmin Schuster      1     2
+3   12:10:00        47.66498        -52.72689  Jasmin Schuster      1     2
+4   12:10:00        47.66498        -52.72689  Jasmin Schuster      1     2
+5   12:10:00        47.66498        -52.72689  Jasmin Schuster      1     2
+6   12:10:00        47.66498        -52.72689  Jasmin Schuster      1     2
+7   12:50:00        47.80372        -52.78743  Jasmin Schuster      1     1
+8   12:50:00        47.80372        -52.78743  Jasmin Schuster      1     1
+9   12:50:00        47.80372        -52.78743 Valesca De Groot      1     2
+10  10:20:00        47.65214        -52.69617  Jasmin Schuster      1     1
+11  10:20:00        47.65214        -52.69617 Valesca De Groot      1     2
+12  12:50:00        47.62729        -52.85769  Jasmin Schuster      1     1
+13  12:50:00        47.62729        -52.85769  Jasmin Schuster      1     1
+14  12:50:00        47.62729        -52.85769  Jasmin Schuster      1     1
+15  12:50:00        47.62729        -52.85769 Valesca De Groot      1     2
+16  12:50:00        47.62729        -52.85769 Valesca De Groot      1     2
+17  12:50:00        47.62729        -52.85769 Valesca De Groot      1     2
+18  12:50:00        47.62729        -52.85769 Valesca De Groot      1     2
+19  12:50:00        47.62729        -52.85769 Valesca De Groot      1     2
+20  10:50:00        47.62729        -52.85769  Jasmin Schuster      1     1
+21  10:50:00        47.62729        -52.85769  Jasmin Schuster      1     1
+22  10:50:00        47.62729        -52.85769  Jasmin Schuster      1     1
+23  10:50:00        47.62729        -52.85769  Jasmin Schuster      1     1
+24  10:50:00        47.62729        -52.85769  Jasmin Schuster      1     1
+25  10:50:00        47.62729        -52.85769  Jasmin Schuster      1     2
+26  10:50:00        47.62729        -52.85769  Jasmin Schuster      1     2
+27  10:50:00        47.62729        -52.85769  Jasmin Schuster      1     2
+28  10:50:00        47.62729        -52.85769  Jasmin Schuster      1     2
+29  10:50:00        47.62729        -52.85769  Jasmin Schuster      1     2
+30  10:20:00        47.72255        -52.83521  Jasmin Schuster      1     1
+31  10:20:00        47.72255        -52.83521  Jasmin Schuster      1     1
+32  10:20:00        47.72255        -52.83521  Jasmin Schuster      1     1
+33  10:20:00        47.72255        -52.83521  Jasmin Schuster      1     1
+34  10:20:00        47.72255        -52.83521  Jasmin Schuster      1     1
+35  10:20:00        47.72255        -52.83521 Valesca De Groot      1     2
+36  10:20:00        47.72255        -52.83521 Valesca De Groot      1     2
+37  10:20:00        47.72255        -52.83521 Valesca De Groot      1     2
+38  10:20:00        47.72255        -52.83521 Valesca De Groot      1     2
+39  10:20:00        47.72255        -52.83521 Valesca De Groot      1     2
+40  10:50:00        47.66498        -52.72689  Jasmin Schuster      1     1
+41  10:50:00        47.66498        -52.72689  Jasmin Schuster      1     1
+42  10:50:00        47.66498        -52.72689  Jasmin Schuster      1     1
+43  10:50:00        47.66498        -52.72689  Jasmin Schuster      1     1
+44  10:50:00        47.66498        -52.72689  Jasmin Schuster      1     1
+45  10:50:00        47.66498        -52.72689  Jasmin Schuster      1     2
+46  10:50:00        47.66498        -52.72689  Jasmin Schuster      1     2
+47  10:50:00        47.66498        -52.72689  Jasmin Schuster      1     2
+48  10:50:00        47.66498        -52.72689  Jasmin Schuster      1     2
+49  12:00:00        47.66497        -52.72689  Jasmin Schuster      1     1
+50  12:00:00        47.66497        -52.72689  Jasmin Schuster      1     1
+51  12:00:00        47.66497        -52.72689  Jasmin Schuster      1     1
+52  12:00:00        47.66497        -52.72689     Andrew Perry      1     2
+53  12:00:00        47.66497        -52.72689     Andrew Perry      1     2
+54  12:00:00        47.66497        -52.72689     Andrew Perry      1     2
+55  12:00:00        47.66497        -52.72689     Andrew Perry      1     2
+56  12:00:00        47.66497        -52.72689     Andrew Perry      1     2
+57  10:30:00        47.65213        -52.69617  Jasmin Schuster      1     1
+58  10:30:00        47.65213        -52.69617  Jasmin Schuster      1     1
+59  10:30:00        47.65213        -52.69617  Jasmin Schuster      1     1
+60  10:30:00        47.65213        -52.69617  Jasmin Schuster      1     1
+61  10:30:00        47.65213        -52.69617  Jasmin Schuster      1     1
+62  10:30:00        47.65213        -52.69617  Jasmin Schuster      1     1
+63  10:30:00        47.65213        -52.69617  Jasmin Schuster      1     2
+64  10:30:00        47.65213        -52.69617  Jasmin Schuster      1     2
+65  10:30:00        47.65213        -52.69617  Jasmin Schuster      1     2
+66  10:30:00        47.65213        -52.69617  Jasmin Schuster      1     2
+67  10:30:00        47.65213        -52.69617  Jasmin Schuster      1     2
+68  12:20:00        47.62728        -52.85769  Jasmin Schuster      1     1
+69  12:20:00        47.62728        -52.85769  Jasmin Schuster      1     1
+70  12:20:00        47.62728        -52.85769  Jasmin Schuster      1     1
+71  12:20:00        47.62728        -52.85769  Jasmin Schuster      1     1
+72  12:20:00        47.62728        -52.85769  Jasmin Schuster      1     1
+73  12:20:00        47.62728        -52.85769  Jasmin Schuster      1     1
+74  12:20:00        47.62728        -52.85769  Jasmin Schuster      1     1
+75  12:20:00        47.62728        -52.85769  Jasmin Schuster      1     2
+76  12:20:00        47.62728        -52.85769  Jasmin Schuster      1     2
+77  12:20:00        47.62728        -52.85769  Jasmin Schuster      1     2
+78  12:20:00        47.62728        -52.85769  Jasmin Schuster      1     2
+79  12:20:00        47.62728        -52.85769  Jasmin Schuster      1     2
+80  12:20:00        47.62728        -52.85769  Jasmin Schuster      1     2
+81  12:20:00        47.62728        -52.85769  Jasmin Schuster      1     2
+82  12:20:00        47.62728        -52.85769  Jasmin Schuster      1     2
+83  10:30:00        47.66497        -52.72689  Jasmin Schuster      1     1
+84  10:30:00        47.66497        -52.72689  Jasmin Schuster      1     1
+85  10:30:00        47.66497        -52.72689  Jasmin Schuster      1     1
+86  10:30:00        47.66497        -52.72689  Jasmin Schuster      1     1
+87  10:30:00        47.66497        -52.72689  Jasmin Schuster      1     1
+88  10:30:00        47.66497        -52.72689  Jasmin Schuster      1     1
+89  10:30:00        47.66497        -52.72689  Jasmin Schuster      1     1
+90  10:30:00        47.66497        -52.72689  Jasmin Schuster      1     2
+91  10:30:00        47.66497        -52.72689  Jasmin Schuster      1     2
+92  10:30:00        47.66497        -52.72689  Jasmin Schuster      1     2
+93  10:30:00        47.66497        -52.72689  Jasmin Schuster      1     2
+94  10:30:00        47.66497        -52.72689  Jasmin Schuster      1     2
+95  11:00:00        47.72255        -52.83521     Andrew Perry      1     1
+96  11:00:00        47.72255        -52.83521     Andrew Perry      1     1
+97  11:00:00        47.72255        -52.83521     Andrew Perry      1     1
+98  11:00:00        47.72255        -52.83521     Andrew Perry      1     1
+99  11:00:00        47.72255        -52.83521     Andrew Perry      1     1
+100 11:00:00        47.72255        -52.83521     Andrew Perry      1     1
+101 11:00:00        47.72255        -52.83521  Jasmin Schuster      1     2
+102 11:00:00        47.72255        -52.83521  Jasmin Schuster      1     2
+103 11:00:00        47.72255        -52.83521  Jasmin Schuster      1     2
+104 11:00:00        47.72255        -52.83521  Jasmin Schuster      1     2
+105 11:00:00        47.72255        -52.83521  Jasmin Schuster      1     2
+106 11:00:00        47.72255        -52.83521  Jasmin Schuster      1     2
+107 11:00:00        47.72255        -52.83521  Jasmin Schuster      1     2
+108 11:00:00        47.72255        -52.83521  Jasmin Schuster      1     2
+109 11:00:00        47.72255        -52.83521  Jasmin Schuster      1     2
+110 11:00:00        47.72255        -52.83521  Jasmin Schuster      1     2
+111 11:00:00        47.72255        -52.83521  Jasmin Schuster      1     2
+112 11:40:00        47.18782        -52.84240  Jasmin Schuster      1     1
+113 11:40:00        47.18782        -52.84240  Jasmin Schuster      1     2
+114 15:30:00        47.44140        -53.15701  Jasmin Schuster      1     1
+115 15:30:00        47.44140        -53.15701  Jasmin Schuster      1     1
+116 15:30:00        47.44140        -53.15701  Jasmin Schuster      1     1
+117 15:30:00        47.44140        -53.15701  Jasmin Schuster      1     1
+118 15:30:00        47.44140        -53.15701  Jasmin Schuster      1     2
+119 15:30:00        47.44140        -53.15701  Jasmin Schuster      1     2
+120 15:30:00        47.44140        -53.15701  Jasmin Schuster      1     2
+121 15:30:00        47.44140        -53.15701  Jasmin Schuster      1     2
+122 15:30:00        47.44140        -53.15701  Jasmin Schuster      1     2
+123 15:30:00        47.44140        -53.15701  Jasmin Schuster      1     2
+124 15:30:00        47.44140        -53.15701  Jasmin Schuster      1     2
+125 14:50:00        47.48229        -53.16718  Jasmin Schuster      1     1
+126 14:50:00        47.48229        -53.16718  Jasmin Schuster      1     1
+127 14:50:00        47.48229        -53.16718  Jasmin Schuster      1     1
+128 14:50:00        47.48229        -53.16718  Jasmin Schuster      1     1
+129 14:50:00        47.48229        -53.16718  Jasmin Schuster      1     1
+130 14:50:00        47.48229        -53.16718  Jasmin Schuster      1     1
+131 11:30:00        47.62728        -52.85769  Jasmin Schuster      1     1
+132 11:30:00        47.62728        -52.85769  Jasmin Schuster      1     2
+133 11:30:00        47.62728        -52.85769  Jasmin Schuster      1     2
+134 11:20:00        47.72256        -52.83522  Jasmin Schuster      1     1
+135 11:20:00        47.72256        -52.83522  Jasmin Schuster      1     1
+136 11:20:00        47.72256        -52.83522  Jasmin Schuster      1     1
+137 11:20:00        47.72256        -52.83522  Jasmin Schuster      1     1
+138 11:20:00        47.72256        -52.83522  Jasmin Schuster      1     1
+139 11:20:00        47.72256        -52.83522  Jasmin Schuster      1     2
+140 11:20:00        47.72256        -52.83522  Jasmin Schuster      1     2
+141 11:20:00        47.72256        -52.83522  Jasmin Schuster      1     2
+142 11:20:00        47.72256        -52.83522  Jasmin Schuster      1     2
+143 11:20:00        47.72256        -52.83522  Jasmin Schuster      1     2
+144 11:20:00        47.72256        -52.83522  Jasmin Schuster      1     2
+145 11:20:00        47.72256        -52.83522  Jasmin Schuster      1     2
+146 11:20:00        47.72256        -52.83522  Jasmin Schuster      1     2
+147 13:30:00        47.44140        -53.15701  Jasmin Schuster      1     1
+148 13:30:00        47.44140        -53.15701  Jasmin Schuster      1     1
+149 13:30:00        47.44140        -53.15701  Jasmin Schuster      1     2
+150 13:30:00        47.44140        -53.15701  Jasmin Schuster      1     2
+151 13:30:00        47.44140        -53.15701  Jasmin Schuster      1     2
+152 14:30:00        47.21234        -52.84495  Jasmin Schuster      1     1
+153 14:30:00        47.21234        -52.84495  Jasmin Schuster      1     1
+154 14:30:00        47.21234        -52.84495  Jasmin Schuster      1     1
+155 14:30:00        47.21234        -52.84495  Jasmin Schuster      1     1
+156 14:30:00        47.21234        -52.84495  Jasmin Schuster      1     1
+157 14:30:00        47.21234        -52.84495  Jasmin Schuster      1     1
+158 14:30:00        47.21234        -52.84495  Jasmin Schuster      1     1
+159 14:30:00        47.21234        -52.84495  Jasmin Schuster      1     1
+160 14:30:00        47.21234        -52.84495  Jasmin Schuster      1     2
+161 14:30:00        47.21234        -52.84495  Jasmin Schuster      1     2
+162 14:30:00        47.21234        -52.84495  Jasmin Schuster      1     2
+163 12:00:00        47.21234        -52.84495  Jasmin Schuster      1     1
+164 12:00:00        47.21234        -52.84495  Jasmin Schuster      1     1
+165 12:00:00        47.21234        -52.84495  Jasmin Schuster      1     1
+166 12:00:00        47.21234        -52.84495  Jasmin Schuster      1     1
+167 12:00:00        47.21234        -52.84495  Jasmin Schuster      1     1
+168 12:00:00        47.21234        -52.84495  Jasmin Schuster      1     1
+169 12:00:00        47.21234        -52.84495  Jasmin Schuster      1     2
+170 12:00:00        47.21234        -52.84495  Jasmin Schuster      1     2
+171 12:00:00        47.21234        -52.84495  Jasmin Schuster      1     2
+172 14:30:00        47.80405        -52.78637  Jasmin Schuster      1     1
+173 14:30:00        47.80405        -52.78637  Jasmin Schuster      1     2
+174 12:20:00        47.80373        -52.78744  Jasmin Schuster      1     2
+175 12:20:00        47.80373        -52.78744  Jasmin Schuster      1     2
+176 11:00:00        49.51448        -57.91873     Amanda Bates      1     1
+177 11:00:00        49.51448        -57.91873     Amanda Bates      1     1
+178 11:00:00        49.51448        -57.91873     Amanda Bates      1     1
+179 11:00:00        49.51448        -57.91873     Amanda Bates      1     1
+180 11:00:00        49.51448        -57.91873     Amanda Bates      1     2
+181 11:00:00        49.51448        -57.91873     Amanda Bates      1     2
+182 11:00:00        49.51448        -57.91873     Amanda Bates      1     2
+183 11:00:00        49.51448        -57.91873     Amanda Bates      1     2
+184 11:00:00        49.51448        -57.91873     Amanda Bates      1     2
+185 11:00:00        49.51448        -57.91873     Amanda Bates      1     2
+186 12:00:00        49.51448        -57.91873     Amanda Bates      1     1
+187 12:00:00        49.51448        -57.91873     Amanda Bates      1     1
+188 12:00:00        49.51448        -57.91873     Amanda Bates      1     1
+189 12:00:00        49.51448        -57.91873     Amanda Bates      1     1
+190 12:00:00        49.51448        -57.91873     Amanda Bates      1     1
+191 12:00:00        49.51448        -57.91873     Amanda Bates      1     2
+192 12:00:00        49.51448        -57.91873     Amanda Bates      1     2
+193 12:00:00        49.51448        -57.91873     Amanda Bates      1     2
+194 12:00:00        49.51448        -57.91873     Amanda Bates      1     2
+195 12:00:00        49.51448        -57.91873     Amanda Bates      1     2
+196 13:30:00        47.09484        -52.90504  Jasmin Schuster      1     1
+197 13:30:00        47.09484        -52.90504  Jasmin Schuster      1     2
+198 13:30:00        47.09484        -52.90504  Jasmin Schuster      1     2
+199 16:15:00        47.09583        -52.90603  Jasmin Schuster      1     1
+        phylum             class             order         family
+1     Chordata    Actinopterygii        Gadiformes        Gadidae
+2     Chordata    Actinopterygii        Gadiformes        Gadidae
+3     Chordata    Actinopterygii        Gadiformes        Gadidae
+4     Chordata    Actinopterygii   Scorpaeniformes       Cottidae
+5     Chordata    Actinopterygii       Perciformes       Labridae
+6     Chordata    Actinopterygii       Perciformes       Labridae
+7     Chordata    Actinopterygii       Perciformes       Labridae
+8     Chordata    Actinopterygii       Perciformes    Stichaeidae
+9     Chordata    Actinopterygii       Perciformes    Stichaeidae
+10                                                               
+11    Chordata    Actinopterygii       Perciformes    Stichaeidae
+12    Chordata    Actinopterygii       Perciformes       Labridae
+13    Chordata    Actinopterygii       Perciformes       Labridae
+14    Chordata    Actinopterygii       Perciformes       Labridae
+15    Chordata    Actinopterygii       Perciformes       Labridae
+16    Chordata    Actinopterygii       Perciformes       Labridae
+17    Chordata    Actinopterygii       Perciformes       Labridae
+18    Chordata    Actinopterygii       Perciformes       Labridae
+19    Chordata    Actinopterygii       Perciformes       Labridae
+20    Chordata    Actinopterygii       Perciformes       Labridae
+21    Chordata    Actinopterygii       Perciformes       Labridae
+22    Chordata    Actinopterygii       Perciformes       Labridae
+23    Chordata    Actinopterygii       Perciformes       Labridae
+24    Chordata    Actinopterygii       Perciformes       Labridae
+25    Chordata    Actinopterygii       Perciformes       Labridae
+26    Chordata    Actinopterygii       Perciformes       Labridae
+27    Chordata    Actinopterygii       Perciformes       Labridae
+28    Chordata    Actinopterygii       Perciformes       Labridae
+29    Chordata    Actinopterygii       Perciformes       Labridae
+30    Chordata    Actinopterygii       Perciformes       Labridae
+31    Chordata    Actinopterygii       Perciformes       Labridae
+32    Chordata    Actinopterygii       Perciformes       Labridae
+33    Chordata    Actinopterygii       Perciformes       Labridae
+34    Chordata    Actinopterygii       Perciformes       Labridae
+35    Chordata    Actinopterygii       Perciformes       Labridae
+36    Chordata    Actinopterygii       Perciformes       Labridae
+37    Chordata    Actinopterygii       Perciformes       Labridae
+38    Chordata    Actinopterygii       Perciformes       Labridae
+39    Chordata    Actinopterygii       Perciformes       Labridae
+40    Chordata    Actinopterygii        Gadiformes        Gadidae
+41    Chordata    Actinopterygii        Gadiformes        Gadidae
+42    Chordata    Actinopterygii        Gadiformes        Gadidae
+43    Chordata    Actinopterygii        Gadiformes        Gadidae
+44    Chordata    Actinopterygii   Scorpaeniformes       Cottidae
+45    Chordata    Actinopterygii        Gadiformes        Gadidae
+46    Chordata    Actinopterygii        Gadiformes        Gadidae
+47    Chordata    Actinopterygii        Gadiformes        Gadidae
+48    Chordata    Actinopterygii        Gadiformes        Gadidae
+49    Chordata    Actinopterygii        Gadiformes        Gadidae
+50    Chordata    Actinopterygii        Gadiformes        Gadidae
+51    Chordata    Actinopterygii        Gadiformes        Gadidae
+52    Chordata    Actinopterygii        Gadiformes        Gadidae
+53    Chordata    Actinopterygii        Gadiformes        Gadidae
+54    Chordata    Actinopterygii        Gadiformes        Gadidae
+55    Chordata    Actinopterygii       Perciformes       Pholidae
+56    Chordata    Actinopterygii       Perciformes    Stichaeidae
+57    Chordata    Actinopterygii      Osmeriformes      Osmeridae
+58    Chordata    Actinopterygii      Osmeriformes      Osmeridae
+59    Chordata    Actinopterygii      Osmeriformes      Osmeridae
+60    Chordata    Actinopterygii      Osmeriformes      Osmeridae
+61    Chordata    Actinopterygii      Osmeriformes      Osmeridae
+62    Chordata    Actinopterygii Pleuronectiformes Pleuronectidae
+63    Chordata    Actinopterygii      Osmeriformes      Osmeridae
+64    Chordata    Actinopterygii      Osmeriformes      Osmeridae
+65    Chordata    Actinopterygii      Osmeriformes      Osmeridae
+66    Chordata    Actinopterygii      Osmeriformes      Osmeridae
+67    Chordata    Actinopterygii      Osmeriformes      Osmeridae
+68    Chordata    Actinopterygii Pleuronectiformes Pleuronectidae
+69    Chordata    Actinopterygii       Perciformes       Labridae
+70    Chordata    Actinopterygii       Perciformes       Labridae
+71    Chordata    Actinopterygii       Perciformes       Labridae
+72    Chordata    Actinopterygii       Perciformes       Labridae
+73    Chordata    Actinopterygii       Perciformes       Labridae
+74    Chordata    Actinopterygii       Perciformes       Labridae
+75    Chordata    Actinopterygii   Scorpaeniformes  Cyclopteridae
+76    Chordata    Actinopterygii       Perciformes       Labridae
+77    Chordata    Actinopterygii       Perciformes       Labridae
+78    Chordata    Actinopterygii       Perciformes       Labridae
+79    Chordata    Actinopterygii       Perciformes       Labridae
+80    Chordata    Actinopterygii       Perciformes       Labridae
+81    Chordata    Actinopterygii       Perciformes       Labridae
+82    Chordata    Actinopterygii       Perciformes       Labridae
+83    Chordata    Actinopterygii        Gadiformes        Gadidae
+84    Chordata    Actinopterygii        Gadiformes        Gadidae
+85    Chordata    Actinopterygii        Gadiformes        Gadidae
+86    Chordata    Actinopterygii        Gadiformes        Gadidae
+87    Chordata    Actinopterygii   Scorpaeniformes       Cottidae
+88    Chordata    Actinopterygii Pleuronectiformes Pleuronectidae
+89    Chordata    Actinopterygii Pleuronectiformes Pleuronectidae
+90    Chordata    Actinopterygii        Gadiformes        Gadidae
+91    Chordata    Actinopterygii        Gadiformes        Gadidae
+92    Chordata    Actinopterygii        Gadiformes        Gadidae
+93    Chordata    Actinopterygii Pleuronectiformes Pleuronectidae
+94    Chordata    Actinopterygii       Perciformes      Zoarcidae
+95    Chordata    Actinopterygii        Gadiformes        Gadidae
+96    Chordata    Actinopterygii        Gadiformes        Gadidae
+97    Chordata    Actinopterygii       Perciformes       Labridae
+98    Chordata    Actinopterygii       Perciformes       Labridae
+99    Chordata    Actinopterygii       Perciformes       Labridae
+100   Chordata    Actinopterygii       Perciformes       Labridae
+101   Chordata    Actinopterygii        Gadiformes        Gadidae
+102   Chordata    Actinopterygii        Gadiformes        Gadidae
+103   Chordata    Actinopterygii       Perciformes       Labridae
+104   Chordata    Actinopterygii       Perciformes       Labridae
+105   Chordata    Actinopterygii       Perciformes       Labridae
+106   Chordata    Actinopterygii       Perciformes       Labridae
+107   Chordata    Actinopterygii       Perciformes       Labridae
+108   Chordata    Actinopterygii       Perciformes       Labridae
+109   Chordata    Actinopterygii       Perciformes       Labridae
+110   Chordata    Actinopterygii       Perciformes       Labridae
+111   Chordata    Actinopterygii       Perciformes       Labridae
+112   Chordata    Actinopterygii Pleuronectiformes Pleuronectidae
+113   Cnidaria         Scyphozoa     Semaeostomeae      Ulmaridae
+114   Chordata    Actinopterygii        Gadiformes        Gadidae
+115   Chordata    Actinopterygii       Perciformes       Labridae
+116   Chordata    Actinopterygii       Perciformes       Labridae
+117   Chordata    Actinopterygii       Perciformes       Labridae
+118   Chordata    Actinopterygii       Perciformes       Pholidae
+119   Chordata    Actinopterygii       Perciformes       Labridae
+120   Chordata    Actinopterygii       Perciformes       Labridae
+121   Chordata    Actinopterygii       Perciformes       Labridae
+122   Chordata    Actinopterygii       Perciformes       Labridae
+123   Chordata    Actinopterygii       Perciformes       Labridae
+124   Chordata    Actinopterygii       Perciformes       Labridae
+125   Chordata    Actinopterygii       Perciformes       Labridae
+126   Chordata    Actinopterygii       Perciformes       Labridae
+127   Chordata    Actinopterygii       Perciformes       Labridae
+128   Chordata    Actinopterygii       Perciformes       Labridae
+129   Chordata    Actinopterygii       Perciformes       Labridae
+130   Chordata    Actinopterygii       Perciformes       Labridae
+131   Cnidaria         Scyphozoa     Semaeostomeae      Cyaneidae
+132   Chordata    Actinopterygii       Perciformes       Labridae
+133   Chordata    Actinopterygii       Perciformes       Labridae
+134   Chordata    Actinopterygii       Perciformes       Labridae
+135   Chordata    Actinopterygii       Perciformes       Labridae
+136   Chordata    Actinopterygii       Perciformes       Labridae
+137   Chordata    Actinopterygii       Perciformes       Labridae
+138   Chordata    Actinopterygii       Perciformes       Labridae
+139   Chordata    Actinopterygii   Scorpaeniformes       Cottidae
+140   Chordata    Actinopterygii       Perciformes       Labridae
+141   Chordata    Actinopterygii       Perciformes       Labridae
+142   Chordata    Actinopterygii       Perciformes       Labridae
+143   Chordata    Actinopterygii       Perciformes       Labridae
+144   Chordata    Actinopterygii       Perciformes       Labridae
+145   Chordata    Actinopterygii       Perciformes       Labridae
+146   Chordata    Actinopterygii       Perciformes       Labridae
+147   Chordata    Actinopterygii Pleuronectiformes Pleuronectidae
+148   Chordata    Actinopterygii Pleuronectiformes Pleuronectidae
+149   Chordata    Actinopterygii Pleuronectiformes Pleuronectidae
+150   Chordata    Actinopterygii Pleuronectiformes Pleuronectidae
+151   Chordata    Actinopterygii       Perciformes       Labridae
+152 Ochrophyta Bacillariophyceae     Fragilariales Fragilariaceae
+153   Chordata    Actinopterygii        Gadiformes        Gadidae
+154   Chordata    Actinopterygii        Gadiformes        Gadidae
+155   Chordata    Actinopterygii        Gadiformes        Gadidae
+156   Chordata    Actinopterygii        Gadiformes        Gadidae
+157   Chordata    Actinopterygii   Scorpaeniformes       Cottidae
+158   Chordata    Actinopterygii       Perciformes       Labridae
+159   Chordata    Actinopterygii       Perciformes    Stichaeidae
+160   Chordata    Actinopterygii        Gadiformes        Gadidae
+161   Chordata    Actinopterygii        Gadiformes        Gadidae
+162   Chordata    Actinopterygii        Gadiformes        Gadidae
+163   Chordata    Actinopterygii        Gadiformes        Gadidae
+164   Chordata    Actinopterygii        Gadiformes        Gadidae
+165   Chordata    Actinopterygii        Gadiformes        Gadidae
+166   Chordata    Actinopterygii        Gadiformes        Gadidae
+167   Chordata    Actinopterygii       Perciformes       Pholidae
+168   Chordata    Actinopterygii       Perciformes    Stichaeidae
+169   Chordata    Actinopterygii      Osmeriformes      Osmeridae
+170   Chordata    Actinopterygii Pleuronectiformes Pleuronectidae
+171   Chordata    Actinopterygii       Perciformes    Stichaeidae
+172   Chordata    Actinopterygii        Gadiformes        Gadidae
+173   Chordata    Actinopterygii Pleuronectiformes Pleuronectidae
+174   Chordata    Actinopterygii        Gadiformes        Gadidae
+175   Chordata    Actinopterygii   Scorpaeniformes       Cottidae
+176   Chordata    Actinopterygii   Scorpaeniformes       Cottidae
+177   Chordata    Actinopterygii       Perciformes       Labridae
+178   Chordata    Actinopterygii       Perciformes       Labridae
+179   Chordata    Actinopterygii       Perciformes       Labridae
+180   Chordata    Actinopterygii   Scorpaeniformes       Cottidae
+181   Chordata    Actinopterygii       Perciformes       Labridae
+182   Chordata    Actinopterygii       Perciformes       Labridae
+183   Chordata    Actinopterygii       Perciformes       Labridae
+184   Chordata    Actinopterygii       Perciformes       Labridae
+185   Chordata    Actinopterygii       Perciformes       Labridae
+186   Chordata    Actinopterygii   Scorpaeniformes       Cottidae
+187   Chordata    Actinopterygii       Perciformes       Labridae
+188   Chordata    Actinopterygii       Perciformes       Labridae
+189   Chordata    Actinopterygii       Perciformes       Labridae
+190   Chordata    Actinopterygii       Perciformes       Labridae
+191   Chordata    Actinopterygii       Perciformes       Labridae
+192   Chordata    Actinopterygii       Perciformes       Labridae
+193   Chordata    Actinopterygii       Perciformes       Labridae
+194   Chordata    Actinopterygii       Perciformes       Labridae
+195   Chordata    Actinopterygii       Perciformes       Labridae
+196   Chordata    Actinopterygii       Perciformes    Stichaeidae
+197   Chordata    Actinopterygii        Gadiformes        Gadidae
+198   Chordata    Actinopterygii        Gadiformes        Gadidae
+199   Chordata    Actinopterygii Pleuronectiformes Pleuronectidae
+            recorded_species_name                  species_name
+1                    Gadus morhua                  Gadus morhua
+2                    Gadus morhua                  Gadus morhua
+3                    Gadus morhua                  Gadus morhua
+4           Myoxocephalus aenaeus         Myoxocephalus aenaeus
+5         Tautogolabrus adspersus       Tautogolabrus adspersus
+6         Tautogolabrus adspersus       Tautogolabrus adspersus
+7         Tautogolabrus adspersus       Tautogolabrus adspersus
+8            Ulvaria subbifurcata          Ulvaria subbifurcata
+9            Ulvaria subbifurcata          Ulvaria subbifurcata
+10               No species found              No species found
+11           Ulvaria subbifurcata          Ulvaria subbifurcata
+12        Tautogolabrus adspersus       Tautogolabrus adspersus
+13        Tautogolabrus adspersus       Tautogolabrus adspersus
+14        Tautogolabrus adspersus       Tautogolabrus adspersus
+15        Tautogolabrus adspersus       Tautogolabrus adspersus
+16        Tautogolabrus adspersus       Tautogolabrus adspersus
+17        Tautogolabrus adspersus       Tautogolabrus adspersus
+18        Tautogolabrus adspersus       Tautogolabrus adspersus
+19        Tautogolabrus adspersus       Tautogolabrus adspersus
+20        Tautogolabrus adspersus       Tautogolabrus adspersus
+21        Tautogolabrus adspersus       Tautogolabrus adspersus
+22        Tautogolabrus adspersus       Tautogolabrus adspersus
+23        Tautogolabrus adspersus       Tautogolabrus adspersus
+24        Tautogolabrus adspersus       Tautogolabrus adspersus
+25        Tautogolabrus adspersus       Tautogolabrus adspersus
+26        Tautogolabrus adspersus       Tautogolabrus adspersus
+27        Tautogolabrus adspersus       Tautogolabrus adspersus
+28        Tautogolabrus adspersus       Tautogolabrus adspersus
+29        Tautogolabrus adspersus       Tautogolabrus adspersus
+30        Tautogolabrus adspersus       Tautogolabrus adspersus
+31        Tautogolabrus adspersus       Tautogolabrus adspersus
+32        Tautogolabrus adspersus       Tautogolabrus adspersus
+33        Tautogolabrus adspersus       Tautogolabrus adspersus
+34        Tautogolabrus adspersus       Tautogolabrus adspersus
+35        Tautogolabrus adspersus       Tautogolabrus adspersus
+36        Tautogolabrus adspersus       Tautogolabrus adspersus
+37        Tautogolabrus adspersus       Tautogolabrus adspersus
+38        Tautogolabrus adspersus       Tautogolabrus adspersus
+39        Tautogolabrus adspersus       Tautogolabrus adspersus
+40                   Gadus morhua                  Gadus morhua
+41                   Gadus morhua                  Gadus morhua
+42                   Gadus morhua                  Gadus morhua
+43                   Gadus morhua                  Gadus morhua
+44         Myoxocephalus scorpius        Myoxocephalus scorpius
+45                   Gadus morhua                  Gadus morhua
+46                   Gadus morhua                  Gadus morhua
+47                   Gadus morhua                  Gadus morhua
+48                   Gadus morhua                  Gadus morhua
+49                   Gadus morhua                  Gadus morhua
+50                   Gadus morhua                  Gadus morhua
+51                   Gadus morhua                  Gadus morhua
+52                   Gadus morhua                  Gadus morhua
+53                   Gadus morhua                  Gadus morhua
+54                   Gadus morhua                  Gadus morhua
+55               Pholis gunnellus              Pholis gunnellus
+56           Ulvaria subbifurcata          Ulvaria subbifurcata
+57              Mallotus villosus             Mallotus villosus
+58              Mallotus villosus             Mallotus villosus
+59              Mallotus villosus             Mallotus villosus
+60              Mallotus villosus             Mallotus villosus
+61              Mallotus villosus             Mallotus villosus
+62  Pseudopleuronectes americanus Pseudopleuronectes americanus
+63              Mallotus villosus             Mallotus villosus
+64              Mallotus villosus             Mallotus villosus
+65              Mallotus villosus             Mallotus villosus
+66              Mallotus villosus             Mallotus villosus
+67              Mallotus villosus             Mallotus villosus
+68  Pseudopleuronectes americanus Pseudopleuronectes americanus
+69        Tautogolabrus adspersus       Tautogolabrus adspersus
+70        Tautogolabrus adspersus       Tautogolabrus adspersus
+71        Tautogolabrus adspersus       Tautogolabrus adspersus
+72        Tautogolabrus adspersus       Tautogolabrus adspersus
+73        Tautogolabrus adspersus       Tautogolabrus adspersus
+74        Tautogolabrus adspersus       Tautogolabrus adspersus
+75             Cyclopterus lumpus            Cyclopterus lumpus
+76        Tautogolabrus adspersus       Tautogolabrus adspersus
+77        Tautogolabrus adspersus       Tautogolabrus adspersus
+78        Tautogolabrus adspersus       Tautogolabrus adspersus
+79        Tautogolabrus adspersus       Tautogolabrus adspersus
+80        Tautogolabrus adspersus       Tautogolabrus adspersus
+81        Tautogolabrus adspersus       Tautogolabrus adspersus
+82        Tautogolabrus adspersus       Tautogolabrus adspersus
+83                   Gadus morhua                  Gadus morhua
+84                   Gadus morhua                  Gadus morhua
+85                   Gadus morhua                  Gadus morhua
+86                   Gadus morhua                  Gadus morhua
+87         Myoxocephalus scorpius        Myoxocephalus scorpius
+88  Pseudopleuronectes americanus Pseudopleuronectes americanus
+89  Pseudopleuronectes americanus Pseudopleuronectes americanus
+90                   Gadus morhua                  Gadus morhua
+91                   Gadus morhua                  Gadus morhua
+92                   Gadus morhua                  Gadus morhua
+93  Pseudopleuronectes americanus Pseudopleuronectes americanus
+94             Zoarces americanus            Zoarces americanus
+95                   Gadus morhua                  Gadus morhua
+96                   Gadus morhua                  Gadus morhua
+97        Tautogolabrus adspersus       Tautogolabrus adspersus
+98        Tautogolabrus adspersus       Tautogolabrus adspersus
+99        Tautogolabrus adspersus       Tautogolabrus adspersus
+100       Tautogolabrus adspersus       Tautogolabrus adspersus
+101                  Gadus morhua                  Gadus morhua
+102                  Gadus morhua                  Gadus morhua
+103       Tautogolabrus adspersus       Tautogolabrus adspersus
+104       Tautogolabrus adspersus       Tautogolabrus adspersus
+105       Tautogolabrus adspersus       Tautogolabrus adspersus
+106       Tautogolabrus adspersus       Tautogolabrus adspersus
+107       Tautogolabrus adspersus       Tautogolabrus adspersus
+108       Tautogolabrus adspersus       Tautogolabrus adspersus
+109       Tautogolabrus adspersus       Tautogolabrus adspersus
+110       Tautogolabrus adspersus       Tautogolabrus adspersus
+111       Tautogolabrus adspersus       Tautogolabrus adspersus
+112 Pseudopleuronectes americanus Pseudopleuronectes americanus
+113                Aurelia aurita                Aurelia aurita
+114                  Gadus morhua                  Gadus morhua
+115       Tautogolabrus adspersus       Tautogolabrus adspersus
+116       Tautogolabrus adspersus       Tautogolabrus adspersus
+117       Tautogolabrus adspersus       Tautogolabrus adspersus
+118              Pholis gunnellus              Pholis gunnellus
+119       Tautogolabrus adspersus       Tautogolabrus adspersus
+120       Tautogolabrus adspersus       Tautogolabrus adspersus
+121       Tautogolabrus adspersus       Tautogolabrus adspersus
+122       Tautogolabrus adspersus       Tautogolabrus adspersus
+123       Tautogolabrus adspersus       Tautogolabrus adspersus
+124       Tautogolabrus adspersus       Tautogolabrus adspersus
+125       Tautogolabrus adspersus       Tautogolabrus adspersus
+126       Tautogolabrus adspersus       Tautogolabrus adspersus
+127       Tautogolabrus adspersus       Tautogolabrus adspersus
+128       Tautogolabrus adspersus       Tautogolabrus adspersus
+129       Tautogolabrus adspersus       Tautogolabrus adspersus
+130       Tautogolabrus adspersus       Tautogolabrus adspersus
+131              Cyanea capillata              Cyanea capillata
+132       Tautogolabrus adspersus       Tautogolabrus adspersus
+133       Tautogolabrus adspersus       Tautogolabrus adspersus
+134       Tautogolabrus adspersus       Tautogolabrus adspersus
+135       Tautogolabrus adspersus       Tautogolabrus adspersus
+136       Tautogolabrus adspersus       Tautogolabrus adspersus
+137       Tautogolabrus adspersus       Tautogolabrus adspersus
+138       Tautogolabrus adspersus       Tautogolabrus adspersus
+139        Myoxocephalus scorpius        Myoxocephalus scorpius
+140       Tautogolabrus adspersus       Tautogolabrus adspersus
+141       Tautogolabrus adspersus       Tautogolabrus adspersus
+142       Tautogolabrus adspersus       Tautogolabrus adspersus
+143       Tautogolabrus adspersus       Tautogolabrus adspersus
+144       Tautogolabrus adspersus       Tautogolabrus adspersus
+145       Tautogolabrus adspersus       Tautogolabrus adspersus
+146       Tautogolabrus adspersus       Tautogolabrus adspersus
+147 Pseudopleuronectes americanus Pseudopleuronectes americanus
+148 Pseudopleuronectes americanus Pseudopleuronectes americanus
+149 Pseudopleuronectes americanus Pseudopleuronectes americanus
+150 Pseudopleuronectes americanus Pseudopleuronectes americanus
+151       Tautogolabrus adspersus       Tautogolabrus adspersus
+152               Ctenophora spp.               Ctenophora spp.
+153                  Gadus morhua                  Gadus morhua
+154                  Gadus morhua                  Gadus morhua
+155                  Gadus morhua                  Gadus morhua
+156                  Gadus morhua                  Gadus morhua
+157        Myoxocephalus scorpius        Myoxocephalus scorpius
+158       Tautogolabrus adspersus       Tautogolabrus adspersus
+159          Ulvaria subbifurcata          Ulvaria subbifurcata
+160                  Gadus morhua                  Gadus morhua
+161                  Gadus morhua                  Gadus morhua
+162                  Gadus morhua                  Gadus morhua
+163                  Gadus morhua                  Gadus morhua
+164                  Gadus morhua                  Gadus morhua
+165                  Gadus morhua                  Gadus morhua
+166                  Gadus morhua                  Gadus morhua
+167              Pholis gunnellus              Pholis gunnellus
+168          Ulvaria subbifurcata          Ulvaria subbifurcata
+169             Mallotus villosus             Mallotus villosus
+170 Pseudopleuronectes americanus Pseudopleuronectes americanus
+171          Ulvaria subbifurcata          Ulvaria subbifurcata
+172                  Gadus morhua                  Gadus morhua
+173 Pseudopleuronectes americanus Pseudopleuronectes americanus
+174                  Gadus morhua                  Gadus morhua
+175        Myoxocephalus scorpius        Myoxocephalus scorpius
+176            Myoxocephalus spp.            Myoxocephalus spp.
+177       Tautogolabrus adspersus       Tautogolabrus adspersus
+178       Tautogolabrus adspersus       Tautogolabrus adspersus
+179       Tautogolabrus adspersus       Tautogolabrus adspersus
+180            Myoxocephalus spp.            Myoxocephalus spp.
+181       Tautogolabrus adspersus       Tautogolabrus adspersus
+182       Tautogolabrus adspersus       Tautogolabrus adspersus
+183       Tautogolabrus adspersus       Tautogolabrus adspersus
+184       Tautogolabrus adspersus       Tautogolabrus adspersus
+185       Tautogolabrus adspersus       Tautogolabrus adspersus
+186            Myoxocephalus spp.            Myoxocephalus spp.
+187       Tautogolabrus adspersus       Tautogolabrus adspersus
+188       Tautogolabrus adspersus       Tautogolabrus adspersus
+189       Tautogolabrus adspersus       Tautogolabrus adspersus
+190       Tautogolabrus adspersus       Tautogolabrus adspersus
+191       Tautogolabrus adspersus       Tautogolabrus adspersus
+192       Tautogolabrus adspersus       Tautogolabrus adspersus
+193       Tautogolabrus adspersus       Tautogolabrus adspersus
+194       Tautogolabrus adspersus       Tautogolabrus adspersus
+195       Tautogolabrus adspersus       Tautogolabrus adspersus
+196          Ulvaria subbifurcata          Ulvaria subbifurcata
+197                  Gadus morhua                  Gadus morhua
+198                  Gadus morhua                  Gadus morhua
+199 Pseudopleuronectes americanus Pseudopleuronectes americanus
+                            taxon                reporting_name size_class
+1                    Gadus morhua                  Gadus morhua        2.5
+2                    Gadus morhua                  Gadus morhua        5.0
+3                    Gadus morhua                  Gadus morhua        2.5
+4           Myoxocephalus aenaeus         Myoxocephalus aenaeus        5.0
+5         Tautogolabrus adspersus       Tautogolabrus adspersus        5.0
+6         Tautogolabrus adspersus       Tautogolabrus adspersus        2.5
+7         Tautogolabrus adspersus       Tautogolabrus adspersus        2.5
+8            Ulvaria subbifurcata          Ulvaria subbifurcata        7.5
+9            Ulvaria subbifurcata          Ulvaria subbifurcata        7.5
+10                                                                     0.0
+11           Ulvaria subbifurcata          Ulvaria subbifurcata        5.0
+12        Tautogolabrus adspersus       Tautogolabrus adspersus        5.0
+13        Tautogolabrus adspersus       Tautogolabrus adspersus        7.5
+14        Tautogolabrus adspersus       Tautogolabrus adspersus        2.5
+15        Tautogolabrus adspersus       Tautogolabrus adspersus        7.5
+16        Tautogolabrus adspersus       Tautogolabrus adspersus        5.0
+17        Tautogolabrus adspersus       Tautogolabrus adspersus        2.5
+18        Tautogolabrus adspersus       Tautogolabrus adspersus       12.5
+19        Tautogolabrus adspersus       Tautogolabrus adspersus       10.0
+20        Tautogolabrus adspersus       Tautogolabrus adspersus       12.5
+21        Tautogolabrus adspersus       Tautogolabrus adspersus       10.0
+22        Tautogolabrus adspersus       Tautogolabrus adspersus        7.5
+23        Tautogolabrus adspersus       Tautogolabrus adspersus        5.0
+24        Tautogolabrus adspersus       Tautogolabrus adspersus        2.5
+25        Tautogolabrus adspersus       Tautogolabrus adspersus        2.5
+26        Tautogolabrus adspersus       Tautogolabrus adspersus       12.5
+27        Tautogolabrus adspersus       Tautogolabrus adspersus       10.0
+28        Tautogolabrus adspersus       Tautogolabrus adspersus        7.5
+29        Tautogolabrus adspersus       Tautogolabrus adspersus        5.0
+30        Tautogolabrus adspersus       Tautogolabrus adspersus        2.5
+31        Tautogolabrus adspersus       Tautogolabrus adspersus       20.0
+32        Tautogolabrus adspersus       Tautogolabrus adspersus       12.5
+33        Tautogolabrus adspersus       Tautogolabrus adspersus       10.0
+34        Tautogolabrus adspersus       Tautogolabrus adspersus        5.0
+35        Tautogolabrus adspersus       Tautogolabrus adspersus       15.0
+36        Tautogolabrus adspersus       Tautogolabrus adspersus       10.0
+37        Tautogolabrus adspersus       Tautogolabrus adspersus        7.5
+38        Tautogolabrus adspersus       Tautogolabrus adspersus        5.0
+39        Tautogolabrus adspersus       Tautogolabrus adspersus        2.5
+40                   Gadus morhua                  Gadus morhua        2.5
+41                   Gadus morhua                  Gadus morhua       10.0
+42                   Gadus morhua                  Gadus morhua        7.5
+43                   Gadus morhua                  Gadus morhua        5.0
+44         Myoxocephalus scorpius        Myoxocephalus scorpius       25.0
+45                   Gadus morhua                  Gadus morhua        2.5
+46                   Gadus morhua                  Gadus morhua       10.0
+47                   Gadus morhua                  Gadus morhua        7.5
+48                   Gadus morhua                  Gadus morhua        5.0
+49                   Gadus morhua                  Gadus morhua       12.5
+50                   Gadus morhua                  Gadus morhua        7.5
+51                   Gadus morhua                  Gadus morhua       10.0
+52                   Gadus morhua                  Gadus morhua        5.0
+53                   Gadus morhua                  Gadus morhua       15.0
+54                   Gadus morhua                  Gadus morhua       10.0
+55               Pholis gunnellus              Pholis gunnellus        7.5
+56           Ulvaria subbifurcata          Ulvaria subbifurcata        5.0
+57              Mallotus villosus             Mallotus villosus       15.0
+58              Mallotus villosus             Mallotus villosus       12.5
+59              Mallotus villosus             Mallotus villosus       10.0
+60              Mallotus villosus             Mallotus villosus        7.5
+61              Mallotus villosus             Mallotus villosus       20.0
+62  Pseudopleuronectes americanus Pseudopleuronectes americanus       50.0
+63              Mallotus villosus             Mallotus villosus        7.5
+64              Mallotus villosus             Mallotus villosus       20.0
+65              Mallotus villosus             Mallotus villosus       15.0
+66              Mallotus villosus             Mallotus villosus       12.5
+67              Mallotus villosus             Mallotus villosus       10.0
+68  Pseudopleuronectes americanus Pseudopleuronectes americanus       20.0
+69        Tautogolabrus adspersus       Tautogolabrus adspersus        7.5
+70        Tautogolabrus adspersus       Tautogolabrus adspersus       25.0
+71        Tautogolabrus adspersus       Tautogolabrus adspersus       20.0
+72        Tautogolabrus adspersus       Tautogolabrus adspersus       15.0
+73        Tautogolabrus adspersus       Tautogolabrus adspersus       12.5
+74        Tautogolabrus adspersus       Tautogolabrus adspersus       10.0
+75             Cyclopterus lumpus            Cyclopterus lumpus       35.0
+76        Tautogolabrus adspersus       Tautogolabrus adspersus        7.5
+77        Tautogolabrus adspersus       Tautogolabrus adspersus       30.0
+78        Tautogolabrus adspersus       Tautogolabrus adspersus       25.0
+79        Tautogolabrus adspersus       Tautogolabrus adspersus       20.0
+80        Tautogolabrus adspersus       Tautogolabrus adspersus       15.0
+81        Tautogolabrus adspersus       Tautogolabrus adspersus       10.0
+82        Tautogolabrus adspersus       Tautogolabrus adspersus       12.5
+83                   Gadus morhua                  Gadus morhua       12.5
+84                   Gadus morhua                  Gadus morhua        2.5
+85                   Gadus morhua                  Gadus morhua        7.5
+86                   Gadus morhua                  Gadus morhua       10.0
+87         Myoxocephalus scorpius        Myoxocephalus scorpius       35.0
+88  Pseudopleuronectes americanus Pseudopleuronectes americanus       30.0
+89  Pseudopleuronectes americanus Pseudopleuronectes americanus       40.0
+90                   Gadus morhua                  Gadus morhua       10.0
+91                   Gadus morhua                  Gadus morhua       12.5
+92                   Gadus morhua                  Gadus morhua        7.5
+93  Pseudopleuronectes americanus Pseudopleuronectes americanus       35.0
+94             Zoarces americanus            Zoarces americanus       50.0
+95                   Gadus morhua                  Gadus morhua       10.0
+96                   Gadus morhua                  Gadus morhua       15.0
+97        Tautogolabrus adspersus       Tautogolabrus adspersus       15.0
+98        Tautogolabrus adspersus       Tautogolabrus adspersus       30.0
+99        Tautogolabrus adspersus       Tautogolabrus adspersus       25.0
+100       Tautogolabrus adspersus       Tautogolabrus adspersus       20.0
+101                  Gadus morhua                  Gadus morhua       10.0
+102                  Gadus morhua                  Gadus morhua        7.5
+103       Tautogolabrus adspersus       Tautogolabrus adspersus       10.0
+104       Tautogolabrus adspersus       Tautogolabrus adspersus       35.0
+105       Tautogolabrus adspersus       Tautogolabrus adspersus       30.0
+106       Tautogolabrus adspersus       Tautogolabrus adspersus       25.0
+107       Tautogolabrus adspersus       Tautogolabrus adspersus       20.0
+108       Tautogolabrus adspersus       Tautogolabrus adspersus       15.0
+109       Tautogolabrus adspersus       Tautogolabrus adspersus       12.5
+110       Tautogolabrus adspersus       Tautogolabrus adspersus        7.5
+111       Tautogolabrus adspersus       Tautogolabrus adspersus        5.0
+112 Pseudopleuronectes americanus Pseudopleuronectes americanus       20.0
+113                Aurelia aurita                Aurelia aurita        0.0
+114                  Gadus morhua                  Gadus morhua        7.5
+115       Tautogolabrus adspersus       Tautogolabrus adspersus       15.0
+116       Tautogolabrus adspersus       Tautogolabrus adspersus       12.5
+117       Tautogolabrus adspersus       Tautogolabrus adspersus       10.0
+118              Pholis gunnellus              Pholis gunnellus       20.0
+119       Tautogolabrus adspersus       Tautogolabrus adspersus       10.0
+120       Tautogolabrus adspersus       Tautogolabrus adspersus        7.5
+121       Tautogolabrus adspersus       Tautogolabrus adspersus       12.5
+122       Tautogolabrus adspersus       Tautogolabrus adspersus       15.0
+123       Tautogolabrus adspersus       Tautogolabrus adspersus       20.0
+124       Tautogolabrus adspersus       Tautogolabrus adspersus       25.0
+125       Tautogolabrus adspersus       Tautogolabrus adspersus        7.5
+126       Tautogolabrus adspersus       Tautogolabrus adspersus       25.0
+127       Tautogolabrus adspersus       Tautogolabrus adspersus       20.0
+128       Tautogolabrus adspersus       Tautogolabrus adspersus       15.0
+129       Tautogolabrus adspersus       Tautogolabrus adspersus       12.5
+130       Tautogolabrus adspersus       Tautogolabrus adspersus       10.0
+131              Cyanea capillata              Cyanea capillata        0.0
+132       Tautogolabrus adspersus       Tautogolabrus adspersus       10.0
+133       Tautogolabrus adspersus       Tautogolabrus adspersus        7.5
+134       Tautogolabrus adspersus       Tautogolabrus adspersus       10.0
+135       Tautogolabrus adspersus       Tautogolabrus adspersus       25.0
+136       Tautogolabrus adspersus       Tautogolabrus adspersus       20.0
+137       Tautogolabrus adspersus       Tautogolabrus adspersus       15.0
+138       Tautogolabrus adspersus       Tautogolabrus adspersus       12.5
+139        Myoxocephalus scorpius        Myoxocephalus scorpius       12.5
+140       Tautogolabrus adspersus       Tautogolabrus adspersus       12.5
+141       Tautogolabrus adspersus       Tautogolabrus adspersus       10.0
+142       Tautogolabrus adspersus       Tautogolabrus adspersus        7.5
+143       Tautogolabrus adspersus       Tautogolabrus adspersus       30.0
+144       Tautogolabrus adspersus       Tautogolabrus adspersus       25.0
+145       Tautogolabrus adspersus       Tautogolabrus adspersus       15.0
+146       Tautogolabrus adspersus       Tautogolabrus adspersus       20.0
+147 Pseudopleuronectes americanus Pseudopleuronectes americanus       35.0
+148 Pseudopleuronectes americanus Pseudopleuronectes americanus       30.0
+149 Pseudopleuronectes americanus Pseudopleuronectes americanus       25.0
+150 Pseudopleuronectes americanus Pseudopleuronectes americanus       20.0
+151       Tautogolabrus adspersus       Tautogolabrus adspersus       20.0
+152                   Ctenophora                    Ctenophora         0.0
+153                  Gadus morhua                  Gadus morhua        2.5
+154                  Gadus morhua                  Gadus morhua       10.0
+155                  Gadus morhua                  Gadus morhua        7.5
+156                  Gadus morhua                  Gadus morhua        5.0
+157        Myoxocephalus scorpius        Myoxocephalus scorpius       10.0
+158       Tautogolabrus adspersus       Tautogolabrus adspersus       20.0
+159          Ulvaria subbifurcata          Ulvaria subbifurcata       12.5
+160                  Gadus morhua                  Gadus morhua        7.5
+161                  Gadus morhua                  Gadus morhua        5.0
+162                  Gadus morhua                  Gadus morhua       10.0
+163                  Gadus morhua                  Gadus morhua       12.5
+164                  Gadus morhua                  Gadus morhua        5.0
+165                  Gadus morhua                  Gadus morhua        7.5
+166                  Gadus morhua                  Gadus morhua       10.0
+167              Pholis gunnellus              Pholis gunnellus        7.5
+168          Ulvaria subbifurcata          Ulvaria subbifurcata        5.0
+169             Mallotus villosus             Mallotus villosus       20.0
+170 Pseudopleuronectes americanus Pseudopleuronectes americanus        7.5
+171          Ulvaria subbifurcata          Ulvaria subbifurcata       10.0
+172                  Gadus morhua                  Gadus morhua        5.0
+173 Pseudopleuronectes americanus Pseudopleuronectes americanus       35.0
+174                  Gadus morhua                  Gadus morhua        5.0
+175        Myoxocephalus scorpius        Myoxocephalus scorpius       35.0
+176            Myoxocephalus spp.            Myoxocephalus spp.       10.0
+177       Tautogolabrus adspersus       Tautogolabrus adspersus        2.5
+178       Tautogolabrus adspersus       Tautogolabrus adspersus        5.0
+179       Tautogolabrus adspersus       Tautogolabrus adspersus        7.5
+180            Myoxocephalus spp.            Myoxocephalus spp.       10.0
+181       Tautogolabrus adspersus       Tautogolabrus adspersus        2.5
+182       Tautogolabrus adspersus       Tautogolabrus adspersus       12.5
+183       Tautogolabrus adspersus       Tautogolabrus adspersus       10.0
+184       Tautogolabrus adspersus       Tautogolabrus adspersus        7.5
+185       Tautogolabrus adspersus       Tautogolabrus adspersus        5.0
+186            Myoxocephalus spp.            Myoxocephalus spp.        7.5
+187       Tautogolabrus adspersus       Tautogolabrus adspersus        2.5
+188       Tautogolabrus adspersus       Tautogolabrus adspersus       10.0
+189       Tautogolabrus adspersus       Tautogolabrus adspersus        7.5
+190       Tautogolabrus adspersus       Tautogolabrus adspersus        5.0
+191       Tautogolabrus adspersus       Tautogolabrus adspersus        2.5
+192       Tautogolabrus adspersus       Tautogolabrus adspersus       10.0
+193       Tautogolabrus adspersus       Tautogolabrus adspersus       12.5
+194       Tautogolabrus adspersus       Tautogolabrus adspersus        7.5
+195       Tautogolabrus adspersus       Tautogolabrus adspersus        5.0
+196          Ulvaria subbifurcata          Ulvaria subbifurcata        7.5
+197                  Gadus morhua                  Gadus morhua       15.0
+198                  Gadus morhua                  Gadus morhua       10.0
+199 Pseudopleuronectes americanus Pseudopleuronectes americanus       15.0
+    total      biomass
+1       1    0.2135583
+2      22   39.5370565
+3      25    5.3389578
+4       1           NA
+5       5   12.9736246
+6       2    0.6766969
+7       3    1.0150453
+8       1           NA
+9       1           NA
+10      1           NA
+11      1           NA
+12      8   20.7577994
+13      5   42.7162912
+14     48   16.2407247
+15     16  136.6921317
+16     22   57.0839483
+17      8    2.7067874
+18      2   76.6773340
+19      4   79.5936593
+20      2   76.6773340
+21      2   39.7968297
+22      1    8.5432582
+23      1    2.5947249
+24      3    1.0150453
+25      3    1.0150453
+26      1   38.3386670
+27      1   19.8984148
+28      5   42.7162912
+29      8   20.7577994
+30      3    1.0150453
+31      1  139.8826497
+32      2   76.6773340
+33      1   19.8984148
+34      1    2.5947249
+35      3  196.5495010
+36      1   19.8984148
+37      2   17.0865165
+38      4   10.3788997
+39      1    0.3383484
+40     30    6.4067493
+41     20  302.4661824
+42     30  187.4266515
+43     50   89.8569466
+44      1  364.6394407
+45     10    2.1355831
+46     10  151.2330912
+47     20  124.9511010
+48     37   66.4941405
+49     20  600.4561466
+50     11   68.7231056
+51     12  181.4797094
+52      1    1.7971389
+53      4  210.2980568
+54      3   45.3699274
+55      1    3.2611618
+56      1           NA
+57   3000           NA
+58   3000           NA
+59   3000           NA
+60    500           NA
+61    500           NA
+62      1  956.6328336
+63    500           NA
+64    500           NA
+65   3000           NA
+66   3000           NA
+67   3000           NA
+68      1  158.8123377
+69      8   68.3460658
+70      3  633.1610822
+71      5  699.4132485
+72     12  786.1980040
+73     12  460.0640039
+74     15  298.4762224
+75      1           NA
+76     60  512.5954938
+77      1  305.6822776
+78      2  422.1073881
+79     25 3497.0662430
+80     37 2424.1105120
+81    182 3621.5114990
+82     60 2300.3200200
+83      5  150.1140367
+84      1    0.2135583
+85      5   31.2377752
+86      5   75.6165456
+87      1  759.8264409
+88      1  320.5168514
+89      1  526.9665113
+90     20  302.4661824
+91     10  300.2280733
+92     10   62.4755505
+93      1  427.3579725
+94      1           NA
+95      2   30.2466182
+96      1   52.5745142
+97      1   65.5165003
+98      1  305.6822776
+99      2  422.1073881
+100     5  699.4132485
+101     1   15.1233091
+102     1    6.2475551
+103     4   79.5936593
+104     1  421.0771855
+105     1  305.6822776
+106     3  633.1610822
+107     2  279.7652994
+108     4  262.0660013
+109     4  153.3546680
+110     3   25.6297747
+111     1    2.5947249
+112     1  158.8123377
+113     2           NA
+114     1    6.2475551
+115     4  262.0660013
+116     4  153.3546680
+117     2   39.7968297
+118     1   57.5636899
+119     2   39.7968297
+120     1    8.5432582
+121     3  115.0160010
+122     3  196.5495010
+123     4  559.5305988
+124     1  211.0536941
+125     4   34.1730329
+126     2  422.1073881
+127     4  559.5305988
+128     9  589.6485030
+129     6  230.0320020
+130     5   99.4920741
+131     1           NA
+132     2   39.7968297
+133     2   17.0865165
+134     2   39.7968297
+135     1  211.0536941
+136     1  139.8826497
+137     5  327.5825017
+138     2   76.6773340
+139     1   59.4948862
+140     6  230.0320020
+141     5   99.4920741
+142     3   25.6297747
+143     1  305.6822776
+144     3  633.1610822
+145     5  327.5825017
+146     4  559.5305988
+147     1  427.3579725
+148     2  641.0337027
+149     1  229.7949410
+150     1  158.8123377
+151     1  139.8826497
+152     1           NA
+153     2    0.4271166
+154     1   15.1233091
+155     3   18.7426652
+156     3    5.3914168
+157     1   29.6300755
+158     1  139.8826497
+159     1           NA
+160     4   24.9902202
+161     1    1.7971389
+162     2   30.2466182
+163     1   30.0228073
+164     3    5.3914168
+165     6   37.4853303
+166     3   45.3699274
+167     1    3.2611618
+168     2           NA
+169 50000           NA
+170     1   12.8903536
+171     1           NA
+172    40   71.8855573
+173     1  427.3579725
+174    14   25.1599451
+175     1  759.8264409
+176     1           NA
+177    42   14.2106341
+178     2    5.1894498
+179     5   42.7162912
+180     1           NA
+181    62   20.9776027
+182     1   38.3386670
+183     6  119.3904890
+184     7   59.8028076
+185     7   18.1630745
+186     1           NA
+187    50   16.9174215
+188     1   19.8984148
+189     5   42.7162912
+190     7   18.1630745
+191    58   19.6242090
+192     3   59.6952445
+193     1   38.3386670
+194    22  187.9516811
+195    31   80.4364726
+196     1           NA
+197     1   52.5745142
+198     1   15.1233091
+199     1   80.3496558</code></pre>
+</div>
+</div>
+<ul>
+<li><strong>Task:</strong> put this into an object and see what the class of the object is</li>
+</ul>
+</section>
+<section id="reading-in-data-a-better-way" class="slide level2">
+<h2>Reading in data (a better way)</h2>
+<ul>
+<li>Read the data into R using the <code>read_csv()</code> function from the <code>readr</code> package</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb38-2"><a href="#cb38-2"></a><span class="fu">read_csv</span>(<span class="st">"example_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 199 x 32
    survey_id country area  ecore~1 realm locat~2 site_~3 site_~4 latit~5 longi~6
@@ -690,15 +2609,31 @@ Freddie Heather
 #   abbreviated variable names 1: ecoregion, 2: location, 3: site_code, ...</code></pre>
 </div>
 </div>
+<ul>
+<li>What class is this object?</li>
+</ul>
 </section>
-<section id="check-the-data-imported-correctly" class="slide level2">
-<h2>Check the data imported correctly</h2>
+<section id="dataframes-vs-tibbles" class="slide level2">
+<h2>Dataframes vs Tibbles</h2>
+<ul>
+<li>Very similar in many ways</li>
+<li>A tibble is a “fancy” data.frame</li>
+<li>Note 4 differences in the output of <code>read.csv()</code> and <code>read_csv()</code></li>
+</ul>
+</section></section>
+<section>
+<section id="check-the-data-imported-correctly" class="title-slide slide level1 center">
+<h1>Check the data imported correctly</h1>
+
+</section>
+<section id="the-head-function" class="slide level2">
+<h2>The <code>head()</code> function</h2>
 <ul>
 <li>First six rows only</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>fish_size <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"example_data.csv"</span>)</span>
-<span id="cb25-2"><a href="#cb25-2"></a><span class="fu">head</span>(fish_size)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a>fish_size <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"example_data.csv"</span>)</span>
+<span id="cb40-2"><a href="#cb40-2"></a><span class="fu">head</span>(fish_size)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 x 32
   survey_id country area   ecore~1 realm locat~2 site_~3 site_~4 latit~5 longi~6
@@ -719,14 +2654,21 @@ Freddie Heather
 </div>
 </div>
 </section>
-<section class="slide level2">
-
+<section id="the-tails-function" class="slide level2">
+<h2>The <code>tails()</code> function</h2>
+<ul>
+<li>The final six rows</li>
+<li>Change the <code>n =</code> argument of <code>tails()</code></li>
+</ul>
+</section>
+<section id="glimpsing-at-the-data" class="slide level2">
+<h2>Glimpsing at the data</h2>
 <ul>
 <li>Using the <code>glimpse()</code> function from the <code>dplyr</code> package</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb27-2"><a href="#cb27-2"></a><span class="fu">glimpse</span>(fish_size)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb42-2"><a href="#cb42-2"></a><span class="fu">glimpse</span>(fish_size)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 199
 Columns: 32
@@ -764,6 +2706,22 @@ $ total                 &lt;dbl&gt; 1, 22, 25, 1, 5, 2, 3, 1, 1, 1, 1, 8, 5, 48,
 $ biomass               &lt;dbl&gt; 0.2135583, 39.5370565, 5.3389578, NA, 12.9736246~</code></pre>
 </div>
 </div>
+</section>
+<section id="tidyverse-modern-coding-in-r" class="slide level2">
+<h2>Tidyverse (modern coding in R)</h2>
+<ul>
+<li>We have already installed two packates <code>readr</code> and <code>dplyr</code></li>
+<li>There are some packages that are used so often, they form part of the <code>tidyverse</code></li>
+<li><code>tidyverse</code> is a special package in that it is just a collection of packages</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="co"># install.packages()</span></span>
+<span id="cb44-2"><a href="#cb44-2"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Have a look at <a href="https://www.tidyverse.org/" class="uri">https://www.tidyverse.org/</a></li>
+<li>What are some of the packages within the tidyverse?</li>
+</ul>
 </section>
 <section id="next-session" class="slide level2">
 <h2>Next session:</h2>
@@ -1155,7 +3113,6 @@ $ biomass               &lt;dbl&gt; 0.2135583, 39.5370565, 5.3389578, NA, 12.973
       }
     });
     </script>
-    
     
 
 </body></html>

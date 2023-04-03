@@ -12,8 +12,23 @@
 
 
 # Lets produce some errors/warnings --------------------------------------------
-# add 3 to stringr1 (error in object class)
+
+# add 3 to string1 (error in object class)
 # type string2 in the console (unknown object class)
 # Add NA to your numeric variable (including NA values error)
 
 
+# Getting help with coding
+# 1. Googling/forums
+# 2. ChatGPT 
+
+
+
+# What is a function?
+# What is an argument?
+# Name 3 arguments of the read_csv() function
+# What package does the str_detect() function come from?
+# What is a vector?
+# Name two types of vectors
+# What is a package?
+# Name 5 packages within the tidyverse packages

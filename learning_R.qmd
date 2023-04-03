@@ -1,5 +1,6 @@
 ---
-title: "Learning R"
+title: "Getting started with R"
+subtitle: "Session 1 of 4"
 author: "Freddie Heather"
 format: revealjs
 project:
@@ -22,10 +23,6 @@ knitr::opts_chunk$set(
 -   Very popular in scientific data analysis
 
 ![](images/r-analysis.PNG){.fragment .absolute bottom="100" right="300" width="500" height="300"} ![](images/r-art.PNG){.fragment .absolute bottom="100" right="300" width="500" height="300"} ![](images/r-chess.PNG){.fragment .absolute bottom="100" right="300" width="500" height="300"} ![](images/r-presentation.PNG){.fragment .absolute bottom="100" right="300" width="500" height="300"} ![](images/r-analysis.PNG){.fragment .absolute bottom="100" right="300" width="500" height="300"}
-
-## Error checking with R
-
--   looking for geographical outliers in 700 fish species {{< video images/video1.webm >}}
 
 ## R vs RStudio
 
@@ -111,7 +108,7 @@ c(1,2,3,4,5)
 ### Objects
 
 -   An "object" can be anything: a number, a word, a plot, an equation, etc.
--   The code to create an object is `<-`
+-   The code to create an object is `<-`. This is called the "assignment operator"
 
 **Task:** Create an object called `x` and make it equal to 5, and then modify `x`.
 
@@ -149,9 +146,9 @@ x
 
 ------------------------------------------------------------------------
 
-Not everything is a number
-
--   instead of a numeric variable, an object may be a "character string" (aka. a word or sentence)
+-   Not everything is a number
+-   Instead of a numeric variable, an object may be a "character string" (aka. a word or sentence)
+-   The data type (e.g. numeric, character) of the object is called the class.
 
 ```{r}
 
@@ -162,22 +159,71 @@ paste("My name is", first_name, last_name)
 
 ```
 
-# Starting a new analysis
+## Object classes
 
-## R projects
+-   We can use the appropriately named `class()` function to see what the class of an object is
 
-#### The key to organisational sucess
+```{r}
 
--   Similar to folders on your computers
--   R knows exactly where to look for things
+x <- 89
+y <- "hello there"
+z <- TRUE
 
-**Task:** Start a new R project - Open RStudio - New Project - New Directory \> New Project - Browse location for location of all R projects - Give a good title for the analysis (e.g. "phd_chapter_1") - avoid spaces and capitals
+```
 
-## Creating reproducible code (a script)
+```{r}
+class(x)
+```
 
--   File \> New file \> R Script
--   Write anything (e.g. a comment with your name or title on line 1)
--   Save As "analysis.R"
+```{r}
+class(y)
+```
+
+```{r}
+class(z)
+```
+
+## Class is important
+
+-   Some functions will only work with certain types of data classes
+-   E.g. you cannot multiple a character string and a numeric
+
+```{r}
+#| error: true
+s1 <- "oops"
+n1 <- 9
+
+s1*n1
+```
+
+## Types of classes
+
+| Name             | Examples      | Syntax  |
+|------------------|---------------|---------|
+| Numeric          | 6.7, 8.9, 1.0 | `dbl` |
+| Character string | "cat", "dog"  | `chr` |
+| Boolean/logical  | TRUE, FALSE   | `lgl` |
+| Integer          | 2, 5, 149     | `int` |
+
+
+## Logic statements
+
+-   We can use the `==` syntax to see if two things are equal
+
+```{r}
+
+(2+3) == 5
+
+```
+
+-   Note this is different from using a single equals (`=`)
+-   `=` behaves similar to the assignment operator `<-`, but avoid using it
+
+```{r}
+x = 5
+x
+```
+
 
 # Packages and functions
 
@@ -200,17 +246,22 @@ paste("My name is", first_name, last_name)
 mean(x = c(5,10,3))
 ```
 
--   `mean` is the **function** (always immediately followed by the open-parenthesis)
+-   `mean` is the **function**
+-   functions are always followed by brackets
 -   `x` is the **argument** of the function
 -   we pass `c(5,10,3)` to the x argument of the function
 :::
 
 ## Functions
 
--   somebody wrote the code for the `mean()` function
+-   Some people wrote the code for the `mean()` function
 -   `mean()` is a very simple function, but other functions can be extremely complex
 -   Some commonly used functions come readily installed when you install R, others you must download
 -   Other functions are stored within packages - **packages are just a collection of functions**
+
+## Confused about a function?
+
+-   Use the `?functionname` notation to see information about the function
 
 ## Packages
 
@@ -223,16 +274,55 @@ mean(x = c(5,10,3))
 library(readr) # at the top of the script of every analysis that uses it
 ```
 
+# Starting a new analysis
+
+## R projects
+
+#### The key to organisational sucess
+
+-   Similar to folders on your computers
+-   R knows exactly where to look for things
+
+**Task:** Start a new R project - Open RStudio - New Project - New Directory \> New Project - Browse location for location of all R projects - Give a good title for the analysis (e.g. "phd_chapter_1") - avoid spaces and capitals
+
+## Creating reproducible code (a script)
+
+-   File \> New file \> R Script
+-   Write anything (e.g. a comment with your name or title on line 1)
+-   Save As "analysis.R"
+
 ## Reading in data
 
--   Save your **csv** file into your working directory
--   Read the data into R using the `read_csv()` function
+-   R does not like excel (.xlsx) files, it loves .csv files
+-   R has a built-in function to read CSV files: `read.csv()`
+-   Because we are working in a project, R knows where to look for the file
 
 ```{r}
+read.csv("example_data.csv")
+```
+
+-   **Task:** put this into an object and see what the class of the object is
+
+## Reading in data (a better way)
+
+-   Read the data into R using the `read_csv()` function from the `readr` package
+
+```{r}
+library(readr)
 read_csv("example_data.csv")
 ```
 
-## Check the data imported correctly
+-   What class is this object?
+
+## Dataframes vs Tibbles
+
+-   Very similar in many ways
+-   A tibble is a "fancy" data.frame
+-   Note 4 differences in the output of `read.csv()` and `read_csv()`
+
+# Check the data imported correctly
+
+## The `head()` function
 
 -   First six rows only
 
@@ -241,7 +331,12 @@ fish_size <- read_csv("example_data.csv")
 head(fish_size)
 ```
 
-------------------------------------------------------------------------
+## The `tails()` function
+
+-   The final six rows
+-   Change the `n =` argument of `tails()`
+
+## Glimpsing at the data
 
 -   Using the `glimpse()` function from the `dplyr` package
 
@@ -249,6 +344,20 @@ head(fish_size)
 library(dplyr)
 glimpse(fish_size)
 ```
+
+## Tidyverse (modern coding in R)
+
+-   We have already installed two packates `readr` and `dplyr`
+-   There are some packages that are used so often, they form part of the `tidyverse`
+-   `tidyverse` is a special package in that it is just a collection of packages
+
+```{r}
+# install.packages()
+library(tidyverse)
+```
+
+-   Have a look at <https://www.tidyverse.org/>
+-   What are some of the packages within the tidyverse?
 
 ## Next session:
 
