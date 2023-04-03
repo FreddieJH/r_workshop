@@ -7,6 +7,14 @@ project:
   output-dir: docs
 ---
 
+# A couple of problems
+
+- **Problem 1:** Given an excel file with 1M+ rows, find errors in a species geographical distribution.
+
+-  **Problem 2:** Reading and replicating analyses from complex methods sections is not fun.
+
+- **Solution:** R
+
 # The basics
 
 ## What is R?
@@ -342,6 +350,21 @@ head(fish_size)
 library(dplyr)
 glimpse(fish_size)
 ```
+
+## The `View()` function in R
+
+- Sometimes you just want an excel-style view of the data
+- I use this all the time
+- Beware, sometimes you don't want to view **all** of your data if there are millions of rows, maybe just the first 100 rows.
+- You don't want to leave this in your script
+
+```{r}
+
+View(head(x = fish_size, n = 100))
+
+```
+
+
 
 ## Tidyverse (modern coding in R)
 
