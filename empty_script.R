@@ -18,11 +18,15 @@
 # Add NA to your numeric variable (including NA values error)
 
 
-# Getting help with coding
+# Getting help with coding -----------------------------------------------------
+
 # 1. Googling/forums
 # 2. ChatGPT 
 
+# Read in your 
 
+
+# Questions --------------------------------------------------------------------
 
 # What is a function?
 # What is an argument?
@@ -32,3 +36,6 @@
 # Name two types of vectors
 # What is a package?
 # Name 5 packages within the tidyverse packages
+# What symbol always follows the name of a function?
+# What symbol always follows the name of the argument?
+# Name 4 data classes

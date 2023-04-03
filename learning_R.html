@@ -400,6 +400,15 @@ Freddie Heather
 </div>
 
 </section>
+<section id="a-couple-of-problems" class="title-slide slide level1 center">
+<h1>A couple of problems</h1>
+<ul>
+<li><p><strong>Problem 1:</strong> Given an excel file with 1M+ rows, find errors in a species geographical distribution.</p></li>
+<li><p><strong>Problem 2:</strong> Reading and replicating analyses from complex methods sections is not fun.</p></li>
+<li><p><strong>Solution:</strong> R</p></li>
+</ul>
+</section>
+
 <section>
 <section id="the-basics" class="title-slide slide level1 center">
 <h1>The basics</h1>
@@ -2707,6 +2716,18 @@ $ biomass               &lt;dbl&gt; 0.2135583, 39.5370565, 5.3389578, NA, 12.973
 </div>
 </div>
 </section>
+<section id="the-view-function-in-r" class="slide level2">
+<h2>The <code>View()</code> function in R</h2>
+<ul>
+<li>Sometimes you just want an excel-style view of the data</li>
+<li>I use this all the time</li>
+<li>Beware, sometimes you don’t want to view <strong>all</strong> of your data if there are millions of rows, maybe just the first 100 rows.</li>
+<li>You don’t want to leave this in your script</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="fu">View</span>(<span class="fu">head</span>(<span class="at">x =</span> fish_size, <span class="at">n =</span> <span class="dv">100</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
 <section id="tidyverse-modern-coding-in-r" class="slide level2">
 <h2>Tidyverse (modern coding in R)</h2>
 <ul>
@@ -2715,8 +2736,8 @@ $ biomass               &lt;dbl&gt; 0.2135583, 39.5370565, 5.3389578, NA, 12.973
 <li><code>tidyverse</code> is a special package in that it is just a collection of packages</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="co"># install.packages()</span></span>
-<span id="cb44-2"><a href="#cb44-2"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="co"># install.packages()</span></span>
+<span id="cb45-2"><a href="#cb45-2"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Have a look at <a href="https://www.tidyverse.org/" class="uri">https://www.tidyverse.org/</a></li>
