@@ -1,10 +1,7 @@
-# R Workshop
+# R Workshop (2024)
+## Freddie Heather
 
-Freddie Heather
-April 2023
-
-
-For the slides to the material, see: 
-[https://freddiejh.github.io/r_workshop/learning_R.html](https://freddiejh.github.io/r_workshop/learning_R.html)
+Session 1 of 4: https://freddiejh.github.io/r_workshop/Session 1.html
+Session 1 of 4: https://freddiejh.github.io/r_workshop/Session 2.html
 
 
