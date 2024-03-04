@@ -1,0 +1,400 @@
+---
+title: "Getting started with R"
+subtitle: "Session 1 of 4"
+author: "Freddie Heather (Asta Audzijonyte)"
+format: revealjs
+project:
+  output-dir: docs
+---
+
+# A couple of problems
+
+-   **Problem 1:** Given an excel file with 1M+ rows, find errors in a species geographical distribution.
+
+-   **Problem 2:** Reading and replicating analyses from complex methods sections is not fun.
+
+-   **Solution:** R
+
+# Today's workshop
+
+-   I will go through the slides, **feel free to stop and ask questions**.
+-   We will go through the example code with each slide (Lesson1ScriptToDistribute.R)
+-   At the end, you can get the slides online.
+
+# The basics
+
+## What is R?
+
+```{r}
+#| include = FALSE
+knitr::opts_chunk$set(
+  echo = TRUE, 
+  include = TRUE
+)
+```
+
+-   Programming language
+-   Very popular in scientific data analysis...
+-   and a lot more
+
+![](images/r-analysis.PNG){.fragment .absolute bottom="100" right="300" width="500" height="300"} ![](images/r-art.PNG){.fragment .absolute bottom="100" right="300" width="500" height="300"} ![](images/r-chess.PNG){.fragment .absolute bottom="100" right="300" width="500" height="300"} ![](images/r-presentation.PNG){.fragment .absolute bottom="100" right="300" width="500" height="300"} ![](images/r-analysis.PNG){.fragment .absolute bottom="100" right="300" width="500" height="300"} ![](images/r-website.PNG){.fragment .absolute bottom="100" right="300" width="500" height="300"} ![](images/r-website2.PNG){.fragment .absolute bottom="100" right="300" width="500" height="300"}
+
+## R vs RStudio
+
+::: columns
+::: column
+::: r-stack
+![](images/Rlogo.svg){height="100" fig-align="center"}
+
+![](images/r-capture.PNG){.fragment height="300" fig-align="center"}
+:::
+:::
+
+::: column
+::: r-stack
+![](images/RStudio-Logo-Flat.png){height="100" fig-align="center"}
+
+![](images/rstudio-capture.PNG){.fragment height="300" fig-align="center"}
+:::
+:::
+
+::: column
+-   The coding language
+-   (think car engine)
+-   Download it and **forget about it**
+:::
+
+::: column
+-   User interface
+-   (think car dashboard)
+-   **Open this** when you want to code
+:::
+:::
+
+```{=html}
+<style>
+.quarto-columns {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+}
+</style>
+```
+## Downloading R and RStudio
+
+-   R: [cran.r-project.org](https://cran.r-project.org/)
+-   RStudio: [posit.co/download/rstudio-desktop](https://posit.co/download/rstudio-desktop/)
+
+# Let's code!
+
+## Basic commands
+
+::: fragment
+```{r}
+#| code-line-numbers: "|1,2|3"
+#| 
+# addition
+# numeric output
+1 + 3
+```
+:::
+
+::: fragment
+```{r }
+# numeric vector (i.e. a series of numbers)
+1:5
+
+# or 
+
+c(1,2,3,4,5)
+
+```
+:::
+
+::: fragment
+```{r}
+# Arithmetic on a vector
+(1:5)*2
+```
+:::
+
+------------------------------------------------------------------------
+
+### Objects
+
+-   An "object" can be anything: a number, a word, a plot, an equation, etc.
+-   The code to create an object is `<-`. This is called the "assignment operator"
+
+**Task:** Create an object called `x` and make it equal to 5, and then modify `x`.
+
+```{r}
+x <- 5
+x^2 
+```
+
+------------------------------------------------------------------------
+
+A little more complex
+
+```{r}
+#| code-line-numbers: "1|2|3"
+x <- 3 # make x equal to 3
+y <- x*5 # make y equal to 5 times the value of x
+z <- y - x # make z equal to the difference between y and x
+```
+
+::: fragment
+What does `z` equal?
+
+```{r}
+z
+```
+:::
+
+::: fragment
+What does `x` equal?
+
+```{r}
+x
+```
+:::
+
+------------------------------------------------------------------------
+
+-   Not everything is a number
+-   Instead of a numeric variable, an object may be a "character string" (aka. a word or sentence)
+-   The data type (e.g. numeric, character) of the object is called the class.
+
+```{r}
+
+# character strings
+first_name <- "Asta"
+last_name <- "Audzijonyte"
+paste("My name is", first_name, last_name)
+
+```
+
+## Object classes
+
+-   We can use the appropriately named `class()` function to see what the class of an object is
+
+```{r}
+
+x <- 89
+y <- "hello there"
+z <- TRUE
+
+```
+
+```{r}
+class(x)
+```
+
+```{r}
+class(y)
+```
+
+```{r}
+class(z)
+```
+
+## Class is important
+
+-   Some functions will only work with certain types of data classes
+-   E.g. you cannot multiple a character string and a numeric
+
+```{r}
+#| error: true
+s1 <- "oops"
+n1 <- 9
+
+s1*n1
+```
+
+## Types of classes
+
+| Name             | Examples      | Syntax |
+|------------------|---------------|--------|
+| Numeric          | 6.7, 8.9, 1.0 | `dbl`  |
+| Character string | "cat", "dog"  | `chr`  |
+| Boolean/logical  | TRUE, FALSE   | `lgl`  |
+| Integer          | 2, 5, 149     | `int`  |
+
+## Classes of vectors
+
+```{r}
+#| error: true
+s2 <- c(2, 3, 5, "cat")
+class(s2)
+
+```
+
+## Logic statements
+
+-   We can use the `==` syntax to see if two things are equal
+
+```{r}
+
+(2+3) == 5
+
+```
+
+-   Note this is different from using a single equals (`=`)
+-   `=` behaves similar to the assignment operator `<-`, but avoid using it
+
+```{r}
+x = 5
+x
+```
+
+# Packages and functions
+
+## What's a function?
+
+-   Using just `+`, `()` and `/`, calculate the mean of 5, 10, and 3.
+
+::: fragment
+```{r }
+(5+10+3)/3
+```
+:::
+
+::: fragment
+-   Instead, let's use the `mean()` function to calculate the mean:
+:::
+
+::: fragment
+```{r }
+mean(x = c(5,10,3))
+```
+
+-   `mean` is the **function**
+-   functions are always followed by brackets
+-   `x` is the **argument** of the function
+-   we pass `c(5,10,3)` to the x argument of the function
+:::
+
+## Functions
+
+-   Some people wrote the code for the `mean()` function
+-   `mean()` is a very simple function, but other functions can be extremely complex
+-   Some commonly used functions come readily installed when you install R, others you must download
+-   Other functions are stored within packages - **packages are just a collection of functions**
+
+## Confused about a function?
+
+-   Use the `?functionname` notation to see information about the function
+
+## Packages
+
+-   A very commonly installed package is called `readr`
+-   This package contains the very useful function `read_csv()`, which allows us to read in excel data (in comma-separated-value format, .csv)
+-   To install and load a package:
+
+```{r}
+#install.packages("readr") # once per installation of R
+library(readr) # at the top of the script of every analysis that uses it
+```
+
+# Starting a new analysis
+
+## R projects
+
+#### The key to organisational sucess
+
+-   Similar to folders on your computers
+-   R knows exactly where to look for things
+
+**Task:** Start a new R project - Open RStudio - New Project - New Directory \> New Project - Browse location for location of all R projects - Give a good title for the analysis (e.g. "phd_chapter_1") - avoid spaces and capitals
+
+## Creating reproducible code (a script)
+
+-   File \> New file \> R Script
+-   Write anything (e.g. a comment with your name or title on line 1)
+-   Save As "analysis.R"
+
+## Reading in data
+
+-   R does not like excel (.xlsx) files, it loves .csv files
+-   R has a built-in function to read CSV files: `read.csv()`
+-   Because we are working in a project, R knows where to look for the file
+
+```{r}
+read.csv("example_data.csv")
+```
+
+-   **Task:** put this into an object and see what the class of the object is
+
+## Reading in data (a better way)
+
+-   Read the data into R using the `read_csv()` function from the `readr` package
+
+```{r}
+library(readr)
+read_csv("example_data.csv")
+```
+
+-   What class is this object?
+
+## Dataframes vs Tibbles
+
+-   Very similar in many ways
+-   A tibble is a "fancy" data.frame
+-   Note 4 differences in the output of `read.csv()` and `read_csv()`
+
+# Check the data imported correctly
+
+## The `head()` function
+
+-   First six rows only
+
+```{r}
+fish_size <- read_csv("example_data.csv")
+head(fish_size)
+```
+
+## The `tail()` function
+
+-   The final six rows
+-   Change the `n =` argument of `tail()`
+
+## Glimpsing at the data
+
+-   Using the `glimpse()` function from the `dplyr` package
+
+```{r}
+library(dplyr)
+glimpse(fish_size)
+```
+
+## The `View()` function in R
+
+-   Sometimes you just want an excel-style view of the data
+-   I use this all the time
+-   Beware, sometimes you don't want to view **all** of your data if there are millions of rows, maybe just the first 100 rows.
+-   You don't want to leave this in your script
+
+```{r}
+
+View(head(x = fish_size, n = 100))
+
+```
+
+## Tidyverse (modern coding in R)
+
+-   We have already installed two packages `readr` and `dplyr`
+-   There are some packages that are used so often, they form part of the `tidyverse`
+-   `tidyverse` is a special package in that it is just a collection of packages
+
+```{r}
+# install.packages()
+library(tidyverse)
+```
+
+-   Have a look at <https://www.tidyverse.org/>
+-   What are some of the packages within the tidyverse?
+-   Get the slides from https://github.com/FreddieJH/r_workshop
+
+## Next session:
+
+-   Manipulating and cleaning the data
