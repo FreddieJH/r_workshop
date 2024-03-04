@@ -1,0 +1,347 @@
+---
+title: "Getting started with R"
+subtitle: "Session 2 of 4"
+author: "Freddie Heather"
+format: revealjs
+project:
+  output-dir: docs
+---
+
+
+# Recap from session 1
+
+## Recap questions
+
+::: {.incremental}
+- What is a vector?
+- What is an object?
+- What is an object class? - Name four classes
+- What is a function? - How do you identify them in code?
+- What does `<-` mean?
+- What does `==` mean?
+- what is the preferred data type of data to import (e.g. from excel)?
+- What function is used to read in csv data?
+:::
+
+## Session 2
+
+- Data import
+- Data checking
+- Data manipulation
+- Data cleaning
+
+::: {.callout-tip}
+## Task
+1. Start a new R project, or open the project from last week. 
+2. Create a new script and call it `session2` or `day2`, something informative to you.
+3. Comment your name, date, and a title at the top of the script.
+:::
+
+# Data Import
+
+## Data import (csv)
+
+- 99% of the time you will import your data from a local source (e.g. from an excel file)
+
+::: {.callout-tip}
+## Task
+Use read_csv() from the readr package to load `example_data.csv`
+:::
+
+## Download data from package
+
+- For example purposes, we will download data from the `nycflights13` package
+
+::: {.callout-tip}
+## Task
+Install and load the `nycflights13` package
+:::
+
+## Download data from a package
+
+- For example purposes, we will download data from the `nycflights13` package
+- *Hidden* in this package there is an object called `flights` 
+
+::: {.callout-tip}
+## Task
+1. Install and load the `nycflights13` package
+2. Create a new object and assign `flights` to this new object (call the object what ever you want to)
+:::
+
+```{r}
+#| echo: false
+library(nycflights13)
+my_data <- flights
+```
+
+"The hardest thing about programming is what to name variables"
+
+# Data checking
+
+## Functions to look at your data
+```{r }
+#| eval: false
+#| echo: true
+
+library(tidyverse) # contains very useful functions
+
+my_data 
+print(my_data) # prints the data to the screen
+
+head(my_data)
+glimpse(my_data)
+tail(my_data)
+View(my_data)
+```
+
+::: {.callout-tip}
+## Task
+- Run the above functions. What do they do?
+- How many columns in the dataset? 
+- How many rows in the dataset?
+- What is the class of the first column?
+:::
+
+## The pipe operator `%>%` 
+
+- Say I have three fictional functions; `import()`, `clean()`, and `visualise()` and I want to apply them to some dataset `x`. 
+
+```{r }
+#| eval: false
+#| echo: true
+
+# it's hard to read
+output <- visualise(clean(import(x)))
+```
+
+- Using the pipe operator
+
+```{r }
+#| eval: false
+#| echo: true
+
+# easier to read! (does exactly the same)
+output <-
+  x %>% 
+  import() %>% 
+  clean() %>% 
+  visualise()
+
+```
+
+# Data manipululation
+
+## Filtering your data
+
+- Say that I only care about United Airlines flights (i.e. the carrier is UA)
+
+```{r }
+#| eval: false
+#| echo: true
+
+# Only United Airlines flights
+my_data %>% 
+  filter(carrier == "UA") 
+
+```
+
+
+::: {.callout-tip}
+## Task
+Create a new object called `alaska_flights` which is only the Alaska Airways (carrier is AS) flights.
+:::
+
+## Being more specific in your selection
+
+You can use other operators beyond just the `==` operator that tests for equality:
+
+- `>` means “greater than”
+- `<` means “less than”
+- `>=` means “greater than or equal to”
+- `<=` means “less than or equal to”
+- `!=` means “not equal to.” 
+- `&` means “and”
+- `|` means “or”
+
+## Being more specific in your selection
+
+- Using `>`, `<`, `>=`, `!=`, `&`, `|`
+
+::: {.callout-tip}
+## Task
+1. Select flights from either AS or UA.
+2. Select flights with delays (dep_delay is more than zero).
+3. How many flights arrived early?
+4. Select flights between 1000 and 2000 miles.
+:::
+
+
+## Data manipulation functions
+
+```{r }
+#| eval: false
+#| echo: true
+
+library(tidyverse) # where the functions are stored
+
+filter() # subsetting the data (e.g., order == "Aves")
+select()  # Selecting a single or multiple columns
+mutate() # Creating a new column
+rename() # Renaming a column
+summarise() # Summarising a dataset 
+
+arrange() # Ordering a column (E.g., sort by smallest arrival time)
+arrange(desc()) # ... or by largest arrival time
+distinct() # give me only the unique rows (no repeats)
+pull() # pull out a column and make it a vector
+count() # count the number of rows
+
+```
+
+
+## `select()`
+### Selecting a single or multiple columns
+
+```{r }
+#| eval: false
+#| echo: true
+
+my_data %>% 
+  select(year, month, day, carrier, origin, dep_delay)
+
+```
+
+
+::: {.callout-tip}
+## Task
+Create a new object called `slim_data` which has the columns flight, carrier, distance and origin
+:::
+
+## `mutate()`
+### Creating a new column 
+
+```{r }
+#| eval: false
+#| echo: true
+
+my_data %>% 
+  mutate(dep_delay_secs = dep_delay*60)
+
+# combining the two
+my_data %>% 
+  select(year, month, day, carrier, origin, dep_delay) %>% 
+  mutate(dep_delay_secs = dep_delay*60)
+
+```
+
+::: {.callout-tip}
+## Task
+Create a new object called `jan_flights` which has a new column called `arr_delay_secs` which is the arrival delay, but in seconds instead of minutes.
+:::
+
+## `rename()`
+### Rename an existing column 
+
+```{r }
+#| eval: false
+#| echo: true
+
+my_data %>% 
+  select(year, month, day, carrier, origin, dep_delay) %>% 
+  mutate(dep_delay_secs = dep_delay*60) %>% 
+  rename(airline = carrier) # airline is easier to understand
+
+```
+
+::: {.callout-tip}
+## Task
+Rename the `dep_delay` column to something a bit more informative, maybe `departure_delay_mins` or something of your own.
+:::
+
+## `summarise()`
+### Rename an existing column 
+
+```{r }
+#| eval: false
+#| echo: true
+
+my_data %>% 
+  select(year, month, day, carrier, origin, dep_delay) %>% 
+  mutate(dep_delay_secs = dep_delay*60) %>% 
+  rename(airline = carrier) %>% 
+  summarise(median_delay = median(dep_delay_secs, na.rm=TRUE))
+
+```
+
+::: {.callout-tip}
+## Task
+What is the mean delay time in minutes? What happens if you don't include `na.rm=TRUE` in your code? Why?
+:::
+
+
+## The `.by` argument
+### Group by a factor for analysis
+
+You may see this written as `group_by()`, its the same
+
+```{r }
+#| eval: false
+#| echo: true
+
+# I want the mean delay for each month
+my_data %>% 
+  summarise(mean_delay = mean(dep_delay, na.rm=TRUE), 
+            .by = month)
+
+# is the same as this
+my_data %>% 
+  group_by(month) %>% 
+  summarise(mean_delay = mean(dep_delay, na.rm=TRUE)) %>% 
+  ungroup()
+
+```
+
+::: {.callout-tip}
+## Task
+Which airline should I avoid if I want to be on time? Which airline should I select? (Assuming all airlines go to where you want to.)
+:::
+
+
+
+## `arrange()`
+### Sorting a column (alphabetically or numerically) 
+
+```{r }
+#| eval: false
+#| echo: true
+
+my_data %>% 
+  select(year, month, day, carrier, origin, dep_delay) %>% 
+  mutate(dep_delay_secs = dep_delay*60) %>% 
+  rename(airline = carrier) %>% 
+  arrange(dep_delay)
+
+```
+
+::: {.callout-tip}
+## Task
+Order the dataframe so the months are descending (December to Jan)
+:::
+
+## `count()`
+### Counting the number of occurences 
+
+
+```{r }
+#| eval: false
+#| echo: true
+
+my_data %>% 
+  count(carrier)
+
+```
+
+::: {.callout-tip}
+## Task
+Which month had the most flights from the UA carrier?
+:::
