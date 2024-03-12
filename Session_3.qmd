@@ -1,0 +1,363 @@
+---
+title: "Data visualisation in R"
+subtitle: "Getting started with R (3/4)"
+author: "Freddie Heather"
+format: revealjs
+project:
+  output-dir: docs
+---
+
+
+
+# Recap from session 1
+
+## Recap questions
+
+::: incremental
+-   What is a script?
+-   Name five data manipulation functions from last week.
+-   What is the 'pipe'?
+-   What does "\>=", and "!=", and how would you use them?
+-   I want to create a new column in a tibble. What function would I use?
+-   I filter my data (e.g., age \>= 3), name three way to check if the filter has worked?
+-   What is the 'tidyverse'?
+:::
+
+## Today: Session 3
+
+-   Data import, checking, wrangling (recap)
+-   Data visualisation
+-   Critical thinking approach
+
+::: callout-tip
+## Task
+
+1.  Start a new R project, or open the project from last week.
+2.  Create a new script and call it something informative (e.g., `session3` or `data_vis`).
+3.  Comment your name, date, and a title at the top of the script.
+4.  **Save your script!**
+:::
+
+## R is a tool
+
+|              | Mechanics                        | Science                                                |
+|----------------|----------------------------|----------------------------|
+| **Problem**  | Bolt won't loosen by hand        | I have hypothesis and data; I want results for a paper |
+| **Solution** | Use a wrench (of the right size) | Use R to import, clean, visualise and model data       |
+| **Outcome**  | Loosen bolt                      | Figures and statistics                                 |
+
+# Data import & checking
+
+## Data import
+
+-   Today we will use the data from the `nycflights13` package again
+-   Remember: normally you would import your own data using `read_csv()`
+
+::: callout-tip
+## Task
+
+1.  Install and load the `nycflights13` package
+2.  Create a new object and assign `flights` to this new object (call the object what ever you want to).
+:::
+
+```{r }
+#| eval: true
+#| echo: false
+
+library(tidyverse)
+library(nycflights13)
+
+my_data <- flights
+
+```
+
+
+## Data import
+
+-   Has it imported correctly?
+-   Sometimes you might have your hypothesis before data collection, not always.
+
+::: callout-tip
+## Task
+
+1.  Use `View()` and `head()` and one other function to check to see things look okay.
+2.  How many columns? What do the columns mean?
+3.  Think of a question(s) that you could answer using these data.
+:::
+
+# Data visualisation
+
+## Two numerical variables
+- H1: I think that longer flights are more likely to be delayed because...XYZ.
+-   What columns would I need to consider?
+-   How might I visualise this? boxplot? scatterplot? barplot?
+
+## Choosing the type of plot
+
+-   Six commonly used plots
+
+|                          | Predictor variable (x) | Response variable (y) |
+|--------------------------|------------------------|-----------------------|
+| Barplot, Boxplot, Violinplot | Categorical           | Numeric               |
+| Scatterplot                  | Numeric                | Numeric               |
+| Density, Histogram       | Numeric                | \-                    |
+
+## Scatterplot using `ggplot()`
+
+-   `ggplot()` is a function from the `ggplot2` package (it's part of the `tidyverse` collection of packages)
+
+
+
+```{r }
+#| eval: false
+#| echo: true
+
+library(tidyverse)
+
+# scatterplot dep_delay vs. air_time
+my_data %>% 
+  ggplot() +
+  aes(x = air_time, y = dep_delay) +
+  geom_point()
+
+```
+
+
+- That's a lot of data (300K+ data points)
+- Lot's of overlap
+- Let's say I only care about those flights longer than 500 minutes...
+
+
+## Filtering then plotting
+
+```{r }
+#| eval: true
+#| echo: true
+#| fig.align: 'center'
+
+# scatterplot dep_delay vs. air_time (flights > 500 mins)
+my_data %>% 
+  filter(air_time > 500) %>% 
+  ggplot() +
+  aes(x = air_time, y = dep_delay) +
+  geom_point()
+
+```
+
+- Interesting data point with 1000+ mins delay. How many minutes exactly is it? How would I remove it?
+
+## More filtering
+
+```{r }
+#| eval: true
+#| echo: true
+#| fig.align: 'center'
+
+# scatterplot dep_delay vs. air_time (flights > 500 mins)
+my_data %>% 
+  filter(air_time > 500 & dep_delay < 1000) %>% 
+  ggplot() +
+  aes(x = air_time, y = dep_delay) +
+  geom_point()
+
+```
+
+- Still there is a lot of overlap. Let's deal with that.
+
+## Point transparency or type
+
+```{r }
+#| eval: false
+#| echo: true
+
+# Changing the transparency of the point (= alpha)
+my_data %>% 
+  filter(air_time > 500 & dep_delay < 1000) %>% 
+  ggplot() +
+  aes(x = air_time, y = dep_delay) +
+  geom_point(alpha = 0.5) # alpha argument changes transparency
+
+# Changing the type of point (= pch)
+my_data %>% 
+  filter(air_time > 500 & dep_delay < 1000) %>% 
+  ggplot() +
+  aes(x = air_time, y = dep_delay) +
+  geom_point(pch = 1) # pch argument changes point type (Google: "pch in r")
+
+```
+
+## A cleaner plot 
+
+```{r }
+#| eval: true
+#| echo: true
+#| fig.align: 'center'
+
+my_data %>% 
+  filter(air_time > 500 & dep_delay < 1000) %>% 
+  ggplot() +
+  aes(x = air_time, y = dep_delay) +
+  geom_point(alpha = 0.5, pch = 1) + 
+  labs(x = "Air time (mins)", y = "Departure delay (mins)")
+
+```
+
+## Support for Hypothesis?
+
+- No, not really. No evidence for longer flights being more delayed.
+- Is it worth doing statistics on this? 
+
+```{r }
+#| eval: true
+#| echo: false
+#| fig.align: 'center'
+
+my_data %>% 
+  filter(air_time > 500 & dep_delay < 1000) %>% 
+  ggplot() +
+  aes(x = air_time, y = dep_delay) +
+  geom_point(alpha = 0.5, pch = 1) + 
+  labs(x = "Air time (mins)", y = "Departure delay (mins)")
+
+```
+
+
+## One numerical, one categorical
+
+- H2: Airlines will have different departure delays.
+- What columns do I need? What the classes of these columns?
+- What would be suitable plots for these data?
+
+## Boxplot in R
+
+```{r }
+#| eval: true
+#| echo: true
+#| fig.align: 'center'
+
+my_data %>% 
+  ggplot() +
+  aes(x = carrier, 
+      y = dep_delay) +
+  geom_boxplot()
+
+```
+
+::: callout-tip
+## Task
+1. Filter only postive delays (i.e. remove early depatures)
+2. Create a new column which is the log of departure delay
+3. Change y-axis to the log of departure delay
+:::
+
+## Ordered boxplot in R
+
+- Using the `fct_reorder()` function
+
+```{r }
+#| eval: true
+#| echo: true
+#| fig.align: 'center'
+
+my_data %>% 
+  filter(dep_delay > 0) %>% 
+  mutate(log_dep_delay = log(dep_delay)) %>% 
+  mutate(carrier = fct_reorder(carrier, log_dep_delay)) %>% 
+  ggplot() +
+  aes(x = carrier, 
+      y = log_dep_delay) +
+  geom_boxplot()
+
+```
+
+
+## Violin plots
+
+- Try creating a violin plot instead (`geom_violin()`)
+- How does this differ from a boxplot?
+
+```{r }
+#| eval: true
+#| echo: false
+#| fig.align: 'center'
+
+my_data %>% 
+  filter(dep_delay > 0) %>%
+  mutate(log_dep_delay = log(dep_delay)) %>% 
+  mutate(carrier = fct_reorder(carrier, log_dep_delay)) %>% 
+  ggplot() +
+  aes(x = carrier, 
+      y = log_dep_delay) +
+  geom_violin()
+
+```
+
+## Barplots
+
+- For a barplot you might want the bar to represent the mean or median.
+- We therefore need to `summarise()` our data.
+- How do barplots differ from violin or boxplots?
+
+```{r }
+#| eval: true
+#| echo: false
+#| fig.align: 'center'
+
+my_data %>% 
+  filter(dep_delay > 0) %>%
+  mutate(log_dep_delay = log(dep_delay)) %>% 
+  mutate(carrier = fct_reorder(carrier, log_dep_delay)) %>% 
+  summarise(mean_log_dep_delay = mean(log_dep_delay, na.rm = TRUE), 
+            .by = carrier) %>% 
+  ggplot() +
+  aes(x = carrier, 
+      y = mean_log_dep_delay) +
+  geom_col()
+
+```
+
+## One numerical variable
+
+- I want to see how a single variable is distributed.
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{r }
+#| eval: true
+#| echo: true
+
+my_data %>% 
+  ggplot() +
+  aes(x = dep_delay) +
+  geom_density()
+```
+:::
+
+::: {.column width="50%"}
+```{r }
+#| eval: true
+#| echo: true
+
+my_data %>% 
+  ggplot() +
+  aes(x = dep_delay) +
+  geom_histogram(binwidth = 10)
+```
+:::
+
+::::
+
+
+# Your own hypothesis
+
+::: callout-tip
+## Task
+
+1. Look at the columns of the `flights` data and **think of a hypothesis**.
+2. **Identify the classes** of the data columns.
+3. **Sketch out** on paper (or paint, powerpoint) what plot would answer this question.
+4. Manipulate the data so that you **select** those relevant columns, **filter** the data, and **create a new column**. You can modify your hypothesis slightly to make sure it requires you to filter and mutate. (E.g. "I hypothesise that United Airlines flights..." instead of "I hypothesise that all flights...").
+5. **Visualise** your data. Does it provide any support for your hypothesis? (Is it worth statistical analysis?)
+6. **REPEAT!** But try to think of another hypothesis that includes different classes of variables (e.g. categorical or numerical)
+:::
