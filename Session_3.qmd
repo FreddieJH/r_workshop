@@ -359,3 +359,7 @@ my_data %>%
 5. **Visualise** your data. Does it provide any support for your hypothesis? (Is it worth statistical analysis?)
 6. **REPEAT!** But try to think of another hypothesis that includes different classes of variables (e.g. categorical or numerical)
 :::
+
+## Cheatsheet
+
+https://statsandr.com/blog/files/ggplot2-cheatsheet.pdf
