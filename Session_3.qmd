@@ -346,6 +346,50 @@ my_data %>%
 
 ::::
 
+## Extra - multiple plots
+
+- Sometime you want to split up plots by a factor
+
+```{r }
+#| eval: true
+#| echo: true
+#| fig.align: 'center'
+
+# scatterplot dep_delay vs. air_time (flights > 500 mins)
+my_data %>% 
+  filter(air_time > 500 & dep_delay < 1000) %>% 
+  ggplot() +
+  aes(x = air_time, y = dep_delay) +
+  geom_point() +
+  facet_wrap(~carrier)
+
+```
+
+## Extra - Error bars
+
+- Barplots need error bars 
+
+```{r }
+#| eval: true
+#| echo: true
+#| fig.align: 'center'
+
+
+my_data %>% 
+  filter(dep_delay > 0) %>%
+  mutate(log_dep_delay = log(dep_delay)) %>% 
+  mutate(carrier = fct_reorder(carrier, log_dep_delay)) %>% 
+  summarise(mean_log_dep_delay = mean(log_dep_delay, na.rm = TRUE), 
+            sd = sd(log_dep_delay, na.rm = TRUE), 
+            .by = carrier) %>% 
+  ggplot() +
+  aes(x = carrier, 
+      y = mean_log_dep_delay) +
+  geom_col() +
+  geom_errorbar(aes(ymin = mean_log_dep_delay-sd, 
+                    ymax = mean_log_dep_delay+sd), width = 0.5)
+```
+
 
 # Your own hypothesis
 

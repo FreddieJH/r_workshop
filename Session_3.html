@@ -770,7 +770,45 @@ Freddie Heather
 </div>
 </div>
 </div>
-</section></section>
+</section>
+<section id="extra---multiple-plots" class="slide level2">
+<h2>Extra - multiple plots</h2>
+<ul>
+<li>Sometime you want to split up plots by a factor</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># scatterplot dep_delay vs. air_time (flights &gt; 500 mins)</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>my_data <span class="sc">%&gt;%</span> </span>
+<span id="cb10-3"><a href="#cb10-3"></a>  <span class="fu">filter</span>(air_time <span class="sc">&gt;</span> <span class="dv">500</span> <span class="sc">&amp;</span> dep_delay <span class="sc">&lt;</span> <span class="dv">1000</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-4"><a href="#cb10-4"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a>  <span class="fu">aes</span>(<span class="at">x =</span> air_time, <span class="at">y =</span> dep_delay) <span class="sc">+</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>carrier)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="Session_3_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch quarto-figure-center"></section>
+<section id="extra---error-bars" class="slide level2">
+<h2>Extra - Error bars</h2>
+<ul>
+<li>Barplots need error bars</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>my_data <span class="sc">%&gt;%</span> </span>
+<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">filter</span>(dep_delay <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a>  <span class="fu">mutate</span>(<span class="at">log_dep_delay =</span> <span class="fu">log</span>(dep_delay)) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-4"><a href="#cb11-4"></a>  <span class="fu">mutate</span>(<span class="at">carrier =</span> <span class="fu">fct_reorder</span>(carrier, log_dep_delay)) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-5"><a href="#cb11-5"></a>  <span class="fu">summarise</span>(<span class="at">mean_log_dep_delay =</span> <span class="fu">mean</span>(log_dep_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb11-6"><a href="#cb11-6"></a>            <span class="at">sd =</span> <span class="fu">sd</span>(log_dep_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb11-7"><a href="#cb11-7"></a>            <span class="at">.by =</span> carrier) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-8"><a href="#cb11-8"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb11-9"><a href="#cb11-9"></a>  <span class="fu">aes</span>(<span class="at">x =</span> carrier, </span>
+<span id="cb11-10"><a href="#cb11-10"></a>      <span class="at">y =</span> mean_log_dep_delay) <span class="sc">+</span></span>
+<span id="cb11-11"><a href="#cb11-11"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb11-12"><a href="#cb11-12"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> mean_log_dep_delay<span class="sc">-</span>sd, </span>
+<span id="cb11-13"><a href="#cb11-13"></a>                    <span class="at">ymax =</span> mean_log_dep_delay<span class="sc">+</span>sd), <span class="at">width =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="Session_3_files/figure-revealjs/unnamed-chunk-15-1.png" width="960" class="r-stretch quarto-figure-center"></section></section>
 <section>
 <section id="your-own-hypothesis" class="title-slide slide level1 center">
 <h1>Your own hypothesis</h1>
