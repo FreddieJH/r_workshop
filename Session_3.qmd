@@ -362,4 +362,4 @@ my_data %>%
 
 ## Cheatsheet
 
-https://statsandr.com/blog/files/ggplot2-cheatsheet.pdf
+<https://statsandr.com/blog/files/ggplot2-cheatsheet.pdf>
