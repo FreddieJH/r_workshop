@@ -15,7 +15,7 @@ project:
 -   What is a script?
 -   Name five data manipulation functions from last week.
 -   What is the 'pipe'?
--   What does "\>=", and "!=", and how would you use them?
+-   What does "\>=", and "!=" do, and how would you use them?
 -   I want to create a new column in a tibble. What function would I use?
 -   I filter my data (e.g., age \>= 3), name three way to check if the filter has worked?
 -   What is the 'tidyverse'?
