@@ -7,9 +7,7 @@ project:
   output-dir: docs
 ---
 
-
-
-# Recap from session 1
+# Recap from session 2
 
 ## Recap questions
 
