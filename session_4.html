@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="session_2_files/libs/clipboard/clipboard.min.js"></script>
-<script src="session_2_files/libs/quarto-html/tabby.min.js"></script>
-<script src="session_2_files/libs/quarto-html/popper.min.js"></script>
-<script src="session_2_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="session_2_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="session_2_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="session_2_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="session_2_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="session_4_files/libs/clipboard/clipboard.min.js"></script>
+<script src="session_4_files/libs/quarto-html/tabby.min.js"></script>
+<script src="session_4_files/libs/quarto-html/popper.min.js"></script>
+<script src="session_4_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="session_4_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="session_4_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="session_4_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="session_4_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.226">
 
   <meta name="author" content="Freddie Heather">
-  <title>Getting started with R</title>
+  <title>Combining learned skills</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="session_2_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="session_2_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="session_4_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="session_4_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -95,11 +95,11 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="session_2_files/libs/revealjs/dist/theme/quarto.css">
-  <link href="session_2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="session_2_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="session_2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="session_2_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="session_4_files/libs/revealjs/dist/theme/quarto.css">
+  <link href="session_4_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="session_4_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="session_4_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="session_4_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -391,8 +391,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Getting started with R</h1>
-  <p class="subtitle">Session 2 of 4</p>
+  <h1 class="title">Combining learned skills</h1>
+  <p class="subtitle">Getting started with R (4/4)</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -404,33 +404,239 @@ Freddie Heather
 
 </section>
 <section>
-<section id="recap-from-session-1" class="title-slide slide level1 center">
-<h1>Recap from session 1</h1>
+<section id="recap-from-sessions-1-2-3" class="title-slide slide level1 center">
+<h1>Recap from sessions 1, 2, &amp; 3</h1>
 
 </section>
 <section id="recap-questions" class="slide level2">
 <h2>Recap questions</h2>
 <div>
 <ul>
-<li class="fragment">What is a vector?</li>
-<li class="fragment">What is an object?</li>
-<li class="fragment">What is an object class? - Name four classes</li>
-<li class="fragment">What is a function? - How do you identify them in code?</li>
-<li class="fragment">What does <code>&lt;-</code> mean?</li>
-<li class="fragment">What does <code>==</code> mean?</li>
-<li class="fragment">what is the preferred data type of data to import (e.g.&nbsp;from excel)?</li>
-<li class="fragment">What function is used to read in csv data?</li>
+<li class="fragment">How do I know if I am working in a project?</li>
+<li class="fragment">How would you import a CSV into R?</li>
+<li class="fragment">How would you check if the data is imported correctly?</li>
+<li class="fragment">How would you visualise your data? dbl-dbl, dbl-chr, dbl.</li>
+<li class="fragment">I want to remove rows. How?</li>
+<li class="fragment">I want to add a new column? e.g.&nbsp;log_x = log(x). How?</li>
+<li class="fragment">I want to calculate the mean for each level of a factor. How?</li>
+<li class="fragment">What goes inside the <code>aes()</code> function in <code>ggplot()</code>?</li>
 </ul>
 </div>
 </section>
-<section id="session-2" class="slide level2">
-<h2>Session 2</h2>
-<ul>
-<li>Data import</li>
-<li>Data checking</li>
+<section id="today-session-4" class="slide level2">
+<h2>Today: Session 4</h2>
+<ol type="1">
+<li>Import a csv (finally!)</li>
+<li>Data checks</li>
+<li>Initial data clean</li>
+<li>Data visualisation</li>
 <li>Data manipulation</li>
-<li>Data cleaning</li>
+<li>Repeat steps 4 &amp; 5 (when you would begin stats)</li>
+</ol>
+</section></section>
+<section>
+<section id="run-through-all-steps" class="title-slide slide level1 center">
+<h1>Run through all steps</h1>
+
+</section>
+<section id="hypothesis" class="slide level2">
+<h2>Hypothesis</h2>
+<ul>
+<li>Your data? You probably have a hypothesis in mind</li>
+<li>New data? Import, and check data first, then think of a hypothesis</li>
 </ul>
+</section>
+<section id="r-scipt-preamble" class="slide level2">
+<h2>R Scipt preamble</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># Freddie Heather</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="co"># R workshop session 4/4 (20-03-24)</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="co"># Bringing together everything we've learned so far</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="co"># packages</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data-import" class="slide level2">
+<h2>Data import</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># imports a csv file and outputs a tibble</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="co"># saves tibble into an object called "raw_dat"</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>raw_dat <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"analysis1.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data-checking" class="slide level2">
+<h2>Data checking</h2>
+<ul>
+<li>Until now we have been using clean and tidy data</li>
+<li>Normally, the excel file will have mistakes, we’re only human. If I add white-space after a number in excel, the entire column will be a chr</li>
+<li>Data checking is a very important step when using real data (esp.&nbsp;ecological data)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>raw_dat <span class="co"># how many cols? rows?</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="fu">glimpse</span>(raw_dat) <span class="co"># checking the col classes (e.g. abundance is int, not chr)</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="fu">head</span>(raw_dat)</span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="fu">View</span>(raw_dat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="initial-clean" class="slide level2">
+<h2>Initial clean</h2>
+<ul>
+<li>Avoid removing cols or rows in the initial clean</li>
+<li>Convert data type <code>as.numeric()</code>, <code>as.character()</code>, <code>as.factor()</code> (look out for errors when converting)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>clean_dat <span class="ot">&lt;-</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>  raw_dat <span class="sc">%&gt;%</span> </span>
+<span id="cb4-3"><a href="#cb4-3"></a>  <span class="fu">rename</span>(<span class="at">new_colname =</span> old_colname) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-4"><a href="#cb4-4"></a>  <span class="fu">mutate</span>(<span class="at">abundance =</span> <span class="fu">as.numeric</span>(abundance))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data-visualisation-one-var" class="slide level2">
+<h2>Data visualisation (one var)</h2>
+<ul>
+<li>Quick look at single variables</li>
+<li>Play around with the variables, visualise as much as you can, this is also where you pick up errors</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># abundance is numeric</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>clean_dat <span class="sc">%&gt;%</span> </span>
+<span id="cb5-3"><a href="#cb5-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a>  <span class="fu">aes</span>(<span class="at">x =</span> abundance) <span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb5-6"><a href="#cb5-6"></a></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="co"># What about log abundance?</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a>clean_dat <span class="sc">%&gt;%</span> </span>
+<span id="cb5-9"><a href="#cb5-9"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a>  <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">log1p</span>(abundance)) <span class="sc">+</span> <span class="co"># log1p(x) is log(x+1)</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data-visualisation-two-vars" class="slide level2">
+<h2>Data visualisation (two vars)</h2>
+<ul>
+<li>Quick look at correlations</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># abundance is numeric</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="co"># sex is categorical</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>clean_dat <span class="sc">%&gt;%</span> </span>
+<span id="cb6-4"><a href="#cb6-4"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>  <span class="fu">aes</span>(<span class="at">x =</span> sex, </span>
+<span id="cb6-6"><a href="#cb6-6"></a>      <span class="at">y =</span> abundance) <span class="sc">+</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a>  <span class="fu">geom_violin</span>()</span>
+<span id="cb6-8"><a href="#cb6-8"></a></span>
+<span id="cb6-9"><a href="#cb6-9"></a><span class="co"># abundance is numeric</span></span>
+<span id="cb6-10"><a href="#cb6-10"></a><span class="co"># sea surface temperature (SST) is numeric</span></span>
+<span id="cb6-11"><a href="#cb6-11"></a>clean_dat <span class="sc">%&gt;%</span> </span>
+<span id="cb6-12"><a href="#cb6-12"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb6-13"><a href="#cb6-13"></a>  <span class="fu">aes</span>(<span class="at">x =</span> sst, </span>
+<span id="cb6-14"><a href="#cb6-14"></a>      <span class="at">y =</span> abundance) <span class="sc">+</span></span>
+<span id="cb6-15"><a href="#cb6-15"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data-manipulation" class="slide level2">
+<h2>Data manipulation</h2>
+<ul>
+<li>During the initial visualisation I noticed:</li>
+<li>Abundance is very heavily skewed (I want to transform the data)</li>
+<li>I found some outliers (I want to removed them)</li>
+<li><code>%in%</code> is like <code>==</code> but for multiple comparisons</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>plot_dat <span class="ot">&lt;-</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>  clean_dat <span class="sc">%&gt;%</span> </span>
+<span id="cb7-3"><a href="#cb7-3"></a>  <span class="fu">filter</span>(sex <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"m"</span>, <span class="st">"f"</span>, <span class="st">"juv"</span>)) <span class="sc">%&gt;%</span> <span class="co"># found an extra var "g" </span></span>
+<span id="cb7-4"><a href="#cb7-4"></a>  <span class="fu">filter</span>(abundance <span class="sc">!=</span> <span class="dv">93845</span>) <span class="sc">%&gt;%</span> <span class="co"># outlier removed</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a>  <span class="fu">mutate</span>(<span class="at">log1p_abun =</span> <span class="fu">log</span>(abun)) <span class="co"># transformation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="data-visualisation-again" class="slide level2">
+<h2>Data visualisation (again)</h2>
+<ul>
+<li>Now i’ve modified the data</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># log1p_abun is new col I created </span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>plot_dat <span class="sc">%&gt;%</span> </span>
+<span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a>  <span class="fu">aes</span>(<span class="at">x =</span> sst, </span>
+<span id="cb8-5"><a href="#cb8-5"></a>      <span class="at">y =</span> log1p_abun) <span class="sc">+</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="extra-functionsarguments" class="slide level2">
+<h2>Extra functions/arguments</h2>
+<ul>
+<li><code>case_when()</code> is similar to an <code>ifelse()</code> statement (but more intuitive)</li>
+<li>Maybe you figured out “g” should have been “f” (typo)</li>
+<li>You might go back to where you make <code>plot_dat</code> and remove the row where you filtered out <code>sex == "g"</code></li>
+<li>Now you can modify the <code>sex</code> col to changes cases where <code>sex=="g"</code> to <code>sex=="f"</code></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>plot_dat <span class="sc">%&gt;%</span> </span>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">case_when</span>(sex <span class="sc">==</span> <span class="st">"g"</span> <span class="sc">~</span> <span class="st">"f"</span>, </span>
+<span id="cb9-3"><a href="#cb9-3"></a>                         <span class="cn">TRUE</span> <span class="sc">~</span> sex)) <span class="sc">%&gt;%</span> <span class="co"># maybe you figured out "g" should have been "f"</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a>  <span class="fu">aes</span>(<span class="at">x =</span> sst, </span>
+<span id="cb9-6"><a href="#cb9-6"></a>      <span class="at">y =</span> log1p_abun) <span class="sc">+</span></span>
+<span id="cb9-7"><a href="#cb9-7"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> <span class="co"># transparency because of overlap</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a>  <span class="fu">stat_smooth</span>(<span class="at">se =</span> <span class="cn">TRUE</span>)  <span class="sc">+</span> <span class="co"># adds a generic smooth to the plot (with  or w/o error)</span></span>
+<span id="cb9-9"><a href="#cb9-9"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>site) <span class="co"># I want to look at the each site separately</span></span>
+<span id="cb9-10"><a href="#cb9-10"></a></span>
+<span id="cb9-11"><a href="#cb9-11"></a><span class="co"># stat_smooth(method = "lm") to make linear line</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="what-next" class="slide level2">
+<h2>What next?</h2>
+<ul>
+<li>Are you happy with the plot_dat or are there more changes you want to make (e.g.&nbsp;you found more true-outliers, or you want to do more transformations)</li>
+<li>If happy this is where you might begin statistical analyses</li>
+</ul>
+</section></section>
+<section>
+<section id="your-turn" class="title-slide slide level1 center">
+<h1>Your turn</h1>
+
+</section>
+<section id="function-cheatsheet" class="slide level2">
+<h2>Function cheatsheet</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># Packages ----------------------------------------------------------------</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a><span class="fu">library</span>(tidyverse) <span class="co"># where the functions are stored</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="co"># if package does not exist: `install.packages()` first then, `library()`</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="co"># Data import -------------------------------------------------------------</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="fu">read_csv</span>() <span class="co"># import data in csv format</span></span>
+<span id="cb10-7"><a href="#cb10-7"></a></span>
+<span id="cb10-8"><a href="#cb10-8"></a><span class="co"># Data checking -----------------------------------------------------------</span></span>
+<span id="cb10-9"><a href="#cb10-9"></a><span class="fu">head</span>() <span class="co"># first six rows</span></span>
+<span id="cb10-10"><a href="#cb10-10"></a><span class="fu">View</span>() <span class="co"># view tibble in new window</span></span>
+<span id="cb10-11"><a href="#cb10-11"></a><span class="fu">glimpse</span>() <span class="co"># view structure of data</span></span>
+<span id="cb10-12"><a href="#cb10-12"></a></span>
+<span id="cb10-13"><a href="#cb10-13"></a><span class="co"># Data manipulation -------------------------------------------------------</span></span>
+<span id="cb10-14"><a href="#cb10-14"></a><span class="fu">filter</span>() <span class="co"># subsetting the data (e.g., order == "Aves")</span></span>
+<span id="cb10-15"><a href="#cb10-15"></a><span class="fu">select</span>()  <span class="co"># Selecting a single or multiple columns</span></span>
+<span id="cb10-16"><a href="#cb10-16"></a><span class="fu">mutate</span>() <span class="co"># Creating a new column</span></span>
+<span id="cb10-17"><a href="#cb10-17"></a><span class="fu">rename</span>() <span class="co"># Renaming a column</span></span>
+<span id="cb10-18"><a href="#cb10-18"></a><span class="fu">summarise</span>() <span class="co"># Summarising a dataset </span></span>
+<span id="cb10-19"><a href="#cb10-19"></a></span>
+<span id="cb10-20"><a href="#cb10-20"></a><span class="fu">arrange</span>() <span class="co"># Ordering a column (E.g., sort by smallest arrival time)</span></span>
+<span id="cb10-21"><a href="#cb10-21"></a><span class="fu">arrange</span>(<span class="fu">desc</span>()) <span class="co"># ... or by largest arrival time</span></span>
+<span id="cb10-22"><a href="#cb10-22"></a><span class="fu">distinct</span>() <span class="co"># give me only the unique rows (no repeats)</span></span>
+<span id="cb10-23"><a href="#cb10-23"></a><span class="fu">pull</span>() <span class="co"># pull out a column and make it a vector</span></span>
+<span id="cb10-24"><a href="#cb10-24"></a><span class="fu">count</span>() <span class="co"># count the number of rows</span></span>
+<span id="cb10-25"><a href="#cb10-25"></a></span>
+<span id="cb10-26"><a href="#cb10-26"></a><span class="co"># Data visualisation ------------------------------------------------------</span></span>
+<span id="cb10-27"><a href="#cb10-27"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb10-28"><a href="#cb10-28"></a>  <span class="fu">aes</span>(<span class="at">x =</span> col1, </span>
+<span id="cb10-29"><a href="#cb10-29"></a>      <span class="at">y =</span> col2, </span>
+<span id="cb10-30"><a href="#cb10-30"></a>      <span class="at">colour =</span> col3) <span class="sc">+</span></span>
+<span id="cb10-31"><a href="#cb10-31"></a>  <span class="fu">geom_point</span>() <span class="co"># or geom_violin() or geom_boxplot() or geom_XXXX()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="your-own-hypothesis-data" class="slide level2">
+<h2>Your own hypothesis (&amp; data?)</h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -441,407 +647,24 @@ Freddie Heather
 </div>
 <div class="callout-content">
 <ol type="1">
-<li>Start a new R project, or open the project from last week.</li>
-<li>Create a new script and call it <code>session2</code> or <code>day2</code>, something informative to you.</li>
-<li>Comment your name, date, and a title at the top of the script.</li>
-</ol>
-</div>
-</div>
-</div>
-</section></section>
-<section>
-<section id="data-import" class="title-slide slide level1 center">
-<h1>Data Import</h1>
-
-</section>
-<section id="data-import-csv" class="slide level2">
-<h2>Data import (csv)</h2>
-<ul>
-<li>99% of the time you will import your data from a local source (e.g.&nbsp;from an excel file)</li>
-</ul>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Task</strong></p>
-</div>
-<div class="callout-content">
-<p>Use read_csv() from the readr package to load <code>example_data.csv</code></p>
-</div>
-</div>
-</div>
-</section>
-<section id="download-data-from-package" class="slide level2">
-<h2>Download data from package</h2>
-<ul>
-<li>For example purposes, we will download data from the <code>nycflights13</code> package</li>
-</ul>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Task</strong></p>
-</div>
-<div class="callout-content">
-<p>Install and load the <code>nycflights13</code> package</p>
-</div>
-</div>
-</div>
-</section>
-<section id="download-data-from-a-package" class="slide level2">
-<h2>Download data from a package</h2>
-<ul>
-<li>For example purposes, we will download data from the <code>nycflights13</code> package</li>
-<li><em>Hidden</em> in this package there is an object called <code>flights</code></li>
-</ul>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Task</strong></p>
-</div>
-<div class="callout-content">
-<ol type="1">
-<li>Install and load the <code>nycflights13</code> package</li>
-<li>Create a new object and assign <code>flights</code> to this new object (call the object what ever you want to)</li>
-</ol>
-</div>
-</div>
-</div>
-<p>“The hardest thing about programming is what to name variables”</p>
-</section></section>
-<section>
-<section id="data-checking" class="title-slide slide level1 center">
-<h1>Data checking</h1>
-
-</section>
-<section id="functions-to-look-at-your-data" class="slide level2">
-<h2>Functions to look at your data</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># contains very useful functions</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a></span>
-<span id="cb1-3"><a href="#cb1-3"></a>my_data </span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">print</span>(my_data) <span class="co"># prints the data to the screen</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="fu">head</span>(my_data)</span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="fu">glimpse</span>(my_data)</span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="fu">tail</span>(my_data)</span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="fu">View</span>(my_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Task</strong></p>
-</div>
-<div class="callout-content">
-<ul>
-<li>Run the above functions. What do they do?</li>
-<li>How many columns in the dataset?</li>
-<li>How many rows in the dataset?</li>
-<li>What is the class of the first column?</li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<section id="the-pipe-operator" class="slide level2">
-<h2>The pipe operator <code>%&gt;%</code></h2>
-<ul>
-<li>Say I have three fictional functions; <code>import()</code>, <code>clean()</code>, and <code>visualise()</code> and I want to apply them to some dataset <code>x</code>.</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># it's hard to read</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>output <span class="ot">&lt;-</span> <span class="fu">visualise</span>(<span class="fu">clean</span>(<span class="fu">import</span>(x)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<ul>
-<li>Using the pipe operator</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># easier to read! (does exactly the same)</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a>output <span class="ot">&lt;-</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a>  x <span class="sc">%&gt;%</span> </span>
-<span id="cb3-4"><a href="#cb3-4"></a>  <span class="fu">import</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb3-5"><a href="#cb3-5"></a>  <span class="fu">clean</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb3-6"><a href="#cb3-6"></a>  <span class="fu">visualise</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section></section>
-<section>
-<section id="data-manipululation" class="title-slide slide level1 center">
-<h1>Data manipululation</h1>
-
-</section>
-<section id="filtering-your-data" class="slide level2">
-<h2>Filtering your data</h2>
-<ul>
-<li>Say that I only care about United Airlines flights (i.e.&nbsp;the carrier is UA)</li>
-</ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Only United Airlines flights</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a>my_data <span class="sc">%&gt;%</span> </span>
-<span id="cb4-3"><a href="#cb4-3"></a>  <span class="fu">filter</span>(carrier <span class="sc">==</span> <span class="st">"UA"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Task</strong></p>
-</div>
-<div class="callout-content">
-<p>Create a new object called <code>alaska_flights</code> which is only the Alaska Airways (carrier is AS) flights.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="being-more-specific-in-your-selection" class="slide level2">
-<h2>Being more specific in your selection</h2>
-<p>You can use other operators beyond just the <code>==</code> operator that tests for equality:</p>
-<ul>
-<li><code>&gt;</code> means “greater than”</li>
-<li><code>&lt;</code> means “less than”</li>
-<li><code>&gt;=</code> means “greater than or equal to”</li>
-<li><code>&lt;=</code> means “less than or equal to”</li>
-<li><code>!=</code> means “not equal to.”</li>
-<li><code>&amp;</code> means “and”</li>
-<li><code>|</code> means “or”</li>
-</ul>
-</section>
-<section id="being-more-specific-in-your-selection-1" class="slide level2">
-<h2>Being more specific in your selection</h2>
-<ul>
-<li>Using <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>!=</code>, <code>&amp;</code>, <code>|</code></li>
-</ul>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Task</strong></p>
-</div>
-<div class="callout-content">
-<ol type="1">
-<li>Select flights from either AS or UA.</li>
-<li>Select flights with delays (dep_delay is more than zero).</li>
-<li>How many flights arrived early?</li>
-<li>Select flights between 1000 and 2000 miles.</li>
+<li>Working inside a project (new or existing)</li>
+<li>Create new script and save (check to see if XXXX.R is in your directory)</li>
+<li>Read in csv (your own or example_data.csv)</li>
+<li>Check import of data</li>
+<li>Think of hypothesis (if not done already)</li>
+<li>Visualise data (initial)</li>
+<li>Manipulate data</li>
+<li>Visualise again</li>
+<li>Any qualitative support for hypothesis?</li>
+<li>Statistics begin (another day)</li>
 </ol>
 </div>
 </div>
 </div>
 </section>
-<section id="data-manipulation-functions" class="slide level2">
-<h2>Data manipulation functions</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># where the functions are stored</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="fu">filter</span>() <span class="co"># subsetting the data (e.g., order == "Aves")</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="fu">select</span>()  <span class="co"># Selecting a single or multiple columns</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="fu">mutate</span>() <span class="co"># Creating a new column</span></span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="fu">rename</span>() <span class="co"># Renaming a column</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a><span class="fu">summarise</span>() <span class="co"># Summarising a dataset </span></span>
-<span id="cb5-8"><a href="#cb5-8"></a></span>
-<span id="cb5-9"><a href="#cb5-9"></a><span class="fu">arrange</span>() <span class="co"># Ordering a column (E.g., sort by smallest arrival time)</span></span>
-<span id="cb5-10"><a href="#cb5-10"></a><span class="fu">arrange</span>(<span class="fu">desc</span>()) <span class="co"># ... or by largest arrival time</span></span>
-<span id="cb5-11"><a href="#cb5-11"></a><span class="fu">distinct</span>() <span class="co"># give me only the unique rows (no repeats)</span></span>
-<span id="cb5-12"><a href="#cb5-12"></a><span class="fu">pull</span>() <span class="co"># pull out a column and make it a vector</span></span>
-<span id="cb5-13"><a href="#cb5-13"></a><span class="fu">count</span>() <span class="co"># count the number of rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="select" class="slide level2">
-<h2><code>select()</code></h2>
-<h3 id="selecting-a-single-or-multiple-columns">Selecting a single or multiple columns</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>my_data <span class="sc">%&gt;%</span> </span>
-<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">select</span>(year, month, day, carrier, origin, dep_delay)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Task</strong></p>
-</div>
-<div class="callout-content">
-<p>Create a new object called <code>slim_data</code> which has the columns flight, carrier, distance and origin</p>
-</div>
-</div>
-</div>
-</section>
-<section id="mutate" class="slide level2">
-<h2><code>mutate()</code></h2>
-<h3 id="creating-a-new-column">Creating a new column</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>my_data <span class="sc">%&gt;%</span> </span>
-<span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">mutate</span>(<span class="at">dep_delay_secs =</span> dep_delay<span class="sc">*</span><span class="dv">60</span>)</span>
-<span id="cb7-3"><a href="#cb7-3"></a></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="co"># combining the two</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a>my_data <span class="sc">%&gt;%</span> </span>
-<span id="cb7-6"><a href="#cb7-6"></a>  <span class="fu">select</span>(year, month, day, carrier, origin, dep_delay) <span class="sc">%&gt;%</span> </span>
-<span id="cb7-7"><a href="#cb7-7"></a>  <span class="fu">mutate</span>(<span class="at">dep_delay_secs =</span> dep_delay<span class="sc">*</span><span class="dv">60</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Task</strong></p>
-</div>
-<div class="callout-content">
-<p>Create a new object called <code>jan_flights</code> which has a new column called <code>arr_delay_secs</code> which is the arrival delay, but in seconds instead of minutes.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="rename" class="slide level2">
-<h2><code>rename()</code></h2>
-<h3 id="rename-an-existing-column">Rename an existing column</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>my_data <span class="sc">%&gt;%</span> </span>
-<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">select</span>(year, month, day, carrier, origin, dep_delay) <span class="sc">%&gt;%</span> </span>
-<span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">mutate</span>(<span class="at">dep_delay_secs =</span> dep_delay<span class="sc">*</span><span class="dv">60</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb8-4"><a href="#cb8-4"></a>  <span class="fu">rename</span>(<span class="at">airline =</span> carrier) <span class="co"># airline is easier to understand</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Task</strong></p>
-</div>
-<div class="callout-content">
-<p>Rename the <code>dep_delay</code> column to something a bit more informative, maybe <code>departure_delay_mins</code> or something of your own.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="summarise" class="slide level2">
-<h2><code>summarise()</code></h2>
-<h3 id="rename-an-existing-column-1">Rename an existing column</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>my_data <span class="sc">%&gt;%</span> </span>
-<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">select</span>(year, month, day, carrier, origin, dep_delay) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-3"><a href="#cb9-3"></a>  <span class="fu">mutate</span>(<span class="at">dep_delay_secs =</span> dep_delay<span class="sc">*</span><span class="dv">60</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-4"><a href="#cb9-4"></a>  <span class="fu">rename</span>(<span class="at">airline =</span> carrier) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-5"><a href="#cb9-5"></a>  <span class="fu">summarise</span>(<span class="at">median_delay =</span> <span class="fu">median</span>(dep_delay_secs, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Task</strong></p>
-</div>
-<div class="callout-content">
-<p>What is the mean delay time in minutes? What happens if you don’t include <code>na.rm=TRUE</code> in your code? Why?</p>
-</div>
-</div>
-</div>
-</section>
-<section id="the-.by-argument" class="slide level2">
-<h2>The <code>.by</code> argument</h2>
-<h3 id="group-by-a-factor-for-analysis">Group by a factor for analysis</h3>
-<p>You may see this written as <code>group_by()</code>, its the same</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># I want the mean delay for each month</span></span>
-<span id="cb10-2"><a href="#cb10-2"></a>my_data <span class="sc">%&gt;%</span> </span>
-<span id="cb10-3"><a href="#cb10-3"></a>  <span class="fu">summarise</span>(<span class="at">mean_delay =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm=</span><span class="cn">TRUE</span>), </span>
-<span id="cb10-4"><a href="#cb10-4"></a>            <span class="at">.by =</span> month)</span>
-<span id="cb10-5"><a href="#cb10-5"></a></span>
-<span id="cb10-6"><a href="#cb10-6"></a><span class="co"># is the same as this</span></span>
-<span id="cb10-7"><a href="#cb10-7"></a>my_data <span class="sc">%&gt;%</span> </span>
-<span id="cb10-8"><a href="#cb10-8"></a>  <span class="fu">group_by</span>(month) <span class="sc">%&gt;%</span> </span>
-<span id="cb10-9"><a href="#cb10-9"></a>  <span class="fu">summarise</span>(<span class="at">mean_delay =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm=</span><span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb10-10"><a href="#cb10-10"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Task</strong></p>
-</div>
-<div class="callout-content">
-<p>Which airline should I avoid if I want to be on time? Which airline should I select? (Assuming all airlines go to where you want to.)</p>
-</div>
-</div>
-</div>
-</section>
-<section id="arrange" class="slide level2">
-<h2><code>arrange()</code></h2>
-<h3 id="sorting-a-column-alphabetically-or-numerically">Sorting a column (alphabetically or numerically)</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>my_data <span class="sc">%&gt;%</span> </span>
-<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">select</span>(year, month, day, carrier, origin, dep_delay) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-3"><a href="#cb11-3"></a>  <span class="fu">mutate</span>(<span class="at">dep_delay_secs =</span> dep_delay<span class="sc">*</span><span class="dv">60</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-4"><a href="#cb11-4"></a>  <span class="fu">rename</span>(<span class="at">airline =</span> carrier) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-5"><a href="#cb11-5"></a>  <span class="fu">arrange</span>(dep_delay)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Task</strong></p>
-</div>
-<div class="callout-content">
-<p>Order the dataframe so the months are descending (December to Jan)</p>
-</div>
-</div>
-</div>
-</section>
-<section id="count" class="slide level2">
-<h2><code>count()</code></h2>
-<h3 id="counting-the-number-of-occurrences">Counting the number of occurrences</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>my_data <span class="sc">%&gt;%</span> </span>
-<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">count</span>(carrier)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Task</strong></p>
-</div>
-<div class="callout-content">
-<p>Which month had the most flights from the UA carrier?</p>
-</div>
-</div>
-</div>
-</section>
-<section id="extra" class="slide level2">
-<h2>Extra</h2>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Task</strong></p>
-</div>
-<div class="callout-content">
-<p>Using the Example dataset, for Chordates, get the mean abundance of individuals (rename ‘total’ to abundance), within each taxonomic family and within each size_class.</p>
-</div>
-</div>
-</div>
+<section id="yay" class="slide level2">
+<h2>Yay! 🎉🎉🎉</h2>
+<p>From raw data, to cleaning, manipulating, and visualising in R</p>
 <div class="footer footer-default">
 
 </div>
@@ -850,19 +673,19 @@ Freddie Heather
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="session_2_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="session_4_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="session_2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="session_2_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="session_2_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="session_2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="session_2_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="session_4_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="session_4_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="session_4_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="session_4_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="session_4_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="session_2_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="session_2_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="session_2_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="session_2_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="session_4_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="session_4_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="session_4_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="session_4_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>

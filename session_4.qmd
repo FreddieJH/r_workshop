@@ -1,0 +1,278 @@
+---
+title: "Combining learned skills"
+subtitle: "Getting started with R (4/4)"
+author: "Freddie Heather"
+format: revealjs
+project:
+  output-dir: docs
+---
+
+# Recap from sessions 1, 2, & 3
+
+## Recap questions
+
+::: incremental
+-   How do I know if I am working in a project?
+-   How would you import a CSV into R?
+-   How would you check if the data is imported correctly?
+-   How would you visualise your data? dbl-dbl, dbl-chr, dbl.
+-   I want to remove rows. How?
+-   I want to add a new column? e.g. log_x = log(x). How?
+-   I want to calculate the mean for each level of a factor. How?
+-   What goes inside the `aes()` function in `ggplot()`?
+:::
+
+## Today: Session 4
+
+1.  Import a csv (finally!)
+2.  Data checks
+3.  Initial data clean
+4.  Data visualisation
+5.  Data manipulation
+6.  Repeat steps 4 & 5 (when you would begin stats)
+
+# Run through all steps
+
+## Hypothesis
+
+-   Your data? You probably have a hypothesis in mind
+-   New data? Import, and check data first, then think of a hypothesis
+
+## R Scipt preamble
+
+```{r }
+#| eval: true
+#| echo: true
+
+# Freddie Heather
+# R workshop session 4/4 (20-03-24)
+# Bringing together everything we've learned so far
+
+# packages
+library(tidyverse)
+
+```
+
+## Data import
+
+```{r }
+#| eval: false
+#| echo: true
+
+# imports a csv file and outputs a tibble
+# saves tibble into an object called "raw_dat"
+raw_dat <- read_csv("analysis1.csv")
+
+```
+
+## Data checking
+
+-   Until now we have been using clean and tidy data
+-   Normally, the excel file will have mistakes, we're only human. If I add white-space after a number in excel, the entire column will be a chr
+-   Data checking is a very important step when using real data (esp. ecological data)
+
+```{r }
+#| eval: false
+#| echo: true
+
+raw_dat # how many cols? rows?
+glimpse(raw_dat) # checking the col classes (e.g. abundance is int, not chr)
+head(raw_dat)
+View(raw_dat)
+
+```
+
+## Initial clean
+
+-   Avoid removing cols or rows in the initial clean
+-   Convert data type `as.numeric()`, `as.character()`, `as.factor()` (look out for errors when converting)
+
+```{r }
+#| eval: false
+#| echo: true
+
+clean_dat <-
+  raw_dat %>% 
+  rename(new_colname = old_colname) %>% 
+  mutate(abundance = as.numeric(abundance))
+
+```
+
+## Data visualisation (one var)
+
+-   Quick look at single variables
+-   Play around with the variables, visualise as much as you can, this is also where you pick up errors
+
+```{r }
+#| eval: false
+#| echo: true
+
+# abundance is numeric
+clean_dat %>% 
+  ggplot() +
+  aes(x = abundance) +
+  geom_point()
+
+# What about log abundance?
+clean_dat %>% 
+  ggplot() +
+  aes(x = log1p(abundance)) + # log1p(x) is log(x+1)
+  geom_point()
+
+```
+
+## Data visualisation (two vars)
+
+-   Quick look at correlations
+
+```{r }
+#| eval: false
+#| echo: true
+
+# abundance is numeric
+# sex is categorical
+clean_dat %>% 
+  ggplot() +
+  aes(x = sex, 
+      y = abundance) +
+  geom_violin()
+
+# abundance is numeric
+# sea surface temperature (SST) is numeric
+clean_dat %>% 
+  ggplot() +
+  aes(x = sst, 
+      y = abundance) +
+  geom_point()
+
+```
+
+## Data manipulation
+
+-   During the initial visualisation I noticed:
+-   Abundance is very heavily skewed (I want to transform the data)
+-   I found some outliers (I want to removed them)
+-   `%in%` is like `==` but for multiple comparisons
+
+```{r }
+#| eval: false
+#| echo: true
+
+plot_dat <-
+  clean_dat %>% 
+  filter(sex %in% c("m", "f", "juv")) %>% # found an extra var "g" 
+  filter(abundance != 93845) %>% # outlier removed
+  mutate(log1p_abun = log(abun)) # transformation
+  
+```
+
+## Data visualisation (again)
+
+-   Now i've modified the data
+
+```{r }
+#| eval: false
+#| echo: true
+
+# log1p_abun is new col I created 
+plot_dat %>% 
+  ggplot() +
+  aes(x = sst, 
+      y = log1p_abun) +
+  geom_point()
+  
+```
+
+## Extra functions/arguments
+
+-   `case_when()` is similar to an `ifelse()` statement (but more intuitive)
+-   Maybe you figured out "g" should have been "f" (typo)
+-   You might go back to where you make `plot_dat` and remove the row where you filtered out `sex == "g"`
+-   Now you can modify the `sex` col to changes cases where `sex=="g"` to `sex=="f"`
+
+```{r }
+#| eval: false
+#| echo: true
+
+plot_dat %>% 
+  mutate(sex = case_when(sex == "g" ~ "f", 
+                         TRUE ~ sex)) %>% # maybe you figured out "g" should have been "f"
+  ggplot() +
+  aes(x = sst, 
+      y = log1p_abun) +
+  geom_point(alpha = 0.5) + # transparency because of overlap
+  stat_smooth(se = TRUE)  + # adds a generic smooth to the plot (with  or w/o error)
+  facet_wrap(~site) # I want to look at the each site separately
+
+# stat_smooth(method = "lm") to make linear line
+
+```
+
+## What next?
+
+-   Are you happy with the plot_dat or are there more changes you want to make (e.g. you found more true-outliers, or you want to do more transformations)
+-   If happy this is where you might begin statistical analyses
+
+# Your turn
+
+## Function cheatsheet
+
+```{r }
+#| eval: false
+#| echo: true
+
+# Packages ----------------------------------------------------------------
+library(tidyverse) # where the functions are stored
+# if package does not exist: `install.packages()` first then, `library()`
+
+# Data import -------------------------------------------------------------
+read_csv() # import data in csv format
+
+# Data checking -----------------------------------------------------------
+head() # first six rows
+View() # view tibble in new window
+glimpse() # view structure of data
+
+# Data manipulation -------------------------------------------------------
+filter() # subsetting the data (e.g., order == "Aves")
+select()  # Selecting a single or multiple columns
+mutate() # Creating a new column
+rename() # Renaming a column
+summarise() # Summarising a dataset 
+
+arrange() # Ordering a column (E.g., sort by smallest arrival time)
+arrange(desc()) # ... or by largest arrival time
+distinct() # give me only the unique rows (no repeats)
+pull() # pull out a column and make it a vector
+count() # count the number of rows
+
+# Data visualisation ------------------------------------------------------
+ggplot() +
+  aes(x = col1, 
+      y = col2, 
+      colour = col3) +
+  geom_point() # or geom_violin() or geom_boxplot() or geom_XXXX()
+
+```
+
+## Your own hypothesis (& data?)
+
+::: callout-tip
+## Task
+
+1.  Working inside a project (new or existing)
+2.  Create new script and save (check to see if XXXX.R is in your directory)
+3.  Read in csv (your own or example_data.csv)
+4.  Check import of data
+5.  Think of hypothesis (if not done already)
+6.  Visualise data (initial)
+7.  Manipulate data
+8.  Visualise again
+9.  Any qualitative support for hypothesis?
+10. Statistics begin (another day)
+:::
+
+## Yay! 🎉🎉🎉
+
+
+From raw data, to cleaning, manipulating, and visualising in R

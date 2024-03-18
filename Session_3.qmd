@@ -243,7 +243,7 @@ my_data %>%
 
 ::: callout-tip
 ## Task
-1. Filter only postive delays (i.e. remove early depatures)
+1. Filter only positive delays (i.e. remove early departures)
 2. Create a new column which is the log of departure delay
 3. Change y-axis to the log of departure delay
 :::
@@ -390,19 +390,6 @@ my_data %>%
                     ymax = mean_log_dep_delay+sd), width = 0.5)
 ```
 
-
-# Your own hypothesis
-
-::: callout-tip
-## Task
-
-1. Look at the columns of the `flights` data and **think of a hypothesis**.
-2. **Identify the classes** of the data columns.
-3. **Sketch out** on paper (or paint, powerpoint) what plot would answer this question.
-4. Manipulate the data so that you **select** those relevant columns, **filter** the data, and **create a new column**. You can modify your hypothesis slightly to make sure it requires you to filter and mutate. (E.g. "I hypothesise that United Airlines flights..." instead of "I hypothesise that all flights...").
-5. **Visualise** your data. Does it provide any support for your hypothesis? (Is it worth statistical analysis?)
-6. **REPEAT!** But try to think of another hypothesis that includes different classes of variables (e.g. categorical or numerical)
-:::
 
 ## Cheatsheet
 
