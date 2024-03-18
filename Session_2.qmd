@@ -1,6 +1,6 @@
 ---
-title: "Getting started with R"
-subtitle: "Session 2 of 4"
+title: "Data import and manipulation"
+subtitle: "Getting started with R (2/4)"
 author: "Freddie Heather"
 format: revealjs
 project:
