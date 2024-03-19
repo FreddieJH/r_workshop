@@ -32,7 +32,7 @@ project:
 6.  Repeat steps 4 & 5 (when you would begin stats)
 
 # Run through all steps
-### Using a fictitious example 
+Using a fictitious example 
 
 ## Hypothesis
 
