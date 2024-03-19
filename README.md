@@ -7,5 +7,5 @@
 - Session 2 of 4 (Data import and wrangling): https://freddiejh.github.io/r_workshop/session_2.html
 - Session 3 of 4 (Data visualisation): https://freddiejh.github.io/r_workshop/session_3.html
 - Session 4 of 4 (Collating skills): https://freddiejh.github.io/r_workshop/session_4.html
-
+REMIND FREDDIE TO TAKE REGISTRATION PLEASE!!!
 
