@@ -32,6 +32,7 @@ project:
 6.  Repeat steps 4 & 5 (when you would begin stats)
 
 # Run through all steps
+### Using a fictitious example 
 
 ## Hypothesis
 
@@ -149,7 +150,7 @@ clean_dat %>%
 
 ## Data manipulation
 
--   During the initial visualisation I noticed:
+-   During the [fictitious] initial  visualisation I noticed:
 -   Abundance is very heavily skewed (I want to transform the data)
 -   I found some outliers (I want to removed them)
 -   `%in%` is like `==` but for multiple comparisons
