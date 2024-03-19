@@ -112,13 +112,13 @@ clean_dat <-
 clean_dat %>% 
   ggplot() +
   aes(x = abundance) +
-  geom_point()
+  geom_density()
 
-# What about log abundance?
+# Or using a histogram?
 clean_dat %>% 
   ggplot() +
-  aes(x = log1p(abundance)) + # log1p(x) is log(x+1)
-  geom_point()
+  aes(x = abundance) + 
+  geom_histogram()
 
 ```
 
@@ -163,7 +163,7 @@ plot_dat <-
   clean_dat %>% 
   filter(sex %in% c("m", "f", "juv")) %>% # found an extra var "g" 
   filter(abundance != 93845) %>% # outlier removed
-  mutate(log1p_abun = log(abun)) # transformation
+  mutate(log1p_abun = log1p(abun)) # transformation
   
 ```
 

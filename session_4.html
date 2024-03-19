@@ -503,13 +503,13 @@ Freddie Heather
 <span id="cb5-2"><a href="#cb5-2"></a>clean_dat <span class="sc">%&gt;%</span> </span>
 <span id="cb5-3"><a href="#cb5-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb5-4"><a href="#cb5-4"></a>  <span class="fu">aes</span>(<span class="at">x =</span> abundance) <span class="sc">+</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb5-5"><a href="#cb5-5"></a>  <span class="fu">geom_density</span>()</span>
 <span id="cb5-6"><a href="#cb5-6"></a></span>
-<span id="cb5-7"><a href="#cb5-7"></a><span class="co"># What about log abundance?</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="co"># Or using a histogram?</span></span>
 <span id="cb5-8"><a href="#cb5-8"></a>clean_dat <span class="sc">%&gt;%</span> </span>
 <span id="cb5-9"><a href="#cb5-9"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb5-10"><a href="#cb5-10"></a>  <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">log1p</span>(abundance)) <span class="sc">+</span> <span class="co"># log1p(x) is log(x+1)</span></span>
-<span id="cb5-11"><a href="#cb5-11"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-10"><a href="#cb5-10"></a>  <span class="fu">aes</span>(<span class="at">x =</span> abundance) <span class="sc">+</span> </span>
+<span id="cb5-11"><a href="#cb5-11"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="data-visualisation-two-vars" class="slide level2">
@@ -548,7 +548,7 @@ Freddie Heather
 <span id="cb7-2"><a href="#cb7-2"></a>  clean_dat <span class="sc">%&gt;%</span> </span>
 <span id="cb7-3"><a href="#cb7-3"></a>  <span class="fu">filter</span>(sex <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"m"</span>, <span class="st">"f"</span>, <span class="st">"juv"</span>)) <span class="sc">%&gt;%</span> <span class="co"># found an extra var "g" </span></span>
 <span id="cb7-4"><a href="#cb7-4"></a>  <span class="fu">filter</span>(abundance <span class="sc">!=</span> <span class="dv">93845</span>) <span class="sc">%&gt;%</span> <span class="co"># outlier removed</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a>  <span class="fu">mutate</span>(<span class="at">log1p_abun =</span> <span class="fu">log</span>(abun)) <span class="co"># transformation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-5"><a href="#cb7-5"></a>  <span class="fu">mutate</span>(<span class="at">log1p_abun =</span> <span class="fu">log1p</span>(abun)) <span class="co"># transformation</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="data-visualisation-again" class="slide level2">
