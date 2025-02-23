@@ -11,7 +11,7 @@
   <meta name="generator" content="quarto-1.4.226">
 
   <meta name="author" content="Freddie Heather">
-  <title>Data import and manipulation</title>
+  <title>Getting started with R</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -385,14 +385,16 @@
       margin-right: 0; 
     }
   </style>
+  <script src="session_2_files/libs/kePrint-0.0.1/kePrint.js"></script>
+  <link href="session_2_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Data import and manipulation</h1>
-  <p class="subtitle">Getting started with R (2/4)</p>
+  <h1 class="title">Getting started with R</h1>
+  <p class="subtitle">Session 2 of 4: Data import and manipulation</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -419,7 +421,7 @@ Freddie Heather
 <li class="fragment">What does <code>&lt;-</code> mean?</li>
 <li class="fragment">What does <code>==</code> mean?</li>
 <li class="fragment">what is the preferred data type of data to import (e.g.&nbsp;from excel)?</li>
-<li class="fragment">What function is used to read in csv data?</li>
+<li class="fragment">What function(s) is used to read in csv data?</li>
 </ul>
 </div>
 </section>
@@ -585,9 +587,12 @@ Freddie Heather
 <li>Say that I only care about United Airlines flights (i.e.&nbsp;the carrier is UA)</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Only United Airlines flights</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a>my_data <span class="sc">%&gt;%</span> </span>
-<span id="cb4-3"><a href="#cb4-3"></a>  <span class="fu">filter</span>(carrier <span class="sc">==</span> <span class="st">"UA"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Base R - what is '$' and '[]'?</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>my_data[my_data<span class="sc">$</span>carrier <span class="sc">==</span> <span class="st">"UA"</span>]</span>
+<span id="cb4-3"><a href="#cb4-3"></a></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co"># Only United Airlines flights</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>my_data <span class="sc">%&gt;%</span> </span>
+<span id="cb4-6"><a href="#cb4-6"></a>  <span class="fu">filter</span>(carrier <span class="sc">==</span> <span class="st">"UA"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -603,8 +608,8 @@ Freddie Heather
 </div>
 </div>
 </section>
-<section id="being-more-specific-in-your-selection" class="slide level2">
-<h2>Being more specific in your selection</h2>
+<section id="more-than-is-equal-to" class="slide level2">
+<h2>More than ’is equal to…”</h2>
 <p>You can use other operators beyond just the <code>==</code> operator that tests for equality:</p>
 <ul>
 <li><code>&gt;</code> means “greater than”</li>
@@ -616,7 +621,7 @@ Freddie Heather
 <li><code>|</code> means “or”</li>
 </ul>
 </section>
-<section id="being-more-specific-in-your-selection-1" class="slide level2">
+<section id="being-more-specific-in-your-selection" class="slide level2">
 <h2>Being more specific in your selection</h2>
 <ul>
 <li>Using <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>!=</code>, <code>&amp;</code>, <code>|</code></li>
@@ -642,6 +647,71 @@ Freddie Heather
 </section>
 <section id="data-manipulation-functions" class="slide level2">
 <h2>Data manipulation functions</h2>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table" data-quarto-postprocess="true" style="font-size: 20px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Action</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Base R code</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Tidyverse code</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Extract a column from a dataframe</td>
+<td style="text-align: left;">df$col1 OR df[,"col1"]</td>
+<td style="text-align: left;">df %&gt;% pull(col1)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Filter specific rows</td>
+<td style="text-align: left;">df[df$col1=="ABC",]</td>
+<td style="text-align: left;">df %&gt;% filter(col1 == "ABC")</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Select specific columns</td>
+<td style="text-align: left;">df[,c(col1,col3:col5)]</td>
+<td style="text-align: left;">df %&gt;% select(col1,col3:col5)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Create a new column</td>
+<td style="text-align: left;">df$col9 &lt;- sqrt(df$col8)</td>
+<td style="text-align: left;">df %&gt;% mutate(col9 = sqrt(col8))</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Rename a column</td>
+<td style="text-align: left;">names(df)[names(df) == "old_col_name"] &lt;- "new_col_name"</td>
+<td style="text-align: left;">df %&gt;% rename(new_col_name = old_col_name)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Summarise data (e.g. mean of a column)</td>
+<td style="text-align: left;">mean(df$col1)</td>
+<td style="text-align: left;">df %&gt;% summarise(mean(col1))</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Sort a column</td>
+<td style="text-align: left;">df[order(df$col1), ]</td>
+<td style="text-align: left;">df %&gt;% arrange(col1)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Filter unique rows</td>
+<td style="text-align: left;">df[!duplicated(df[,c("col1", "col2")]), ]</td>
+<td style="text-align: left;">df %&gt;% distinct()</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Count number of rows of a group</td>
+<td style="text-align: left;">as.data.frame(table(df$col1))</td>
+<td style="text-align: left;">df %&gt;% count(col1)</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</section>
+<section id="data-manipulation-functions-tidyverse" class="slide level2">
+<h2>Data manipulation functions (tidyverse)</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># where the functions are stored</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a></span>

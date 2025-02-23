@@ -10,8 +10,8 @@
 <link href="session_1_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.226">
 
-  <meta name="author" content="Freddie Heather (Presented by: Asta Audzijonyte)">
-  <title>The basics</title>
+  <meta name="author" content="Freddie Heather">
+  <title>Getting started with R</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -391,49 +391,49 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">The basics</h1>
-  <p class="subtitle">Getting started with R (1/4)</p>
+  <h1 class="title">Getting started with R</h1>
+  <p class="subtitle">Session 1 of 4: The basics</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Freddie Heather (Presented by: Asta Audzijonyte) 
+Freddie Heather 
 </div>
 </div>
 </div>
 
 </section>
-<section id="a-couple-of-problems" class="title-slide slide level1 center">
-<h1>A couple of problems</h1>
+<section id="we-have-a-problem" class="title-slide slide level1 center">
+<h1>We have a problem</h1>
 <ul>
-<li><p><strong>Problem 1:</strong> Given an excel file with 1M+ rows, find errors in a species geographical distribution.</p></li>
-<li><p><strong>Problem 2:</strong> Reading and replicating analyses from complex methods sections is not fun.</p></li>
-<li><p><strong>Solution:</strong> R</p></li>
+<li><p><strong>Problem 1:</strong> We are given an excel file with 1M+ rows and must find errors in a species geographical distribution.</p></li>
+<li><p><strong>Problem 2:</strong> The analysis is complicated and involves multiple steps that need to be replicated by others in the future.</p></li>
 </ul>
+<p><strong>Solution:</strong> R</p>
 </section>
 
 <section id="todays-workshop" class="title-slide slide level1 center">
 <h1>Today’s workshop</h1>
 <ul>
-<li>I will go through the slides, <strong>feel free to stop and ask questions</strong>.</li>
-<li>We will go through the example code with each slide (Lesson1ScriptToDistribute.R)</li>
-<li>At the end, you can get the slides online.</li>
+<li>I will run through the slides, we will run through the problems together</li>
+<li><strong>This session is interactive. Please</strong> <strong>stop me and ask questions</strong>.</li>
+<li>Slides are available at: https://github.com/FreddieJH/r_workshop</li>
 </ul>
 </section>
 
 <section>
-<section id="the-basics" class="title-slide slide level1 center">
-<h1>The basics</h1>
+<section id="the-background-of-r" class="title-slide slide level1 center">
+<h1>The background of R</h1>
 
 </section>
 <section id="what-is-r" class="slide level2">
 <h2>What is R?</h2>
 <ul>
-<li>Programming language</li>
-<li>Very popular in scientific data analysis…</li>
-<li>and a lot more</li>
+<li><p>Programming language</p></li>
+<li><p>Very popular in scientific data analysis…</p></li>
+<li><p>and a lot more</p></li>
 </ul>
-<p><img data-src="images/r-analysis.PNG" class="fragment absolute" style="bottom: 100px; right: 300px; width: 500px; height: 300px; "> <img data-src="images/r-art.PNG" class="fragment absolute" style="bottom: 100px; right: 300px; width: 500px; height: 300px; "> <img data-src="images/r-chess.PNG" class="fragment absolute" style="bottom: 100px; right: 300px; width: 500px; height: 300px; "> <img data-src="images/r-presentation.PNG" class="fragment absolute" style="bottom: 100px; right: 300px; width: 500px; height: 300px; "> <img data-src="images/r-analysis.PNG" class="fragment absolute" style="bottom: 100px; right: 300px; width: 500px; height: 300px; "> <img data-src="images/r-website.PNG" class="fragment absolute" style="bottom: 100px; right: 300px; width: 500px; height: 300px; "> <img data-src="images/r-website2.PNG" class="fragment absolute" style="bottom: 100px; right: 300px; width: 500px; height: 300px; "></p>
+<p><img data-src="images/r-analysis.PNG" class="fragment absolute" style="bottom: 100px; right: 300px; width: 500px; height: 300px; "> <img data-src="images/r-art.PNG" class="fragment absolute" style="bottom: 100px; right: 300px; width: 500px; height: 300px; "> <img data-src="images/r-chess.PNG" class="fragment absolute" style="bottom: 100px; right: 300px; width: 500px; height: 300px; "> <img data-src="images/r-presentation.PNG" class="fragment absolute" style="bottom: 100px; right: 300px; width: 500px; height: 300px; "></p>
 </section>
 <section id="r-vs-rstudio" class="slide level2">
 <h2>R vs RStudio</h2>
@@ -493,10 +493,32 @@ Freddie Heather (Presented by: Asta Audzijonyte)
 <li>RStudio: <a href="https://posit.co/download/rstudio-desktop/">posit.co/download/rstudio-desktop</a></li>
 </ul>
 </section></section>
-<section>
 <section id="lets-code" class="title-slide slide level1 center">
 <h1>Let’s code!</h1>
 
+</section>
+
+<section>
+<section id="starting-a-new-analysis" class="title-slide slide level1 center">
+<h1>Starting a new analysis</h1>
+
+</section>
+<section id="r-projects" class="slide level2">
+<h2>R projects</h2>
+<h4 id="the-key-to-organisational-sucess">The key to organisational sucess</h4>
+<ul>
+<li>Similar to folders on your computers</li>
+<li>R knows exactly where to look for things</li>
+</ul>
+<p><strong>Task:</strong> Start a new R project - Open RStudio - New Project - New Directory &gt; New Project - Browse location for location of all R projects - Give a good title for the analysis (e.g.&nbsp;“phd_chapter_1”) - avoid spaces and capitals</p>
+</section>
+<section id="creating-reproducible-code-a-script" class="slide level2">
+<h2>Creating reproducible code (a script)</h2>
+<ul>
+<li>File &gt; New file &gt; R Script</li>
+<li>Write anything (e.g.&nbsp;a comment with your name or title on line 1)</li>
+<li>Save As “analysis.R”</li>
+</ul>
 </section>
 <section id="basic-commands" class="slide level2">
 <h2>Basic commands</h2>
@@ -587,11 +609,11 @@ Freddie Heather (Presented by: Asta Audzijonyte)
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="co"># character strings</span></span>
-<span id="cb16-2"><a href="#cb16-2"></a>first_name <span class="ot">&lt;-</span> <span class="st">"Asta"</span></span>
-<span id="cb16-3"><a href="#cb16-3"></a>last_name <span class="ot">&lt;-</span> <span class="st">"Audzijonyte"</span></span>
+<span id="cb16-2"><a href="#cb16-2"></a>first_name <span class="ot">&lt;-</span> <span class="st">"Freddie"</span></span>
+<span id="cb16-3"><a href="#cb16-3"></a>last_name <span class="ot">&lt;-</span> <span class="st">"Heather"</span></span>
 <span id="cb16-4"><a href="#cb16-4"></a><span class="fu">paste</span>(<span class="st">"My name is"</span>, first_name, last_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "My name is Asta Audzijonyte"</code></pre>
+<pre><code>[1] "My name is Freddie Heather"</code></pre>
 </div>
 </div>
 </section>
@@ -631,12 +653,12 @@ Freddie Heather (Presented by: Asta Audzijonyte)
 <li>E.g. you cannot multiple a character string and a numeric</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>s1 <span class="ot">&lt;-</span> <span class="st">"oops"</span></span>
-<span id="cb25-2"><a href="#cb25-2"></a>n1 <span class="ot">&lt;-</span> <span class="dv">9</span></span>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>x <span class="ot">&lt;-</span> <span class="st">"oops"</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a>y <span class="ot">&lt;-</span> <span class="dv">9</span></span>
 <span id="cb25-3"><a href="#cb25-3"></a></span>
-<span id="cb25-4"><a href="#cb25-4"></a>s1<span class="sc">*</span>n1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-4"><a href="#cb25-4"></a>x<span class="sc">*</span>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error in s1 * n1: non-numeric argument to binary operator</code></pre>
+<pre><code>Error in x * y: non-numeric argument to binary operator</code></pre>
 </div>
 </div>
 </section>
@@ -768,31 +790,9 @@ Freddie Heather (Presented by: Asta Audzijonyte)
 <li>To install and load a package:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="co">#install.packages("readr") # once per installation of R</span></span>
-<span id="cb37-2"><a href="#cb37-2"></a><span class="fu">library</span>(readr) <span class="co"># at the top of the script of every analysis that uses it</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="co">#install.packages("readr") # only need to do once on your computer (i.e., download the package)</span></span>
+<span id="cb37-2"><a href="#cb37-2"></a><span class="fu">library</span>(readr) <span class="co"># every time you run the script (i.e., load the package) </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section>
-<section>
-<section id="starting-a-new-analysis" class="title-slide slide level1 center">
-<h1>Starting a new analysis</h1>
-
-</section>
-<section id="r-projects" class="slide level2">
-<h2>R projects</h2>
-<h4 id="the-key-to-organisational-sucess">The key to organisational sucess</h4>
-<ul>
-<li>Similar to folders on your computers</li>
-<li>R knows exactly where to look for things</li>
-</ul>
-<p><strong>Task:</strong> Start a new R project - Open RStudio - New Project - New Directory &gt; New Project - Browse location for location of all R projects - Give a good title for the analysis (e.g.&nbsp;“phd_chapter_1”) - avoid spaces and capitals</p>
-</section>
-<section id="creating-reproducible-code-a-script" class="slide level2">
-<h2>Creating reproducible code (a script)</h2>
-<ul>
-<li>File &gt; New file &gt; R Script</li>
-<li>Write anything (e.g.&nbsp;a comment with your name or title on line 1)</li>
-<li>Save As “analysis.R”</li>
-</ul>
 </section>
 <section id="reading-in-data" class="slide level2">
 <h2>Reading in data</h2>
@@ -2619,21 +2619,21 @@ Freddie Heather (Presented by: Asta Audzijonyte)
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb40-2"><a href="#cb40-2"></a><span class="fu">read_csv</span>(<span class="st">"example_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 199 x 32
+<pre><code># A tibble: 199 × 32
    survey_id country area  ecoregion realm location site_code site_name latitude
        &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;        &lt;dbl&gt;
- 1 923401390 Canada  Newf~ Northern~ Arct~ Newfoun~ NFLD2     Tappers ~     47.7
- 2 923401390 Canada  Newf~ Northern~ Arct~ Newfoun~ NFLD2     Tappers ~     47.7
- 3 923401390 Canada  Newf~ Northern~ Arct~ Newfoun~ NFLD2     Tappers ~     47.7
- 4 923401390 Canada  Newf~ Northern~ Arct~ Newfoun~ NFLD2     Tappers ~     47.7
- 5 923401390 Canada  Newf~ Northern~ Arct~ Newfoun~ NFLD2     Tappers ~     47.7
- 6 923401390 Canada  Newf~ Northern~ Arct~ Newfoun~ NFLD2     Tappers ~     47.7
- 7 923401389 Canada  Newf~ Northern~ Arct~ Newfoun~ NFLD12    Biscayan~     47.8
- 8 923401389 Canada  Newf~ Northern~ Arct~ Newfoun~ NFLD12    Biscayan~     47.8
- 9 923401389 Canada  Newf~ Northern~ Arct~ Newfoun~ NFLD12    Biscayan~     47.8
-10 923401388 Canada  Newf~ Northern~ Arct~ Newfoun~ NFLD1     Middle C~     47.7
-# i 189 more rows
-# i 23 more variables: longitude &lt;dbl&gt;, survey_date &lt;chr&gt;, depth &lt;dbl&gt;,
+ 1 923401390 Canada  Newf… Northern… Arct… Newfoun… NFLD2     Tappers …     47.7
+ 2 923401390 Canada  Newf… Northern… Arct… Newfoun… NFLD2     Tappers …     47.7
+ 3 923401390 Canada  Newf… Northern… Arct… Newfoun… NFLD2     Tappers …     47.7
+ 4 923401390 Canada  Newf… Northern… Arct… Newfoun… NFLD2     Tappers …     47.7
+ 5 923401390 Canada  Newf… Northern… Arct… Newfoun… NFLD2     Tappers …     47.7
+ 6 923401390 Canada  Newf… Northern… Arct… Newfoun… NFLD2     Tappers …     47.7
+ 7 923401389 Canada  Newf… Northern… Arct… Newfoun… NFLD12    Biscayan…     47.8
+ 8 923401389 Canada  Newf… Northern… Arct… Newfoun… NFLD12    Biscayan…     47.8
+ 9 923401389 Canada  Newf… Northern… Arct… Newfoun… NFLD12    Biscayan…     47.8
+10 923401388 Canada  Newf… Northern… Arct… Newfoun… NFLD1     Middle C…     47.7
+# ℹ 189 more rows
+# ℹ 23 more variables: longitude &lt;dbl&gt;, survey_date &lt;chr&gt;, depth &lt;dbl&gt;,
 #   geom &lt;chr&gt;, program &lt;chr&gt;, visibility &lt;dbl&gt;, hour &lt;time&gt;,
 #   survey_latitude &lt;dbl&gt;, survey_longitude &lt;dbl&gt;, diver &lt;chr&gt;, method &lt;dbl&gt;,
 #   block &lt;dbl&gt;, phylum &lt;chr&gt;, class &lt;chr&gt;, order &lt;chr&gt;, family &lt;chr&gt;,
@@ -2667,16 +2667,16 @@ Freddie Heather (Presented by: Asta Audzijonyte)
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a>fish_size <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"example_data.csv"</span>)</span>
 <span id="cb42-2"><a href="#cb42-2"></a><span class="fu">head</span>(fish_size)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 x 32
+<pre><code># A tibble: 6 × 32
   survey_id country area   ecoregion realm location site_code site_name latitude
       &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;     &lt;chr&gt;        &lt;dbl&gt;
-1 923401390 Canada  Newfo~ Northern~ Arct~ Newfoun~ NFLD2     Tappers ~     47.7
-2 923401390 Canada  Newfo~ Northern~ Arct~ Newfoun~ NFLD2     Tappers ~     47.7
-3 923401390 Canada  Newfo~ Northern~ Arct~ Newfoun~ NFLD2     Tappers ~     47.7
-4 923401390 Canada  Newfo~ Northern~ Arct~ Newfoun~ NFLD2     Tappers ~     47.7
-5 923401390 Canada  Newfo~ Northern~ Arct~ Newfoun~ NFLD2     Tappers ~     47.7
-6 923401390 Canada  Newfo~ Northern~ Arct~ Newfoun~ NFLD2     Tappers ~     47.7
-# i 23 more variables: longitude &lt;dbl&gt;, survey_date &lt;chr&gt;, depth &lt;dbl&gt;,
+1 923401390 Canada  Newfo… Northern… Arct… Newfoun… NFLD2     Tappers …     47.7
+2 923401390 Canada  Newfo… Northern… Arct… Newfoun… NFLD2     Tappers …     47.7
+3 923401390 Canada  Newfo… Northern… Arct… Newfoun… NFLD2     Tappers …     47.7
+4 923401390 Canada  Newfo… Northern… Arct… Newfoun… NFLD2     Tappers …     47.7
+5 923401390 Canada  Newfo… Northern… Arct… Newfoun… NFLD2     Tappers …     47.7
+6 923401390 Canada  Newfo… Northern… Arct… Newfoun… NFLD2     Tappers …     47.7
+# ℹ 23 more variables: longitude &lt;dbl&gt;, survey_date &lt;chr&gt;, depth &lt;dbl&gt;,
 #   geom &lt;chr&gt;, program &lt;chr&gt;, visibility &lt;dbl&gt;, hour &lt;time&gt;,
 #   survey_latitude &lt;dbl&gt;, survey_longitude &lt;dbl&gt;, diver &lt;chr&gt;, method &lt;dbl&gt;,
 #   block &lt;dbl&gt;, phylum &lt;chr&gt;, class &lt;chr&gt;, order &lt;chr&gt;, family &lt;chr&gt;,
@@ -2703,38 +2703,38 @@ Freddie Heather (Presented by: Asta Audzijonyte)
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 199
 Columns: 32
-$ survey_id             &lt;dbl&gt; 923401390, 923401390, 923401390, 923401390, 9234~
-$ country               &lt;chr&gt; "Canada", "Canada", "Canada", "Canada", "Canada"~
-$ area                  &lt;chr&gt; "Newfoundland and Labrador", "Newfoundland and L~
-$ ecoregion             &lt;chr&gt; "Northern Grand Banks - Southern Labrador", "Nor~
-$ realm                 &lt;chr&gt; "Arctic", "Arctic", "Arctic", "Arctic", "Arctic"~
-$ location              &lt;chr&gt; "Newfoundland", "Newfoundland", "Newfoundland", ~
-$ site_code             &lt;chr&gt; "NFLD2", "NFLD2", "NFLD2", "NFLD2", "NFLD2", "NF~
-$ site_name             &lt;chr&gt; "Tappers Cove", "Tappers Cove", "Tappers Cove", ~
-$ latitude              &lt;dbl&gt; 47.66498, 47.66498, 47.66498, 47.66498, 47.66498~
-$ longitude             &lt;dbl&gt; -52.72689, -52.72689, -52.72689, -52.72689, -52.~
-$ survey_date           &lt;chr&gt; "3/10/2022", "3/10/2022", "3/10/2022", "3/10/202~
-$ depth                 &lt;dbl&gt; 6.0, 6.0, 6.0, 6.0, 6.0, 6.0, 8.0, 8.0, 8.0, 5.5~
-$ geom                  &lt;chr&gt; "0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54~
-$ program               &lt;chr&gt; "RLS", "RLS", "RLS", "RLS", "RLS", "RLS", "RLS",~
-$ visibility            &lt;dbl&gt; 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, ~
-$ hour                  &lt;time&gt; 12:10:00, 12:10:00, 12:10:00, 12:10:00, 12:10:0~
-$ survey_latitude       &lt;dbl&gt; 47.66498, 47.66498, 47.66498, 47.66498, 47.66498~
-$ survey_longitude      &lt;dbl&gt; -52.72689, -52.72689, -52.72689, -52.72689, -52.~
-$ diver                 &lt;chr&gt; "Jasmin Schuster", "Jasmin Schuster", "Jasmin Sc~
-$ method                &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, ~
-$ block                 &lt;dbl&gt; 1, 2, 2, 2, 2, 2, 1, 1, 2, 1, 2, 1, 1, 1, 2, 2, ~
-$ phylum                &lt;chr&gt; "Chordata", "Chordata", "Chordata", "Chordata", ~
-$ class                 &lt;chr&gt; "Actinopterygii", "Actinopterygii", "Actinoptery~
-$ order                 &lt;chr&gt; "Gadiformes", "Gadiformes", "Gadiformes", "Scorp~
-$ family                &lt;chr&gt; "Gadidae", "Gadidae", "Gadidae", "Cottidae", "La~
-$ recorded_species_name &lt;chr&gt; "Gadus morhua", "Gadus morhua", "Gadus morhua", ~
-$ species_name          &lt;chr&gt; "Gadus morhua", "Gadus morhua", "Gadus morhua", ~
-$ taxon                 &lt;chr&gt; "Gadus morhua", "Gadus morhua", "Gadus morhua", ~
-$ reporting_name        &lt;chr&gt; "Gadus morhua", "Gadus morhua", "Gadus morhua", ~
-$ size_class            &lt;dbl&gt; 2.5, 5.0, 2.5, 5.0, 5.0, 2.5, 2.5, 7.5, 7.5, 0.0~
-$ total                 &lt;dbl&gt; 1, 22, 25, 1, 5, 2, 3, 1, 1, 1, 1, 8, 5, 48, 16,~
-$ biomass               &lt;dbl&gt; 0.2135583, 39.5370565, 5.3389578, NA, 12.9736246~</code></pre>
+$ survey_id             &lt;dbl&gt; 923401390, 923401390, 923401390, 923401390, 9234…
+$ country               &lt;chr&gt; "Canada", "Canada", "Canada", "Canada", "Canada"…
+$ area                  &lt;chr&gt; "Newfoundland and Labrador", "Newfoundland and L…
+$ ecoregion             &lt;chr&gt; "Northern Grand Banks - Southern Labrador", "Nor…
+$ realm                 &lt;chr&gt; "Arctic", "Arctic", "Arctic", "Arctic", "Arctic"…
+$ location              &lt;chr&gt; "Newfoundland", "Newfoundland", "Newfoundland", …
+$ site_code             &lt;chr&gt; "NFLD2", "NFLD2", "NFLD2", "NFLD2", "NFLD2", "NF…
+$ site_name             &lt;chr&gt; "Tappers Cove", "Tappers Cove", "Tappers Cove", …
+$ latitude              &lt;dbl&gt; 47.66498, 47.66498, 47.66498, 47.66498, 47.66498…
+$ longitude             &lt;dbl&gt; -52.72689, -52.72689, -52.72689, -52.72689, -52.…
+$ survey_date           &lt;chr&gt; "3/10/2022", "3/10/2022", "3/10/2022", "3/10/202…
+$ depth                 &lt;dbl&gt; 6.0, 6.0, 6.0, 6.0, 6.0, 6.0, 8.0, 8.0, 8.0, 5.5…
+$ geom                  &lt;chr&gt; "0101000020E61000000DE544BB0A5D4AC03E3F8C101ED54…
+$ program               &lt;chr&gt; "RLS", "RLS", "RLS", "RLS", "RLS", "RLS", "RLS",…
+$ visibility            &lt;dbl&gt; 5, 5, 5, 5, 5, 5, 5, 5, 5, 4, 4, 4, 4, 4, 4, 4, …
+$ hour                  &lt;time&gt; 12:10:00, 12:10:00, 12:10:00, 12:10:00, 12:10:0…
+$ survey_latitude       &lt;dbl&gt; 47.66498, 47.66498, 47.66498, 47.66498, 47.66498…
+$ survey_longitude      &lt;dbl&gt; -52.72689, -52.72689, -52.72689, -52.72689, -52.…
+$ diver                 &lt;chr&gt; "Jasmin Schuster", "Jasmin Schuster", "Jasmin Sc…
+$ method                &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …
+$ block                 &lt;dbl&gt; 1, 2, 2, 2, 2, 2, 1, 1, 2, 1, 2, 1, 1, 1, 2, 2, …
+$ phylum                &lt;chr&gt; "Chordata", "Chordata", "Chordata", "Chordata", …
+$ class                 &lt;chr&gt; "Actinopterygii", "Actinopterygii", "Actinoptery…
+$ order                 &lt;chr&gt; "Gadiformes", "Gadiformes", "Gadiformes", "Scorp…
+$ family                &lt;chr&gt; "Gadidae", "Gadidae", "Gadidae", "Cottidae", "La…
+$ recorded_species_name &lt;chr&gt; "Gadus morhua", "Gadus morhua", "Gadus morhua", …
+$ species_name          &lt;chr&gt; "Gadus morhua", "Gadus morhua", "Gadus morhua", …
+$ taxon                 &lt;chr&gt; "Gadus morhua", "Gadus morhua", "Gadus morhua", …
+$ reporting_name        &lt;chr&gt; "Gadus morhua", "Gadus morhua", "Gadus morhua", …
+$ size_class            &lt;dbl&gt; 2.5, 5.0, 2.5, 5.0, 5.0, 2.5, 2.5, 7.5, 7.5, 0.0…
+$ total                 &lt;dbl&gt; 1, 22, 25, 1, 5, 2, 3, 1, 1, 1, 1, 8, 5, 48, 16,…
+$ biomass               &lt;dbl&gt; 0.2135583, 39.5370565, 5.3389578, NA, 12.9736246…</code></pre>
 </div>
 </div>
 </section>
@@ -2754,17 +2754,15 @@ $ biomass               &lt;dbl&gt; 0.2135583, 39.5370565, 5.3389578, NA, 12.973
 <h2>Tidyverse (modern coding in R)</h2>
 <ul>
 <li>We have already installed two packages <code>readr</code> and <code>dplyr</code></li>
-<li>There are some packages that are used so often, they form part of the <code>tidyverse</code></li>
-<li><code>tidyverse</code> is a special package in that it is just a collection of packages</li>
+<li>There are some packages that are used so often, they form part of the <code>tidyverse</code> (a special collection of packages)</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="co"># install.packages()</span></span>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="co"># install.packages("tidyverse")</span></span>
 <span id="cb47-2"><a href="#cb47-2"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>Have a look at <a href="https://www.tidyverse.org/" class="uri">https://www.tidyverse.org/</a></li>
 <li>What are some of the packages within the tidyverse?</li>
-<li>Get the slides from https://github.com/FreddieJH/r_workshop</li>
 </ul>
 </section>
 <section id="next-session" class="slide level2">

@@ -1,6 +1,6 @@
 ---
-title: "Data import and manipulation"
-subtitle: "Getting started with R (2/4)"
+title: "Getting started with R"
+subtitle: "Session 2 of 4: Data import and manipulation"
 author: "Freddie Heather"
 format: revealjs
 project:
@@ -19,7 +19,7 @@ project:
 -   What does `<-` mean?
 -   What does `==` mean?
 -   what is the preferred data type of data to import (e.g. from excel)?
--   What function is used to read in csv data?
+-   What function(s) is used to read in csv data?
 :::
 
 ## Session 2
@@ -144,6 +144,9 @@ output <-
 #| eval: false
 #| echo: true
 
+# Base R - what is '$' and '[]'?
+my_data[my_data$carrier == "UA"]
+
 # Only United Airlines flights
 my_data %>% 
   filter(carrier == "UA") 
@@ -156,7 +159,7 @@ my_data %>%
 Create a new object called `alaska_flights` which is only the Alaska Airways (carrier is AS) flights.
 :::
 
-## Being more specific in your selection
+## More than 'is equal to..."
 
 You can use other operators beyond just the `==` operator that tests for equality:
 
@@ -182,6 +185,31 @@ You can use other operators beyond just the `==` operator that tests for equalit
 :::
 
 ## Data manipulation functions
+
+```{r}
+library(tidyverse)
+library(kableExtra)
+
+tribble(
+  ~Action,                            ~`Base R code`,                                         ~`Tidyverse code`,
+  "Extract a column from a dataframe", "df$col1 OR df[,\"col1\"]",                            "df %>% pull(col1)",
+  "Filter specific rows",              "df[df$col1==\"ABC\",]",                               "df %>% filter(col1 == \"ABC\")",
+  "Select specific columns",           "df[,c(col1,col3:col5)]",                             "df %>% select(col1,col3:col5)",
+  "Create a new column",               "df$col9 <- sqrt(df$col8)",                           "df %>% mutate(col9 = sqrt(col8))",
+  "Rename a column",                   "names(df)[names(df) == \"old_col_name\"] <- \"new_col_name\"", "df %>% rename(new_col_name = old_col_name)",
+  "Summarise data (e.g. mean of a column)", "mean(df$col1)",                                "df %>% summarise(mean(col1))",
+  "Sort a column",                      "df[order(df$col1), ]",                              "df %>% arrange(col1)",
+  "Filter unique rows",                 "df[!duplicated(df[,c(\"col1\", \"col2\")]), ]",    "df %>% distinct()",
+  "Count number of rows of a group",    "as.data.frame(table(df$col1))",                     "df %>% count(col1)"
+) %>%
+  kable() %>%
+  kable_styling(font_size = 20)
+
+
+
+```
+
+## Data manipulation functions (tidyverse)
 
 ```{r }
 #| eval: false
@@ -359,12 +387,10 @@ my_data %>%
 Which month had the most flights from the UA carrier?
 :::
 
-
-
 ## Extra
+
 ::: callout-tip
 ## Task
 
 Using the Example dataset, for Chordates, get the mean abundance of individuals (rename 'total' to abundance), within each taxonomic family and within each size_class.
 :::
-
