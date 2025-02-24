@@ -9,9 +9,7 @@ project:
 
 # We have a problem
 
--   **Problem 1:** We are given an excel file with 1M+ rows and must find errors in a species geographical distribution.
-
--   **Problem 2:** The analysis is complicated and involves multiple steps that need to be replicated by others in the future.
+**Problem:** We are given an excel file with 1M+ rows, with species names, latitude and longitude of occurrence, and we must find errors in a species geographical distribution. The analysis is complicated and involves multiple steps that need to be replicated by others in the future.
 
 **Solution:** R
 
@@ -20,7 +18,6 @@ project:
 -   We will work through the slides and problems together
 -   **This session is interactive. Please** **stop me and ask questions**.
 -   By the end of today: you will have learnt how to read in excel data into R, perform import checks, understand R programming basics.
--   Slides are available at: https://github.com/FreddieJH/r_workshop
 - Tips: be curious, play around, and try and break R (get some Errors)
 
 # The background of R
@@ -41,7 +38,12 @@ knitr::opts_chunk$set(
 
 -   and a lot more
 
-![](images/r-analysis.PNG){.fragment .absolute bottom="100" right="300" width="500" height="300"} ![](images/r-art.PNG){.fragment .absolute bottom="100" right="300" width="500" height="300"} ![](images/r-chess.PNG){.fragment .absolute bottom="100" right="300" width="500" height="300"} ![](images/r-presentation.PNG){.fragment .absolute bottom="100" right="300" width="500" height="300"}
+\vspace{20px}
+
+![](images/r-analysis.PNG){.fragment .absolute bottom="50" right="300" width="700" height="300"} 
+![](images/r-art.PNG){.fragment .absolute bottom="50" right="300" width="700" height="300"} 
+![](images/r-chess.PNG){.fragment .absolute bottom="50" right="300" width="700" height="300"} 
+![](images/r-presentation.PNG){.fragment .absolute bottom="50" right="300" width="700" height="300"}
 
 ## R vs RStudio
 
@@ -411,3 +413,4 @@ library(tidyverse)
 ## Next session:
 
 -   Manipulating and cleaning the data
+-   Today's slides are available at: https://github.com/FreddieJH/r_workshop
