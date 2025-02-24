@@ -325,7 +325,7 @@ library(readr) # every time you run the script (i.e., load the package)
 
 ## Pretend to collect data
 
-- Download some example data from here: https://github.com/FreddieJH/r_workshop/blob/main/example_data.csv
+- Download some example data from here: github.com/FreddieJH/r_workshop/blob/main/example_data.csv
 - Note it is already in .csv format (see next slide)
 - Let's pretend you went out and collected it
 - **Save this .csv file in your 'working directory'**
