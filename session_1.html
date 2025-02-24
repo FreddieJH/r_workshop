@@ -415,9 +415,11 @@ Freddie Heather
 <section id="todays-workshop" class="title-slide slide level1 center">
 <h1>Today’s workshop</h1>
 <ul>
-<li>I will run through the slides, we will run through the problems together</li>
+<li>We will work through the slides and problems together</li>
 <li><strong>This session is interactive. Please</strong> <strong>stop me and ask questions</strong>.</li>
+<li>By the end of today: you will have learnt how to read in excel data into R, perform import checks, understand R programming basics.</li>
 <li>Slides are available at: https://github.com/FreddieJH/r_workshop</li>
+<li>Tips: be curious, play around, and try and break R (get some Errors)</li>
 </ul>
 </section>
 
@@ -503,6 +505,10 @@ Freddie Heather
 <h1>Starting a new analysis</h1>
 
 </section>
+<section id="opening-r-studio" class="slide level2">
+<h2>Opening R Studio</h2>
+
+<img data-src="images/screenshot_annotated.png" class="r-stretch"></section>
 <section id="r-projects" class="slide level2">
 <h2>R projects</h2>
 <h4 id="the-key-to-organisational-sucess">The key to organisational sucess</h4>
@@ -581,8 +587,8 @@ Freddie Heather
 <span id="cb11-2"><a href="#cb11-2"></a>y <span class="ot">&lt;-</span> x<span class="sc">*</span><span class="dv">5</span> <span class="co"># make y equal to 5 times the value of x</span></span>
 <span id="cb11-3"><a href="#cb11-3"></a>z <span class="ot">&lt;-</span> y <span class="sc">-</span> x <span class="co"># make z equal to the difference between y and x</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="fragment">
 <p>What does <code>z</code> equal?</p>
+<div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -590,8 +596,8 @@ Freddie Heather
 </div>
 </div>
 </div>
-<div class="fragment">
 <p>What does <code>x</code> equal?</p>
+<div class="fragment">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -737,7 +743,7 @@ Freddie Heather
 <section id="whats-a-function" class="slide level2">
 <h2>What’s a function?</h2>
 <ul>
-<li>Using just <code>+</code>, <code>()</code> and <code>/</code>, calculate the mean of 5, 10, and 3.</li>
+<li><strong>Task:</strong> sUsing just <code>+</code>, <code>()</code> and <code>/</code>, calculate the mean of 5, 10, and 3.</li>
 </ul>
 <div class="fragment">
 <div class="cell">
@@ -760,9 +766,8 @@ Freddie Heather
 </div>
 </div>
 <ul>
-<li><code>mean</code> is the <strong>function</strong></li>
+<li><code>mean</code> is the <strong>function</strong>, <code>x</code> is the <strong>argument</strong> of the function</li>
 <li>functions are always followed by brackets</li>
-<li><code>x</code> is the <strong>argument</strong> of the function</li>
 <li>we pass <code>c(5,10,3)</code> to the x argument of the function</li>
 </ul>
 </div>
@@ -793,6 +798,15 @@ Freddie Heather
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="co">#install.packages("readr") # only need to do once on your computer (i.e., download the package)</span></span>
 <span id="cb37-2"><a href="#cb37-2"></a><span class="fu">library</span>(readr) <span class="co"># every time you run the script (i.e., load the package) </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="pretend-to-collect-data" class="slide level2">
+<h2>Pretend to collect data</h2>
+<ul>
+<li>Download some example data from here: https://github.com/FreddieJH/r_workshop/blob/main/example_data.csv</li>
+<li>Note it is already in .csv format (see next slide)</li>
+<li>Let’s pretend you went out and collected it</li>
+<li><strong>Save this .csv file in your ‘working directory’</strong></li>
+</ul>
 </section>
 <section id="reading-in-data" class="slide level2">
 <h2>Reading in data</h2>
@@ -2689,7 +2703,7 @@ Freddie Heather
 <h2>The <code>tail()</code> function</h2>
 <ul>
 <li>The final six rows</li>
-<li>Change the <code>n =</code> argument of <code>tail()</code></li>
+<li><strong>Task:</strong> Change the <code>n =</code> argument of <code>tail()</code> - what does this do?</li>
 </ul>
 </section>
 <section id="glimpsing-at-the-data" class="slide level2">

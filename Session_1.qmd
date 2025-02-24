@@ -17,9 +17,11 @@ project:
 
 # Today's workshop
 
--   I will run through the slides, we will run through the problems together
+-   We will work through the slides and problems together
 -   **This session is interactive. Please** **stop me and ask questions**.
+-   By the end of today: you will have learnt how to read in excel data into R, perform import checks, understand R programming basics.
 -   Slides are available at: https://github.com/FreddieJH/r_workshop
+- Tips: be curious, play around, and try and break R (get some Errors)
 
 # The background of R
 
@@ -92,6 +94,10 @@ knitr::opts_chunk$set(
 
 # Starting a new analysis
 
+## Opening R Studio
+
+![](images/screenshot_annotated.png)
+
 ## R projects
 
 #### The key to organisational sucess
@@ -163,17 +169,17 @@ y <- x*5 # make y equal to 5 times the value of x
 z <- y - x # make z equal to the difference between y and x
 ```
 
-::: fragment
 What does `z` equal?
 
+::: fragment
 ```{r}
 z
 ```
 :::
 
-::: fragment
 What does `x` equal?
 
+::: fragment
 ```{r}
 x
 ```
@@ -271,7 +277,7 @@ x
 
 ## What's a function?
 
--   Using just `+`, `()` and `/`, calculate the mean of 5, 10, and 3.
+-   **Task:** sUsing just `+`, `()` and `/`, calculate the mean of 5, 10, and 3.
 
 ::: fragment
 ```{r }
@@ -288,9 +294,8 @@ x
 mean(x = c(5,10,3))
 ```
 
--   `mean` is the **function**
+-   `mean` is the **function**, `x` is the **argument** of the function
 -   functions are always followed by brackets
--   `x` is the **argument** of the function
 -   we pass `c(5,10,3)` to the x argument of the function
 :::
 
@@ -315,6 +320,13 @@ mean(x = c(5,10,3))
 #install.packages("readr") # only need to do once on your computer (i.e., download the package)
 library(readr) # every time you run the script (i.e., load the package) 
 ```
+
+## Pretend to collect data
+
+- Download some example data from here: https://github.com/FreddieJH/r_workshop/blob/main/example_data.csv
+- Note it is already in .csv format (see next slide)
+- Let's pretend you went out and collected it
+- **Save this .csv file in your 'working directory'**
 
 ## Reading in data
 
@@ -359,7 +371,7 @@ head(fish_size)
 ## The `tail()` function
 
 -   The final six rows
--   Change the `n =` argument of `tail()`
+-   **Task:** Change the `n =` argument of `tail()` - what does this do?
 
 ## Glimpsing at the data
 
