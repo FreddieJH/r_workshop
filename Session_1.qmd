@@ -279,7 +279,7 @@ x
 
 ## What's a function?
 
--   **Task:** sUsing just `+`, `()` and `/`, calculate the mean of 5, 10, and 3.
+-   **Task:** Using just `+`, `()` and `/`, calculate the mean of 5, 10, and 3.
 
 ::: fragment
 ```{r }
