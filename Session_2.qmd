@@ -18,7 +18,7 @@ project:
 -   What is a function? - How do you identify them in code?
 -   What does `<-` mean?
 -   What does `==` mean?
--   what is the preferred data type of data to import (e.g. from excel)?
+-   what is the preferred file type of data to import (e.g. from excel)?
 -   What function(s) is used to read in csv data?
 :::
 
