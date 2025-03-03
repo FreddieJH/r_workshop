@@ -157,7 +157,7 @@ You can use other operators beyond just the `==` operator that tests for equalit
 
 1.  Select all rows that are either the "Bacon Cove" or "Tappers Cove" sites.
 2.  Select all rows that have a latitude higher than 48 degrees.
-3.  How many flights have a latitude higher than 48 degrees?
+3.  How many sites have a latitude higher than 48 degrees?
 4.  Select rows between 5 and 9 meters depth.
 :::
 
@@ -285,9 +285,11 @@ my_data %>%
 Rename the `visibility` column to something a bit more informative, maybe to include the units?
 :::
 
-## `summarise()`
+## `reframe`()`
 
 ### Summarise some data (e.g. taking a mean)
+
+- similar to the `summarise()` function
 
 ```{r }
 #| eval: false
@@ -333,7 +335,7 @@ my_data %>%
 ::: callout-tip
 ## Task
 
-Which species, on average, is just under 10 individuals per survey?
+Which species, on average, has approximately 1.27 individuals per survey?
 :::
 
 ## `arrange()`

@@ -598,7 +598,7 @@ Freddie Heather
 <ol type="1">
 <li>Select all rows that are either the “Bacon Cove” or “Tappers Cove” sites.</li>
 <li>Select all rows that have a latitude higher than 48 degrees.</li>
-<li>How many flights have a latitude higher than 48 degrees?</li>
+<li>How many sites have a latitude higher than 48 degrees?</li>
 <li>Select rows between 5 and 9 meters depth.</li>
 </ol>
 </div>
@@ -772,9 +772,12 @@ Freddie Heather
 </div>
 </div>
 </section>
-<section id="summarise" class="slide level2">
-<h2><code>summarise()</code></h2>
+<section id="reframe" class="slide level2">
+<h2><code>reframe</code>()`</h2>
 <h3 id="summarise-some-data-e.g.-taking-a-mean">Summarise some data (e.g.&nbsp;taking a mean)</h3>
+<ul>
+<li>similar to the <code>summarise()</code> function</li>
+</ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>my_data <span class="sc">%&gt;%</span> </span>
 <span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">select</span>(survey_id, site_code, depth, species_name, biomass) <span class="sc">%&gt;%</span> </span>
@@ -821,7 +824,7 @@ Freddie Heather
 <p><strong>Task</strong></p>
 </div>
 <div class="callout-content">
-<p>Which species, on average, is just under 10 individuals per survey?</p>
+<p>Which species, on average, has approximately 1.27 individuals per survey?</p>
 </div>
 </div>
 </div>
