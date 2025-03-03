@@ -420,7 +420,7 @@ Freddie Heather
 <li class="fragment">What is a function? - How do you identify them in code?</li>
 <li class="fragment">What does <code>&lt;-</code> mean?</li>
 <li class="fragment">What does <code>==</code> mean?</li>
-<li class="fragment">what is the preferred file type of data to import (e.g.&nbsp;from excel)?</li>
+<li class="fragment">What is the preferred file type for reading data in R?</li>
 <li class="fragment">What function(s) is used to read in csv data?</li>
 </ul>
 </div>
@@ -443,7 +443,7 @@ Freddie Heather
 </div>
 <div class="callout-content">
 <ol type="1">
-<li>Start a new R project, or open the project from last week.</li>
+<li>Open the R project from last week.</li>
 <li>Create a new script and call it <code>session2</code> or <code>day2</code>, something informative to you.</li>
 <li>Comment your name, date, and a title at the top of the script.</li>
 </ol>
@@ -456,49 +456,11 @@ Freddie Heather
 <h1>Data Import</h1>
 
 </section>
-<section id="data-import-csv" class="slide level2">
-<h2>Data import (csv)</h2>
+<section id="download-some-example-data" class="slide level2">
+<h2>Download some example data</h2>
 <ul>
-<li>99% of the time you will import your data from a local source (e.g.&nbsp;from an excel file)</li>
-</ul>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Task</strong></p>
-</div>
-<div class="callout-content">
-<p>Use read_csv() from the readr package to load <code>example_data.csv</code></p>
-</div>
-</div>
-</div>
-</section>
-<section id="download-data-from-package" class="slide level2">
-<h2>Download data from package</h2>
-<ul>
-<li>For example purposes, we will download data from the <code>nycflights13</code> package</li>
-</ul>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Task</strong></p>
-</div>
-<div class="callout-content">
-<p>Install and load the <code>nycflights13</code> package</p>
-</div>
-</div>
-</div>
-</section>
-<section id="download-data-from-a-package" class="slide level2">
-<h2>Download data from a package</h2>
-<ul>
-<li>For example purposes, we will download data from the <code>nycflights13</code> package</li>
-<li><em>Hidden</em> in this package there is an object called <code>flights</code></li>
+<li>We will use Reef Life Survey data (a very small subset)</li>
+<li>Data has location information, species information, and abundance information</li>
 </ul>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -510,13 +472,13 @@ Freddie Heather
 </div>
 <div class="callout-content">
 <ol type="1">
-<li>Install and load the <code>nycflights13</code> package</li>
-<li>Create a new object and assign <code>flights</code> to this new object (call the object what ever you want to)</li>
+<li>Download the <a href="https://github.com/FreddieJH/r_workshop/blob/main/rls_example_canada.csv">example dataset</a> csv file</li>
+<li>Store this csv file in your working directory</li>
+<li>Read in the csv file, and assign it to an object</li>
 </ol>
 </div>
 </div>
 </div>
-<p>“The hardest thing about programming is what to name variables”</p>
 </section></section>
 <section>
 <section id="data-checking" class="title-slide slide level1 center">
@@ -526,15 +488,13 @@ Freddie Heather
 <section id="functions-to-look-at-your-data" class="slide level2">
 <h2>Functions to look at your data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># contains very useful functions</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a></span>
-<span id="cb1-3"><a href="#cb1-3"></a>my_data </span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">print</span>(my_data) <span class="co"># prints the data to the screen</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="fu">head</span>(my_data)</span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="fu">glimpse</span>(my_data)</span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="fu">tail</span>(my_data)</span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="fu">View</span>(my_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>my_data </span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">print</span>(my_data) <span class="co"># prints the data to the screen</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">head</span>(my_data)</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">glimpse</span>(my_data)</span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="fu">tail</span>(my_data)</span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="fu">View</span>(my_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -547,8 +507,8 @@ Freddie Heather
 <div class="callout-content">
 <ul>
 <li>Run the above functions. What do they do?</li>
-<li>How many columns in the dataset?</li>
-<li>How many rows in the dataset?</li>
+<li>How many columns are in the dataset?</li>
+<li>How many rows are in the dataset?</li>
 <li>What is the class of the first column?</li>
 </ul>
 </div>
@@ -584,15 +544,15 @@ Freddie Heather
 <section id="filtering-your-data" class="slide level2">
 <h2>Filtering your data</h2>
 <ul>
-<li>Say that I only care about United Airlines flights (i.e.&nbsp;the carrier is UA)</li>
+<li>Say that I only care about the “Tappers Cove” site</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Base R - what is '$' and '[]'?</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a>my_data[my_data<span class="sc">$</span>carrier <span class="sc">==</span> <span class="st">"UA"</span>]</span>
+<span id="cb4-2"><a href="#cb4-2"></a>my_data[my_data<span class="sc">$</span>site_name <span class="sc">==</span> <span class="st">"Tappers Cove"</span>,]</span>
 <span id="cb4-3"><a href="#cb4-3"></a></span>
-<span id="cb4-4"><a href="#cb4-4"></a><span class="co"># Only United Airlines flights</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="co"># Only Tappers cove rows</span></span>
 <span id="cb4-5"><a href="#cb4-5"></a>my_data <span class="sc">%&gt;%</span> </span>
-<span id="cb4-6"><a href="#cb4-6"></a>  <span class="fu">filter</span>(carrier <span class="sc">==</span> <span class="st">"UA"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-6"><a href="#cb4-6"></a>  <span class="fu">filter</span>(site_name <span class="sc">==</span> <span class="st">"Tappers Cove"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -603,20 +563,20 @@ Freddie Heather
 <p><strong>Task</strong></p>
 </div>
 <div class="callout-content">
-<p>Create a new object called <code>alaska_flights</code> which is only the Alaska Airways (carrier is AS) flights.</p>
+<p>Create a new object called <code>arctic_sites</code> which has only the rows where the ‘Realm’ is ‘Arctic’</p>
 </div>
 </div>
 </div>
 </section>
-<section id="more-than-is-equal-to" class="slide level2">
-<h2>More than ’is equal to…”</h2>
+<section id="more-than-just-is-equal-to" class="slide level2">
+<h2>More than just “is equal to…”</h2>
 <p>You can use other operators beyond just the <code>==</code> operator that tests for equality:</p>
 <ul>
 <li><code>&gt;</code> means “greater than”</li>
 <li><code>&lt;</code> means “less than”</li>
 <li><code>&gt;=</code> means “greater than or equal to”</li>
 <li><code>&lt;=</code> means “less than or equal to”</li>
-<li><code>!=</code> means “not equal to.”</li>
+<li><code>!=</code> means “not equal to”</li>
 <li><code>&amp;</code> means “and”</li>
 <li><code>|</code> means “or”</li>
 </ul>
@@ -636,10 +596,10 @@ Freddie Heather
 </div>
 <div class="callout-content">
 <ol type="1">
-<li>Select flights from either AS or UA.</li>
-<li>Select flights with delays (dep_delay is more than zero).</li>
-<li>How many flights arrived early?</li>
-<li>Select flights between 1000 and 2000 miles.</li>
+<li>Select all rows that are either the “Bacon Cove” or “Tappers Cove” sites.</li>
+<li>Select all rows that have a latitude higher than 48 degrees.</li>
+<li>How many flights have a latitude higher than 48 degrees?</li>
+<li>Select rows between 5 and 9 meters depth.</li>
 </ol>
 </div>
 </div>
@@ -686,7 +646,7 @@ Freddie Heather
 <tr class="even">
 <td style="text-align: left;">Summarise data (e.g. mean of a column)</td>
 <td style="text-align: left;">mean(df$col1)</td>
-<td style="text-align: left;">df %&gt;% summarise(mean(col1))</td>
+<td style="text-align: left;">df %&gt;% reframe(mean(col1))</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Sort a column</td>
@@ -719,7 +679,7 @@ Freddie Heather
 <span id="cb5-4"><a href="#cb5-4"></a><span class="fu">select</span>()  <span class="co"># Selecting a single or multiple columns</span></span>
 <span id="cb5-5"><a href="#cb5-5"></a><span class="fu">mutate</span>() <span class="co"># Creating a new column</span></span>
 <span id="cb5-6"><a href="#cb5-6"></a><span class="fu">rename</span>() <span class="co"># Renaming a column</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a><span class="fu">summarise</span>() <span class="co"># Summarising a dataset </span></span>
+<span id="cb5-7"><a href="#cb5-7"></a><span class="fu">reframe</span>() <span class="co"># Summarising a dataset </span></span>
 <span id="cb5-8"><a href="#cb5-8"></a></span>
 <span id="cb5-9"><a href="#cb5-9"></a><span class="fu">arrange</span>() <span class="co"># Ordering a column (E.g., sort by smallest arrival time)</span></span>
 <span id="cb5-10"><a href="#cb5-10"></a><span class="fu">arrange</span>(<span class="fu">desc</span>()) <span class="co"># ... or by largest arrival time</span></span>
@@ -732,8 +692,12 @@ Freddie Heather
 <h2><code>select()</code></h2>
 <h3 id="selecting-a-single-or-multiple-columns">Selecting a single or multiple columns</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>my_data <span class="sc">%&gt;%</span> </span>
-<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">select</span>(year, month, day, carrier, origin, dep_delay)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># base R</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a><span class="co"># my_data[,c("survey_id", "species_name", "total")]</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a></span>
+<span id="cb6-4"><a href="#cb6-4"></a></span>
+<span id="cb6-5"><a href="#cb6-5"></a>my_data <span class="sc">%&gt;%</span> </span>
+<span id="cb6-6"><a href="#cb6-6"></a>  <span class="fu">select</span>(survey_id, species_name, total)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -744,7 +708,7 @@ Freddie Heather
 <p><strong>Task</strong></p>
 </div>
 <div class="callout-content">
-<p>Create a new object called <code>slim_data</code> which has the columns flight, carrier, distance and origin</p>
+<p>Create a new object called <code>slim_data</code> which has the columns survey_id, site_code, species_name, total</p>
 </div>
 </div>
 </div>
@@ -753,13 +717,17 @@ Freddie Heather
 <h2><code>mutate()</code></h2>
 <h3 id="creating-a-new-column">Creating a new column</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>my_data <span class="sc">%&gt;%</span> </span>
-<span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">mutate</span>(<span class="at">dep_delay_secs =</span> dep_delay<span class="sc">*</span><span class="dv">60</span>)</span>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># base R</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="co"># my_data$depth_cm &lt;- my_data$depth*10 </span></span>
 <span id="cb7-3"><a href="#cb7-3"></a></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="co"># combining the two</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="co"># tidyverse way</span></span>
 <span id="cb7-5"><a href="#cb7-5"></a>my_data <span class="sc">%&gt;%</span> </span>
-<span id="cb7-6"><a href="#cb7-6"></a>  <span class="fu">select</span>(year, month, day, carrier, origin, dep_delay) <span class="sc">%&gt;%</span> </span>
-<span id="cb7-7"><a href="#cb7-7"></a>  <span class="fu">mutate</span>(<span class="at">dep_delay_secs =</span> dep_delay<span class="sc">*</span><span class="dv">60</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-6"><a href="#cb7-6"></a>  <span class="fu">mutate</span>(<span class="at">depth_cm =</span> depth<span class="sc">*</span><span class="dv">10</span>)</span>
+<span id="cb7-7"><a href="#cb7-7"></a></span>
+<span id="cb7-8"><a href="#cb7-8"></a><span class="co"># combining the two steps (select and mutate)</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a>my_data <span class="sc">%&gt;%</span> </span>
+<span id="cb7-10"><a href="#cb7-10"></a>  <span class="fu">select</span>(survey_id, site_code, depth, species_name, total) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-11"><a href="#cb7-11"></a>  <span class="fu">mutate</span>(<span class="at">depth_cm =</span> depth<span class="sc">*</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -770,7 +738,7 @@ Freddie Heather
 <p><strong>Task</strong></p>
 </div>
 <div class="callout-content">
-<p>Create a new object called <code>jan_flights</code> which has a new column called <code>arr_delay_secs</code> which is the arrival delay, but in seconds instead of minutes.</p>
+<p>Create a new object called <code>cunner</code> which is only the species <em>Tautogolabrus adspersus</em> and has a new column called <code>biomass_kg</code> which is the biomass, but in kg instead of g.</p>
 </div>
 </div>
 </div>
@@ -778,11 +746,17 @@ Freddie Heather
 <section id="rename" class="slide level2">
 <h2><code>rename()</code></h2>
 <h3 id="rename-an-existing-column">Rename an existing column</h3>
+<ul>
+<li>Say we want to be clear about the unit in the column name</li>
+</ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>my_data <span class="sc">%&gt;%</span> </span>
-<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">select</span>(year, month, day, carrier, origin, dep_delay) <span class="sc">%&gt;%</span> </span>
-<span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">mutate</span>(<span class="at">dep_delay_secs =</span> dep_delay<span class="sc">*</span><span class="dv">60</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb8-4"><a href="#cb8-4"></a>  <span class="fu">rename</span>(<span class="at">airline =</span> carrier) <span class="co"># airline is easier to understand</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># base R </span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="co"># note this will overwrite the object my_data</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="co"># names(my_data)[names(my_data) == "depth"] &lt;- "depth_m"</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="co"># tidyverse way (this won't overwrite)</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a>my_data <span class="sc">%&gt;%</span> </span>
+<span id="cb8-7"><a href="#cb8-7"></a>  <span class="fu">rename</span>(<span class="at">depth_m =</span> depth) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -793,20 +767,20 @@ Freddie Heather
 <p><strong>Task</strong></p>
 </div>
 <div class="callout-content">
-<p>Rename the <code>dep_delay</code> column to something a bit more informative, maybe <code>departure_delay_mins</code> or something of your own.</p>
+<p>Rename the <code>visibility</code> column to something a bit more informative, maybe to include the units?</p>
 </div>
 </div>
 </div>
 </section>
 <section id="summarise" class="slide level2">
 <h2><code>summarise()</code></h2>
-<h3 id="rename-an-existing-column-1">Rename an existing column</h3>
+<h3 id="summarise-some-data-e.g.-taking-a-mean">Summarise some data (e.g.&nbsp;taking a mean)</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>my_data <span class="sc">%&gt;%</span> </span>
-<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">select</span>(year, month, day, carrier, origin, dep_delay) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-3"><a href="#cb9-3"></a>  <span class="fu">mutate</span>(<span class="at">dep_delay_secs =</span> dep_delay<span class="sc">*</span><span class="dv">60</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-4"><a href="#cb9-4"></a>  <span class="fu">rename</span>(<span class="at">airline =</span> carrier) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-5"><a href="#cb9-5"></a>  <span class="fu">summarise</span>(<span class="at">median_delay =</span> <span class="fu">median</span>(dep_delay_secs, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">select</span>(survey_id, site_code, depth, species_name, biomass) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-3"><a href="#cb9-3"></a>  <span class="fu">mutate</span>(<span class="at">depth_cm =</span> depth<span class="sc">*</span><span class="dv">10</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-4"><a href="#cb9-4"></a>  <span class="fu">rename</span>(<span class="at">depth_m =</span> depth) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-5"><a href="#cb9-5"></a>  <span class="fu">reframe</span>(<span class="at">mean_biomass =</span> <span class="fu">mean</span>(biomass, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -817,7 +791,7 @@ Freddie Heather
 <p><strong>Task</strong></p>
 </div>
 <div class="callout-content">
-<p>What is the mean delay time in minutes? What happens if you don’t include <code>na.rm=TRUE</code> in your code? Why?</p>
+<p>What is the mean_biomass of all the rows? What happens if you don’t include <code>na.rm=TRUE</code> in your code? Why?</p>
 </div>
 </div>
 </div>
@@ -825,17 +799,17 @@ Freddie Heather
 <section id="the-.by-argument" class="slide level2">
 <h2>The <code>.by</code> argument</h2>
 <h3 id="group-by-a-factor-for-analysis">Group by a factor for analysis</h3>
-<p>You may see this written as <code>group_by()</code>, its the same</p>
+<p>You may see this written as <code>group_by()</code>, it’s the same</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># I want the mean delay for each month</span></span>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># I want the mean abundance for each species at a survey</span></span>
 <span id="cb10-2"><a href="#cb10-2"></a>my_data <span class="sc">%&gt;%</span> </span>
-<span id="cb10-3"><a href="#cb10-3"></a>  <span class="fu">summarise</span>(<span class="at">mean_delay =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm=</span><span class="cn">TRUE</span>), </span>
-<span id="cb10-4"><a href="#cb10-4"></a>            <span class="at">.by =</span> month)</span>
+<span id="cb10-3"><a href="#cb10-3"></a>  <span class="fu">reframe</span>(<span class="at">mean_abun =</span> <span class="fu">mean</span>(total, <span class="at">na.rm=</span><span class="cn">TRUE</span>), </span>
+<span id="cb10-4"><a href="#cb10-4"></a>            <span class="at">.by =</span> species_name)</span>
 <span id="cb10-5"><a href="#cb10-5"></a></span>
 <span id="cb10-6"><a href="#cb10-6"></a><span class="co"># is the same as this</span></span>
 <span id="cb10-7"><a href="#cb10-7"></a>my_data <span class="sc">%&gt;%</span> </span>
-<span id="cb10-8"><a href="#cb10-8"></a>  <span class="fu">group_by</span>(month) <span class="sc">%&gt;%</span> </span>
-<span id="cb10-9"><a href="#cb10-9"></a>  <span class="fu">summarise</span>(<span class="at">mean_delay =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm=</span><span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-8"><a href="#cb10-8"></a>  <span class="fu">group_by</span>(species_name) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-9"><a href="#cb10-9"></a>  <span class="fu">reframe</span>(<span class="at">mean_abun =</span> <span class="fu">mean</span>(total, <span class="at">na.rm=</span><span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
 <span id="cb10-10"><a href="#cb10-10"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-tip callout-titled callout-style-default">
@@ -847,7 +821,7 @@ Freddie Heather
 <p><strong>Task</strong></p>
 </div>
 <div class="callout-content">
-<p>Which airline should I avoid if I want to be on time? Which airline should I select? (Assuming all airlines go to where you want to.)</p>
+<p>Which species, on average, is just under 10 individuals per survey?</p>
 </div>
 </div>
 </div>
@@ -857,10 +831,9 @@ Freddie Heather
 <h3 id="sorting-a-column-alphabetically-or-numerically">Sorting a column (alphabetically or numerically)</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>my_data <span class="sc">%&gt;%</span> </span>
-<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">select</span>(year, month, day, carrier, origin, dep_delay) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-3"><a href="#cb11-3"></a>  <span class="fu">mutate</span>(<span class="at">dep_delay_secs =</span> dep_delay<span class="sc">*</span><span class="dv">60</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-4"><a href="#cb11-4"></a>  <span class="fu">rename</span>(<span class="at">airline =</span> carrier) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-5"><a href="#cb11-5"></a>  <span class="fu">arrange</span>(dep_delay)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">reframe</span>(<span class="at">mean_abun =</span> <span class="fu">mean</span>(total, <span class="at">na.rm=</span><span class="cn">TRUE</span>), </span>
+<span id="cb11-3"><a href="#cb11-3"></a>            <span class="at">.by =</span> species_name) <span class="sc">%&gt;%</span> </span>
+<span id="cb11-4"><a href="#cb11-4"></a>  <span class="fu">arrange</span>(mean_abun)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -871,7 +844,7 @@ Freddie Heather
 <p><strong>Task</strong></p>
 </div>
 <div class="callout-content">
-<p>Order the dataframe so the months are descending (December to Jan)</p>
+<p>Order the dataframe so the mean_abun is descending (High to low)</p>
 </div>
 </div>
 </div>
@@ -881,7 +854,7 @@ Freddie Heather
 <h3 id="counting-the-number-of-occurrences">Counting the number of occurrences</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>my_data <span class="sc">%&gt;%</span> </span>
-<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">count</span>(carrier)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">count</span>(site_code)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -892,7 +865,7 @@ Freddie Heather
 <p><strong>Task</strong></p>
 </div>
 <div class="callout-content">
-<p>Which month had the most flights from the UA carrier?</p>
+<p>Looking only at <em>Tautogolabrus adspersus</em>, what is the most common site is it observed at?</p>
 </div>
 </div>
 </div>
@@ -908,7 +881,7 @@ Freddie Heather
 <p><strong>Task</strong></p>
 </div>
 <div class="callout-content">
-<p>Using the Example dataset, for Chordates, get the mean abundance of individuals (rename ‘total’ to abundance), within each taxonomic family and within each size_class.</p>
+<p>Using the <a href="https://github.com/FreddieJH/r_workshop/blob/main/example_data.csv">example dataset</a>, for Chordates only, get the mean abundance of individuals (rename ‘total’ to ‘abundance’), within each taxonomic family.</p>
 </div>
 </div>
 </div>

@@ -18,7 +18,7 @@ project:
 -   What is a function? - How do you identify them in code?
 -   What does `<-` mean?
 -   What does `==` mean?
--   what is the preferred file type of data to import (e.g. from excel)?
+-   What is the preferred file type for reading data in R?
 -   What function(s) is used to read in csv data?
 :::
 
@@ -32,52 +32,31 @@ project:
 ::: callout-tip
 ## Task
 
-1.  Start a new R project, or open the project from last week.
+1.  Open the R project from last week.
 2.  Create a new script and call it `session2` or `day2`, something informative to you.
 3.  Comment your name, date, and a title at the top of the script.
 :::
 
 # Data Import
 
-## Data import (csv)
+## Download some example data
 
--   99% of the time you will import your data from a local source (e.g. from an excel file)
-
-::: callout-tip
-## Task
-
-Use read_csv() from the readr package to load `example_data.csv`
-:::
-
-## Download data from package
-
--   For example purposes, we will download data from the `nycflights13` package
+- We will use Reef Life Survey data (a very small subset)
+- Data has location information, species information, and abundance information
 
 ::: callout-tip
 ## Task
 
-Install and load the `nycflights13` package
-:::
-
-## Download data from a package
-
--   For example purposes, we will download data from the `nycflights13` package
--   *Hidden* in this package there is an object called `flights`
-
-::: callout-tip
-## Task
-
-1.  Install and load the `nycflights13` package
-2.  Create a new object and assign `flights` to this new object (call the object what ever you want to)
+1.  Download the [example dataset](https://github.com/FreddieJH/r_workshop/blob/main/rls_example_canada.csv) csv file
+2.  Store this csv file in your working directory
+3. Read in the csv file, and assign it to an object 
 :::
 
 ```{r}
 #| echo: false
-library(nycflights13)
-my_data <- flights
+library(tidyverse)
+my_data <- read_csv("rls_example_canada.csv")
 ```
-
-"The hardest thing about programming is what to name variables"
 
 # Data checking
 
@@ -86,8 +65,6 @@ my_data <- flights
 ```{r }
 #| eval: false
 #| echo: true
-
-library(tidyverse) # contains very useful functions
 
 my_data 
 print(my_data) # prints the data to the screen
@@ -102,8 +79,8 @@ View(my_data)
 ## Task
 
 -   Run the above functions. What do they do?
--   How many columns in the dataset?
--   How many rows in the dataset?
+-   How many columns are in the dataset?
+-   How many rows are in the dataset?
 -   What is the class of the first column?
 :::
 
@@ -138,28 +115,28 @@ output <-
 
 ## Filtering your data
 
--   Say that I only care about United Airlines flights (i.e. the carrier is UA)
+-   Say that I only care about the "Tappers Cove" site
 
 ```{r }
 #| eval: false
 #| echo: true
 
 # Base R - what is '$' and '[]'?
-my_data[my_data$carrier == "UA"]
+my_data[my_data$site_name == "Tappers Cove",]
 
-# Only United Airlines flights
+# Only Tappers cove rows
 my_data %>% 
-  filter(carrier == "UA") 
+  filter(site_name == "Tappers Cove") 
 
 ```
 
 ::: callout-tip
 ## Task
 
-Create a new object called `alaska_flights` which is only the Alaska Airways (carrier is AS) flights.
+Create a new object called `arctic_sites` which has only the rows where the 'Realm' is 'Arctic'
 :::
 
-## More than 'is equal to..."
+## More than just "is equal to..."
 
 You can use other operators beyond just the `==` operator that tests for equality:
 
@@ -167,7 +144,7 @@ You can use other operators beyond just the `==` operator that tests for equalit
 -   `<` means “less than”
 -   `>=` means “greater than or equal to”
 -   `<=` means “less than or equal to”
--   `!=` means “not equal to.”
+-   `!=` means “not equal to”
 -   `&` means “and”
 -   `|` means “or”
 
@@ -178,10 +155,10 @@ You can use other operators beyond just the `==` operator that tests for equalit
 ::: callout-tip
 ## Task
 
-1.  Select flights from either AS or UA.
-2.  Select flights with delays (dep_delay is more than zero).
-3.  How many flights arrived early?
-4.  Select flights between 1000 and 2000 miles.
+1.  Select all rows that are either the "Bacon Cove" or "Tappers Cove" sites.
+2.  Select all rows that have a latitude higher than 48 degrees.
+3.  How many flights have a latitude higher than 48 degrees?
+4.  Select rows between 5 and 9 meters depth.
 :::
 
 ## Data manipulation functions
@@ -197,7 +174,7 @@ tribble(
   "Select specific columns",           "df[,c(col1,col3:col5)]",                             "df %>% select(col1,col3:col5)",
   "Create a new column",               "df$col9 <- sqrt(df$col8)",                           "df %>% mutate(col9 = sqrt(col8))",
   "Rename a column",                   "names(df)[names(df) == \"old_col_name\"] <- \"new_col_name\"", "df %>% rename(new_col_name = old_col_name)",
-  "Summarise data (e.g. mean of a column)", "mean(df$col1)",                                "df %>% summarise(mean(col1))",
+  "Summarise data (e.g. mean of a column)", "mean(df$col1)",                                "df %>% reframe(mean(col1))",
   "Sort a column",                      "df[order(df$col1), ]",                              "df %>% arrange(col1)",
   "Filter unique rows",                 "df[!duplicated(df[,c(\"col1\", \"col2\")]), ]",    "df %>% distinct()",
   "Count number of rows of a group",    "as.data.frame(table(df$col1))",                     "df %>% count(col1)"
@@ -221,7 +198,7 @@ filter() # subsetting the data (e.g., order == "Aves")
 select()  # Selecting a single or multiple columns
 mutate() # Creating a new column
 rename() # Renaming a column
-summarise() # Summarising a dataset 
+reframe() # Summarising a dataset 
 
 arrange() # Ordering a column (E.g., sort by smallest arrival time)
 arrange(desc()) # ... or by largest arrival time
@@ -239,15 +216,19 @@ count() # count the number of rows
 #| eval: false
 #| echo: true
 
+# base R
+# my_data[,c("survey_id", "species_name", "total")]
+
+
 my_data %>% 
-  select(year, month, day, carrier, origin, dep_delay)
+  select(survey_id, species_name, total)
 
 ```
 
 ::: callout-tip
 ## Task
 
-Create a new object called `slim_data` which has the columns flight, carrier, distance and origin
+Create a new object called `slim_data` which has the columns survey_id, site_code, species_name, total
 :::
 
 ## `mutate()`
@@ -258,84 +239,93 @@ Create a new object called `slim_data` which has the columns flight, carrier, di
 #| eval: false
 #| echo: true
 
-my_data %>% 
-  mutate(dep_delay_secs = dep_delay*60)
+# base R
+# my_data$depth_cm <- my_data$depth*10 
 
-# combining the two
+# tidyverse way
 my_data %>% 
-  select(year, month, day, carrier, origin, dep_delay) %>% 
-  mutate(dep_delay_secs = dep_delay*60)
+  mutate(depth_cm = depth*10)
+
+# combining the two steps (select and mutate)
+my_data %>% 
+  select(survey_id, site_code, depth, species_name, total) %>% 
+  mutate(depth_cm = depth*10)
 
 ```
 
 ::: callout-tip
 ## Task
 
-Create a new object called `jan_flights` which has a new column called `arr_delay_secs` which is the arrival delay, but in seconds instead of minutes.
+Create a new object called `cunner` which is only the species *Tautogolabrus adspersus* and has a new column called `biomass_kg` which is the biomass, but in kg instead of g.
 :::
 
 ## `rename()`
 
 ### Rename an existing column
 
+- Say we want to be clear about the unit in the column name
+
 ```{r }
 #| eval: false
 #| echo: true
 
+# base R 
+# note this will overwrite the object my_data
+# names(my_data)[names(my_data) == "depth"] <- "depth_m"
+
+# tidyverse way (this won't overwrite)
 my_data %>% 
-  select(year, month, day, carrier, origin, dep_delay) %>% 
-  mutate(dep_delay_secs = dep_delay*60) %>% 
-  rename(airline = carrier) # airline is easier to understand
+  rename(depth_m = depth) 
 
 ```
 
 ::: callout-tip
 ## Task
 
-Rename the `dep_delay` column to something a bit more informative, maybe `departure_delay_mins` or something of your own.
+Rename the `visibility` column to something a bit more informative, maybe to include the units?
 :::
 
 ## `summarise()`
 
-### Rename an existing column
+### Summarise some data (e.g. taking a mean)
 
 ```{r }
 #| eval: false
 #| echo: true
 
 my_data %>% 
-  select(year, month, day, carrier, origin, dep_delay) %>% 
-  mutate(dep_delay_secs = dep_delay*60) %>% 
-  rename(airline = carrier) %>% 
-  summarise(median_delay = median(dep_delay_secs, na.rm=TRUE))
+  select(survey_id, site_code, depth, species_name, biomass) %>% 
+  mutate(depth_cm = depth*10) %>% 
+  rename(depth_m = depth) %>% 
+  reframe(mean_biomass = mean(biomass, na.rm=TRUE))
 
 ```
 
 ::: callout-tip
 ## Task
 
-What is the mean delay time in minutes? What happens if you don't include `na.rm=TRUE` in your code? Why?
+What is the mean_biomass of all the rows? What happens if you don't include `na.rm=TRUE` in your code? Why?
 :::
 
 ## The `.by` argument
 
 ### Group by a factor for analysis
 
-You may see this written as `group_by()`, its the same
+You may see this written as `group_by()`, it's the same
 
 ```{r }
 #| eval: false
 #| echo: true
 
-# I want the mean delay for each month
+# I want the mean abundance for each species at a survey
 my_data %>% 
-  summarise(mean_delay = mean(dep_delay, na.rm=TRUE), 
-            .by = month)
+  reframe(mean_abun = mean(total, na.rm=TRUE), 
+            .by = species_name)
 
 # is the same as this
 my_data %>% 
-  group_by(month) %>% 
-  summarise(mean_delay = mean(dep_delay, na.rm=TRUE)) %>% 
+  group_by(species_name) %>% 
+  reframe(mean_abun = mean(total, na.rm=TRUE)) %>% 
   ungroup()
 
 ```
@@ -343,7 +333,7 @@ my_data %>%
 ::: callout-tip
 ## Task
 
-Which airline should I avoid if I want to be on time? Which airline should I select? (Assuming all airlines go to where you want to.)
+Which species, on average, is just under 10 individuals per survey?
 :::
 
 ## `arrange()`
@@ -355,17 +345,16 @@ Which airline should I avoid if I want to be on time? Which airline should I sel
 #| echo: true
 
 my_data %>% 
-  select(year, month, day, carrier, origin, dep_delay) %>% 
-  mutate(dep_delay_secs = dep_delay*60) %>% 
-  rename(airline = carrier) %>% 
-  arrange(dep_delay)
+  reframe(mean_abun = mean(total, na.rm=TRUE), 
+            .by = species_name) %>% 
+  arrange(mean_abun)
 
 ```
 
 ::: callout-tip
 ## Task
 
-Order the dataframe so the months are descending (December to Jan)
+Order the dataframe so the mean_abun is descending (High to low)
 :::
 
 ## `count()`
@@ -377,14 +366,14 @@ Order the dataframe so the months are descending (December to Jan)
 #| echo: true
 
 my_data %>% 
-  count(carrier)
+  count(site_code)
 
 ```
 
 ::: callout-tip
 ## Task
 
-Which month had the most flights from the UA carrier?
+Looking only at *Tautogolabrus adspersus*, what is the most common site is it observed at?
 :::
 
 ## Extra
@@ -392,5 +381,5 @@ Which month had the most flights from the UA carrier?
 ::: callout-tip
 ## Task
 
-Using the Example dataset, for Chordates, get the mean abundance of individuals (rename 'total' to abundance), within each taxonomic family and within each size_class.
+Using the [example dataset](https://github.com/FreddieJH/r_workshop/blob/main/example_data.csv), for Chordates only, get the mean abundance of individuals (rename 'total' to 'abundance'), within each taxonomic family.
 :::
