@@ -381,5 +381,5 @@ Looking only at *Tautogolabrus adspersus*, what is the most common site is it ob
 ::: callout-tip
 ## Task
 
-Using the [example dataset](https://github.com/FreddieJH/r_workshop/blob/main/example_data.csv), for Chordates only, get the mean abundance of individuals (rename 'total' to 'abundance'), within each taxonomic family.
+Using the example dataset, for Chordates only, get the mean abundance of individuals (rename 'total' to 'abundance'), within each taxonomic family.
 :::
