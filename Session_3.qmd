@@ -58,7 +58,7 @@ project:
 ::: callout-tip
 ## Task
 
-1.  Download the file "cape_howe.csv" from [this link]()
+1.  Download the file "cape_howe.csv" from [this link](https://github.com/FreddieJH/r_workshop/blob/main/cape_howe.csv)
 2.  Import the csv and save it in R as an object (this will be your raw object and never overwritten)
 3. Create a new object that is only a single site - Choose one other than JBMP-S2
 
