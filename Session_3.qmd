@@ -384,8 +384,6 @@ nspp_bysite %>%
 
 ## Extra - Error bars
 
-
-
 ```{r }
 #| code-line-numbers: "5,12,13,14,15"
 

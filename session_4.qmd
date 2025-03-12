@@ -1,8 +1,12 @@
 ---
-title: "Combining learned skills"
-subtitle: "Getting started with R (4/4)"
+title: "Getting started with R"
+subtitle: "Session 4 of 4: Combining learned skills"
 author: "Freddie Heather"
-format: revealjs
+format: 
+  revealjs:
+    eval: false
+    echo: true
+    fig.align: 'center'
 project:
   output-dir: docs
 ---
@@ -24,7 +28,7 @@ project:
 
 ## Today: Session 4
 
-1.  Import a csv (finally!)
+1.  Import a csv 
 2.  Data checks
 3.  Initial data clean
 4.  Data visualisation
@@ -42,11 +46,8 @@ Using a fictitious example
 ## R Scipt preamble
 
 ```{r }
-#| eval: true
-#| echo: true
-
 # Freddie Heather
-# R workshop session 4/4 (20-03-24)
+# R workshop session 4/4 (17-03-25)
 # Bringing together everything we've learned so far
 
 # packages
@@ -57,8 +58,6 @@ library(tidyverse)
 ## Data import
 
 ```{r }
-#| eval: false
-#| echo: true
 
 # imports a csv file and outputs a tibble
 # saves tibble into an object called "raw_dat"
@@ -73,8 +72,6 @@ raw_dat <- read_csv("analysis1.csv")
 -   Data checking is a very important step when using real data (esp. ecological data)
 
 ```{r }
-#| eval: false
-#| echo: true
 
 raw_dat # how many cols? rows?
 glimpse(raw_dat) # checking the col classes (e.g. abundance is int, not chr)
@@ -89,8 +86,7 @@ View(raw_dat)
 -   Convert data type `as.numeric()`, `as.character()`, `as.factor()` (look out for errors when converting)
 
 ```{r }
-#| eval: false
-#| echo: true
+
 
 clean_dat <-
   raw_dat %>% 
@@ -105,8 +101,6 @@ clean_dat <-
 -   Play around with the variables, visualise as much as you can, this is also where you pick up errors
 
 ```{r }
-#| eval: false
-#| echo: true
 
 # abundance is numeric
 clean_dat %>% 
@@ -127,8 +121,6 @@ clean_dat %>%
 -   Quick look at correlations
 
 ```{r }
-#| eval: false
-#| echo: true
 
 # abundance is numeric
 # sex is categorical
@@ -156,8 +148,6 @@ clean_dat %>%
 -   `%in%` is like `==` but for multiple comparisons
 
 ```{r }
-#| eval: false
-#| echo: true
 
 plot_dat <-
   clean_dat %>% 
@@ -169,11 +159,9 @@ plot_dat <-
 
 ## Data visualisation (again)
 
--   Now i've modified the data
+-   Now I've modified the data
 
 ```{r }
-#| eval: false
-#| echo: true
 
 # log1p_abun is new col I created 
 plot_dat %>% 
@@ -186,18 +174,14 @@ plot_dat %>%
 
 ## Extra functions/arguments
 
--   `case_when()` is similar to an `ifelse()` statement (but more intuitive)
--   Maybe you figured out "g" should have been "f" (typo)
--   You might go back to where you make `plot_dat` and remove the row where you filtered out `sex == "g"`
--   Now you can modify the `sex` col to changes cases where `sex=="g"` to `sex=="f"`
+- `case_when()` is like `ifelse()` but more flexible
+- `stat_smooth()` puts a generic line through the data
 
 ```{r }
-#| eval: false
-#| echo: true
 
 plot_dat %>% 
-  mutate(sex = case_when(sex == "g" ~ "f", 
-                         TRUE ~ sex)) %>% # maybe you figured out "g" should have been "f"
+  mutate(sex = case_when(sex == "g" ~ "f", # we assume the 'g' should be an 'f'
+                         TRUE ~ sex)) %>% 
   ggplot() +
   aes(x = sst, 
       y = log1p_abun) +
@@ -219,8 +203,6 @@ plot_dat %>%
 ## Function cheatsheet
 
 ```{r }
-#| eval: false
-#| echo: true
 
 # Packages ----------------------------------------------------------------
 library(tidyverse) # where the functions are stored
@@ -239,12 +221,12 @@ filter() # subsetting the data (e.g., order == "Aves")
 select()  # Selecting a single or multiple columns
 mutate() # Creating a new column
 rename() # Renaming a column
-summarise() # Summarising a dataset 
+reframe() # Summarising a dataset (e.g., taking a mean)
 
 arrange() # Ordering a column (E.g., sort by smallest arrival time)
 arrange(desc()) # ... or by largest arrival time
 distinct() # give me only the unique rows (no repeats)
-pull() # pull out a column and make it a vector
+pull() # pull out a single column and make it a vector
 count() # count the number of rows
 
 # Data visualisation ------------------------------------------------------
@@ -273,7 +255,31 @@ ggplot() +
 10. Statistics begin (another day)
 :::
 
+
+## Downloading big data
+
+```{r }
+
+# the RLS data would be too big to download from online
+# lets download it and then convert it to a csv
+install.packages("arrow")
+library(arrow)
+
+# convert from one filetype to another
+read_parquet("AODN_output.parquet") %>%
+  write_csv("AODN_output.csv")
+
+# read in the csv as you normally would
+rls_raw <- 
+  read_csv("AODN_output.csv")
+
+```
+
+
+
 ## Yay! 🎉🎉🎉
 
 
 From raw data, to cleaning, manipulating, and visualising in R
+
+

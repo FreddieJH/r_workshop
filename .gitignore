@@ -5,6 +5,5 @@
 
 /.quarto/
 
-*.parquet
 
 rls_cleaned.csv
