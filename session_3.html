@@ -450,6 +450,14 @@ Freddie Heather
 </section>
 <section id="r-is-a-tool" class="slide level2">
 <h2>R is a tool</h2>
+<div class="cell">
+<style type="text/css">
+.reveal table {
+  font-size: smaller;
+}
+
+</style>
+</div>
 <table>
 <colgroup>
 <col style="width: 28%">
@@ -621,7 +629,7 @@ Freddie Heather
 <span id="cb3-3"><a href="#cb3-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> mean_size, <span class="at">y =</span> total_abundance)) <span class="sc">+</span></span>
 <span id="cb3-4"><a href="#cb3-4"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img data-src="session_3_files/figure-revealjs/unnamed-chunk-3-1.png" width="960"></p>
+<p><img data-src="session_3_files/figure-revealjs/unnamed-chunk-4-1.png" width="960"></p>
 </div>
 </div>
 <ul>
@@ -637,7 +645,7 @@ Freddie Heather
 <span id="cb4-6"><a href="#cb4-6"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> mean_size, <span class="at">y =</span> log_tot_abun)) <span class="sc">+</span></span>
 <span id="cb4-7"><a href="#cb4-7"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img data-src="session_3_files/figure-revealjs/unnamed-chunk-4-1.png" width="960"></p>
+<p><img data-src="session_3_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></p>
 </div>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># perform the transformation in the ggplot</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a>sizes_byspp <span class="sc">%&gt;%</span> </span>
@@ -645,7 +653,7 @@ Freddie Heather
 <span id="cb5-4"><a href="#cb5-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb5-5"><a href="#cb5-5"></a>  <span class="fu">scale_y_log10</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img data-src="session_3_files/figure-revealjs/unnamed-chunk-4-2.png" width="960"></p>
+<p><img data-src="session_3_files/figure-revealjs/unnamed-chunk-5-2.png" width="960"></p>
 </div>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># what are the two differences between these two? (think: visual and data)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -659,7 +667,7 @@ Freddie Heather
 <span id="cb7-4"><a href="#cb7-4"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> <span class="co"># alpha argument changes transparency</span></span>
 <span id="cb7-5"><a href="#cb7-5"></a>  <span class="fu">scale_y_log10</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img data-src="session_3_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></p>
+<p><img data-src="session_3_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></p>
 </div>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Changing the type of point (= pch)</span></span>
 <span id="cb8-2"><a href="#cb8-2"></a>sizes_byspp <span class="sc">%&gt;%</span> </span>
@@ -667,7 +675,7 @@ Freddie Heather
 <span id="cb8-4"><a href="#cb8-4"></a>  <span class="fu">geom_point</span>(<span class="at">pch =</span> <span class="dv">21</span>) <span class="sc">+</span> <span class="co"># pch argument changes point type (Google: "pch in r")</span></span>
 <span id="cb8-5"><a href="#cb8-5"></a>  <span class="fu">scale_y_log10</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img data-src="session_3_files/figure-revealjs/unnamed-chunk-5-2.png" width="960"></p>
+<p><img data-src="session_3_files/figure-revealjs/unnamed-chunk-6-2.png" width="960"></p>
 </div>
 </div>
 <div class="callout callout-tip callout-titled callout-style-default">
@@ -699,7 +707,7 @@ Freddie Heather
 
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># Would it be worth doing more stats?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<img data-src="session_3_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
+<img data-src="session_3_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
 <section id="one-numerical-one-categorical" class="slide level2">
 <h2>One numerical, one categorical</h2>
 <ul>
@@ -739,7 +747,7 @@ Freddie Heather
 <span id="cb12-6"><a href="#cb12-6"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="session_3_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section>
+<img data-src="session_3_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"></section>
 <section id="too-much-data" class="slide level2">
 <h2>Too much data</h2>
 <div class="cell">
@@ -765,7 +773,7 @@ Freddie Heather
 <span id="cb14-8"><a href="#cb14-8"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="session_3_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"></section>
+<img data-src="session_3_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"></section>
 <section id="ordered-boxplot-in-r" class="slide level2">
 <h2>Ordered boxplot in R</h2>
 <div class="cell">
@@ -779,7 +787,7 @@ Freddie Heather
 <span id="cb15-8"><a href="#cb15-8"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="session_3_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"></section>
+<img data-src="session_3_files/figure-revealjs/unnamed-chunk-12-1.png" width="960" class="r-stretch"></section>
 <section id="violin-plots" class="slide level2">
 <h2>Violin plots</h2>
 <div class="cell">
@@ -793,7 +801,7 @@ Freddie Heather
 
 <div class="sourceCode cell-code" id="cb17" data-code-line-numbers="7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># Try and also separate the method by colour</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<img data-src="session_3_files/figure-revealjs/unnamed-chunk-12-1.png" width="960" class="r-stretch"></section>
+<img data-src="session_3_files/figure-revealjs/unnamed-chunk-13-1.png" width="960" class="r-stretch"></section>
 <section id="barplots" class="slide level2">
 <h2>Barplots</h2>
 <div class="cell">
@@ -813,7 +821,7 @@ Freddie Heather
 <span id="cb18-14"><a href="#cb18-14"></a>       <span class="at">y =</span> <span class="st">"Mean number of species"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="session_3_files/figure-revealjs/unnamed-chunk-13-1.png" width="960" class="r-stretch"></section>
+<img data-src="session_3_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch"></section>
 <section id="one-numerical-variable" class="slide level2">
 <h2>One numerical variable</h2>
 <div class="columns">
@@ -824,7 +832,7 @@ Freddie Heather
 <span id="cb19-3"><a href="#cb19-3"></a>  <span class="fu">aes</span>(<span class="at">x =</span> n, <span class="at">col =</span> <span class="fu">as.factor</span>(method)) <span class="sc">+</span></span>
 <span id="cb19-4"><a href="#cb19-4"></a>  <span class="fu">geom_density</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img data-src="session_3_files/figure-revealjs/unnamed-chunk-14-1.png" width="960"></p>
+<p><img data-src="session_3_files/figure-revealjs/unnamed-chunk-15-1.png" width="960"></p>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
@@ -834,7 +842,7 @@ Freddie Heather
 <span id="cb20-3"><a href="#cb20-3"></a>  <span class="fu">aes</span>(<span class="at">x =</span> n, <span class="at">col =</span> <span class="fu">as.factor</span>(method)) <span class="sc">+</span></span>
 <span id="cb20-4"><a href="#cb20-4"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img data-src="session_3_files/figure-revealjs/unnamed-chunk-15-1.png" width="960"></p>
+<p><img data-src="session_3_files/figure-revealjs/unnamed-chunk-16-1.png" width="960"></p>
 </div>
 </div>
 </div>
@@ -853,7 +861,7 @@ Freddie Heather
 <span id="cb21-5"><a href="#cb21-5"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>method)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="session_3_files/figure-revealjs/unnamed-chunk-16-1.png" width="960" class="r-stretch"></section>
+<img data-src="session_3_files/figure-revealjs/unnamed-chunk-17-1.png" width="960" class="r-stretch"></section>
 <section id="extra---error-bars" class="slide level2">
 <h2>Extra - Error bars</h2>
 <div class="cell">
@@ -877,7 +885,7 @@ Freddie Heather
 <span id="cb22-18"><a href="#cb22-18"></a>       <span class="at">y =</span> <span class="st">"Mean number of species"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<img data-src="session_3_files/figure-revealjs/unnamed-chunk-17-1.png" width="960" class="r-stretch"></section>
+<img data-src="session_3_files/figure-revealjs/unnamed-chunk-18-1.png" width="960" class="r-stretch"></section>
 <section id="cheatsheet" class="slide level2">
 <h2>Cheatsheet</h2>
 <p><a href="https://statsandr.com/blog/files/ggplot2-cheatsheet.pdf" class="uri">https://statsandr.com/blog/files/ggplot2-cheatsheet.pdf</a></p>
