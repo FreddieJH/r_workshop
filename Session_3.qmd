@@ -411,3 +411,10 @@ nspp_bysurv_bysite %>%
 ## Cheatsheet
 
 <https://statsandr.com/blog/files/ggplot2-cheatsheet.pdf>
+
+
+## Next week
+
+- Collating all that we have learned. 
+- Please bring your own data if you have some.
+
