@@ -414,7 +414,7 @@ Freddie Heather
 <ul>
 <li class="fragment">What is a script?</li>
 <li class="fragment">Name five data manipulation functions from last week.</li>
-<li class="fragment">What is the ‘pipe’?</li>
+<li class="fragment">What is the ‘pipe’ operator?</li>
 <li class="fragment">What does “&gt;=”, and “!=” do, and how would you use them?</li>
 <li class="fragment">I want to create a new column in a tibble. What function would I use?</li>
 <li class="fragment">I filter my data (e.g., age &gt;= 3), name three way to check if the filter has worked?</li>
@@ -497,10 +497,6 @@ Freddie Heather
 </section>
 <section id="data-import" class="slide level2">
 <h2>Data import</h2>
-<ul>
-<li>Today we will use the data from the Reef Life Survey data again</li>
-<li>The data is pre-filtered for the Marine Ecoregion: Cape Howe</li>
-</ul>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -511,7 +507,7 @@ Freddie Heather
 </div>
 <div class="callout-content">
 <ol type="1">
-<li>Download the file “cape_howe.csv” from <a href="https://github.com/FreddieJH/r_workshop/blob/main/cape_howe.csv">this link</a></li>
+<li>Download the Reef Life Survey file “cape_howe.csv” from <a href="https://github.com/FreddieJH/r_workshop/blob/main/cape_howe.csv">this link</a></li>
 <li>Import the csv and save it in R as an object (this will be your raw object and never overwritten)</li>
 <li>Create a new object that is only a single site - Choose one other than JBMP-S2</li>
 </ol>
@@ -624,56 +620,50 @@ Freddie Heather
 <section id="mean-size-vs.-total-abundance" class="slide level2">
 <h2>Mean size vs.&nbsp;total abundance</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># scatterplot of mean size vs. total abundance</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a>sizes_byspp <span class="sc">%&gt;%</span> </span>
-<span id="cb3-3"><a href="#cb3-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> mean_size, <span class="at">y =</span> total_abundance)) <span class="sc">+</span></span>
-<span id="cb3-4"><a href="#cb3-4"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img data-src="session_3_files/figure-revealjs/unnamed-chunk-4-1.png" width="960"></p>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>sizes_byspp <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> mean_size, <span class="at">y =</span> total_abundance)) <span class="sc">+</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Its not clean, potentially just one outlier</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a><span class="co"># Would transformation of the data make it more obvious to visualise?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<ul>
-<li>Its not clean, potentially just one outlier</li>
-<li>Would transformation of the data make it more obvious to visualise?</li>
-</ul>
+<img data-src="session_3_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section>
+<section id="transforming-data" class="slide level2">
+<h2>Transforming data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="co"># Two ways transform data</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a></span>
-<span id="cb4-3"><a href="#cb4-3"></a><span class="co"># transform before input into the ggplot</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a>sizes_byspp <span class="sc">%&gt;%</span> </span>
-<span id="cb4-5"><a href="#cb4-5"></a>  <span class="fu">mutate</span>(<span class="at">log_tot_abun =</span> <span class="fu">log</span>(total_abundance)) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-6"><a href="#cb4-6"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> mean_size, <span class="at">y =</span> log_tot_abun)) <span class="sc">+</span></span>
-<span id="cb4-7"><a href="#cb4-7"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img data-src="session_3_files/figure-revealjs/unnamed-chunk-5-1.png" width="960"></p>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># perform the transformation in the ggplot</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a>sizes_byspp <span class="sc">%&gt;%</span> </span>
-<span id="cb5-3"><a href="#cb5-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> mean_size, <span class="at">y =</span> total_abundance)) <span class="sc">+</span></span>
-<span id="cb5-4"><a href="#cb5-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a>  <span class="fu">scale_y_log10</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img data-src="session_3_files/figure-revealjs/unnamed-chunk-5-2.png" width="960"></p>
-</div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># what are the two differences between these two? (think: visual and data)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Two ways transform data</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="co"># transform before input into the ggplot</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a>sizes_byspp <span class="sc">%&gt;%</span> </span>
+<span id="cb5-5"><a href="#cb5-5"></a>  <span class="fu">mutate</span>(<span class="at">log_tot_abun =</span> <span class="fu">log</span>(total_abundance)) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-6"><a href="#cb5-6"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> mean_size, <span class="at">y =</span> log_tot_abun)) <span class="sc">+</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a>  <span class="fu">geom_point</span>()</span>
+<span id="cb5-8"><a href="#cb5-8"></a></span>
+<span id="cb5-9"><a href="#cb5-9"></a><span class="co"># perform the transformation in the ggplot</span></span>
+<span id="cb5-10"><a href="#cb5-10"></a>sizes_byspp <span class="sc">%&gt;%</span> </span>
+<span id="cb5-11"><a href="#cb5-11"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> mean_size, <span class="at">y =</span> total_abundance)) <span class="sc">+</span></span>
+<span id="cb5-12"><a href="#cb5-12"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb5-13"><a href="#cb5-13"></a>  <span class="fu">scale_y_log10</span>()</span>
+<span id="cb5-14"><a href="#cb5-14"></a></span>
+<span id="cb5-15"><a href="#cb5-15"></a><span class="co"># what are the two differences between these two? (think: visual and data)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="dealing-with-overalapping-points" class="slide level2">
 <h2>Dealing with overalapping points</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Changing the transparency of the point (= alpha)</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a>sizes_byspp <span class="sc">%&gt;%</span> </span>
-<span id="cb7-3"><a href="#cb7-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> mean_size, <span class="at">y =</span> total_abundance)) <span class="sc">+</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> <span class="co"># alpha argument changes transparency</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a>  <span class="fu">scale_y_log10</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="co"># Changing the transparency of the point (= alpha)</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>sizes_byspp <span class="sc">%&gt;%</span> </span>
+<span id="cb6-3"><a href="#cb6-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> mean_size, <span class="at">y =</span> total_abundance)) <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> <span class="co"># alpha argument changes transparency</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>  <span class="fu">scale_y_log10</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img data-src="session_3_files/figure-revealjs/unnamed-chunk-6-1.png" width="960"></p>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Changing the type of point (= pch)</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a>sizes_byspp <span class="sc">%&gt;%</span> </span>
-<span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> mean_size, <span class="at">y =</span> total_abundance)) <span class="sc">+</span></span>
-<span id="cb8-4"><a href="#cb8-4"></a>  <span class="fu">geom_point</span>(<span class="at">pch =</span> <span class="dv">21</span>) <span class="sc">+</span> <span class="co"># pch argument changes point type (Google: "pch in r")</span></span>
-<span id="cb8-5"><a href="#cb8-5"></a>  <span class="fu">scale_y_log10</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># Changing the type of point (= pch)</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>sizes_byspp <span class="sc">%&gt;%</span> </span>
+<span id="cb7-3"><a href="#cb7-3"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> mean_size, <span class="at">y =</span> total_abundance)) <span class="sc">+</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a>  <span class="fu">geom_point</span>(<span class="at">pch =</span> <span class="dv">21</span>) <span class="sc">+</span> <span class="co"># pch argument changes point type (Google: "pch in r")</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a>  <span class="fu">scale_y_log10</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img data-src="session_3_files/figure-revealjs/unnamed-chunk-6-2.png" width="960"></p>
 </div>
@@ -698,14 +688,14 @@ Freddie Heather
 <section id="a-cleaner-plot" class="slide level2">
 <h2>A cleaner plot</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>sizes_byspp <span class="sc">%&gt;%</span> </span>
-<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> mean_size, <span class="at">y =</span> total_abundance)) <span class="sc">+</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a>  <span class="fu">geom_point</span>(<span class="at">pch =</span> <span class="dv">21</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span> </span>
-<span id="cb9-4"><a href="#cb9-4"></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span> </span>
-<span id="cb9-5"><a href="#cb9-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Species mean body size (cm)"</span>, </span>
-<span id="cb9-6"><a href="#cb9-6"></a>       <span class="at">y =</span> <span class="st">"Total observations"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>sizes_byspp <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> mean_size, <span class="at">y =</span> total_abundance)) <span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">geom_point</span>(<span class="at">pch =</span> <span class="dv">21</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span> </span>
+<span id="cb8-4"><a href="#cb8-4"></a>  <span class="fu">scale_y_log10</span>() <span class="sc">+</span> </span>
+<span id="cb8-5"><a href="#cb8-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Species mean body size (cm)"</span>, </span>
+<span id="cb8-6"><a href="#cb8-6"></a>       <span class="at">y =</span> <span class="st">"Total observations"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># Would it be worth doing more stats?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="co"># Would it be worth doing more stats?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <img data-src="session_3_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
 <section id="one-numerical-one-categorical" class="slide level2">
@@ -719,45 +709,51 @@ Freddie Heather
 <section id="wrangling-before-plotting" class="slide level2">
 <h2>Wrangling before plotting</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># say we only care about highly biodiverse sites (&gt; 120)</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a></span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="co"># calculating the number of species at a site by the method</span></span>
-<span id="cb11-4"><a href="#cb11-4"></a>nspp_bysite <span class="ot">&lt;-</span> </span>
-<span id="cb11-5"><a href="#cb11-5"></a>  capehowe <span class="sc">%&gt;%</span> </span>
-<span id="cb11-6"><a href="#cb11-6"></a>  <span class="fu">select</span>(species_name, site_code, method) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-7"><a href="#cb11-7"></a>  <span class="fu">distinct</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb11-8"><a href="#cb11-8"></a>  <span class="fu">count</span>(site_code, method) </span>
-<span id="cb11-9"><a href="#cb11-9"></a></span>
-<span id="cb11-10"><a href="#cb11-10"></a><span class="co"># number of species at each survey within a site for each method</span></span>
-<span id="cb11-11"><a href="#cb11-11"></a>nspp_bysurv_bysite <span class="ot">&lt;-</span> </span>
-<span id="cb11-12"><a href="#cb11-12"></a>  capehowe <span class="sc">%&gt;%</span> </span>
-<span id="cb11-13"><a href="#cb11-13"></a>  <span class="fu">select</span>(survey_date, species_name, site_code, method) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-14"><a href="#cb11-14"></a>  <span class="fu">distinct</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb11-15"><a href="#cb11-15"></a>  <span class="fu">count</span>(survey_date, site_code, method) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># say we only care about highly biodiverse sites (&gt; 120)</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="co"># calculating the number of species at a site by the method</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a>nspp_bysite <span class="ot">&lt;-</span> </span>
+<span id="cb10-5"><a href="#cb10-5"></a>  capehowe <span class="sc">%&gt;%</span> </span>
+<span id="cb10-6"><a href="#cb10-6"></a>  <span class="fu">select</span>(species_name, site_code, method) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-7"><a href="#cb10-7"></a>  <span class="fu">distinct</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb10-8"><a href="#cb10-8"></a>  <span class="fu">count</span>(site_code, method) </span>
+<span id="cb10-9"><a href="#cb10-9"></a></span>
+<span id="cb10-10"><a href="#cb10-10"></a><span class="co"># number of species at each survey within a site for each method</span></span>
+<span id="cb10-11"><a href="#cb10-11"></a>nspp_bysurv_bysite <span class="ot">&lt;-</span> </span>
+<span id="cb10-12"><a href="#cb10-12"></a>  capehowe <span class="sc">%&gt;%</span> </span>
+<span id="cb10-13"><a href="#cb10-13"></a>  <span class="fu">select</span>(survey_date, species_name, site_code, method) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-14"><a href="#cb10-14"></a>  <span class="fu">distinct</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb10-15"><a href="#cb10-15"></a>  <span class="fu">count</span>(survey_date, site_code, method) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="boxplot-in-r" class="slide level2">
 <h2>Boxplot in R</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># a quick plot</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a>nspp_bysurv_bysite <span class="sc">%&gt;%</span> </span>
-<span id="cb12-3"><a href="#cb12-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb12-4"><a href="#cb12-4"></a>  <span class="fu">aes</span>(<span class="at">x =</span> site_code, </span>
-<span id="cb12-5"><a href="#cb12-5"></a>      <span class="at">y =</span> n) <span class="sc">+</span></span>
-<span id="cb12-6"><a href="#cb12-6"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># a quick plot</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>nspp_bysurv_bysite <span class="sc">%&gt;%</span> </span>
+<span id="cb11-3"><a href="#cb11-3"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a>  <span class="fu">aes</span>(<span class="at">x =</span> site_code, </span>
+<span id="cb11-5"><a href="#cb11-5"></a>      <span class="at">y =</span> n) <span class="sc">+</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
 <img data-src="session_3_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"></section>
 <section id="too-much-data" class="slide level2">
 <h2>Too much data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># say we only care about highly biodiverse sites (&gt; 120)</span></span>
-<span id="cb13-2"><a href="#cb13-2"></a></span>
-<span id="cb13-3"><a href="#cb13-3"></a>selected_sites <span class="ot">&lt;-</span> </span>
-<span id="cb13-4"><a href="#cb13-4"></a>  nspp_bysite <span class="sc">%&gt;%</span> </span>
-<span id="cb13-5"><a href="#cb13-5"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n)) <span class="sc">%&gt;%</span> </span>
-<span id="cb13-6"><a href="#cb13-6"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">120</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb13-7"><a href="#cb13-7"></a>  <span class="fu">pull</span>(site_code)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># say we only care about highly biodiverse sites (&gt; 120 species)</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a></span>
+<span id="cb12-3"><a href="#cb12-3"></a>selected_sites <span class="ot">&lt;-</span> </span>
+<span id="cb12-4"><a href="#cb12-4"></a>  nspp_bysite <span class="sc">%&gt;%</span> </span>
+<span id="cb12-5"><a href="#cb12-5"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n)) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-6"><a href="#cb12-6"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">120</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-7"><a href="#cb12-7"></a>  <span class="fu">pull</span>(site_code)</span>
+<span id="cb12-8"><a href="#cb12-8"></a></span>
+<span id="cb12-9"><a href="#cb12-9"></a>selected_sites</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "JBMP-S15" "JBMP-S16" "JBMP-S26" "JBMP-S17" "JBMP-S3"  "JBMP-S18" "JBMP-S4" 
+[8] "JBMP-S6"  "JBMP-S14"</code></pre>
+</div>
 </div>
 </section>
 <section id="and-plot-method-1-and-2-separately" class="slide level2">
