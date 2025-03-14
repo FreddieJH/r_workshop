@@ -408,6 +408,55 @@ nspp_bysurv_bysite %>%
 ```
 
 
+## Extra - Theming
+
+```{r }
+#| code-line-numbers: "19,20"
+
+# Making pretty plots
+nspp_bysurv_bysite %>% 
+  filter(site_code %in% selected_sites) %>% 
+  reframe(mean_diversity = mean(n, na.rm = TRUE), 
+          sd_diversity = sd(n, na.rm = TRUE),
+            .by = c(site_code, method)) %>% 
+  ggplot() +
+  aes(x = site_code, 
+      y = mean_diversity, 
+      fill = as.factor(method)) +
+  geom_col(position = position_dodge(width = 1)) +
+  geom_errorbar(aes(ymin = mean_diversity - sd_diversity, 
+                    ymax = mean_diversity + sd_diversity), 
+                 width = 0.2,
+                position = position_dodge(width = 1)) +
+  labs(fill = "Method", 
+       x = "Site Code",
+       y = "Mean number of species") +
+  scale_fill_brewer(palette = "Set1") + #https://r-graph-gallery.com/38-rcolorbrewers-palettes.html
+  theme_classic() # https://ggplot2.tidyverse.org/reference/ggtheme.html
+
+```
+
+
+## Extra - Layering geoms
+
+```{r }
+#| code-line-numbers: "9,10"
+
+# Change the order of the geom_line() and geom_point()
+nspp_bysurv_bysite %>% 
+  mutate(year = year(survey_date)) %>%
+  reframe(mean_diversity = mean(n, na.rm = TRUE), 
+            .by = c(year, method)) %>% 
+  ggplot() +
+  aes(x = year, 
+      y = mean_diversity) +
+  geom_line(aes(group = as.factor(method))) +
+  geom_point(aes(col = as.factor(method)), size = 5) 
+
+```
+
+
+
 ## Cheatsheet
 
 <https://statsandr.com/blog/files/ggplot2-cheatsheet.pdf>

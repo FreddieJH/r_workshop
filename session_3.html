@@ -882,6 +882,48 @@ Freddie Heather
 
 </div>
 <img data-src="session_3_files/figure-revealjs/unnamed-chunk-18-1.png" width="960" class="r-stretch"></section>
+<section id="extra---theming" class="slide level2">
+<h2>Extra - Theming</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23" data-code-line-numbers="19,20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="co"># Making pretty plots</span></span>
+<span id="cb23-2"><a href="#cb23-2"></a>nspp_bysurv_bysite <span class="sc">%&gt;%</span> </span>
+<span id="cb23-3"><a href="#cb23-3"></a>  <span class="fu">filter</span>(site_code <span class="sc">%in%</span> selected_sites) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-4"><a href="#cb23-4"></a>  <span class="fu">reframe</span>(<span class="at">mean_diversity =</span> <span class="fu">mean</span>(n, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb23-5"><a href="#cb23-5"></a>          <span class="at">sd_diversity =</span> <span class="fu">sd</span>(n, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb23-6"><a href="#cb23-6"></a>            <span class="at">.by =</span> <span class="fu">c</span>(site_code, method)) <span class="sc">%&gt;%</span> </span>
+<span id="cb23-7"><a href="#cb23-7"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb23-8"><a href="#cb23-8"></a>  <span class="fu">aes</span>(<span class="at">x =</span> site_code, </span>
+<span id="cb23-9"><a href="#cb23-9"></a>      <span class="at">y =</span> mean_diversity, </span>
+<span id="cb23-10"><a href="#cb23-10"></a>      <span class="at">fill =</span> <span class="fu">as.factor</span>(method)) <span class="sc">+</span></span>
+<span id="cb23-11"><a href="#cb23-11"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb23-12"><a href="#cb23-12"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> mean_diversity <span class="sc">-</span> sd_diversity, </span>
+<span id="cb23-13"><a href="#cb23-13"></a>                    <span class="at">ymax =</span> mean_diversity <span class="sc">+</span> sd_diversity), </span>
+<span id="cb23-14"><a href="#cb23-14"></a>                 <span class="at">width =</span> <span class="fl">0.2</span>,</span>
+<span id="cb23-15"><a href="#cb23-15"></a>                <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb23-16"><a href="#cb23-16"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">"Method"</span>, </span>
+<span id="cb23-17"><a href="#cb23-17"></a>       <span class="at">x =</span> <span class="st">"Site Code"</span>,</span>
+<span id="cb23-18"><a href="#cb23-18"></a>       <span class="at">y =</span> <span class="st">"Mean number of species"</span>) <span class="sc">+</span></span>
+<span id="cb23-19"><a href="#cb23-19"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Set1"</span>) <span class="sc">+</span> <span class="co">#https://r-graph-gallery.com/38-rcolorbrewers-palettes.html</span></span>
+<span id="cb23-20"><a href="#cb23-20"></a>  <span class="fu">theme_classic</span>() <span class="co"># https://ggplot2.tidyverse.org/reference/ggtheme.html</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="session_3_files/figure-revealjs/unnamed-chunk-19-1.png" width="960" class="r-stretch"></section>
+<section id="extra---layering-geoms" class="slide level2">
+<h2>Extra - Layering geoms</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24" data-code-line-numbers="9,10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co"># Change the order of the geom_line() and geom_point()</span></span>
+<span id="cb24-2"><a href="#cb24-2"></a>nspp_bysurv_bysite <span class="sc">%&gt;%</span> </span>
+<span id="cb24-3"><a href="#cb24-3"></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">year</span>(survey_date)) <span class="sc">%&gt;%</span></span>
+<span id="cb24-4"><a href="#cb24-4"></a>  <span class="fu">reframe</span>(<span class="at">mean_diversity =</span> <span class="fu">mean</span>(n, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb24-5"><a href="#cb24-5"></a>            <span class="at">.by =</span> <span class="fu">c</span>(year, method)) <span class="sc">%&gt;%</span> </span>
+<span id="cb24-6"><a href="#cb24-6"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb24-7"><a href="#cb24-7"></a>  <span class="fu">aes</span>(<span class="at">x =</span> year, </span>
+<span id="cb24-8"><a href="#cb24-8"></a>      <span class="at">y =</span> mean_diversity) <span class="sc">+</span></span>
+<span id="cb24-9"><a href="#cb24-9"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> <span class="fu">as.factor</span>(method))) <span class="sc">+</span></span>
+<span id="cb24-10"><a href="#cb24-10"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">col =</span> <span class="fu">as.factor</span>(method)), <span class="at">size =</span> <span class="dv">5</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="session_3_files/figure-revealjs/unnamed-chunk-20-1.png" width="960" class="r-stretch"></section>
 <section id="cheatsheet" class="slide level2">
 <h2>Cheatsheet</h2>
 <p><a href="https://statsandr.com/blog/files/ggplot2-cheatsheet.pdf" class="uri">https://statsandr.com/blog/files/ggplot2-cheatsheet.pdf</a></p>
