@@ -231,9 +231,9 @@ count() # count the number of rows
 
 # Data visualisation ------------------------------------------------------
 ggplot() +
-  aes(x = col1, 
-      y = col2, 
-      colour = col3) +
+  aes(x = column1, 
+      y = column2, 
+      colour = column3) +
   geom_point() # or geom_violin() or geom_boxplot() or geom_XXXX()
 
 ```
@@ -272,6 +272,36 @@ read_parquet("AODN_output.parquet") %>%
 # read in the csv as you normally would
 rls_raw <- 
   read_csv("AODN_output.csv")
+
+```
+
+## Downloading other example data
+
+https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html
+
+```{r }
+
+# the 'datasets' package is a collection of example datasets
+install.packages("datasets")
+library(datasets)
+
+# E.g.
+raw_data <- datasets::PlantGrowth
+raw_data <- datasets::pressure
+raw_data <- datasets::co2
+
+
+# or:
+install.packages("nycflights13")
+library(nycflights13)
+
+raw_data <- nycflights13::flights
+
+# or:
+install.packages("babynames")
+library(babynames)
+
+raw_data <- babynames::babynames
 
 ```
 

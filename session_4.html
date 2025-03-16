@@ -627,9 +627,9 @@ Freddie Heather
 <span id="cb10-25"><a href="#cb10-25"></a></span>
 <span id="cb10-26"><a href="#cb10-26"></a><span class="co"># Data visualisation ------------------------------------------------------</span></span>
 <span id="cb10-27"><a href="#cb10-27"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb10-28"><a href="#cb10-28"></a>  <span class="fu">aes</span>(<span class="at">x =</span> col1, </span>
-<span id="cb10-29"><a href="#cb10-29"></a>      <span class="at">y =</span> col2, </span>
-<span id="cb10-30"><a href="#cb10-30"></a>      <span class="at">colour =</span> col3) <span class="sc">+</span></span>
+<span id="cb10-28"><a href="#cb10-28"></a>  <span class="fu">aes</span>(<span class="at">x =</span> column1, </span>
+<span id="cb10-29"><a href="#cb10-29"></a>      <span class="at">y =</span> column2, </span>
+<span id="cb10-30"><a href="#cb10-30"></a>      <span class="at">colour =</span> column3) <span class="sc">+</span></span>
 <span id="cb10-31"><a href="#cb10-31"></a>  <span class="fu">geom_point</span>() <span class="co"># or geom_violin() or geom_boxplot() or geom_XXXX()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -675,6 +675,33 @@ Freddie Heather
 <span id="cb11-10"><a href="#cb11-10"></a><span class="co"># read in the csv as you normally would</span></span>
 <span id="cb11-11"><a href="#cb11-11"></a>rls_raw <span class="ot">&lt;-</span> </span>
 <span id="cb11-12"><a href="#cb11-12"></a>  <span class="fu">read_csv</span>(<span class="st">"AODN_output.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="downloading-other-example-data" class="slide level2">
+<h2>Downloading other example data</h2>
+<p>https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># the 'datasets' package is a collection of example datasets</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="fu">install.packages</span>(<span class="st">"datasets"</span>)</span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="fu">library</span>(datasets)</span>
+<span id="cb12-4"><a href="#cb12-4"></a></span>
+<span id="cb12-5"><a href="#cb12-5"></a><span class="co"># E.g.</span></span>
+<span id="cb12-6"><a href="#cb12-6"></a>raw_data <span class="ot">&lt;-</span> datasets<span class="sc">::</span>PlantGrowth</span>
+<span id="cb12-7"><a href="#cb12-7"></a>raw_data <span class="ot">&lt;-</span> datasets<span class="sc">::</span>pressure</span>
+<span id="cb12-8"><a href="#cb12-8"></a>raw_data <span class="ot">&lt;-</span> datasets<span class="sc">::</span>co2</span>
+<span id="cb12-9"><a href="#cb12-9"></a></span>
+<span id="cb12-10"><a href="#cb12-10"></a></span>
+<span id="cb12-11"><a href="#cb12-11"></a><span class="co"># or:</span></span>
+<span id="cb12-12"><a href="#cb12-12"></a><span class="fu">install.packages</span>(<span class="st">"nycflights13"</span>)</span>
+<span id="cb12-13"><a href="#cb12-13"></a><span class="fu">library</span>(nycflights13)</span>
+<span id="cb12-14"><a href="#cb12-14"></a></span>
+<span id="cb12-15"><a href="#cb12-15"></a>raw_data <span class="ot">&lt;-</span> nycflights13<span class="sc">::</span>flights</span>
+<span id="cb12-16"><a href="#cb12-16"></a></span>
+<span id="cb12-17"><a href="#cb12-17"></a><span class="co"># or:</span></span>
+<span id="cb12-18"><a href="#cb12-18"></a><span class="fu">install.packages</span>(<span class="st">"babynames"</span>)</span>
+<span id="cb12-19"><a href="#cb12-19"></a><span class="fu">library</span>(babynames)</span>
+<span id="cb12-20"><a href="#cb12-20"></a></span>
+<span id="cb12-21"><a href="#cb12-21"></a>raw_data <span class="ot">&lt;-</span> babynames<span class="sc">::</span>babynames</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="yay" class="slide level2">
