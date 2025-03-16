@@ -617,20 +617,21 @@ Freddie Heather
 <span id="cb10-15"><a href="#cb10-15"></a><span class="fu">select</span>()  <span class="co"># Selecting a single or multiple columns</span></span>
 <span id="cb10-16"><a href="#cb10-16"></a><span class="fu">mutate</span>() <span class="co"># Creating a new column</span></span>
 <span id="cb10-17"><a href="#cb10-17"></a><span class="fu">rename</span>() <span class="co"># Renaming a column</span></span>
-<span id="cb10-18"><a href="#cb10-18"></a><span class="fu">reframe</span>() <span class="co"># Summarising a dataset (e.g., taking a mean)</span></span>
-<span id="cb10-19"><a href="#cb10-19"></a></span>
-<span id="cb10-20"><a href="#cb10-20"></a><span class="fu">arrange</span>() <span class="co"># Ordering a column (E.g., sort by smallest arrival time)</span></span>
-<span id="cb10-21"><a href="#cb10-21"></a><span class="fu">arrange</span>(<span class="fu">desc</span>()) <span class="co"># ... or by largest arrival time</span></span>
-<span id="cb10-22"><a href="#cb10-22"></a><span class="fu">distinct</span>() <span class="co"># give me only the unique rows (no repeats)</span></span>
-<span id="cb10-23"><a href="#cb10-23"></a><span class="fu">pull</span>() <span class="co"># pull out a single column and make it a vector</span></span>
-<span id="cb10-24"><a href="#cb10-24"></a><span class="fu">count</span>() <span class="co"># count the number of rows</span></span>
-<span id="cb10-25"><a href="#cb10-25"></a></span>
-<span id="cb10-26"><a href="#cb10-26"></a><span class="co"># Data visualisation ------------------------------------------------------</span></span>
-<span id="cb10-27"><a href="#cb10-27"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb10-28"><a href="#cb10-28"></a>  <span class="fu">aes</span>(<span class="at">x =</span> column1, </span>
-<span id="cb10-29"><a href="#cb10-29"></a>      <span class="at">y =</span> column2, </span>
-<span id="cb10-30"><a href="#cb10-30"></a>      <span class="at">colour =</span> column3) <span class="sc">+</span></span>
-<span id="cb10-31"><a href="#cb10-31"></a>  <span class="fu">geom_point</span>() <span class="co"># or geom_violin() or geom_boxplot() or geom_XXXX()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-18"><a href="#cb10-18"></a><span class="fu">reframe</span>(<span class="at">.by =</span>) <span class="co"># Summarising a dataset (e.g., taking a mean)</span></span>
+<span id="cb10-19"><a href="#cb10-19"></a><span class="fu">summarise</span>(<span class="at">.by =</span>) <span class="co"># Almost identical to reframe()</span></span>
+<span id="cb10-20"><a href="#cb10-20"></a></span>
+<span id="cb10-21"><a href="#cb10-21"></a><span class="fu">arrange</span>() <span class="co"># Ordering a column (E.g., sort by smallest arrival time)</span></span>
+<span id="cb10-22"><a href="#cb10-22"></a><span class="fu">arrange</span>(<span class="fu">desc</span>()) <span class="co"># ... or by largest arrival time</span></span>
+<span id="cb10-23"><a href="#cb10-23"></a><span class="fu">distinct</span>() <span class="co"># give me only the unique rows (no repeats)</span></span>
+<span id="cb10-24"><a href="#cb10-24"></a><span class="fu">pull</span>() <span class="co"># pull out a single column and make it a vector</span></span>
+<span id="cb10-25"><a href="#cb10-25"></a><span class="fu">count</span>(<span class="at">.by =</span>) <span class="co"># count the number of rows per group</span></span>
+<span id="cb10-26"><a href="#cb10-26"></a></span>
+<span id="cb10-27"><a href="#cb10-27"></a><span class="co"># Data visualisation ------------------------------------------------------</span></span>
+<span id="cb10-28"><a href="#cb10-28"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb10-29"><a href="#cb10-29"></a>  <span class="fu">aes</span>(<span class="at">x =</span> column1, </span>
+<span id="cb10-30"><a href="#cb10-30"></a>      <span class="at">y =</span> column2, </span>
+<span id="cb10-31"><a href="#cb10-31"></a>      <span class="at">colour =</span> column3) <span class="sc">+</span></span>
+<span id="cb10-32"><a href="#cb10-32"></a>  <span class="fu">geom_point</span>() <span class="co"># or geom_violin() or geom_boxplot() or geom_XXXX()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="your-own-hypothesis-data" class="slide level2">
@@ -679,29 +680,25 @@ Freddie Heather
 </section>
 <section id="downloading-other-example-data" class="slide level2">
 <h2>Downloading other example data</h2>
-<p>https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># the 'datasets' package is a collection of example datasets</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a><span class="fu">install.packages</span>(<span class="st">"datasets"</span>)</span>
-<span id="cb12-3"><a href="#cb12-3"></a><span class="fu">library</span>(datasets)</span>
-<span id="cb12-4"><a href="#cb12-4"></a></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="co"># https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="fu">install.packages</span>(<span class="st">"datasets"</span>)</span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="fu">library</span>(datasets)</span>
 <span id="cb12-5"><a href="#cb12-5"></a><span class="co"># E.g.</span></span>
 <span id="cb12-6"><a href="#cb12-6"></a>raw_data <span class="ot">&lt;-</span> datasets<span class="sc">::</span>PlantGrowth</span>
 <span id="cb12-7"><a href="#cb12-7"></a>raw_data <span class="ot">&lt;-</span> datasets<span class="sc">::</span>pressure</span>
 <span id="cb12-8"><a href="#cb12-8"></a>raw_data <span class="ot">&lt;-</span> datasets<span class="sc">::</span>co2</span>
 <span id="cb12-9"><a href="#cb12-9"></a></span>
-<span id="cb12-10"><a href="#cb12-10"></a></span>
-<span id="cb12-11"><a href="#cb12-11"></a><span class="co"># or:</span></span>
-<span id="cb12-12"><a href="#cb12-12"></a><span class="fu">install.packages</span>(<span class="st">"nycflights13"</span>)</span>
-<span id="cb12-13"><a href="#cb12-13"></a><span class="fu">library</span>(nycflights13)</span>
+<span id="cb12-10"><a href="#cb12-10"></a><span class="co"># or -----------------------------------------------</span></span>
+<span id="cb12-11"><a href="#cb12-11"></a><span class="fu">install.packages</span>(<span class="st">"nycflights13"</span>)</span>
+<span id="cb12-12"><a href="#cb12-12"></a><span class="fu">library</span>(nycflights13)</span>
+<span id="cb12-13"><a href="#cb12-13"></a>raw_data <span class="ot">&lt;-</span> nycflights13<span class="sc">::</span>flights</span>
 <span id="cb12-14"><a href="#cb12-14"></a></span>
-<span id="cb12-15"><a href="#cb12-15"></a>raw_data <span class="ot">&lt;-</span> nycflights13<span class="sc">::</span>flights</span>
-<span id="cb12-16"><a href="#cb12-16"></a></span>
-<span id="cb12-17"><a href="#cb12-17"></a><span class="co"># or:</span></span>
-<span id="cb12-18"><a href="#cb12-18"></a><span class="fu">install.packages</span>(<span class="st">"babynames"</span>)</span>
-<span id="cb12-19"><a href="#cb12-19"></a><span class="fu">library</span>(babynames)</span>
-<span id="cb12-20"><a href="#cb12-20"></a></span>
-<span id="cb12-21"><a href="#cb12-21"></a>raw_data <span class="ot">&lt;-</span> babynames<span class="sc">::</span>babynames</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-15"><a href="#cb12-15"></a><span class="co"># or -----------------------------------------------</span></span>
+<span id="cb12-16"><a href="#cb12-16"></a><span class="fu">install.packages</span>(<span class="st">"babynames"</span>)</span>
+<span id="cb12-17"><a href="#cb12-17"></a><span class="fu">library</span>(babynames)</span>
+<span id="cb12-18"><a href="#cb12-18"></a>raw_data <span class="ot">&lt;-</span> babynames<span class="sc">::</span>babynames</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="yay" class="slide level2">

@@ -221,13 +221,14 @@ filter() # subsetting the data (e.g., order == "Aves")
 select()  # Selecting a single or multiple columns
 mutate() # Creating a new column
 rename() # Renaming a column
-reframe() # Summarising a dataset (e.g., taking a mean)
+reframe(.by =) # Summarising a dataset (e.g., taking a mean)
+summarise(.by =) # Almost identical to reframe()
 
 arrange() # Ordering a column (E.g., sort by smallest arrival time)
 arrange(desc()) # ... or by largest arrival time
 distinct() # give me only the unique rows (no repeats)
 pull() # pull out a single column and make it a vector
-count() # count the number of rows
+count(.by =) # count the number of rows per group
 
 # Data visualisation ------------------------------------------------------
 ggplot() +
@@ -277,30 +278,27 @@ rls_raw <-
 
 ## Downloading other example data
 
-https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html
+
 
 ```{r }
 
 # the 'datasets' package is a collection of example datasets
+# https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html
 install.packages("datasets")
 library(datasets)
-
 # E.g.
 raw_data <- datasets::PlantGrowth
 raw_data <- datasets::pressure
 raw_data <- datasets::co2
 
-
-# or:
+# or -----------------------------------------------
 install.packages("nycflights13")
 library(nycflights13)
-
 raw_data <- nycflights13::flights
 
-# or:
+# or -----------------------------------------------
 install.packages("babynames")
 library(babynames)
-
 raw_data <- babynames::babynames
 
 ```
