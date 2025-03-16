@@ -259,6 +259,7 @@ ggplot() +
 
 ## Downloading big data
 
+Download parquet file from here: [AODN_output.parquet](https://github.com/FreddieJH/r_workshop/blob/main/AODN_output.parquet)
 ```{r }
 
 # the RLS data would be too big to download from online
