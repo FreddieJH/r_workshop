@@ -28,7 +28,7 @@ project:
 
 ## Today: Session 4
 
-1.  Import a csv 
+1.  Import a csv
 2.  Data checks
 3.  Initial data clean
 4.  Data visualisation
@@ -36,7 +36,8 @@ project:
 6.  Repeat steps 4 & 5 (when you would begin stats)
 
 # Run through all steps
-Using a fictitious example 
+
+Using a fictitious example
 
 ## Hypothesis
 
@@ -142,7 +143,7 @@ clean_dat %>%
 
 ## Data manipulation
 
--   During the [fictitious] initial  visualisation I noticed:
+-   During the \[fictitious\] initial visualisation I noticed:
 -   Abundance is very heavily skewed (I want to transform the data)
 -   I found some outliers (I want to removed them)
 -   `%in%` is like `==` but for multiple comparisons
@@ -174,8 +175,8 @@ plot_dat %>%
 
 ## Extra functions/arguments
 
-- `case_when()` is like `ifelse()` but more flexible
-- `stat_smooth()` puts a generic line through the data
+-   `case_when()` is like `ifelse()` but more flexible
+-   `stat_smooth()` puts a generic line through the data
 
 ```{r }
 
@@ -221,8 +222,8 @@ filter() # subsetting the data (e.g., order == "Aves")
 select()  # Selecting a single or multiple columns
 mutate() # Creating a new column
 rename() # Renaming a column
-reframe(.by =) # Summarising a dataset (e.g., taking a mean)
-summarise(.by =) # Almost identical to reframe()
+summarise(.by =) # Summarising a dataset (e.g., taking a mean)
+reframe(.by =) # Almost identical to summarise()
 
 arrange() # Ordering a column (E.g., sort by smallest arrival time)
 arrange(desc()) # ... or by largest arrival time
@@ -256,10 +257,10 @@ ggplot() +
 10. Statistics begin (another day)
 :::
 
-
 ## Downloading big data
 
 Download parquet file from here: [AODN_output.parquet](https://github.com/FreddieJH/r_workshop/blob/main/AODN_output.parquet)
+
 ```{r }
 
 # the RLS data would be too big to download from online
@@ -278,8 +279,6 @@ rls_raw <-
 ```
 
 ## Downloading other example data
-
-
 
 ```{r }
 
@@ -304,11 +303,6 @@ raw_data <- babynames::babynames
 
 ```
 
-
-
 ## Yay! 🎉🎉🎉
 
-
 From raw data, to cleaning, manipulating, and visualising in R
-
-

@@ -27,15 +27,13 @@ project:
 ```{r}
 #| include = FALSE
 knitr::opts_chunk$set(
-  echo = TRUE, 
+  echo = TRUE,
   include = TRUE
 )
 ```
 
 -   Programming language
-
 -   Very popular in scientific data analysis...
-
 -   and a lot more
 
 \vspace{20px}
@@ -117,7 +115,7 @@ knitr::opts_chunk$set(
 ::: fragment
 ```{r}
 #| code-line-numbers: "|1,2|3"
-#| 
+#|
 # addition
 # numeric output
 1 + 3
@@ -129,9 +127,9 @@ knitr::opts_chunk$set(
 # numeric vector (i.e. a series of numbers)
 1:5
 
-# or 
+# or
 
-c(1,2,3,4,5)
+c(1, 2, 3, 4, 5)
 
 ```
 :::
@@ -139,7 +137,7 @@ c(1,2,3,4,5)
 ::: fragment
 ```{r}
 # Arithmetic on a vector
-(1:5)*2
+(1:5) * 2
 ```
 :::
 
@@ -154,7 +152,7 @@ c(1,2,3,4,5)
 
 ```{r}
 x <- 5
-x^2 
+x^2
 ```
 
 ------------------------------------------------------------------------
@@ -164,7 +162,7 @@ A little more complex
 ```{r}
 #| code-line-numbers: "1|2|3"
 x <- 3 # make x equal to 3
-y <- x*5 # make y equal to 5 times the value of x
+y <- x * 5 # make y equal to 5 times the value of x
 z <- y - x # make z equal to the difference between y and x
 ```
 
@@ -191,12 +189,10 @@ x
 -   The data type (e.g. numeric, character) of the object is called the class.
 
 ```{r}
-
 # character strings
 first_name <- "Freddie"
 last_name <- "Heather"
 paste("My name is", first_name, last_name)
-
 ```
 
 ## Object classes
@@ -204,11 +200,9 @@ paste("My name is", first_name, last_name)
 -   We can use the appropriately named `class()` function to see what the class of an object is
 
 ```{r}
-
 x <- 89
 y <- "hello there"
 z <- TRUE
-
 ```
 
 ```{r}
@@ -233,7 +227,7 @@ class(z)
 x <- "oops"
 y <- 9
 
-x*y
+x * y
 ```
 
 ## Types of classes
@@ -260,7 +254,7 @@ class(s2)
 
 ```{r}
 
-(2+3) == 5
+(2 + 3) == 5
 
 ```
 
@@ -280,7 +274,7 @@ x
 
 ::: fragment
 ```{r }
-(5+10+3)/3
+(5 + 10 + 3) / 3
 ```
 :::
 
@@ -288,9 +282,9 @@ x
 -   Instead, let's use the `mean()` function to calculate the mean:
 :::
 
-::: fragment
-```{r }
-mean(x = c(5,10,3))
+::: fragment`
+```{r}
+mean(x = c(5, 10, 3))
 ```
 
 -   `mean` is the **function**, `x` is the **argument** of the function
@@ -317,12 +311,12 @@ mean(x = c(5,10,3))
 
 ```{r}
 #install.packages("readr") # only need to do once on your computer (i.e., download the package)
-library(readr) # every time you run the script (i.e., load the package) 
+library(readr) # every time you run the script (i.e., load the package)
 ```
 
 ## Pretend to collect data
 
--   Download some example data from here: github.com/FreddieJH/r_workshop/cape_howe.csv
+-   Download example data from: [github.com/FreddieJH/r_workshop/cape_howe.csv](github.com/FreddieJH/r_workshop/cape_howe.csv)
 -   Note it is already in .csv format (see next slide)
 -   Let's pretend you went out and collected it
 -   **Save this .csv file in your 'working directory'**

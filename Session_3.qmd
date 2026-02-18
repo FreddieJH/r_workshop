@@ -41,6 +41,7 @@ project:
 :::
 
 ## R is a tool
+
 ```{css}
 #| echo: false
 
@@ -49,12 +50,12 @@ project:
 }
 
 ```
-|              | Mechanics                        | Science                                                |
-|----------------|------------|----------------------------|
-| **Problem**  | Bolt won't loosen by hand        | I have hypothesis and data; I want results for a paper |
-| **Solution** | Use a spanner/wrench/socket/hammer | Use functions in R to import, clean, visualise and model data       |
-| **Outcome**  | Loosen bolt                      | Figures and statistics                                 |
 
+|   | Mechanics | Science |
+|--------------------|------------------|----------------------------------|
+| **Problem** | Bolt won't loosen by hand | I have hypothesis and data; I want results for a paper |
+| **Solution** | Use a spanner/wrench/socket/hammer | Use functions in R to import, clean, visualise and model data |
+| **Outcome** | Loosen bolt | Figures and statistics |
 
 # Data import & checking
 
@@ -65,8 +66,7 @@ project:
 
 1.  Download the Reef Life Survey file "cape_howe.csv" from [this link](https://github.com/FreddieJH/r_workshop/blob/main/cape_howe.csv)
 2.  Import the csv and save it in R as an object (this will be your raw object and never overwritten)
-3. Create a new object that is only a single site - Choose one other than JBMP-S2
-
+3.  Create a new object that is only a single site - Choose one other than JBMP-S2
 :::
 
 ```{r }
@@ -81,7 +81,6 @@ jervis <-
   filter(site_code == "JBMP-S2")
 
 ```
-
 
 ## Data import
 
@@ -99,20 +98,21 @@ jervis <-
 # Data visualisation
 
 ## Two numerical variables
-- H1: I think that bigger fish are less abundant.
+
+-   H1: I think that bigger fish are less abundant.
 -   What columns would I need to consider?
 -   How might I visualise this? boxplot? scatterplot? barplot?
 
 ## A bit of wrangling first
 
-- To answer the question if 'bigger' fish are more abundant, we are interested in the species, their mean size, and their total abundance.
+-   To answer the question if 'bigger' fish are more abundant, we are interested in the species, their mean size, and their total abundance.
 
 ```{r }
 
 # getting the mean size and abundance of each species in jervis bay
 sizes_byspp <- 
   jervis %>% 
-  reframe(mean_size = weighted.mean(size_class, n_500m2), 
+  summarise(mean_size = weighted.mean(size_class, n_500m2), 
           total_abundance = sum(n_500m2), 
           .by = species_name) 
 
@@ -120,16 +120,16 @@ sizes_byspp <-
 
 ## Choosing the type of plot
 
-|                          | Predictor variable (x) | Response variable (y) |
+|                              | Predictor variable (x) | Response variable (y) |
 |--------------------------|------------------------|-----------------------|
-| Barplot, Boxplot, Violinplot | Categorical           | Numeric               |
+| Barplot, Boxplot, Violinplot | Categorical            | Numeric               |
 | Scatterplot                  | Numeric                | Numeric               |
-| Density, Histogram       | Numeric                | \-                    |
+| Density, Histogram           | Numeric                | \-                    |
 
 ## Scatterplot using `ggplot()`
 
-- `ggplot()` is a function from the `ggplot2` package (it's part of the `tidyverse` collection of packages)
-- Scatterplot is used to compare two numerical variables
+-   `ggplot()` is a function from the `ggplot2` package (it's part of the `tidyverse` collection of packages)
+-   Scatterplot is used to compare two numerical variables
 
 ## Mean size vs. total abundance
 
@@ -166,10 +166,7 @@ sizes_byspp %>%
 
 ```
 
-
 ## Dealing with overalapping points
-
-
 
 ```{r }
 
@@ -190,11 +187,11 @@ sizes_byspp %>%
 ::: callout-tip
 ## Task
 
-1. Change alpha to various values
-2. Change pch to get a hollow square
+1.  Change alpha to various values
+2.  Change pch to get a hollow square
 :::
 
-## A cleaner plot 
+## A cleaner plot
 
 ```{r }
 
@@ -211,13 +208,11 @@ sizes_byspp %>%
 
 ## One numerical, one categorical
 
-- H2: More species are seen in Method 1, than Method 2 (inverts + cryptic species)
-- What columns do I need? What the classes of these columns?
-- What would be suitable plots for these data?
-
+-   H2: More species are seen in Method 1, than Method 2 (inverts + cryptic species)
+-   What columns do I need? What the classes of these columns?
+-   What would be suitable plots for these data?
 
 ## Wrangling before plotting
-
 
 ```{r }
 
@@ -283,9 +278,7 @@ nspp_bysurv_bysite %>%
 
 ```
 
-
 ## Ordered boxplot in R
-
 
 ```{r }
 #| code-line-numbers: "3"
@@ -300,7 +293,6 @@ nspp_bysurv_bysite %>%
   geom_boxplot()
 
 ```
-
 
 ## Violin plots
 
@@ -327,7 +319,7 @@ nspp_bysurv_bysite %>%
 # how do barplots differ from violin or boxplots?
 nspp_bysurv_bysite %>% 
   filter(site_code %in% selected_sites) %>% 
-  reframe(mean_diversity = mean(n, na.rm = TRUE), 
+  summarise(mean_diversity = mean(n, na.rm = TRUE), 
             .by = c(site_code, method)) %>% 
   ggplot() +
   aes(x = site_code, 
@@ -342,8 +334,7 @@ nspp_bysurv_bysite %>%
 
 ## One numerical variable
 
-:::: {.columns}
-
+::::: columns
 ::: {.column width="50%"}
 ```{r }
 
@@ -365,12 +356,11 @@ nspp_bysite %>%
 
 ```
 :::
-
-::::
+:::::
 
 ## Extra - multiple plots
 
-- Sometime you want to split up plots by a factor
+-   Sometime you want to split up plots by a factor
 
 ```{r }
 
@@ -390,7 +380,7 @@ nspp_bysite %>%
 # Barplots need error bars 
 nspp_bysurv_bysite %>% 
   filter(site_code %in% selected_sites) %>% 
-  reframe(mean_diversity = mean(n, na.rm = TRUE), 
+  summarise(mean_diversity = mean(n, na.rm = TRUE), 
           sd_diversity = sd(n, na.rm = TRUE),
             .by = c(site_code, method)) %>% 
   ggplot() +
@@ -407,7 +397,6 @@ nspp_bysurv_bysite %>%
        y = "Mean number of species")
 ```
 
-
 ## Extra - Theming
 
 ```{r }
@@ -416,7 +405,7 @@ nspp_bysurv_bysite %>%
 # Making pretty plots
 nspp_bysurv_bysite %>% 
   filter(site_code %in% selected_sites) %>% 
-  reframe(mean_diversity = mean(n, na.rm = TRUE), 
+  summarise(mean_diversity = mean(n, na.rm = TRUE), 
           sd_diversity = sd(n, na.rm = TRUE),
             .by = c(site_code, method)) %>% 
   ggplot() +
@@ -436,7 +425,6 @@ nspp_bysurv_bysite %>%
 
 ```
 
-
 ## Extra - Layering geoms
 
 ```{r }
@@ -445,7 +433,7 @@ nspp_bysurv_bysite %>%
 # Change the order of the geom_line() and geom_point()
 nspp_bysurv_bysite %>% 
   mutate(year = year(survey_date)) %>%
-  reframe(mean_diversity = mean(n, na.rm = TRUE), 
+  summarise(mean_diversity = mean(n, na.rm = TRUE), 
             .by = c(year, method)) %>% 
   ggplot() +
   aes(x = year, 
@@ -455,15 +443,11 @@ nspp_bysurv_bysite %>%
 
 ```
 
-
-
 ## Cheatsheet
 
 <https://statsandr.com/blog/files/ggplot2-cheatsheet.pdf>
 
-
 ## Next week
 
-- Collating all that we have learned. 
-- Please bring your own data if you have some.
-
+-   Collating all that we have learned.
+-   Please bring your own data if you have some.

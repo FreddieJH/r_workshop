@@ -41,15 +41,15 @@ project:
 
 ## Download some example data
 
-- We will use Reef Life Survey data (a very small subset)
-- Data has location information, species information, and abundance information
+-   We will use Reef Life Survey data (a very small subset)
+-   Data has location information, species information, and abundance information
 
 ::: callout-tip
 ## Task
 
 1.  Download the [example dataset](https://github.com/FreddieJH/r_workshop/blob/main/rls_example_canada.csv) csv file
 2.  Store this csv file in your working directory
-3. Read in the csv file, and assign it to an object 
+3.  Read in the csv file, and assign it to an object
 :::
 
 ```{r}
@@ -174,7 +174,7 @@ tribble(
   "Select specific columns",           "df[,c(col1,col3:col5)]",                             "df %>% select(col1,col3:col5)",
   "Create a new column",               "df$col9 <- sqrt(df$col8)",                           "df %>% mutate(col9 = sqrt(col8))",
   "Rename a column",                   "names(df)[names(df) == \"old_col_name\"] <- \"new_col_name\"", "df %>% rename(new_col_name = old_col_name)",
-  "Summarise data (e.g. mean of a column)", "mean(df$col1)",                                "df %>% reframe(mean(col1))",
+  "Summarise data (e.g. mean of a column)", "mean(df$col1)",                                "df %>% summarise(mean(col1))",
   "Sort a column",                      "df[order(df$col1), ]",                              "df %>% arrange(col1)",
   "Filter unique rows",                 "df[!duplicated(df[,c(\"col1\", \"col2\")]), ]",    "df %>% distinct()",
   "Count number of rows of a group",    "as.data.frame(table(df$col1))",                     "df %>% count(col1)"
@@ -198,7 +198,7 @@ filter() # subsetting the data (e.g., order == "Aves")
 select()  # Selecting a single or multiple columns
 mutate() # Creating a new column
 rename() # Renaming a column
-reframe() # Summarising a dataset 
+summarise() # Summarising a dataset 
 
 arrange() # Ordering a column (E.g., sort by smallest arrival time)
 arrange(desc()) # ... or by largest arrival time
@@ -263,7 +263,7 @@ Create a new object called `cunner` which is only the species *Tautogolabrus ads
 
 ### Rename an existing column
 
-- Say we want to be clear about the unit in the column name
+-   Say we want to be clear about the unit in the column name
 
 ```{r }
 #| eval: false
@@ -285,11 +285,11 @@ my_data %>%
 Rename the `visibility` column to something a bit more informative, maybe to include the units?
 :::
 
-## `reframe`()`
+## `summarise`()\`
 
 ### Summarise some data (e.g. taking a mean)
 
-- similar to the `summarise()` function
+-   similar to the `summarise()` function
 
 ```{r }
 #| eval: false
@@ -321,13 +321,13 @@ You may see this written as `group_by()`, it's the same
 
 # I want the mean abundance for each species at a survey
 my_data %>% 
-  reframe(mean_abun = mean(total, na.rm=TRUE), 
+  summarise(mean_abun = mean(total, na.rm=TRUE), 
             .by = species_name)
 
 # is the same as this
 my_data %>% 
   group_by(species_name) %>% 
-  reframe(mean_abun = mean(total, na.rm=TRUE)) %>% 
+  summarise(mean_abun = mean(total, na.rm=TRUE)) %>% 
   ungroup()
 
 ```
@@ -347,7 +347,7 @@ Which species, on average, has approximately 1.27 individuals per survey?
 #| echo: true
 
 my_data %>% 
-  reframe(mean_abun = mean(total, na.rm=TRUE), 
+  summarise(mean_abun = mean(total, na.rm=TRUE), 
             .by = species_name) %>% 
   arrange(mean_abun)
 
