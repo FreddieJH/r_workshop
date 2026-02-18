@@ -18,7 +18,7 @@ project:
 -   We will work through the slides and problems together
 -   **This session is interactive. Please** **stop me and ask questions**.
 -   By the end of today: you will have learnt how to read in excel data into R, perform import checks, understand R programming basics.
-- Tips: be curious, play around, and try and break R (get some Errors)
+-   Tips: be curious, play around, and try and break R (get some Errors)
 
 # The background of R
 
@@ -40,10 +40,7 @@ knitr::opts_chunk$set(
 
 \vspace{20px}
 
-![](images/r-analysis.PNG){.fragment .absolute bottom="50" right="300" width="700" height="300"} 
-![](images/r-art.PNG){.fragment .absolute bottom="50" right="300" width="700" height="300"} 
-![](images/r-chess.PNG){.fragment .absolute bottom="50" right="300" width="700" height="300"} 
-![](images/r-presentation.PNG){.fragment .absolute bottom="50" right="300" width="700" height="300"}
+![](images/r-analysis.PNG){.fragment .absolute bottom="50" right="300" width="700" height="300"} ![](images/r-art.PNG){.fragment .absolute bottom="50" right="300" width="700" height="300"} ![](images/r-chess.PNG){.fragment .absolute bottom="50" right="300" width="700" height="300"} ![](images/r-presentation.PNG){.fragment .absolute bottom="50" right="300" width="700" height="300"}
 
 ## R vs RStudio
 
@@ -325,10 +322,10 @@ library(readr) # every time you run the script (i.e., load the package)
 
 ## Pretend to collect data
 
-- Download some example data from here: github.com/FreddieJH/r_workshop/blob/main/example_data.csv
-- Note it is already in .csv format (see next slide)
-- Let's pretend you went out and collected it
-- **Save this .csv file in your 'working directory'**
+-   Download some example data from here: github.com/FreddieJH/r_workshop/cape_howe.csv
+-   Note it is already in .csv format (see next slide)
+-   Let's pretend you went out and collected it
+-   **Save this .csv file in your 'working directory'**
 
 ## Reading in data
 
@@ -337,7 +334,7 @@ library(readr) # every time you run the script (i.e., load the package)
 -   Because we are working in a project, R knows where to look for the file
 
 ```{r}
-read.csv("example_data.csv")
+read.csv("cape_howe.csv")
 ```
 
 -   **Task:** put this into an object and see what the class of the object is
@@ -348,7 +345,7 @@ read.csv("example_data.csv")
 
 ```{r}
 library(readr)
-read_csv("example_data.csv")
+read_csv("cape_howe.csv")
 ```
 
 -   What class is this object?
@@ -366,7 +363,7 @@ read_csv("example_data.csv")
 -   First six rows only
 
 ```{r}
-fish_size <- read_csv("example_data.csv")
+fish_size <- read_csv("cape_howe.csv")
 head(fish_size)
 ```
 
