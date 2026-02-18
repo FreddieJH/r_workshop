@@ -222,8 +222,7 @@ filter() # subsetting the data (e.g., order == "Aves")
 select()  # Selecting a single or multiple columns
 mutate() # Creating a new column
 rename() # Renaming a column
-summarise(.by =) # Summarising a dataset (e.g., taking a mean)
-reframe(.by =) # Almost identical to summarise()
+summarise(.by =) # Summarising a variable (e.g., taking a mean)
 
 arrange() # Ordering a column (E.g., sort by smallest arrival time)
 arrange(desc()) # ... or by largest arrival time
