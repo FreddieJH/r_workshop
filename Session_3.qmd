@@ -42,13 +42,10 @@ project:
 
 ## R is a tool
 
-```{css}
-#| echo: false
-
+```{css, echo: false}
 .reveal table {
   font-size: smaller;
 }
-
 ```
 
 |   | Mechanics | Science |
@@ -69,15 +66,15 @@ project:
 3.  Create a new object that is only a single site - Choose one other than JBMP-S2
 :::
 
-```{r }
+```{r}
 
 library(tidyverse)
 
-capehowe <- 
+capehowe <-
   read_csv("cape_howe.csv")
 
-jervis <- 
-  capehowe %>% 
+jervis <-
+  capehowe %>%
   filter(site_code == "JBMP-S2")
 
 ```
@@ -110,11 +107,13 @@ jervis <-
 ```{r }
 
 # getting the mean size and abundance of each species in jervis bay
-sizes_byspp <- 
-  jervis %>% 
-  summarise(mean_size = weighted.mean(size_class, n_500m2), 
-          total_abundance = sum(n_500m2), 
-          .by = species_name) 
+sizes_byspp <-
+  jervis %>%
+  summarise(
+    mean_size = weighted.mean(size_class, n_500m2),
+    total_abundance = sum(n_500m2),
+    .by = species_name
+  )
 
 ```
 
@@ -135,7 +134,7 @@ sizes_byspp <-
 
 ```{r }
 
-sizes_byspp %>% 
+sizes_byspp %>%
   ggplot(aes(x = mean_size, y = total_abundance)) +
   geom_point()
 
@@ -146,18 +145,18 @@ sizes_byspp %>%
 
 ## Transforming data
 
-```{r }
+```{r}
 #| eval: false
 # Two ways transform data
 
 # transform before input into the ggplot
-sizes_byspp %>% 
-  mutate(log_tot_abun = log(total_abundance)) %>% 
+sizes_byspp %>%
+  mutate(log_tot_abun = log(total_abundance)) %>%
   ggplot(aes(x = mean_size, y = log_tot_abun)) +
   geom_point()
 
 # perform the transformation in the ggplot
-sizes_byspp %>% 
+sizes_byspp %>%
   ggplot(aes(x = mean_size, y = total_abundance)) +
   geom_point() +
   scale_y_log10()
@@ -168,19 +167,19 @@ sizes_byspp %>%
 
 ## Dealing with overalapping points
 
-```{r }
+```{r}
 
 # Changing the transparency of the point (= alpha)
-sizes_byspp %>% 
+sizes_byspp %>%
   ggplot(aes(x = mean_size, y = total_abundance)) +
   geom_point(alpha = 0.5) + # alpha argument changes transparency
-  scale_y_log10() 
+  scale_y_log10()
 
 # Changing the type of point (= pch)
-sizes_byspp %>% 
+sizes_byspp %>%
   ggplot(aes(x = mean_size, y = total_abundance)) +
   geom_point(pch = 21) + # pch argument changes point type (Google: "pch in r")
-  scale_y_log10() 
+  scale_y_log10()
 
 ```
 
@@ -193,17 +192,13 @@ sizes_byspp %>%
 
 ## A cleaner plot
 
-```{r }
-
-sizes_byspp %>% 
+```{r}
+sizes_byspp %>%
   ggplot(aes(x = mean_size, y = total_abundance)) +
-  geom_point(pch = 21, alpha = 0.8) + 
-  scale_y_log10() + 
-  labs(x = "Species mean body size (cm)", 
-       y = "Total observations")
-
+  geom_point(pch = 21, alpha = 0.8) +
+  scale_y_log10() +
+  labs(x = "Species mean body size (cm)", y = "Total observations")
 # Would it be worth doing more stats?
-
 ```
 
 ## One numerical, one categorical
@@ -215,22 +210,21 @@ sizes_byspp %>%
 ## Wrangling before plotting
 
 ```{r }
-
 # say we only care about highly biodiverse sites (> 120)
 
 # calculating the number of species at a site by the method
-nspp_bysite <- 
-  capehowe %>% 
-  select(species_name, site_code, method) %>% 
-  distinct() %>% 
-  count(site_code, method) 
+nspp_bysite <-
+  capehowe %>%
+  select(species_name, site_code, method) %>%
+  distinct() %>%
+  count(site_code, method)
 
 # number of species at each survey within a site for each method
-nspp_bysurv_bysite <- 
-  capehowe %>% 
-  select(survey_date, species_name, site_code, method) %>% 
-  distinct() %>% 
-  count(survey_date, site_code, method) 
+nspp_bysurv_bysite <-
+  capehowe %>%
+  select(survey_date, species_name, site_code, method) %>%
+  distinct() %>%
+  count(survey_date, site_code, method)
 
 ```
 
@@ -239,10 +233,9 @@ nspp_bysurv_bysite <-
 ```{r }
 
 # a quick plot
-nspp_bysurv_bysite %>% 
+nspp_bysurv_bysite %>%
   ggplot() +
-  aes(x = site_code, 
-      y = n) +
+  aes(x = site_code, y = n) +
   geom_boxplot()
 
 ```
@@ -253,10 +246,10 @@ nspp_bysurv_bysite %>%
 
 # say we only care about highly biodiverse sites (> 120 species)
 
-selected_sites <- 
-  nspp_bysite %>% 
-  arrange(desc(n)) %>% 
-  filter(n > 120) %>% 
+selected_sites <-
+  nspp_bysite %>%
+  arrange(desc(n)) %>%
+  filter(n > 120) %>%
   pull(site_code)
 
 selected_sites
@@ -267,13 +260,11 @@ selected_sites
 ```{r }
 #| code-line-numbers: "7"
 
-# separate by the method 
-nspp_bysurv_bysite %>% 
-  filter(site_code %in% selected_sites) %>% 
+# separate by the method
+nspp_bysurv_bysite %>%
+  filter(site_code %in% selected_sites) %>%
   ggplot() +
-  aes(x = site_code, 
-      y = n, 
-      col = as.factor(method)) + # why do we need as.factor() here?
+  aes(x = site_code, y = n, col = as.factor(method)) + # why do we need as.factor() here?
   geom_boxplot()
 
 ```
@@ -283,13 +274,11 @@ nspp_bysurv_bysite %>%
 ```{r }
 #| code-line-numbers: "3"
 
-nspp_bysurv_bysite %>% 
-  filter(site_code %in% selected_sites) %>% 
-  mutate(site_code = fct_reorder(site_code, n)) %>% 
+nspp_bysurv_bysite %>%
+  filter(site_code %in% selected_sites) %>%
+  mutate(site_code = fct_reorder(site_code, n)) %>%
   ggplot() +
-  aes(x = site_code, 
-      y = n, 
-      col = as.factor(method)) +
+  aes(x = site_code, y = n, col = as.factor(method)) +
   geom_boxplot()
 
 ```
@@ -299,12 +288,11 @@ nspp_bysurv_bysite %>%
 ```{r }
 #| code-line-numbers: "7"
 
-nspp_bysurv_bysite %>% 
-  filter(site_code %in% selected_sites) %>% 
-  mutate(site_code = fct_reorder(site_code, n)) %>% 
+nspp_bysurv_bysite %>%
+  filter(site_code %in% selected_sites) %>%
+  mutate(site_code = fct_reorder(site_code, n)) %>%
   ggplot() +
-  aes(x = site_code, 
-      y = n) + 
+  aes(x = site_code, y = n) +
   geom_violin() # how does this differ from a boxplot?
 
 # Try and also separate the method by colour
@@ -317,109 +305,109 @@ nspp_bysurv_bysite %>%
 
 # For a barplot you might want the bar to represent the mean or median.
 # how do barplots differ from violin or boxplots?
-nspp_bysurv_bysite %>% 
-  filter(site_code %in% selected_sites) %>% 
-  summarise(mean_diversity = mean(n, na.rm = TRUE), 
-            .by = c(site_code, method)) %>% 
+nspp_bysurv_bysite %>%
+  filter(site_code %in% selected_sites) %>%
+  summarise(
+    mean_diversity = mean(n, na.rm = TRUE),
+    .by = c(site_code, method)
+  ) %>%
   ggplot() +
-  aes(x = site_code, 
-      y = mean_diversity, 
-      fill = as.factor(method)) +
+  aes(x = site_code, y = mean_diversity, fill = as.factor(method)) +
   geom_col() +
-  labs(fill = "Method", 
-       x = "Site Code",
-       y = "Mean number of species")
+  labs(fill = "Method", x = "Site Code", y = "Mean number of species")
 
 ```
 
 ## One numerical variable
 
 ::::: columns
-::: {.column width="50%"}
-```{r }
 
+::: {.column width="50%"}
+
+```{r}
 nspp_bysite %>%
-  ggplot() +
-  aes(x = n, col = as.factor(method)) +
+  ggplot(aes(x = n, col = as.factor(method))) +
   geom_density()
-
 ```
+
 :::
 
 ::: {.column width="50%"}
-```{r }
 
+```{r}
 nspp_bysite %>%
-  ggplot() +
-  aes(x = n, col = as.factor(method)) +
+  ggplot(aes(x = n, col = as.factor(method))) +
   geom_histogram(binwidth = 10)
-
 ```
+
 :::
+
 :::::
 
 ## Extra - multiple plots
 
 -   Sometime you want to split up plots by a factor
 
-```{r }
-
+```{r}
 nspp_bysite %>%
   ggplot() +
   aes(x = n) +
   geom_histogram(binwidth = 10) +
   facet_wrap(~method)
-
 ```
 
 ## Extra - Error bars
 
-```{r }
+```{r, eval=FALSE}
 #| code-line-numbers: "5,12,13,14,15"
 
-# Barplots need error bars 
-nspp_bysurv_bysite %>% 
-  filter(site_code %in% selected_sites) %>% 
-  summarise(mean_diversity = mean(n, na.rm = TRUE), 
-          sd_diversity = sd(n, na.rm = TRUE),
-            .by = c(site_code, method)) %>% 
+# Barplots need error bars
+nspp_bysurv_bysite %>%
+  filter(site_code %in% selected_sites) %>%
+  summarise(
+    mean_diversity = mean(n, na.rm = TRUE),
+    sd_diversity = sd(n, na.rm = TRUE),
+    .by = c(site_code, method)
+  ) %>%
   ggplot() +
-  aes(x = site_code, 
-      y = mean_diversity, 
-      fill = as.factor(method)) +
+  aes(x = site_code, y = mean_diversity, fill = as.factor(method)) +
   geom_col(position = position_dodge(width = 1)) +
-  geom_errorbar(aes(ymin = mean_diversity - sd_diversity, 
-                    ymax = mean_diversity + sd_diversity), 
-                 width = 0.2,
-                position = position_dodge(width = 1)) +
-  labs(fill = "Method", 
-       x = "Site Code",
-       y = "Mean number of species")
+  geom_errorbar(
+    aes(
+      ymin = mean_diversity - sd_diversity,
+      ymax = mean_diversity + sd_diversity
+    ),
+    width = 0.2,
+    position = position_dodge(width = 1)
+  ) +
+  labs(fill = "Method", x = "Site Code", y = "Mean number of species")
 ```
 
 ## Extra - Theming
 
-```{r }
-#| code-line-numbers: "19,20"
+```{r, eval=FALSE}
+#| code-line-numbers: "21,22"
 
 # Making pretty plots
-nspp_bysurv_bysite %>% 
-  filter(site_code %in% selected_sites) %>% 
-  summarise(mean_diversity = mean(n, na.rm = TRUE), 
-          sd_diversity = sd(n, na.rm = TRUE),
-            .by = c(site_code, method)) %>% 
+nspp_bysurv_bysite %>%
+  filter(site_code %in% selected_sites) %>%
+  summarise(
+    mean_diversity = mean(n, na.rm = TRUE),
+    sd_diversity = sd(n, na.rm = TRUE),
+    .by = c(site_code, method)
+  ) %>%
   ggplot() +
-  aes(x = site_code, 
-      y = mean_diversity, 
-      fill = as.factor(method)) +
+  aes(x = site_code, y = mean_diversity, fill = as.factor(method)) +
   geom_col(position = position_dodge(width = 1)) +
-  geom_errorbar(aes(ymin = mean_diversity - sd_diversity, 
-                    ymax = mean_diversity + sd_diversity), 
-                 width = 0.2,
-                position = position_dodge(width = 1)) +
-  labs(fill = "Method", 
-       x = "Site Code",
-       y = "Mean number of species") +
+  geom_errorbar(
+    aes(
+      ymin = mean_diversity - sd_diversity,
+      ymax = mean_diversity + sd_diversity
+    ),
+    width = 0.2,
+    position = position_dodge(width = 1)
+  ) +
+  labs(fill = "Method", x = "Site Code", y = "Mean number of species") +
   scale_fill_brewer(palette = "Set1") + #https://r-graph-gallery.com/38-rcolorbrewers-palettes.html
   theme_classic() # https://ggplot2.tidyverse.org/reference/ggtheme.html
 
@@ -427,19 +415,17 @@ nspp_bysurv_bysite %>%
 
 ## Extra - Layering geoms
 
-```{r }
+```{r, eval=FALSE}
 #| code-line-numbers: "9,10"
 
 # Change the order of the geom_line() and geom_point()
-nspp_bysurv_bysite %>% 
+nspp_bysurv_bysite %>%
   mutate(year = year(survey_date)) %>%
-  summarise(mean_diversity = mean(n, na.rm = TRUE), 
-            .by = c(year, method)) %>% 
+  summarise(mean_diversity = mean(n, na.rm = TRUE), .by = c(year, method)) %>%
   ggplot() +
-  aes(x = year, 
-      y = mean_diversity) +
+  aes(x = year, y = mean_diversity) +
   geom_line(aes(group = as.factor(method))) +
-  geom_point(aes(col = as.factor(method)), size = 5) 
+  geom_point(aes(col = as.factor(method)), size = 5)
 
 ```
 

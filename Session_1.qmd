@@ -7,7 +7,6 @@ project:
   output-dir: docs
 ---
 
-
 # We have a problem
 
 **Problem:** We are given an excel file with 1M+ rows, with species names, latitude and longitude of occurrence, and we must find errors in a species geographical distribution. The analysis is complicated and involves multiple steps that need to be replicated by others in the future.
@@ -39,7 +38,6 @@ knitr::opts_chunk$set(
 
 \vspace{20px}
 
-
 ![](images/r-analysis.PNG){.fragment .absolute bottom="50" right="300" width="700" height="300"} ![](images/r-art.PNG){.fragment .absolute bottom="50" right="300" width="700" height="300"} ![](images/r-chess.PNG){.fragment .absolute bottom="50" right="300" width="700" height="300"} ![](images/r-presentation.PNG){.fragment .absolute bottom="50" right="300" width="700" height="300"}
 
 ## R vs RStudio
@@ -57,7 +55,7 @@ knitr::opts_chunk$set(
 ::: r-stack
 ![](images/RStudio-Logo-Flat.png){height="100" fig-align="center"}
 
-![](images/rstudio-capture.PNG){.fragment height="300" .center}
+![](images/rstudio-capture.PNG){.fragment .center height="300"}
 :::
 ::::
 
@@ -73,7 +71,6 @@ knitr::opts_chunk$set(
 -   **Open this** when you want to code
 :::
 :::::::::
-
 
 ```{=html}
 <style>
@@ -115,7 +112,6 @@ knitr::opts_chunk$set(
 
 ## Basic commands
 
-
 ::: fragment
 ```{r, code-line-numbers: "|1,2|3"}
 # addition
@@ -143,7 +139,7 @@ c(1, 2, 3, 4, 5)
 ## Objects
 
 -   An "object" can be anything: a number, a word, a plot, an equation, etc.
--   The code to create an object is ` <- `. This is called the "assignment operator"
+-   The code to create an object is `<-`. This is called the "assignment operator"
 
 **Task:** Create an object called `x` and make it equal to 5, and then modify `x`.
 
@@ -151,7 +147,6 @@ c(1, 2, 3, 4, 5)
 x <- 5
 x^2
 ```
-
 
 ## A little more complex
 
@@ -164,7 +159,7 @@ z <- y - x # make z equal to the difference between y and x
 
 What does `z` equal?
 
-:::: fragment
+::: fragment
 ```{r}
 z
 ```
@@ -200,7 +195,6 @@ y <- "hello there"
 z <- TRUE
 ```
 
-
 ```{r}
 class(x)
 ```
@@ -212,7 +206,6 @@ class(y)
 ```{r}
 class(z)
 ```
-
 
 ## Class is important
 
@@ -288,7 +281,6 @@ mean(x = c(5, 10, 3))
 -   functions are always followed by brackets
 -   we pass `c(5,10,3)` to the x argument of the function
 :::
-
 
 ## Functions
 
