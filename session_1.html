@@ -258,11 +258,7 @@ Freddie Heather
 <p><img data-src="images/RStudio-Logo-Flat.png" class="quarto-figure quarto-figure-center" height="100"></p>
 </figure>
 </div>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/rstudio-capture.PNG" class="fragment quarto-figure quarto-figure-center" height="300"></p>
-</figure>
-</div>
+<p><img data-src="images/rstudio-capture.PNG" class="fragment center" height="300"></p>
 </div>
 </div><div class="column">
 <ul>
@@ -327,10 +323,9 @@ Freddie Heather
 <h2>Basic commands</h2>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1" data-code-line-numbers="|1,2|3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co">#|</span></span>
-<span id="cb1-2"><a href=""></a><span class="co"># addition</span></span>
-<span id="cb1-3"><a href=""></a><span class="co"># numeric output</span></span>
-<span id="cb1-4"><a href=""></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># addition</span></span>
+<span id="cb1-2"><a href=""></a><span class="co"># numeric output</span></span>
+<span id="cb1-3"><a href=""></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4</code></pre>
 </div>
@@ -344,8 +339,7 @@ Freddie Heather
 <pre><code>[1] 1 2 3 4 5</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="co"># or</span></span>
-<span id="cb5-2"><a href=""></a></span>
-<span id="cb5-3"><a href=""></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb5-2"><a href=""></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 2 3 4 5</code></pre>
 </div>
@@ -361,9 +355,8 @@ Freddie Heather
 </div>
 </div>
 </section>
-<section class="slide level2">
-
-<h3 id="objects">Objects</h3>
+<section id="objects" class="slide level2">
+<h2>Objects</h2>
 <ul>
 <li>An “object” can be anything: a number, a word, a plot, an equation, etc.</li>
 <li>The code to create an object is <code>&lt;-</code>. This is called the “assignment operator”</li>
@@ -377,9 +370,8 @@ Freddie Heather
 </div>
 </div>
 </section>
-<section class="slide level2">
-
-<p>A little more complex</p>
+<section id="a-little-more-complex" class="slide level2">
+<h2>A little more complex</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" data-code-line-numbers="1|2|3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>x <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="co"># make x equal to 3</span></span>
 <span id="cb11-2"><a href=""></a>y <span class="ot">&lt;-</span> x <span class="sc">*</span> <span class="dv">5</span> <span class="co"># make y equal to 5 times the value of x</span></span>
@@ -404,18 +396,17 @@ Freddie Heather
 </div>
 </div>
 </section>
-<section class="slide level2">
-
+<section id="character-strings" class="slide level2">
+<h2>Character strings</h2>
 <ul>
 <li>Not everything is a number</li>
 <li>Instead of a numeric variable, an object may be a “character string” (aka. a word or sentence)</li>
 <li>The data type (e.g.&nbsp;numeric, character) of the object is called the class.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a><span class="co"># character strings</span></span>
-<span id="cb16-2"><a href=""></a>first_name <span class="ot">&lt;-</span> <span class="st">"Freddie"</span></span>
-<span id="cb16-3"><a href=""></a>last_name <span class="ot">&lt;-</span> <span class="st">"Heather"</span></span>
-<span id="cb16-4"><a href=""></a><span class="fu">paste</span>(<span class="st">"My name is"</span>, first_name, last_name)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>first_name <span class="ot">&lt;-</span> <span class="st">"Freddie"</span></span>
+<span id="cb16-2"><a href=""></a>last_name <span class="ot">&lt;-</span> <span class="st">"Heather"</span></span>
+<span id="cb16-3"><a href=""></a><span class="fu">paste</span>(<span class="st">"My name is"</span>, first_name, last_name)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "My name is Freddie Heather"</code></pre>
 </div>
@@ -454,11 +445,11 @@ Freddie Heather
 <h2>Class is important</h2>
 <ul>
 <li>Some functions will only work with certain types of data classes</li>
-<li>E.g. you cannot multiple a character string and a numeric</li>
+<li>E.g. you cannot multiply a numeric variable with character string</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a>x <span class="ot">&lt;-</span> <span class="st">"oops"</span></span>
-<span id="cb25-2"><a href=""></a>y <span class="ot">&lt;-</span> <span class="dv">9</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a>x <span class="ot">&lt;-</span> <span class="dv">9</span></span>
+<span id="cb25-2"><a href=""></a>y <span class="ot">&lt;-</span> <span class="st">"oops"</span></span>
 <span id="cb25-3"><a href=""></a></span>
 <span id="cb25-4"><a href=""></a>x <span class="sc">*</span> y</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
@@ -556,13 +547,15 @@ Freddie Heather
 <li>Instead, let’s use the <code>mean()</code> function to calculate the mean:</li>
 </ul>
 </div>
-<div class="fragment`">
+<div class="fragment">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a><span class="fu">mean</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 6</code></pre>
 </div>
 </div>
+</div>
+<div class="fragment">
 <ul>
 <li><code>mean</code> is the <strong>function</strong>, <code>x</code> is the <strong>argument</strong> of the function</li>
 <li>functions are always followed by brackets</li>
@@ -17422,7 +17415,7 @@ $ method       &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 <h2>Next session:</h2>
 <ul>
 <li>Manipulating and cleaning the data</li>
-<li>Today’s slides are available at: https://github.com/FreddieJH/r_workshop</li>
+<li>Today’s slides are available at: <a href="https://github.com/FreddieJH/r_workshop" class="uri">https://github.com/FreddieJH/r_workshop</a></li>
 </ul>
 
 </section></section>
