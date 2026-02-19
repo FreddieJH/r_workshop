@@ -9,6 +9,7 @@ format:
     fig.align: 'center'
 project:
   output-dir: docs
+  output-file: session_3.html
 ---
 
 # Recap from session 2
@@ -61,7 +62,7 @@ project:
 ::: callout-tip
 ## Task
 
-1.  Download the Reef Life Survey file "cape_howe.csv" from [this link](https://github.com/FreddieJH/r_workshop/blob/main/cape_howe.csv)
+1.  Download the Reef Life Survey file 'cape_howe.csv' from: <https://github.com/FreddieJH/r_workshop>
 2.  Import the csv and save it in R as an object (this will be your raw object and never overwritten)
 3.  Create a new object that is only a single site - Choose one other than JBMP-S2
 :::
@@ -120,7 +121,7 @@ sizes_byspp <-
 ## Choosing the type of plot
 
 |                              | Predictor variable (x) | Response variable (y) |
-|--------------------------|------------------------|-----------------------|
+|------------------------------|------------------------|-----------------------|
 | Barplot, Boxplot, Violinplot | Categorical            | Numeric               |
 | Scatterplot                  | Numeric                | Numeric               |
 | Density, Histogram           | Numeric                | \-                    |
@@ -321,21 +322,27 @@ nspp_bysurv_bysite %>%
 ## One numerical variable
 
 ::::: columns
+
 ::: {.column width="50%"}
+
 ```{r}
 nspp_bysite %>%
   ggplot(aes(x = n, col = as.factor(method))) +
   geom_density()
 ```
+
 :::
 
 ::: {.column width="50%"}
+
 ```{r}
 nspp_bysite %>%
   ggplot(aes(x = n, col = as.factor(method))) +
   geom_histogram(binwidth = 10)
 ```
+
 :::
+
 :::::
 
 ## Extra - multiple plots
