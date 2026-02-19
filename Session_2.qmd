@@ -47,7 +47,7 @@ project:
 ::: callout-tip
 ## Task
 
-1.  Download the [example dataset](https://github.com/FreddieJH/r_workshop/blob/main/rls_example_canada.csv) csv file
+1.  Download rls_example_canada.csv from <https://github.com/FreddieJH/r_workshop>
 2.  Store this csv file in your working directory
 3.  Read in the csv file, and assign it to an object
 :::
