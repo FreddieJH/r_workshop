@@ -306,7 +306,7 @@ library(readr) # every time you run the script (i.e., load the package)
 
 ## Pretend to collect data
 
--   Download example data from: [github.com/FreddieJH/r_workshop/cape_howe.csv](github.com/FreddieJH/r_workshop/cape_howe.csv)
+-   Download 'cape_howe.csv' from: <https://github.com/FreddieJH/r_workshop>
 -   Note it is already in .csv format (see next slide)
 -   Let's pretend you went out and collected it
 -   **Save this .csv file in your 'working directory'**
@@ -316,21 +316,22 @@ library(readr) # every time you run the script (i.e., load the package)
 -   R does not like excel (.xlsx) files, it loves .csv files
 -   R has a built-in function to read CSV files: `read.csv()`
 -   Because we are working in a project, R knows where to look for the file
+-   **Task:** put this into an object and see what the class of the object is
 
-```{r}
+```{r, eval = FALSE, echo = TRUE}
 read.csv("cape_howe.csv")
 ```
-
--   **Task:** put this into an object and see what the class of the object is
 
 ## Reading in data (a better way)
 
 -   Read the data into R using the `read_csv()` function from the `readr` package
 
-```{r}
+```{r, eval = FALSE}
 library(readr)
 read_csv("cape_howe.csv")
 ```
+
+`{r, eval=TRUE, echo = FALSE}0 library(readr) read_csv("cape_howe.csv", n_max = 6)`
 
 -   What class is this object?
 

@@ -88,10 +88,9 @@ View(raw_dat)
 
 ```{r }
 
-
 clean_dat <-
-  raw_dat %>% 
-  rename(new_colname = old_colname) %>% 
+  raw_dat %>%
+  rename(new_colname = old_colname) %>%
   mutate(abundance = as.numeric(abundance))
 
 ```
@@ -104,15 +103,15 @@ clean_dat <-
 ```{r }
 
 # abundance is numeric
-clean_dat %>% 
+clean_dat %>%
   ggplot() +
   aes(x = abundance) +
   geom_density()
 
 # Or using a histogram?
-clean_dat %>% 
+clean_dat %>%
   ggplot() +
-  aes(x = abundance) + 
+  aes(x = abundance) +
   geom_histogram()
 
 ```
@@ -125,18 +124,16 @@ clean_dat %>%
 
 # abundance is numeric
 # sex is categorical
-clean_dat %>% 
+clean_dat %>%
   ggplot() +
-  aes(x = sex, 
-      y = abundance) +
+  aes(x = sex, y = abundance) +
   geom_violin()
 
 # abundance is numeric
 # sea surface temperature (SST) is numeric
-clean_dat %>% 
+clean_dat %>%
   ggplot() +
-  aes(x = sst, 
-      y = abundance) +
+  aes(x = sst, y = abundance) +
   geom_point()
 
 ```
@@ -151,11 +148,11 @@ clean_dat %>%
 ```{r }
 
 plot_dat <-
-  clean_dat %>% 
-  filter(sex %in% c("m", "f", "juv")) %>% # found an extra var "g" 
+  clean_dat %>%
+  filter(sex %in% c("m", "f", "juv")) %>% # found an extra var "g"
   filter(abundance != 93845) %>% # outlier removed
   mutate(log1p_abun = log1p(abun)) # transformation
-  
+
 ```
 
 ## Data visualisation (again)
@@ -164,13 +161,12 @@ plot_dat <-
 
 ```{r }
 
-# log1p_abun is new col I created 
-plot_dat %>% 
+# log1p_abun is new col I created
+plot_dat %>%
   ggplot() +
-  aes(x = sst, 
-      y = log1p_abun) +
+  aes(x = sst, y = log1p_abun) +
   geom_point()
-  
+
 ```
 
 ## Extra functions/arguments
@@ -180,14 +176,17 @@ plot_dat %>%
 
 ```{r }
 
-plot_dat %>% 
-  mutate(sex = case_when(sex == "g" ~ "f", # we assume the 'g' should be an 'f'
-                         TRUE ~ sex)) %>% 
+plot_dat %>%
+  mutate(
+    sex = case_when(
+      sex == "g" ~ "f", # we assume the 'g' should be an 'f'
+      TRUE ~ sex
+    )
+  ) %>%
   ggplot() +
-  aes(x = sst, 
-      y = log1p_abun) +
+  aes(x = sst, y = log1p_abun) +
   geom_point(alpha = 0.5) + # transparency because of overlap
-  stat_smooth(se = TRUE)  + # adds a generic smooth to the plot (with  or w/o error)
+  stat_smooth(se = TRUE) + # adds a generic smooth to the plot (with  or w/o error)
   facet_wrap(~site) # I want to look at the each site separately
 
 # stat_smooth(method = "lm") to make linear line
@@ -219,22 +218,20 @@ glimpse() # view structure of data
 
 # Data manipulation -------------------------------------------------------
 filter() # subsetting the data (e.g., order == "Aves")
-select()  # Selecting a single or multiple columns
+select() # Selecting a single or multiple columns
 mutate() # Creating a new column
 rename() # Renaming a column
-summarise(.by =) # Summarising a variable (e.g., taking a mean)
+summarise(.by = ) # Summarising a variable (e.g., taking a mean)
 
 arrange() # Ordering a column (E.g., sort by smallest arrival time)
 arrange(desc()) # ... or by largest arrival time
 distinct() # give me only the unique rows (no repeats)
 pull() # pull out a single column and make it a vector
-count(.by =) # count the number of rows per group
+count(.by = ) # count the number of rows per group
 
 # Data visualisation ------------------------------------------------------
 ggplot() +
-  aes(x = column1, 
-      y = column2, 
-      colour = column3) +
+  aes(x = column1, y = column2, colour = column3) +
   geom_point() # or geom_violin() or geom_boxplot() or geom_XXXX()
 
 ```
@@ -272,7 +269,7 @@ read_parquet("AODN_output.parquet") %>%
   write_csv("AODN_output.csv")
 
 # read in the csv as you normally would
-rls_raw <- 
+rls_raw <-
   read_csv("AODN_output.csv")
 
 ```
