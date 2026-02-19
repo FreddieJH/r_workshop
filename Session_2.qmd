@@ -66,7 +66,7 @@ my_data <- read_csv("rls_example_canada.csv")
 #| eval: false
 #| echo: true
 
-my_data 
+my_data
 print(my_data) # prints the data to the screen
 
 head(my_data)
@@ -104,9 +104,9 @@ output <- visualise(clean(import(x)))
 
 # easier to read! (does exactly the same)
 output <-
-  x %>% 
-  import() %>% 
-  clean() %>% 
+  x %>%
+  import() %>%
+  clean() %>%
   visualise()
 
 ```
@@ -122,11 +122,11 @@ output <-
 #| echo: true
 
 # Base R - what is '$' and '[]'?
-my_data[my_data$site_name == "Tappers Cove",]
+my_data[my_data$site_name == "Tappers Cove", ]
 
 # Only Tappers cove rows
-my_data %>% 
-  filter(site_name == "Tappers Cove") 
+my_data %>%
+  filter(site_name == "Tappers Cove")
 
 ```
 
@@ -168,20 +168,19 @@ library(tidyverse)
 library(kableExtra)
 
 tribble(
-  ~Action,                            ~`Base R code`,                                         ~`Tidyverse code`,
-  "Extract a column from a dataframe", "df$col1 OR df[,\"col1\"]",                            "df %>% pull(col1)",
-  "Filter specific rows",              "df[df$col1==\"ABC\",]",                               "df %>% filter(col1 == \"ABC\")",
-  "Select specific columns",           "df[,c(col1,col3:col5)]",                             "df %>% select(col1,col3:col5)",
-  "Create a new column",               "df$col9 <- sqrt(df$col8)",                           "df %>% mutate(col9 = sqrt(col8))",
-  "Rename a column",                   "names(df)[names(df) == \"old_col_name\"] <- \"new_col_name\"", "df %>% rename(new_col_name = old_col_name)",
-  "Summarise data (e.g. mean of a column)", "mean(df$col1)",                                "df %>% summarise(mean(col1))",
-  "Sort a column",                      "df[order(df$col1), ]",                              "df %>% arrange(col1)",
-  "Filter unique rows",                 "df[!duplicated(df[,c(\"col1\", \"col2\")]), ]",    "df %>% distinct()",
-  "Count number of rows of a group",    "as.data.frame(table(df$col1))",                     "df %>% count(col1)"
+  ~Action                                  , ~`Base R code`                                                 , ~`Tidyverse code`                            ,
+  "Extract a column from a dataframe"      , "df$col1 OR df[,\"col1\"]"                                     , "df %>% pull(col1)"                          ,
+  "Filter specific rows"                   , "df[df$col1==\"ABC\",]"                                        , "df %>% filter(col1 == \"ABC\")"             ,
+  "Select specific columns"                , "df[,c(col1,col3:col5)]"                                       , "df %>% select(col1,col3:col5)"              ,
+  "Create a new column"                    , "df$col9 <- sqrt(df$col8)"                                     , "df %>% mutate(col9 = sqrt(col8))"           ,
+  "Rename a column"                        , "names(df)[names(df) == \"old_col_name\"] <- \"new_col_name\"" , "df %>% rename(new_col_name = old_col_name)" ,
+  "Summarise data (e.g. mean of a column)" , "mean(df$col1)"                                                , "df %>% summarise(mean(col1))"               ,
+  "Sort a column"                          , "df[order(df$col1), ]"                                         , "df %>% arrange(col1)"                       ,
+  "Filter unique rows"                     , "df[!duplicated(df[,c(\"col1\", \"col2\")]), ]"                , "df %>% distinct()"                          ,
+  "Count number of rows of a group"        , "as.data.frame(table(df$col1))"                                , "df %>% count(col1)"
 ) %>%
   kable() %>%
   kable_styling(font_size = 20)
-
 
 
 ```
@@ -195,10 +194,10 @@ tribble(
 library(tidyverse) # where the functions are stored
 
 filter() # subsetting the data (e.g., order == "Aves")
-select()  # Selecting a single or multiple columns
+select() # Selecting a single or multiple columns
 mutate() # Creating a new column
 rename() # Renaming a column
-summarise() # Summarising a dataset 
+summarise() # Summarising a dataset
 
 arrange() # Ordering a column (E.g., sort by smallest arrival time)
 arrange(desc()) # ... or by largest arrival time
@@ -219,8 +218,7 @@ count() # count the number of rows
 # base R
 # my_data[,c("survey_id", "species_name", "total")]
 
-
-my_data %>% 
+my_data %>%
   select(survey_id, species_name, total)
 
 ```
@@ -240,16 +238,16 @@ Create a new object called `slim_data` which has the columns survey_id, site_cod
 #| echo: true
 
 # base R
-# my_data$depth_cm <- my_data$depth*10 
+# my_data$depth_cm <- my_data$depth*10
 
 # tidyverse way
-my_data %>% 
-  mutate(depth_cm = depth*10)
+my_data %>%
+  mutate(depth_cm = depth * 10)
 
 # combining the two steps (select and mutate)
-my_data %>% 
-  select(survey_id, site_code, depth, species_name, total) %>% 
-  mutate(depth_cm = depth*10)
+my_data %>%
+  select(survey_id, site_code, depth, species_name, total) %>%
+  mutate(depth_cm = depth * 10)
 
 ```
 
@@ -269,13 +267,13 @@ Create a new object called `cunner` which is only the species *Tautogolabrus ads
 #| eval: false
 #| echo: true
 
-# base R 
+# base R
 # note this will overwrite the object my_data
 # names(my_data)[names(my_data) == "depth"] <- "depth_m"
 
 # tidyverse way (this won't overwrite)
-my_data %>% 
-  rename(depth_m = depth) 
+my_data %>%
+  rename(depth_m = depth)
 
 ```
 
@@ -295,11 +293,11 @@ Rename the `visibility` column to something a bit more informative, maybe to inc
 #| eval: false
 #| echo: true
 
-my_data %>% 
-  select(survey_id, site_code, depth, species_name, biomass) %>% 
-  mutate(depth_cm = depth*10) %>% 
-  rename(depth_m = depth) %>% 
-  reframe(mean_biomass = mean(biomass, na.rm=TRUE))
+my_data %>%
+  select(survey_id, site_code, depth, species_name, biomass) %>%
+  mutate(depth_cm = depth * 10) %>%
+  rename(depth_m = depth) %>%
+  reframe(mean_biomass = mean(biomass, na.rm = TRUE))
 
 ```
 
@@ -320,14 +318,13 @@ You may see this written as `group_by()`, it's the same
 #| echo: true
 
 # I want the mean abundance for each species at a survey
-my_data %>% 
-  summarise(mean_abun = mean(total, na.rm=TRUE), 
-            .by = species_name)
+my_data %>%
+  summarise(mean_abun = mean(total, na.rm = TRUE), .by = species_name)
 
 # is the same as this
-my_data %>% 
-  group_by(species_name) %>% 
-  summarise(mean_abun = mean(total, na.rm=TRUE)) %>% 
+my_data %>%
+  group_by(species_name) %>%
+  summarise(mean_abun = mean(total, na.rm = TRUE)) %>%
   ungroup()
 
 ```
@@ -346,9 +343,8 @@ Which species, on average, has approximately 1.27 individuals per survey?
 #| eval: false
 #| echo: true
 
-my_data %>% 
-  summarise(mean_abun = mean(total, na.rm=TRUE), 
-            .by = species_name) %>% 
+my_data %>%
+  summarise(mean_abun = mean(total, na.rm = TRUE), .by = species_name) %>%
   arrange(mean_abun)
 
 ```
@@ -367,7 +363,7 @@ Order the dataframe so the mean_abun is descending (High to low)
 #| eval: false
 #| echo: true
 
-my_data %>% 
+my_data %>%
   count(site_code)
 
 ```

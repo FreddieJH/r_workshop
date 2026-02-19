@@ -121,7 +121,7 @@ sizes_byspp <-
 ## Choosing the type of plot
 
 |                              | Predictor variable (x) | Response variable (y) |
-|------------------------------|------------------------|-----------------------|
+|----------------------------|-----------------------|----------------------|
 | Barplot, Boxplot, Violinplot | Categorical            | Numeric               |
 | Scatterplot                  | Numeric                | Numeric               |
 | Density, Histogram           | Numeric                | \-                    |
@@ -321,29 +321,6 @@ nspp_bysurv_bysite %>%
 
 ## One numerical variable
 
-::::: columns
-
-::: {.column width="50%"}
-
-```{r}
-nspp_bysite %>%
-  ggplot(aes(x = n, col = as.factor(method))) +
-  geom_density()
-```
-
-:::
-
-::: {.column width="50%"}
-
-```{r}
-nspp_bysite %>%
-  ggplot(aes(x = n, col = as.factor(method))) +
-  geom_histogram(binwidth = 10)
-```
-
-:::
-
-:::::
 
 ## Extra - multiple plots
 
@@ -360,7 +337,7 @@ nspp_bysite %>%
 ## Extra - Error bars
 
 ```{r, eval=FALSE}
-#| code-line-numbers: "5,12,13,14,15"
+| code-line-numbers: "5,12,13,14,15"
 
 # Barplots need error bars
 nspp_bysurv_bysite %>%

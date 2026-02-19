@@ -287,8 +287,8 @@ Freddie Heather
 </ul>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a>clean_dat <span class="ot">&lt;-</span></span>
-<span id="cb4-2"><a href=""></a>  raw_dat <span class="sc">%&gt;%</span> </span>
-<span id="cb4-3"><a href=""></a>  <span class="fu">rename</span>(<span class="at">new_colname =</span> old_colname) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href=""></a>  raw_dat <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href=""></a>  <span class="fu">rename</span>(<span class="at">new_colname =</span> old_colname) <span class="sc">%&gt;%</span></span>
 <span id="cb4-4"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">abundance =</span> <span class="fu">as.numeric</span>(abundance))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
@@ -300,15 +300,15 @@ Freddie Heather
 </ul>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="co"># abundance is numeric</span></span>
-<span id="cb5-2"><a href=""></a>clean_dat <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a href=""></a>clean_dat <span class="sc">%&gt;%</span></span>
 <span id="cb5-3"><a href=""></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb5-4"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> abundance) <span class="sc">+</span></span>
 <span id="cb5-5"><a href=""></a>  <span class="fu">geom_density</span>()</span>
 <span id="cb5-6"><a href=""></a></span>
 <span id="cb5-7"><a href=""></a><span class="co"># Or using a histogram?</span></span>
-<span id="cb5-8"><a href=""></a>clean_dat <span class="sc">%&gt;%</span> </span>
+<span id="cb5-8"><a href=""></a>clean_dat <span class="sc">%&gt;%</span></span>
 <span id="cb5-9"><a href=""></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb5-10"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> abundance) <span class="sc">+</span> </span>
+<span id="cb5-10"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> abundance) <span class="sc">+</span></span>
 <span id="cb5-11"><a href=""></a>  <span class="fu">geom_histogram</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
@@ -320,19 +320,17 @@ Freddie Heather
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="co"># abundance is numeric</span></span>
 <span id="cb6-2"><a href=""></a><span class="co"># sex is categorical</span></span>
-<span id="cb6-3"><a href=""></a>clean_dat <span class="sc">%&gt;%</span> </span>
+<span id="cb6-3"><a href=""></a>clean_dat <span class="sc">%&gt;%</span></span>
 <span id="cb6-4"><a href=""></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb6-5"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> sex, </span>
-<span id="cb6-6"><a href=""></a>      <span class="at">y =</span> abundance) <span class="sc">+</span></span>
-<span id="cb6-7"><a href=""></a>  <span class="fu">geom_violin</span>()</span>
-<span id="cb6-8"><a href=""></a></span>
-<span id="cb6-9"><a href=""></a><span class="co"># abundance is numeric</span></span>
-<span id="cb6-10"><a href=""></a><span class="co"># sea surface temperature (SST) is numeric</span></span>
-<span id="cb6-11"><a href=""></a>clean_dat <span class="sc">%&gt;%</span> </span>
-<span id="cb6-12"><a href=""></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb6-13"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> sst, </span>
-<span id="cb6-14"><a href=""></a>      <span class="at">y =</span> abundance) <span class="sc">+</span></span>
-<span id="cb6-15"><a href=""></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb6-5"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">y =</span> abundance) <span class="sc">+</span></span>
+<span id="cb6-6"><a href=""></a>  <span class="fu">geom_violin</span>()</span>
+<span id="cb6-7"><a href=""></a></span>
+<span id="cb6-8"><a href=""></a><span class="co"># abundance is numeric</span></span>
+<span id="cb6-9"><a href=""></a><span class="co"># sea surface temperature (SST) is numeric</span></span>
+<span id="cb6-10"><a href=""></a>clean_dat <span class="sc">%&gt;%</span></span>
+<span id="cb6-11"><a href=""></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb6-12"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> sst, <span class="at">y =</span> abundance) <span class="sc">+</span></span>
+<span id="cb6-13"><a href=""></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="data-manipulation" class="slide level2">
@@ -345,8 +343,8 @@ Freddie Heather
 </ul>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>plot_dat <span class="ot">&lt;-</span></span>
-<span id="cb7-2"><a href=""></a>  clean_dat <span class="sc">%&gt;%</span> </span>
-<span id="cb7-3"><a href=""></a>  <span class="fu">filter</span>(sex <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"m"</span>, <span class="st">"f"</span>, <span class="st">"juv"</span>)) <span class="sc">%&gt;%</span> <span class="co"># found an extra var "g" </span></span>
+<span id="cb7-2"><a href=""></a>  clean_dat <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a href=""></a>  <span class="fu">filter</span>(sex <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"m"</span>, <span class="st">"f"</span>, <span class="st">"juv"</span>)) <span class="sc">%&gt;%</span> <span class="co"># found an extra var "g"</span></span>
 <span id="cb7-4"><a href=""></a>  <span class="fu">filter</span>(abundance <span class="sc">!=</span> <span class="dv">93845</span>) <span class="sc">%&gt;%</span> <span class="co"># outlier removed</span></span>
 <span id="cb7-5"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">log1p_abun =</span> <span class="fu">log1p</span>(abun)) <span class="co"># transformation</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -357,12 +355,11 @@ Freddie Heather
 <li>Now I’ve modified the data</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="co"># log1p_abun is new col I created </span></span>
-<span id="cb8-2"><a href=""></a>plot_dat <span class="sc">%&gt;%</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="co"># log1p_abun is new col I created</span></span>
+<span id="cb8-2"><a href=""></a>plot_dat <span class="sc">%&gt;%</span></span>
 <span id="cb8-3"><a href=""></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb8-4"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> sst, </span>
-<span id="cb8-5"><a href=""></a>      <span class="at">y =</span> log1p_abun) <span class="sc">+</span></span>
-<span id="cb8-6"><a href=""></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb8-4"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> sst, <span class="at">y =</span> log1p_abun) <span class="sc">+</span></span>
+<span id="cb8-5"><a href=""></a>  <span class="fu">geom_point</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="extra-functionsarguments" class="slide level2">
@@ -372,17 +369,20 @@ Freddie Heather
 <li><code>stat_smooth()</code> puts a generic line through the data</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>plot_dat <span class="sc">%&gt;%</span> </span>
-<span id="cb9-2"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">sex =</span> <span class="fu">case_when</span>(sex <span class="sc">==</span> <span class="st">"g"</span> <span class="sc">~</span> <span class="st">"f"</span>, <span class="co"># we assume the 'g' should be an 'f'</span></span>
-<span id="cb9-3"><a href=""></a>                         <span class="cn">TRUE</span> <span class="sc">~</span> sex)) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-4"><a href=""></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb9-5"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> sst, </span>
-<span id="cb9-6"><a href=""></a>      <span class="at">y =</span> log1p_abun) <span class="sc">+</span></span>
-<span id="cb9-7"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> <span class="co"># transparency because of overlap</span></span>
-<span id="cb9-8"><a href=""></a>  <span class="fu">stat_smooth</span>(<span class="at">se =</span> <span class="cn">TRUE</span>)  <span class="sc">+</span> <span class="co"># adds a generic smooth to the plot (with  or w/o error)</span></span>
-<span id="cb9-9"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>site) <span class="co"># I want to look at the each site separately</span></span>
-<span id="cb9-10"><a href=""></a></span>
-<span id="cb9-11"><a href=""></a><span class="co"># stat_smooth(method = "lm") to make linear line</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>plot_dat <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href=""></a>  <span class="fu">mutate</span>(</span>
+<span id="cb9-3"><a href=""></a>    <span class="at">sex =</span> <span class="fu">case_when</span>(</span>
+<span id="cb9-4"><a href=""></a>      sex <span class="sc">==</span> <span class="st">"g"</span> <span class="sc">~</span> <span class="st">"f"</span>, <span class="co"># we assume the 'g' should be an 'f'</span></span>
+<span id="cb9-5"><a href=""></a>      <span class="cn">TRUE</span> <span class="sc">~</span> sex</span>
+<span id="cb9-6"><a href=""></a>    )</span>
+<span id="cb9-7"><a href=""></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb9-8"><a href=""></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb9-9"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> sst, <span class="at">y =</span> log1p_abun) <span class="sc">+</span></span>
+<span id="cb9-10"><a href=""></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> <span class="co"># transparency because of overlap</span></span>
+<span id="cb9-11"><a href=""></a>  <span class="fu">stat_smooth</span>(<span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> <span class="co"># adds a generic smooth to the plot (with  or w/o error)</span></span>
+<span id="cb9-12"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>site) <span class="co"># I want to look at the each site separately</span></span>
+<span id="cb9-13"><a href=""></a></span>
+<span id="cb9-14"><a href=""></a><span class="co"># stat_smooth(method = "lm") to make linear line</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="what-next" class="slide level2">
@@ -414,23 +414,21 @@ Freddie Heather
 <span id="cb10-12"><a href=""></a></span>
 <span id="cb10-13"><a href=""></a><span class="co"># Data manipulation -------------------------------------------------------</span></span>
 <span id="cb10-14"><a href=""></a><span class="fu">filter</span>() <span class="co"># subsetting the data (e.g., order == "Aves")</span></span>
-<span id="cb10-15"><a href=""></a><span class="fu">select</span>()  <span class="co"># Selecting a single or multiple columns</span></span>
+<span id="cb10-15"><a href=""></a><span class="fu">select</span>() <span class="co"># Selecting a single or multiple columns</span></span>
 <span id="cb10-16"><a href=""></a><span class="fu">mutate</span>() <span class="co"># Creating a new column</span></span>
 <span id="cb10-17"><a href=""></a><span class="fu">rename</span>() <span class="co"># Renaming a column</span></span>
-<span id="cb10-18"><a href=""></a><span class="fu">summarise</span>(<span class="at">.by =</span>) <span class="co"># Summarising a variable (e.g., taking a mean)</span></span>
+<span id="cb10-18"><a href=""></a><span class="fu">summarise</span>(<span class="at">.by =</span> ) <span class="co"># Summarising a variable (e.g., taking a mean)</span></span>
 <span id="cb10-19"><a href=""></a></span>
 <span id="cb10-20"><a href=""></a><span class="fu">arrange</span>() <span class="co"># Ordering a column (E.g., sort by smallest arrival time)</span></span>
 <span id="cb10-21"><a href=""></a><span class="fu">arrange</span>(<span class="fu">desc</span>()) <span class="co"># ... or by largest arrival time</span></span>
 <span id="cb10-22"><a href=""></a><span class="fu">distinct</span>() <span class="co"># give me only the unique rows (no repeats)</span></span>
 <span id="cb10-23"><a href=""></a><span class="fu">pull</span>() <span class="co"># pull out a single column and make it a vector</span></span>
-<span id="cb10-24"><a href=""></a><span class="fu">count</span>(<span class="at">.by =</span>) <span class="co"># count the number of rows per group</span></span>
+<span id="cb10-24"><a href=""></a><span class="fu">count</span>(<span class="at">.by =</span> ) <span class="co"># count the number of rows per group</span></span>
 <span id="cb10-25"><a href=""></a></span>
 <span id="cb10-26"><a href=""></a><span class="co"># Data visualisation ------------------------------------------------------</span></span>
 <span id="cb10-27"><a href=""></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb10-28"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> column1, </span>
-<span id="cb10-29"><a href=""></a>      <span class="at">y =</span> column2, </span>
-<span id="cb10-30"><a href=""></a>      <span class="at">colour =</span> column3) <span class="sc">+</span></span>
-<span id="cb10-31"><a href=""></a>  <span class="fu">geom_point</span>() <span class="co"># or geom_violin() or geom_boxplot() or geom_XXXX()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb10-28"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> column1, <span class="at">y =</span> column2, <span class="at">colour =</span> column3) <span class="sc">+</span></span>
+<span id="cb10-29"><a href=""></a>  <span class="fu">geom_point</span>() <span class="co"># or geom_violin() or geom_boxplot() or geom_XXXX()</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="your-own-hypothesis-data" class="slide level2">
@@ -474,7 +472,7 @@ Freddie Heather
 <span id="cb11-8"><a href=""></a>  <span class="fu">write_csv</span>(<span class="st">"AODN_output.csv"</span>)</span>
 <span id="cb11-9"><a href=""></a></span>
 <span id="cb11-10"><a href=""></a><span class="co"># read in the csv as you normally would</span></span>
-<span id="cb11-11"><a href=""></a>rls_raw <span class="ot">&lt;-</span> </span>
+<span id="cb11-11"><a href=""></a>rls_raw <span class="ot">&lt;-</span></span>
 <span id="cb11-12"><a href=""></a>  <span class="fu">read_csv</span>(<span class="st">"AODN_output.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
