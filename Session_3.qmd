@@ -9,7 +9,6 @@ format:
     fig.align: 'center'
 project:
   output-dir: docs
-  output-file: session_3.html
 ---
 
 # Recap from session 2
