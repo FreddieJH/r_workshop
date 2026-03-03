@@ -152,6 +152,12 @@ You can use other operators beyond just the `==` operator that tests for equalit
 
 -   Using `>`, `<`, `>=`, `!=`, `&`, `|`
 
+```{r, eval = FALSE, echo = TRUE}
+# example of an OR statement
+my_data %>%
+  filter(site_name == "Tappers Cove" | site_name == "Middle Cove")
+```
+
 ::: callout-tip
 ## Task
 
@@ -283,7 +289,7 @@ my_data %>%
 Rename the `visibility` column to something a bit more informative, maybe to include the units?
 :::
 
-## `summarise`()\`
+## `summarise`()
 
 ### Summarise some data (e.g. taking a mean)
 
@@ -297,7 +303,7 @@ my_data %>%
   select(survey_id, site_code, depth, species_name, biomass) %>%
   mutate(depth_cm = depth * 10) %>%
   rename(depth_m = depth) %>%
-  reframe(mean_biomass = mean(biomass, na.rm = TRUE))
+  summarise(mean_biomass = mean(biomass, na.rm = TRUE))
 
 ```
 
