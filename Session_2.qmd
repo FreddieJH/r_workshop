@@ -152,12 +152,6 @@ You can use other operators beyond just the `==` operator that tests for equalit
 
 -   Using `>`, `<`, `>=`, `!=`, `&`, `|`
 
-```{r, eval = FALSE, echo = TRUE}
-# example of an OR statement
-my_data %>%
-  filter(site_name == "Tappers Cove" | site_name == "Middle Cove")
-```
-
 ::: callout-tip
 ## Task
 
