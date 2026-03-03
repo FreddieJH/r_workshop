@@ -194,9 +194,6 @@ count() # count the number of rows
 #| eval: false
 #| echo: true
 
-# base R
-# my_data[,c("survey_id", "species_name", "total")]
-
 my_data %>%
   select(survey_id, species_name, total)
 
@@ -221,12 +218,12 @@ Create a new object called `slim_data` which has the columns survey_id, site_cod
 
 # tidyverse way
 my_data %>%
-  mutate(depth_cm = depth * 10)
+  mutate(depth_cm = depth * 100)
 
 # combining the two steps (select and mutate)
 my_data %>%
   select(survey_id, site_code, depth, species_name, total) %>%
-  mutate(depth_cm = depth * 10)
+  mutate(depth_cm = depth * 100)
 
 ```
 
@@ -275,7 +272,7 @@ Rename the `visibility` column to something a bit more informative, maybe to inc
 
 my_data %>%
   select(survey_id, site_code, depth, species_name, biomass) %>%
-  mutate(depth_cm = depth * 10) %>%
+  mutate(depth_cm = depth * 100) %>%
   rename(depth_m = depth) %>%
   summarise(mean_biomass = mean(biomass, na.rm = TRUE))
 
