@@ -331,7 +331,7 @@ library(readr)
 read_csv("cape_howe.csv")
 ```
 
-`{r, eval=TRUE, echo = FALSE} readr::read_csv("cape_howe.csv", n_max = 6)`
+`{r, eval=TRUE, echo = FALSE}0 library(readr) read_csv("cape_howe.csv", n_max = 6)`
 
 -   What class is this object?
 

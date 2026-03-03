@@ -263,6 +263,7 @@ Rename the `visibility` column to something a bit more informative, maybe to inc
 :::
 
 ## `summarise`()
+## `summarise`()
 
 ### Summarise some data (e.g. taking a mean)
 
