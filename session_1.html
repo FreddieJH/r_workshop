@@ -453,7 +453,8 @@ Freddie Heather
 <span id="cb25-3"><a href=""></a></span>
 <span id="cb25-4"><a href=""></a>x <span class="sc">*</span> y</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
-<pre><code>Error in x * y: non-numeric argument to binary operator</code></pre>
+<pre><code>Error in `x * y`:
+! non-numeric argument to binary operator</code></pre>
 </div>
 </div>
 </section>
@@ -620,7 +621,7 @@ Freddie Heather
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a><span class="fu">library</span>(readr)</span>
 <span id="cb39-2"><a href=""></a><span class="fu">read_csv</span>(<span class="st">"cape_howe.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p><code>{r, eval=TRUE, echo = FALSE}0 library(readr) read_csv("cape_howe.csv", n_max = 6)</code></p>
+<p><code>{r, eval=TRUE, echo = FALSE} readr::read_csv("cape_howe.csv", n_max = 6)</code></p>
 <ul>
 <li>What class is this object?</li>
 </ul>

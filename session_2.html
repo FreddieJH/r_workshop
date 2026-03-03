@@ -349,12 +349,9 @@ Freddie Heather
 <li>Say that I only care about the “Tappers Cove” site</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="co"># Base R - what is '$' and '[]'?</span></span>
-<span id="cb4-2"><a href=""></a>my_data[my_data<span class="sc">$</span>site_name <span class="sc">==</span> <span class="st">"Tappers Cove"</span>, ]</span>
-<span id="cb4-3"><a href=""></a></span>
-<span id="cb4-4"><a href=""></a><span class="co"># Only Tappers cove rows</span></span>
-<span id="cb4-5"><a href=""></a>my_data <span class="sc">%&gt;%</span></span>
-<span id="cb4-6"><a href=""></a>  <span class="fu">filter</span>(site_name <span class="sc">==</span> <span class="st">"Tappers Cove"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="co"># Only Tappers cove rows</span></span>
+<span id="cb4-2"><a href=""></a>my_data <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href=""></a>  <span class="fu">filter</span>(site_name <span class="sc">==</span> <span class="st">"Tappers Cove"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -388,6 +385,11 @@ Freddie Heather
 <ul>
 <li>Using <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>!=</code>, <code>&amp;</code>, <code>|</code></li>
 </ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="co"># example of an OR statement</span></span>
+<span id="cb5-2"><a href=""></a>my_data <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href=""></a>  <span class="fu">filter</span>(site_name <span class="sc">==</span> <span class="st">"Tappers Cove"</span> <span class="sc">|</span> site_name <span class="sc">==</span> <span class="st">"Middle Cove"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -407,8 +409,208 @@ Freddie Heather
 </div>
 </div>
 </section>
-<section id="data-manipulation-functions" class="slide level2">
-<h2>Data manipulation functions</h2>
+<section id="data-manipulation-functions-tidyverse" class="slide level2">
+<h2>Data manipulation functions (tidyverse)</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">library</span>(tidyverse) <span class="co"># where the functions are stored</span></span>
+<span id="cb6-2"><a href=""></a></span>
+<span id="cb6-3"><a href=""></a><span class="fu">filter</span>() <span class="co"># subsetting the data (e.g., order == "Aves")</span></span>
+<span id="cb6-4"><a href=""></a><span class="fu">select</span>() <span class="co"># Selecting a single or multiple columns</span></span>
+<span id="cb6-5"><a href=""></a><span class="fu">mutate</span>() <span class="co"># Creating a new column</span></span>
+<span id="cb6-6"><a href=""></a><span class="fu">rename</span>() <span class="co"># Renaming a column</span></span>
+<span id="cb6-7"><a href=""></a><span class="fu">summarise</span>() <span class="co"># Summarising a dataset</span></span>
+<span id="cb6-8"><a href=""></a></span>
+<span id="cb6-9"><a href=""></a><span class="fu">arrange</span>() <span class="co"># Ordering a column (E.g., sort by smallest arrival time)</span></span>
+<span id="cb6-10"><a href=""></a><span class="fu">arrange</span>(<span class="fu">desc</span>()) <span class="co"># ... or by largest arrival time</span></span>
+<span id="cb6-11"><a href=""></a><span class="fu">distinct</span>() <span class="co"># give me only the unique rows (no repeats)</span></span>
+<span id="cb6-12"><a href=""></a><span class="fu">pull</span>() <span class="co"># pull out a column and make it a vector</span></span>
+<span id="cb6-13"><a href=""></a><span class="fu">count</span>() <span class="co"># count the number of rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="select" class="slide level2">
+<h2><code>select()</code></h2>
+<h3 id="selecting-a-single-or-multiple-columns">Selecting a single or multiple columns</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="co"># base R</span></span>
+<span id="cb7-2"><a href=""></a><span class="co"># my_data[,c("survey_id", "species_name", "total")]</span></span>
+<span id="cb7-3"><a href=""></a></span>
+<span id="cb7-4"><a href=""></a>my_data <span class="sc">%&gt;%</span></span>
+<span id="cb7-5"><a href=""></a>  <span class="fu">select</span>(survey_id, species_name, total)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Task</strong></p>
+</div>
+<div class="callout-content">
+<p>Create a new object called <code>slim_data</code> which has the columns survey_id, site_code, species_name, total</p>
+</div>
+</div>
+</div>
+</section>
+<section id="mutate" class="slide level2">
+<h2><code>mutate()</code></h2>
+<h3 id="creating-a-new-column">Creating a new column</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="co"># base R</span></span>
+<span id="cb8-2"><a href=""></a><span class="co"># my_data$depth_cm &lt;- my_data$depth*10</span></span>
+<span id="cb8-3"><a href=""></a></span>
+<span id="cb8-4"><a href=""></a><span class="co"># tidyverse way</span></span>
+<span id="cb8-5"><a href=""></a>my_data <span class="sc">%&gt;%</span></span>
+<span id="cb8-6"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">depth_cm =</span> depth <span class="sc">*</span> <span class="dv">10</span>)</span>
+<span id="cb8-7"><a href=""></a></span>
+<span id="cb8-8"><a href=""></a><span class="co"># combining the two steps (select and mutate)</span></span>
+<span id="cb8-9"><a href=""></a>my_data <span class="sc">%&gt;%</span></span>
+<span id="cb8-10"><a href=""></a>  <span class="fu">select</span>(survey_id, site_code, depth, species_name, total) <span class="sc">%&gt;%</span></span>
+<span id="cb8-11"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">depth_cm =</span> depth <span class="sc">*</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Task</strong></p>
+</div>
+<div class="callout-content">
+<p>Create a new object called <code>cunner</code> which is only the species <em>Tautogolabrus adspersus</em> and has a new column called <code>biomass_kg</code> which is the biomass, but in kg instead of g.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="rename" class="slide level2">
+<h2><code>rename()</code></h2>
+<h3 id="rename-an-existing-column">Rename an existing column</h3>
+<ul>
+<li>Say we want to be clear about the unit in the column name</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="co"># base R</span></span>
+<span id="cb9-2"><a href=""></a><span class="co"># note this will overwrite the object my_data</span></span>
+<span id="cb9-3"><a href=""></a><span class="co"># names(my_data)[names(my_data) == "depth"] &lt;- "depth_m"</span></span>
+<span id="cb9-4"><a href=""></a></span>
+<span id="cb9-5"><a href=""></a><span class="co"># tidyverse way (this won't overwrite)</span></span>
+<span id="cb9-6"><a href=""></a>my_data <span class="sc">%&gt;%</span></span>
+<span id="cb9-7"><a href=""></a>  <span class="fu">rename</span>(<span class="at">depth_m =</span> depth)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Task</strong></p>
+</div>
+<div class="callout-content">
+<p>Rename the <code>visibility</code> column to something a bit more informative, maybe to include the units?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="summarise" class="slide level2">
+<h2><code>summarise</code>()</h2>
+<h3 id="summarise-some-data-e.g.-taking-a-mean">Summarise some data (e.g.&nbsp;taking a mean)</h3>
+<ul>
+<li>similar to the <code>summarise()</code> function</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>my_data <span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a href=""></a>  <span class="fu">select</span>(survey_id, site_code, depth, species_name, biomass) <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">depth_cm =</span> depth <span class="sc">*</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-4"><a href=""></a>  <span class="fu">rename</span>(<span class="at">depth_m =</span> depth) <span class="sc">%&gt;%</span></span>
+<span id="cb10-5"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">mean_biomass =</span> <span class="fu">mean</span>(biomass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Task</strong></p>
+</div>
+<div class="callout-content">
+<p>What is the mean_biomass of all the rows? What happens if you don’t include <code>na.rm=TRUE</code> in your code? Why?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="the-.by-argument" class="slide level2">
+<h2>The <code>.by</code> argument</h2>
+<h3 id="group-by-a-factor-for-analysis">Group by a factor for analysis</h3>
+<p>You may see this written as <code>group_by()</code>, it’s the same</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="co"># I want the mean abundance for each species at a survey</span></span>
+<span id="cb11-2"><a href=""></a>my_data <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">mean_abun =</span> <span class="fu">mean</span>(total, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.by =</span> species_name)</span>
+<span id="cb11-4"><a href=""></a></span>
+<span id="cb11-5"><a href=""></a><span class="co"># is the same as this</span></span>
+<span id="cb11-6"><a href=""></a>my_data <span class="sc">%&gt;%</span></span>
+<span id="cb11-7"><a href=""></a>  <span class="fu">group_by</span>(species_name) <span class="sc">%&gt;%</span></span>
+<span id="cb11-8"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">mean_abun =</span> <span class="fu">mean</span>(total, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-9"><a href=""></a>  <span class="fu">ungroup</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Task</strong></p>
+</div>
+<div class="callout-content">
+<p>Which species, on average, has approximately 1.27 individuals per survey?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="arrange" class="slide level2">
+<h2><code>arrange()</code></h2>
+<h3 id="sorting-a-column-alphabetically-or-numerically">Sorting a column (alphabetically or numerically)</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>my_data <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">mean_abun =</span> <span class="fu">mean</span>(total, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.by =</span> species_name) <span class="sc">%&gt;%</span></span>
+<span id="cb12-3"><a href=""></a>  <span class="fu">arrange</span>(mean_abun)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Task</strong></p>
+</div>
+<div class="callout-content">
+<p>Order the dataframe so the mean_abun is descending (High to low)</p>
+</div>
+</div>
+</div>
+</section>
+<section id="count" class="slide level2">
+<h2><code>count()</code></h2>
+<h3 id="counting-the-number-of-occurrences">Counting the number of occurrences</h3>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>my_data <span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a href=""></a>  <span class="fu">count</span>(site_code)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Task</strong></p>
+</div>
+<div class="callout-content">
+<p>Looking only at <em>Tautogolabrus adspersus</em>, what is the most common site is it observed at?</p>
+</div>
+</div>
+</div>
+</section>
+<section id="base-r-vs.-tidyverse" class="slide level2">
+<h2>Base R vs.&nbsp;Tidyverse</h2>
 <div class="cell">
 <div class="cell-output-display">
 <table class="table caption-top" style="font-size: 20px; margin-left: auto; margin-right: auto;">
@@ -467,206 +669,6 @@ Freddie Heather
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-</section>
-<section id="data-manipulation-functions-tidyverse" class="slide level2">
-<h2>Data manipulation functions (tidyverse)</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="fu">library</span>(tidyverse) <span class="co"># where the functions are stored</span></span>
-<span id="cb5-2"><a href=""></a></span>
-<span id="cb5-3"><a href=""></a><span class="fu">filter</span>() <span class="co"># subsetting the data (e.g., order == "Aves")</span></span>
-<span id="cb5-4"><a href=""></a><span class="fu">select</span>() <span class="co"># Selecting a single or multiple columns</span></span>
-<span id="cb5-5"><a href=""></a><span class="fu">mutate</span>() <span class="co"># Creating a new column</span></span>
-<span id="cb5-6"><a href=""></a><span class="fu">rename</span>() <span class="co"># Renaming a column</span></span>
-<span id="cb5-7"><a href=""></a><span class="fu">summarise</span>() <span class="co"># Summarising a dataset</span></span>
-<span id="cb5-8"><a href=""></a></span>
-<span id="cb5-9"><a href=""></a><span class="fu">arrange</span>() <span class="co"># Ordering a column (E.g., sort by smallest arrival time)</span></span>
-<span id="cb5-10"><a href=""></a><span class="fu">arrange</span>(<span class="fu">desc</span>()) <span class="co"># ... or by largest arrival time</span></span>
-<span id="cb5-11"><a href=""></a><span class="fu">distinct</span>() <span class="co"># give me only the unique rows (no repeats)</span></span>
-<span id="cb5-12"><a href=""></a><span class="fu">pull</span>() <span class="co"># pull out a column and make it a vector</span></span>
-<span id="cb5-13"><a href=""></a><span class="fu">count</span>() <span class="co"># count the number of rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="select" class="slide level2">
-<h2><code>select()</code></h2>
-<h3 id="selecting-a-single-or-multiple-columns">Selecting a single or multiple columns</h3>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="co"># base R</span></span>
-<span id="cb6-2"><a href=""></a><span class="co"># my_data[,c("survey_id", "species_name", "total")]</span></span>
-<span id="cb6-3"><a href=""></a></span>
-<span id="cb6-4"><a href=""></a>my_data <span class="sc">%&gt;%</span></span>
-<span id="cb6-5"><a href=""></a>  <span class="fu">select</span>(survey_id, species_name, total)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Task</strong></p>
-</div>
-<div class="callout-content">
-<p>Create a new object called <code>slim_data</code> which has the columns survey_id, site_code, species_name, total</p>
-</div>
-</div>
-</div>
-</section>
-<section id="mutate" class="slide level2">
-<h2><code>mutate()</code></h2>
-<h3 id="creating-a-new-column">Creating a new column</h3>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="co"># base R</span></span>
-<span id="cb7-2"><a href=""></a><span class="co"># my_data$depth_cm &lt;- my_data$depth*10</span></span>
-<span id="cb7-3"><a href=""></a></span>
-<span id="cb7-4"><a href=""></a><span class="co"># tidyverse way</span></span>
-<span id="cb7-5"><a href=""></a>my_data <span class="sc">%&gt;%</span></span>
-<span id="cb7-6"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">depth_cm =</span> depth <span class="sc">*</span> <span class="dv">10</span>)</span>
-<span id="cb7-7"><a href=""></a></span>
-<span id="cb7-8"><a href=""></a><span class="co"># combining the two steps (select and mutate)</span></span>
-<span id="cb7-9"><a href=""></a>my_data <span class="sc">%&gt;%</span></span>
-<span id="cb7-10"><a href=""></a>  <span class="fu">select</span>(survey_id, site_code, depth, species_name, total) <span class="sc">%&gt;%</span></span>
-<span id="cb7-11"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">depth_cm =</span> depth <span class="sc">*</span> <span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Task</strong></p>
-</div>
-<div class="callout-content">
-<p>Create a new object called <code>cunner</code> which is only the species <em>Tautogolabrus adspersus</em> and has a new column called <code>biomass_kg</code> which is the biomass, but in kg instead of g.</p>
-</div>
-</div>
-</div>
-</section>
-<section id="rename" class="slide level2">
-<h2><code>rename()</code></h2>
-<h3 id="rename-an-existing-column">Rename an existing column</h3>
-<ul>
-<li>Say we want to be clear about the unit in the column name</li>
-</ul>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="co"># base R</span></span>
-<span id="cb8-2"><a href=""></a><span class="co"># note this will overwrite the object my_data</span></span>
-<span id="cb8-3"><a href=""></a><span class="co"># names(my_data)[names(my_data) == "depth"] &lt;- "depth_m"</span></span>
-<span id="cb8-4"><a href=""></a></span>
-<span id="cb8-5"><a href=""></a><span class="co"># tidyverse way (this won't overwrite)</span></span>
-<span id="cb8-6"><a href=""></a>my_data <span class="sc">%&gt;%</span></span>
-<span id="cb8-7"><a href=""></a>  <span class="fu">rename</span>(<span class="at">depth_m =</span> depth)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Task</strong></p>
-</div>
-<div class="callout-content">
-<p>Rename the <code>visibility</code> column to something a bit more informative, maybe to include the units?</p>
-</div>
-</div>
-</div>
-</section>
-<section id="summarise" class="slide level2">
-<h2><code>summarise</code>()`</h2>
-<h3 id="summarise-some-data-e.g.-taking-a-mean">Summarise some data (e.g.&nbsp;taking a mean)</h3>
-<ul>
-<li>similar to the <code>summarise()</code> function</li>
-</ul>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>my_data <span class="sc">%&gt;%</span></span>
-<span id="cb9-2"><a href=""></a>  <span class="fu">select</span>(survey_id, site_code, depth, species_name, biomass) <span class="sc">%&gt;%</span></span>
-<span id="cb9-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">depth_cm =</span> depth <span class="sc">*</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb9-4"><a href=""></a>  <span class="fu">rename</span>(<span class="at">depth_m =</span> depth) <span class="sc">%&gt;%</span></span>
-<span id="cb9-5"><a href=""></a>  <span class="fu">reframe</span>(<span class="at">mean_biomass =</span> <span class="fu">mean</span>(biomass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Task</strong></p>
-</div>
-<div class="callout-content">
-<p>What is the mean_biomass of all the rows? What happens if you don’t include <code>na.rm=TRUE</code> in your code? Why?</p>
-</div>
-</div>
-</div>
-</section>
-<section id="the-.by-argument" class="slide level2">
-<h2>The <code>.by</code> argument</h2>
-<h3 id="group-by-a-factor-for-analysis">Group by a factor for analysis</h3>
-<p>You may see this written as <code>group_by()</code>, it’s the same</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a><span class="co"># I want the mean abundance for each species at a survey</span></span>
-<span id="cb10-2"><a href=""></a>my_data <span class="sc">%&gt;%</span></span>
-<span id="cb10-3"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">mean_abun =</span> <span class="fu">mean</span>(total, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.by =</span> species_name)</span>
-<span id="cb10-4"><a href=""></a></span>
-<span id="cb10-5"><a href=""></a><span class="co"># is the same as this</span></span>
-<span id="cb10-6"><a href=""></a>my_data <span class="sc">%&gt;%</span></span>
-<span id="cb10-7"><a href=""></a>  <span class="fu">group_by</span>(species_name) <span class="sc">%&gt;%</span></span>
-<span id="cb10-8"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">mean_abun =</span> <span class="fu">mean</span>(total, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb10-9"><a href=""></a>  <span class="fu">ungroup</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Task</strong></p>
-</div>
-<div class="callout-content">
-<p>Which species, on average, has approximately 1.27 individuals per survey?</p>
-</div>
-</div>
-</div>
-</section>
-<section id="arrange" class="slide level2">
-<h2><code>arrange()</code></h2>
-<h3 id="sorting-a-column-alphabetically-or-numerically">Sorting a column (alphabetically or numerically)</h3>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>my_data <span class="sc">%&gt;%</span></span>
-<span id="cb11-2"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">mean_abun =</span> <span class="fu">mean</span>(total, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.by =</span> species_name) <span class="sc">%&gt;%</span></span>
-<span id="cb11-3"><a href=""></a>  <span class="fu">arrange</span>(mean_abun)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Task</strong></p>
-</div>
-<div class="callout-content">
-<p>Order the dataframe so the mean_abun is descending (High to low)</p>
-</div>
-</div>
-</div>
-</section>
-<section id="count" class="slide level2">
-<h2><code>count()</code></h2>
-<h3 id="counting-the-number-of-occurrences">Counting the number of occurrences</h3>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>my_data <span class="sc">%&gt;%</span></span>
-<span id="cb12-2"><a href=""></a>  <span class="fu">count</span>(site_code)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Task</strong></p>
-</div>
-<div class="callout-content">
-<p>Looking only at <em>Tautogolabrus adspersus</em>, what is the most common site is it observed at?</p>
-</div>
 </div>
 </div>
 </section>

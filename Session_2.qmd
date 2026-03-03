@@ -121,9 +121,6 @@ output <-
 #| eval: false
 #| echo: true
 
-# Base R - what is '$' and '[]'?
-my_data[my_data$site_name == "Tappers Cove", ]
-
 # Only Tappers cove rows
 my_data %>%
   filter(site_name == "Tappers Cove")
@@ -152,6 +149,12 @@ You can use other operators beyond just the `==` operator that tests for equalit
 
 -   Using `>`, `<`, `>=`, `!=`, `&`, `|`
 
+```{r, eval = FALSE, echo = TRUE}
+# example of an OR statement
+my_data %>%
+  filter(site_name == "Tappers Cove" | site_name == "Middle Cove")
+```
+
 ::: callout-tip
 ## Task
 
@@ -160,30 +163,6 @@ You can use other operators beyond just the `==` operator that tests for equalit
 3.  How many sites have a latitude higher than 48 degrees?
 4.  Select rows between 5 and 9 meters depth.
 :::
-
-## Data manipulation functions
-
-```{r}
-library(tidyverse)
-library(kableExtra)
-
-tribble(
-  ~Action                                  , ~`Base R code`                                                 , ~`Tidyverse code`                            ,
-  "Extract a column from a dataframe"      , "df$col1 OR df[,\"col1\"]"                                     , "df %>% pull(col1)"                          ,
-  "Filter specific rows"                   , "df[df$col1==\"ABC\",]"                                        , "df %>% filter(col1 == \"ABC\")"             ,
-  "Select specific columns"                , "df[,c(col1,col3:col5)]"                                       , "df %>% select(col1,col3:col5)"              ,
-  "Create a new column"                    , "df$col9 <- sqrt(df$col8)"                                     , "df %>% mutate(col9 = sqrt(col8))"           ,
-  "Rename a column"                        , "names(df)[names(df) == \"old_col_name\"] <- \"new_col_name\"" , "df %>% rename(new_col_name = old_col_name)" ,
-  "Summarise data (e.g. mean of a column)" , "mean(df$col1)"                                                , "df %>% summarise(mean(col1))"               ,
-  "Sort a column"                          , "df[order(df$col1), ]"                                         , "df %>% arrange(col1)"                       ,
-  "Filter unique rows"                     , "df[!duplicated(df[,c(\"col1\", \"col2\")]), ]"                , "df %>% distinct()"                          ,
-  "Count number of rows of a group"        , "as.data.frame(table(df$col1))"                                , "df %>% count(col1)"
-) %>%
-  kable() %>%
-  kable_styling(font_size = 20)
-
-
-```
 
 ## Data manipulation functions (tidyverse)
 
@@ -283,7 +262,7 @@ my_data %>%
 Rename the `visibility` column to something a bit more informative, maybe to include the units?
 :::
 
-## `summarise`()\`
+## `summarise`()
 
 ### Summarise some data (e.g. taking a mean)
 
@@ -297,7 +276,7 @@ my_data %>%
   select(survey_id, site_code, depth, species_name, biomass) %>%
   mutate(depth_cm = depth * 10) %>%
   rename(depth_m = depth) %>%
-  reframe(mean_biomass = mean(biomass, na.rm = TRUE))
+  summarise(mean_biomass = mean(biomass, na.rm = TRUE))
 
 ```
 
@@ -373,6 +352,32 @@ my_data %>%
 
 Looking only at *Tautogolabrus adspersus*, what is the most common site is it observed at?
 :::
+
+
+## Base R vs. Tidyverse
+
+```{r}
+library(tidyverse)
+library(kableExtra)
+
+tribble(
+  ~Action                                  , ~`Base R code`                                                 , ~`Tidyverse code`                            ,
+  "Extract a column from a dataframe"      , "df$col1 OR df[,\"col1\"]"                                     , "df %>% pull(col1)"                          ,
+  "Filter specific rows"                   , "df[df$col1==\"ABC\",]"                                        , "df %>% filter(col1 == \"ABC\")"             ,
+  "Select specific columns"                , "df[,c(col1,col3:col5)]"                                       , "df %>% select(col1,col3:col5)"              ,
+  "Create a new column"                    , "df$col9 <- sqrt(df$col8)"                                     , "df %>% mutate(col9 = sqrt(col8))"           ,
+  "Rename a column"                        , "names(df)[names(df) == \"old_col_name\"] <- \"new_col_name\"" , "df %>% rename(new_col_name = old_col_name)" ,
+  "Summarise data (e.g. mean of a column)" , "mean(df$col1)"                                                , "df %>% summarise(mean(col1))"               ,
+  "Sort a column"                          , "df[order(df$col1), ]"                                         , "df %>% arrange(col1)"                       ,
+  "Filter unique rows"                     , "df[!duplicated(df[,c(\"col1\", \"col2\")]), ]"                , "df %>% distinct()"                          ,
+  "Count number of rows of a group"        , "as.data.frame(table(df$col1))"                                , "df %>% count(col1)"
+) %>%
+  kable() %>%
+  kable_styling(font_size = 20)
+
+```
+
+
 
 ## Extra
 
