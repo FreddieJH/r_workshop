@@ -86,7 +86,7 @@ View(my_data)
 
 ## The pipe operator `%>%`
 
--   Say I have three fictional functions; `import()`, `clean()`, and `visualise()` and I want to apply them to some dataset `x`.
+-   Say I have three <ins>fictional</ins> functions; `import()`, `clean()`, and `visualise()` and I want to apply them to some dataset `x`.
 
 ```{r }
 #| eval: false
