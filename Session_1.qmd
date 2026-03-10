@@ -40,6 +40,24 @@ knitr::opts_chunk$set(
 
 ![](images/r-analysis.PNG){.fragment .absolute bottom="50" right="300" width="700" height="300"} ![](images/r-art.PNG){.fragment .absolute bottom="50" right="300" width="700" height="300"} ![](images/r-chess.PNG){.fragment .absolute bottom="50" right="300" width="700" height="300"} ![](images/r-presentation.PNG){.fragment .absolute bottom="50" right="300" width="700" height="300"}
 
+## R is a tool
+
+<style>
+.smaller-table table {
+  font-size: 0.7em;
+}
+</style>
+
+::: {.smaller-table}
+
+|   | Mechanics | Science |
+|--------------------|------------------|----------------------------------|
+| **Problem** | Bolt won't loosen by hand | I have hypothesis and data; I want results for a paper |
+| **Solution** | Use a spanner/wrench/socket/hammer | Use functions in R to import, clean, visualise and model data |
+| **Outcome** | Loosen bolt | Figures and statistics |
+
+:::
+
 ## R vs RStudio
 
 ::::::::: columns

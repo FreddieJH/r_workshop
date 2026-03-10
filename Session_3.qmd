@@ -40,13 +40,7 @@ project:
 4.  **Save your script!**
 :::
 
-## R is a tool
 
-|   | Mechanics | Science |
-|--------------------|------------------|----------------------------------|
-| **Problem** | Bolt won't loosen by hand | I have hypothesis and data; I want results for a paper |
-| **Solution** | Use a spanner/wrench/socket/hammer | Use functions in R to import, clean, visualise and model data |
-| **Outcome** | Loosen bolt | Figures and statistics |
 
 # Data import & checking
 
