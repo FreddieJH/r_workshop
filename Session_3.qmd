@@ -209,32 +209,33 @@ nspp_bysurv_bysite <-
 
 ```
 
-## Boxplot in R
-
+## Boxplot (Categorical vs numeric)
 
 ```{r }
 #| code-line-numbers: "7"
 
 selected_sites <- c("JBMP-S15", "JBMP-S16","JBMP-S26","JBMP-S17", "JBMP-S3" , "JBMP-S18", "JBMP-S4",  "JBMP-S6",  "JBMP-S14")
 
-# separate by the method
 nspp_bysurv_bysite %>%
   filter(site_code %in% selected_sites) %>%
   ggplot() +
   aes(x = site_code, y = n_species) + # why do we need as.factor() here?
   geom_boxplot()
 
+```
+
+## Boxplot coloured by method
+
+```{r}
 # separate by the method
 nspp_bysurv_bysite %>%
   filter(site_code %in% selected_sites) %>%
   ggplot() +
   aes(x = site_code, y = n_species, col = as.factor(method)) + # why do we need as.factor() here?
   geom_boxplot()
-
 ```
 
-
-## Violin plots
+## Violin plots (Categorical vs numeric)
 
 ```{r }
 #| code-line-numbers: "7"
@@ -248,7 +249,7 @@ nspp_bysurv_bysite %>%
 # Try and also separate the method by colour
 ```
 
-## Barplots
+## Barplots (Categorical vs numeric)
 
 ```{r }
 #| code-line-numbers: "11"

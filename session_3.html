@@ -472,41 +472,33 @@ Freddie Heather
 <span id="cb9-7"><a href=""></a>  <span class="fu">rename</span>(<span class="at">n_species =</span> n)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="boxplot-in-r" class="slide level2">
-<h2>Boxplot in R</h2>
+<section id="boxplot-categorical-vs-numeric" class="slide level2">
+<h2>Boxplot (Categorical vs numeric)</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10" data-code-line-numbers="7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>selected_sites <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"JBMP-S15"</span>, <span class="st">"JBMP-S16"</span>,<span class="st">"JBMP-S26"</span>,<span class="st">"JBMP-S17"</span>, <span class="st">"JBMP-S3"</span> , <span class="st">"JBMP-S18"</span>, <span class="st">"JBMP-S4"</span>,  <span class="st">"JBMP-S6"</span>,  <span class="st">"JBMP-S14"</span>)</span>
 <span id="cb10-2"><a href=""></a></span>
-<span id="cb10-3"><a href=""></a><span class="co"># separate by the method</span></span>
-<span id="cb10-4"><a href=""></a>nspp_bysurv_bysite <span class="sc">%&gt;%</span></span>
-<span id="cb10-5"><a href=""></a>  <span class="fu">filter</span>(site_code <span class="sc">%in%</span> selected_sites) <span class="sc">%&gt;%</span></span>
-<span id="cb10-6"><a href=""></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb10-7"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> site_code, <span class="at">y =</span> n_species) <span class="sc">+</span> <span class="co"># why do we need as.factor() here?</span></span>
-<span id="cb10-8"><a href=""></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="session_3_files/figure-revealjs/unnamed-chunk-8-1.png" width="960"></p>
-</figure>
+<span id="cb10-3"><a href=""></a>nspp_bysurv_bysite <span class="sc">%&gt;%</span></span>
+<span id="cb10-4"><a href=""></a>  <span class="fu">filter</span>(site_code <span class="sc">%in%</span> selected_sites) <span class="sc">%&gt;%</span></span>
+<span id="cb10-5"><a href=""></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb10-6"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> site_code, <span class="at">y =</span> n_species) <span class="sc">+</span> <span class="co"># why do we need as.factor() here?</span></span>
+<span id="cb10-7"><a href=""></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+
 </div>
-</div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" data-code-line-numbers="7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="co"># separate by the method</span></span>
+<img data-src="session_3_files/figure-revealjs/unnamed-chunk-8-1.png" width="960" class="r-stretch"></section>
+<section id="boxplot-coloured-by-method" class="slide level2">
+<h2>Boxplot coloured by method</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="co"># separate by the method</span></span>
 <span id="cb11-2"><a href=""></a>nspp_bysurv_bysite <span class="sc">%&gt;%</span></span>
 <span id="cb11-3"><a href=""></a>  <span class="fu">filter</span>(site_code <span class="sc">%in%</span> selected_sites) <span class="sc">%&gt;%</span></span>
 <span id="cb11-4"><a href=""></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb11-5"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> site_code, <span class="at">y =</span> n_species, <span class="at">col =</span> <span class="fu">as.factor</span>(method)) <span class="sc">+</span> <span class="co"># why do we need as.factor() here?</span></span>
 <span id="cb11-6"><a href=""></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="session_3_files/figure-revealjs/unnamed-chunk-8-2.png" width="960"></p>
-</figure>
+
 </div>
-</div>
-</div>
-</section>
-<section id="violin-plots" class="slide level2">
-<h2>Violin plots</h2>
+<img data-src="session_3_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"></section>
+<section id="violin-plots-categorical-vs-numeric" class="slide level2">
+<h2>Violin plots (Categorical vs numeric)</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12" data-code-line-numbers="7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>nspp_bysurv_bysite <span class="sc">%&gt;%</span></span>
 <span id="cb12-2"><a href=""></a>  <span class="fu">filter</span>(site_code <span class="sc">%in%</span> selected_sites) <span class="sc">%&gt;%</span></span>
@@ -516,9 +508,9 @@ Freddie Heather
 
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13" data-code-line-numbers="7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="co"># Try and also separate the method by colour</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<img data-src="session_3_files/figure-revealjs/unnamed-chunk-9-1.png" width="960" class="r-stretch"></section>
-<section id="barplots" class="slide level2">
-<h2>Barplots</h2>
+<img data-src="session_3_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"></section>
+<section id="barplots-categorical-vs-numeric" class="slide level2">
+<h2>Barplots (Categorical vs numeric)</h2>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14" data-code-line-numbers="11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a><span class="co"># For a barplot you might want the bar to represent the mean or median.</span></span>
 <span id="cb14-2"><a href=""></a><span class="co"># how do barplots differ from violin or boxplots?</span></span>
@@ -535,7 +527,7 @@ Freddie Heather
 
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15" data-code-line-numbers="11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href=""></a><span class="co"># what happens if you remove: position = "dodge"?</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<img data-src="session_3_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"></section>
+<img data-src="session_3_files/figure-revealjs/unnamed-chunk-11-1.png" width="960" class="r-stretch"></section>
 <section id="one-numerical-variable" class="slide level2">
 <h2>One numerical variable</h2>
 <div class="columns">
@@ -547,7 +539,7 @@ Freddie Heather
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="session_3_files/figure-revealjs/unnamed-chunk-11-1.png" width="960"></p>
+<p><img data-src="session_3_files/figure-revealjs/unnamed-chunk-12-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -560,7 +552,7 @@ Freddie Heather
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="session_3_files/figure-revealjs/unnamed-chunk-12-1.png" width="960"></p>
+<p><img data-src="session_3_files/figure-revealjs/unnamed-chunk-13-1.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -580,7 +572,7 @@ Freddie Heather
 <span id="cb18-5"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>method)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
-<img data-src="session_3_files/figure-revealjs/unnamed-chunk-13-1.png" width="960" class="r-stretch"></section>
+<img data-src="session_3_files/figure-revealjs/unnamed-chunk-14-1.png" width="960" class="r-stretch"></section>
 <section id="extra---error-bars" class="slide level2">
 <h2>Extra - Error bars</h2>
 <div class="cell">
