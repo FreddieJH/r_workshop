@@ -468,7 +468,8 @@ Freddie Heather
 <span id="cb9-3"><a href=""></a>  capehowe <span class="sc">%&gt;%</span></span>
 <span id="cb9-4"><a href=""></a>  <span class="fu">select</span>(survey_date, species_name, site_code, method) <span class="sc">%&gt;%</span></span>
 <span id="cb9-5"><a href=""></a>  <span class="fu">distinct</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb9-6"><a href=""></a>  <span class="fu">count</span>(survey_date, site_code, method)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb9-6"><a href=""></a>  <span class="fu">count</span>(survey_date, site_code, method) <span class="sc">|&gt;</span> </span>
+<span id="cb9-7"><a href=""></a>  <span class="fu">rename</span>(<span class="at">n_species =</span> n)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="boxplot-in-r" class="slide level2">
@@ -480,7 +481,7 @@ Freddie Heather
 <span id="cb10-4"><a href=""></a>nspp_bysurv_bysite <span class="sc">%&gt;%</span></span>
 <span id="cb10-5"><a href=""></a>  <span class="fu">filter</span>(site_code <span class="sc">%in%</span> selected_sites) <span class="sc">%&gt;%</span></span>
 <span id="cb10-6"><a href=""></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb10-7"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> site_code, <span class="at">y =</span> n) <span class="sc">+</span> <span class="co"># why do we need as.factor() here?</span></span>
+<span id="cb10-7"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> site_code, <span class="at">y =</span> n_species) <span class="sc">+</span> <span class="co"># why do we need as.factor() here?</span></span>
 <span id="cb10-8"><a href=""></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
@@ -493,7 +494,7 @@ Freddie Heather
 <span id="cb11-2"><a href=""></a>nspp_bysurv_bysite <span class="sc">%&gt;%</span></span>
 <span id="cb11-3"><a href=""></a>  <span class="fu">filter</span>(site_code <span class="sc">%in%</span> selected_sites) <span class="sc">%&gt;%</span></span>
 <span id="cb11-4"><a href=""></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb11-5"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> site_code, <span class="at">y =</span> n, <span class="at">col =</span> <span class="fu">as.factor</span>(method)) <span class="sc">+</span> <span class="co"># why do we need as.factor() here?</span></span>
+<span id="cb11-5"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> site_code, <span class="at">y =</span> n_species, <span class="at">col =</span> <span class="fu">as.factor</span>(method)) <span class="sc">+</span> <span class="co"># why do we need as.factor() here?</span></span>
 <span id="cb11-6"><a href=""></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
@@ -510,7 +511,7 @@ Freddie Heather
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12" data-code-line-numbers="7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>nspp_bysurv_bysite <span class="sc">%&gt;%</span></span>
 <span id="cb12-2"><a href=""></a>  <span class="fu">filter</span>(site_code <span class="sc">%in%</span> selected_sites) <span class="sc">%&gt;%</span></span>
 <span id="cb12-3"><a href=""></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb12-4"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> site_code, <span class="at">y =</span> n) <span class="sc">+</span></span>
+<span id="cb12-4"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> site_code, <span class="at">y =</span> n_species) <span class="sc">+</span></span>
 <span id="cb12-5"><a href=""></a>  <span class="fu">geom_violin</span>() <span class="co"># how does this differ from a boxplot?</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13" data-code-line-numbers="7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a><span class="co"># Try and also separate the method by colour</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -524,7 +525,7 @@ Freddie Heather
 <span id="cb14-3"><a href=""></a>nspp_bysurv_bysite <span class="sc">%&gt;%</span></span>
 <span id="cb14-4"><a href=""></a>  <span class="fu">filter</span>(site_code <span class="sc">%in%</span> selected_sites) <span class="sc">%&gt;%</span></span>
 <span id="cb14-5"><a href=""></a>  <span class="fu">summarise</span>(</span>
-<span id="cb14-6"><a href=""></a>    <span class="at">mean_diversity =</span> <span class="fu">mean</span>(n, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb14-6"><a href=""></a>    <span class="at">mean_diversity =</span> <span class="fu">mean</span>(n_species, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
 <span id="cb14-7"><a href=""></a>    <span class="at">.by =</span> <span class="fu">c</span>(site_code, method)</span>
 <span id="cb14-8"><a href=""></a>  ) <span class="sc">%&gt;%</span></span>
 <span id="cb14-9"><a href=""></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
@@ -541,7 +542,7 @@ Freddie Heather
 <div class="column" style="width:50%;">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>nspp_bysurv_bysite <span class="sc">%&gt;%</span></span>
-<span id="cb16-2"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> n, <span class="at">col =</span> <span class="fu">as.factor</span>(method))) <span class="sc">+</span></span>
+<span id="cb16-2"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> n_species, <span class="at">col =</span> <span class="fu">as.factor</span>(method))) <span class="sc">+</span></span>
 <span id="cb16-3"><a href=""></a>  <span class="fu">geom_density</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
@@ -554,7 +555,7 @@ Freddie Heather
 </div><div class="column" style="width:50%;">
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href=""></a>nspp_bysurv_bysite <span class="sc">%&gt;%</span></span>
-<span id="cb17-2"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> n, <span class="at">fill =</span> <span class="fu">as.factor</span>(method))) <span class="sc">+</span></span>
+<span id="cb17-2"><a href=""></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> n_species, <span class="at">fill =</span> <span class="fu">as.factor</span>(method))) <span class="sc">+</span></span>
 <span id="cb17-3"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
@@ -574,7 +575,7 @@ Freddie Heather
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a>nspp_bysurv_bysite <span class="sc">%&gt;%</span></span>
 <span id="cb18-2"><a href=""></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb18-3"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> n) <span class="sc">+</span></span>
+<span id="cb18-3"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> n_species) <span class="sc">+</span></span>
 <span id="cb18-4"><a href=""></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
 <span id="cb18-5"><a href=""></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>method)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
@@ -587,8 +588,8 @@ Freddie Heather
 <span id="cb19-2"><a href=""></a>nspp_bysurv_bysite <span class="sc">%&gt;%</span></span>
 <span id="cb19-3"><a href=""></a>  <span class="fu">filter</span>(site_code <span class="sc">%in%</span> selected_sites) <span class="sc">%&gt;%</span></span>
 <span id="cb19-4"><a href=""></a>  <span class="fu">summarise</span>(</span>
-<span id="cb19-5"><a href=""></a>    <span class="at">mean_diversity =</span> <span class="fu">mean</span>(n, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb19-6"><a href=""></a>    <span class="at">sd_diversity =</span> <span class="fu">sd</span>(n, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb19-5"><a href=""></a>    <span class="at">mean_diversity =</span> <span class="fu">mean</span>(n_species, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb19-6"><a href=""></a>    <span class="at">sd_diversity =</span> <span class="fu">sd</span>(n_species, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
 <span id="cb19-7"><a href=""></a>    <span class="at">.by =</span> <span class="fu">c</span>(site_code, method)</span>
 <span id="cb19-8"><a href=""></a>  ) <span class="sc">%&gt;%</span></span>
 <span id="cb19-9"><a href=""></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
@@ -612,8 +613,8 @@ Freddie Heather
 <span id="cb20-2"><a href=""></a>nspp_bysurv_bysite <span class="sc">%&gt;%</span></span>
 <span id="cb20-3"><a href=""></a>  <span class="fu">filter</span>(site_code <span class="sc">%in%</span> selected_sites) <span class="sc">%&gt;%</span></span>
 <span id="cb20-4"><a href=""></a>  <span class="fu">summarise</span>(</span>
-<span id="cb20-5"><a href=""></a>    <span class="at">mean_diversity =</span> <span class="fu">mean</span>(n, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb20-6"><a href=""></a>    <span class="at">sd_diversity =</span> <span class="fu">sd</span>(n, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-5"><a href=""></a>    <span class="at">mean_diversity =</span> <span class="fu">mean</span>(n_species, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb20-6"><a href=""></a>    <span class="at">sd_diversity =</span> <span class="fu">sd</span>(n_species, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
 <span id="cb20-7"><a href=""></a>    <span class="at">.by =</span> <span class="fu">c</span>(site_code, method)</span>
 <span id="cb20-8"><a href=""></a>  ) <span class="sc">%&gt;%</span></span>
 <span id="cb20-9"><a href=""></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
@@ -638,7 +639,7 @@ Freddie Heather
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21" data-code-line-numbers="9,10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="co"># Change the order of the geom_line() and geom_point()</span></span>
 <span id="cb21-2"><a href=""></a>nspp_bysurv_bysite <span class="sc">%&gt;%</span></span>
 <span id="cb21-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">year</span>(survey_date)) <span class="sc">%&gt;%</span></span>
-<span id="cb21-4"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">mean_diversity =</span> <span class="fu">mean</span>(n, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.by =</span> <span class="fu">c</span>(year, method)) <span class="sc">%&gt;%</span></span>
+<span id="cb21-4"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">mean_diversity =</span> <span class="fu">mean</span>(n_species, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.by =</span> <span class="fu">c</span>(year, method)) <span class="sc">%&gt;%</span></span>
 <span id="cb21-5"><a href=""></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
 <span id="cb21-6"><a href=""></a>  <span class="fu">aes</span>(<span class="at">x =</span> year, <span class="at">y =</span> mean_diversity) <span class="sc">+</span></span>
 <span id="cb21-7"><a href=""></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> <span class="fu">as.factor</span>(method))) <span class="sc">+</span></span>
