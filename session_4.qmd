@@ -35,9 +35,9 @@ project:
 5.  Data manipulation
 6.  Repeat steps 4 & 5 (when you would begin stats)
 
-# Run through all steps
+# I will run through all steps
 
-Using a fictitious example
+Using R markdown (.Rmd)
 
 ## Hypothesis
 
@@ -216,7 +216,7 @@ plot_dat %>%
   aes(x = sst, y = log1p_abun) +
   geom_point(alpha = 0.5) + # transparency because of overlap
   stat_smooth(se = TRUE) + # adds a generic smooth to the plot (with  or w/o error)
-  facet_wrap(~sex) # I want to look at the each site separately
+  facet_wrap(~sex) # I want to look at the each sex separately
 
 # stat_smooth(method = "lm") to make linear line
 
