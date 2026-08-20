@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R Workshop — Freddie Heather</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --surface: #cfe8e4;
+    --twilight: #16505c;
+    --midnight: #0d3140;
+    --abyss: #071b26;
+    --foam: #eef8f6;
+    --bioluminescence: #4fe0c9;
+    --coral: #ff8b62;
+    --muted: #8fb3b0;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    color: var(--foam);
+    background: linear-gradient(180deg,
+      var(--surface) 0%,
+      var(--twilight) 32%,
+      var(--midnight) 62%,
+      var(--abyss) 100%);
+    background-attachment: fixed;
+  }
+
+  a{ color: inherit; }
+
+  .wrap{
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4.5rem 1.5rem 5rem;
+  }
+
+  header{
+    margin-bottom: 3.5rem;
+  }
+
+  .eyebrow{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--twilight);
+    margin: 0 0 0.9rem;
+  }
+
+  h1{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    line-height: 1.08;
+    margin: 0 0 1rem;
+    color: var(--abyss);
+  }
+
+  .intro{
+    font-size: 1.05rem;
+    line-height: 1.6;
+    max-width: 56ch;
+    color: var(--midnight);
+  }
+
+  /* EDIT ME: page intro text — replace the two lines above with your own title / summary */
+
+  .deck-list{
+    display: grid;
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .deck{
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.5rem 1.75rem;
+    border-radius: 10px;
+    background: rgba(238, 248, 246, 0.04);
+    border: 1px solid rgba(79, 224, 201, 0.18);
+    text-decoration: none;
+    transition: border-color 0.25s ease, background 0.25s ease, box-shadow 0.35s ease;
+  }
+
+  .deck:hover, .deck:focus-visible{
+    border-color: var(--bioluminescence);
+    background: rgba(79, 224, 201, 0.07);
+    box-shadow: 0 0 28px rgba(79, 224, 201, 0.25);
+    outline: none;
+  }
+
+  .deck:focus-visible{
+    outline: 2px solid var(--bioluminescence);
+    outline-offset: 3px;
+  }
+
+  .deck-num{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--bioluminescence);
+    min-width: 2.2rem;
+  }
+
+  .deck-body h2{
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin: 0 0 0.3rem;
+    color: var(--foam);
+  }
+
+  .deck-body p{
+    margin: 0;
+    font-size: 0.92rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .deck-go{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--coral);
+    white-space: nowrap;
+  }
+
+  footer{
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(79, 224, 201, 0.15);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  footer a{ color: var(--bioluminescence); text-decoration: none; }
+  footer a:hover{ text-decoration: underline; }
+
+  @media (max-width: 560px){
+    .deck{ grid-template-columns: auto 1fr; row-gap: 0.5rem; }
+    .deck-go{ grid-column: 2; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ transition: none !important; scroll-behavior: auto !important; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <p class="eyebrow">Freddie Heather</p>
+    <h1>R Workshop</h1>
+    <p class="intro">
+      Four sessions covering the basics of R, from getting set up through to data wrangling,
+      visualisation, and putting it all together.
+    </p>
+  </header>
+
+  <ul class="deck-list">
+    <li>
+      <a class="deck" href="session_1.html">
+        <span class="deck-num">01</span>
+        <span class="deck-body">
+          <h2>Getting started</h2>
+          <p>Setting up R and RStudio, projects, and the basics of the language.</p>
+        </span>
+        <span class="deck-go">Open →</span>
+      </a>
+    </li>
+    <li>
+      <a class="deck" href="session_2.html">
+        <span class="deck-num">02</span>
+        <span class="deck-body">
+          <h2>Data cleaning and wrangling</h2>
+          <p>Tidying messy data and reshaping it with tidyverse tools.</p>
+        </span>
+        <span class="deck-go">Open →</span>
+      </a>
+    </li>
+    <li>
+      <a class="deck" href="session_3.html">
+        <span class="deck-num">03</span>
+        <span class="deck-body">
+          <h2>Data visualisation</h2>
+          <p>Building clear, publication-ready plots with ggplot2.</p>
+        </span>
+        <span class="deck-go">Open →</span>
+      </a>
+    </li>
+    <li>
+      <a class="deck" href="session_4.html">
+        <span class="deck-num">04</span>
+        <span class="deck-body">
+          <h2>Combining skills</h2>
+          <p>Pulling everything together into a full analysis workflow.</p>
+        </span>
+        <span class="deck-go">Open →</span>
+      </a>
+    </li>
+  </ul>
+
+  <footer>
+    Source on <a href="https://github.com/FreddieJH/r_workshop">GitHub</a>
+  </footer>
+
+</div>
+</body>
+</html>
