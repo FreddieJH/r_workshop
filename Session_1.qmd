@@ -15,10 +15,10 @@ project:
 
 # Today's workshop
 
--   We will work through the slides and problems together
--   **This session is interactive. Please** **stop me and ask questions**.
--   By the end of today: you will have learnt how to read in excel data into R, perform import checks, understand R programming basics.
--   Tips: be curious, play around, and try and break R (get some Errors)
+- We will work through the slides and problems together
+- **This session is interactive. Please** **stop me and ask questions**.
+- By the end of today: you will have learnt how to read in excel data into R, perform import checks, understand R programming basics.
+- Tips: be curious, play around, and try and break R (get some Errors)
 
 # The background of R
 
@@ -32,9 +32,9 @@ knitr::opts_chunk$set(
 )
 ```
 
--   Programming language
--   Very popular in scientific data analysis...
--   and a lot more
+- Programming language
+- Very popular in scientific data analysis...
+- and a lot more
 
 \vspace{20px}
 
@@ -42,20 +42,20 @@ knitr::opts_chunk$set(
 
 ## R is a tool
 
+```{=html}
 <style>
 .smaller-table table {
   font-size: 0.7em;
 }
 </style>
+```
 
-::: {.smaller-table}
-
+::: smaller-table
 |   | Mechanics | Science |
 |--------------------|------------------|----------------------------------|
 | **Problem** | Bolt won't loosen by hand | I have hypothesis and data; I want results for a paper |
 | **Solution** | Use a spanner/wrench/socket/hammer | Use functions in R to import, clean, visualise and model data |
 | **Outcome** | Loosen bolt | Figures and statistics |
-
 :::
 
 ## R vs RStudio
@@ -78,15 +78,15 @@ knitr::opts_chunk$set(
 ::::
 
 ::: column
--   The coding language
--   (think car engine)
--   Download it and **forget about it**
+- The coding language
+- (think car engine)
+- Download it and **forget about it**
 :::
 
 ::: column
--   User interface
--   (think car dashboard)
--   **Open this** when you want to code
+- User interface
+- (think car dashboard)
+- **Open this** when you want to code
 :::
 :::::::::
 
@@ -102,8 +102,8 @@ knitr::opts_chunk$set(
 
 ## Downloading R and RStudio
 
--   R: [cran.r-project.org](https://cran.r-project.org/)
--   RStudio: [posit.co/download/rstudio-desktop](https://posit.co/download/rstudio-desktop/)
+- R: [cran.r-project.org](https://cran.r-project.org/)
+- RStudio: [posit.co/download/rstudio-desktop](https://posit.co/download/rstudio-desktop/)
 
 # Let's code!
 
@@ -117,16 +117,16 @@ knitr::opts_chunk$set(
 
 #### The key to organisational sucess
 
--   Similar to folders on your computers
--   R knows exactly where to look for things
+- Similar to folders on your computers
+- R knows exactly where to look for things
 
 **Task:** Start a new R project - Open RStudio - New Project - New Directory \> New Project - Browse location for location of all R projects - Give a good title for the analysis (e.g. "phd_chapter_1") - avoid spaces and capitals
 
 ## Creating reproducible code (a script)
 
--   File \> New file \> R Script
--   Write anything (e.g. a comment with your name or title on line 1)
--   Save As "analysis.R"
+- File \> New file \> R Script
+- Write anything (e.g. a comment with your name or title on line 1)
+- Save As "analysis.R"
 
 ## Basic commands
 
@@ -156,8 +156,8 @@ c(1, 2, 3, 4, 5)
 
 ## Objects
 
--   An "object" can be anything: a number, a word, a plot, an equation, etc.
--   The code to create an object is `<-`. This is called the "assignment operator"
+- An "object" can be anything: a number, a word, a plot, an equation, etc.
+- The code to create an object is `<-`. This is called the "assignment operator"
 
 **Task:** Create an object called `x` and make it equal to 5, and then modify `x`.
 
@@ -193,9 +193,9 @@ x
 
 ## Character strings
 
--   Not everything is a number
--   Instead of a numeric variable, an object may be a "character string" (aka. a word or sentence)
--   The data type (e.g. numeric, character) of the object is called the class.
+- Not everything is a number
+- Instead of a numeric variable, an object may be a "character string" (aka. a word or sentence)
+- The data type (e.g. numeric, character) of the object is called the class.
 
 ```{r}
 first_name <- "Freddie"
@@ -205,7 +205,7 @@ paste("My name is", first_name, last_name)
 
 ## Object classes
 
--   We can use the appropriately named `class()` function to see what the class of an object is
+- We can use the appropriately named `class()` function to see what the class of an object is
 
 ```{r}
 x <- 89
@@ -227,8 +227,8 @@ class(z)
 
 ## Class is important
 
--   Some functions will only work with certain types of data classes
--   E.g. you cannot multiply a numeric variable with character string
+- Some functions will only work with certain types of data classes
+- E.g. you cannot multiply a numeric variable with character string
 
 ```{r}
 #| error: true
@@ -258,14 +258,14 @@ class(s2)
 
 ## Logic statements
 
--   We can use the `==` syntax to see if two things are equal
+- We can use the `==` syntax to see if two things are equal
 
 ```{r}
 (2 + 3) == 5
 ```
 
--   Note this is different from using a single equals (`=`)
--   `=` behaves similar to the assignment operator `<-`, but avoid using it
+- Note this is different from using a single equals (`=`)
+- `=` behaves similar to the assignment operator `<-`, but avoid using it
 
 ```{r}
 x = 5
@@ -276,7 +276,7 @@ x
 
 ## What's a function?
 
--   **Task:** Using just `+`, `()` and `/`, calculate the mean of 5, 10, and 3.
+- **Task:** Using just `+`, `()` and `/`, calculate the mean of 5, 10, and 3.
 
 ::: fragment
 ```{r}
@@ -285,7 +285,7 @@ x
 :::
 
 ::: fragment
--   Instead, let's use the `mean()` function to calculate the mean:
+- Instead, let's use the `mean()` function to calculate the mean:
 :::
 
 ::: fragment
@@ -295,27 +295,27 @@ mean(x = c(5, 10, 3))
 :::
 
 ::: fragment
--   `mean` is the **function**, `x` is the **argument** of the function
--   functions are always followed by brackets
--   we pass `c(5,10,3)` to the x argument of the function
+- `mean` is the **function**, `x` is the **argument** of the function
+- functions are always followed by brackets
+- we pass `c(5,10,3)` to the x argument of the function
 :::
 
 ## Functions
 
--   Some people wrote the code for the `mean()` function
--   `mean()` is a very simple function, but other functions can be extremely complex
--   Some commonly used functions come readily installed when you install R, others you must download
--   Other functions are stored within packages - **packages are just a collection of functions**
+- Some people wrote the code for the `mean()` function
+- `mean()` is a very simple function, but other functions can be extremely complex
+- Some commonly used functions come readily installed when you install R, others you must download
+- Other functions are stored within packages - **packages are just a collection of functions**
 
 ## Confused about a function?
 
--   Use the `?functionname` notation to see information about the function
+- Use the `?functionname` notation to see information about the function
 
 ## Packages
 
--   A very commonly installed package is called `readr`
--   This package contains the very useful function `read_csv()`, which allows us to read in excel data (in comma-separated-value format, .csv)
--   To install and load a package:
+- A very commonly installed package is called `readr`
+- This package contains the very useful function `read_csv()`, which allows us to read in excel data (in comma-separated-value format, .csv)
+- To install and load a package:
 
 ```{r}
 #install.packages("readr") # only need to do once on your computer (i.e., download the package)
@@ -324,17 +324,17 @@ library(readr) # every time you run the script (i.e., load the package)
 
 ## Pretend to collect data
 
--   Download 'cape_howe.csv' from: <https://github.com/FreddieJH/r_workshop>
--   Note it is already in .csv format (see next slide)
--   Let's pretend you went out and collected it
--   **Save this .csv file in your 'working directory'**
+- Download 'cape_howe.csv' from: <https://github.com/FreddieJH/r_workshop>
+- Note it is already in .csv format (see next slide)
+- Let's pretend you went out and collected it
+- **Save this .csv file in your 'working directory'**
 
 ## Reading in data
 
--   R does not like excel (.xlsx) files, it loves .csv files
--   R has a built-in function to read CSV files: `read.csv()`
--   Because we are working in a project, R knows where to look for the file
--   **Task:** put this into an object and see what the class of the object is
+- R does not like excel (.xlsx) files, it loves .csv files
+- R has a built-in function to read CSV files: `read.csv()`
+- Because we are working in a project, R knows where to look for the file
+- **Task:** put this into an object and see what the class of the object is
 
 ```{r, eval = FALSE, echo = TRUE}
 read.csv("cape_howe.csv")
@@ -342,28 +342,31 @@ read.csv("cape_howe.csv")
 
 ## Reading in data (a better way)
 
--   Read the data into R using the `read_csv()` function from the `readr` package
+- Read the data into R using the `read_csv()` function from the `readr` package
 
 ```{r, eval = FALSE}
 library(readr)
 read_csv("cape_howe.csv")
 ```
 
-`{r, eval=TRUE, echo = FALSE}0 library(readr) read_csv("cape_howe.csv", n_max = 6)`
+```{r, eval=TRUE, echo = FALSE}
+library(readr)
+read_csv("cape_howe.csv", n_max = 6)
+```
 
--   What class is this object?
+- What class is this object?
 
 ## Dataframes vs Tibbles
 
--   Very similar in many ways
--   A tibble is a "fancy" data.frame
--   Note 4 differences in the output of `read.csv()` and `read_csv()`
+- Very similar in many ways
+- A tibble is a "fancy" data.frame
+- Note 4 differences in the output of `read.csv()` and `read_csv()`
 
 # Check the data imported correctly
 
 ## The `head()` function
 
--   First six rows only
+- First six rows only
 
 ```{r}
 fish_size <- read_csv("cape_howe.csv")
@@ -372,12 +375,12 @@ head(fish_size)
 
 ## The `tail()` function
 
--   The final six rows
--   **Task:** Change the `n =` argument of `tail()` - what does this do?
+- The final six rows
+- **Task:** Change the `n =` argument of `tail()` - what does this do?
 
 ## Glimpsing at the data
 
--   Using the `glimpse()` function from the `dplyr` package
+- Using the `glimpse()` function from the `dplyr` package
 
 ```{r}
 library(dplyr)
@@ -386,10 +389,10 @@ glimpse(fish_size)
 
 ## The `View()` function in R
 
--   Sometimes you just want an excel-style view of the data
--   I use this all the time
--   Beware, sometimes you don't want to view **all** of your data if there are millions of rows, maybe just the first 100 rows.
--   You don't want to leave this in your script
+- Sometimes you just want an excel-style view of the data
+- I use this all the time
+- Beware, sometimes you don't want to view **all** of your data if there are millions of rows, maybe just the first 100 rows.
+- You don't want to leave this in your script
 
 ```{r, eval = FALSE}
 
@@ -399,18 +402,18 @@ View(head(x = fish_size, n = 100))
 
 ## Tidyverse (modern coding in R)
 
--   We have already installed two packages `readr` and `dplyr`
--   There are some packages that are used so often, they form part of the `tidyverse` (a special collection of packages)
+- We have already installed two packages `readr` and `dplyr`
+- There are some packages that are used so often, they form part of the `tidyverse` (a special collection of packages)
 
 ```{r}
 # install.packages("tidyverse")
 library(tidyverse)
 ```
 
--   Have a look at <https://www.tidyverse.org/>
--   What are some of the packages within the tidyverse?
+- Have a look at <https://www.tidyverse.org/>
+- What are some of the packages within the tidyverse?
 
 ## Next session:
 
--   Manipulating and cleaning the data
--   Today's slides are available at: <https://github.com/FreddieJH/r_workshop>
+- Manipulating and cleaning the data
+- Today's slides are available at: <https://github.com/FreddieJH/r_workshop>

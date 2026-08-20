@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="session_1_files/libs/clipboard/clipboard.min.js"></script>
-<script src="session_1_files/libs/quarto-html/tabby.min.js"></script>
-<script src="session_1_files/libs/quarto-html/popper.min.js"></script>
-<script src="session_1_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="session_1_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="session_1_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="session_1_files/libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<script src="Session_1_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Session_1_files/libs/quarto-html/tabby.min.js"></script>
+<script src="Session_1_files/libs/quarto-html/popper.min.js"></script>
+<script src="Session_1_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="Session_1_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Session_1_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="Session_1_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Freddie Heather">
   <title>Getting started with R</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="session_1_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="session_1_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="Session_1_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="Session_1_files/libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -95,11 +101,11 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="session_1_files/libs/revealjs/dist/theme/quarto-534cd8e3a96973385dffff3f4709048d.css">
-  <link href="session_1_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="session_1_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="session_1_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="session_1_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="Session_1_files/libs/revealjs/dist/theme/quarto-2740581606dc327e82f18f789b69d8a0.css">
+  <link href="Session_1_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="Session_1_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="Session_1_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="Session_1_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
     .reveal div.sourceCode {
       margin: 0;
@@ -199,7 +205,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Freddie Heather 
+Freddie Heather
 </div>
 </div>
 </div>
@@ -364,9 +370,9 @@ Freddie Heather
 <h2>Basic commands</h2>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a><span class="co"># addition</span></span>
-<span id="cb1-2"><a href=""></a><span class="co"># numeric output</span></span>
-<span id="cb1-3"><a href=""></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="" aria-label="1"></a><span class="co"># addition</span></span>
+<span id="cb1-2"><a href="" aria-label="2"></a><span class="co"># numeric output</span></span>
+<span id="cb1-3"><a href="" aria-label="3"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4</code></pre>
 </div>
@@ -374,13 +380,13 @@ Freddie Heather
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="co"># numeric vector (i.e. a series of numbers)</span></span>
-<span id="cb3-2"><a href=""></a><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="" aria-label="1"></a><span class="co"># numeric vector (i.e. a series of numbers)</span></span>
+<span id="cb3-2"><a href="" aria-label="2"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 2 3 4 5</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="co"># or</span></span>
-<span id="cb5-2"><a href=""></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="" aria-label="1"></a><span class="co"># or</span></span>
+<span id="cb5-2"><a href="" aria-label="2"></a><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1 2 3 4 5</code></pre>
 </div>
@@ -388,8 +394,8 @@ Freddie Heather
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a><span class="co"># Arithmetic on a vector</span></span>
-<span id="cb7-2"><a href=""></a>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="" aria-label="1"></a><span class="co"># Arithmetic on a vector</span></span>
+<span id="cb7-2"><a href="" aria-label="2"></a>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) <span class="sc">*</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  2  4  6  8 10</code></pre>
 </div>
@@ -404,8 +410,8 @@ Freddie Heather
 </ul>
 <p><strong>Task:</strong> Create an object called <code>x</code> and make it equal to 5, and then modify <code>x</code>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb9-2"><a href=""></a>x<span class="sc">^</span><span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="" aria-label="1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb9-2"><a href="" aria-label="2"></a>x<span class="sc">^</span><span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 25</code></pre>
 </div>
@@ -414,14 +420,14 @@ Freddie Heather
 <section id="a-little-more-complex" class="slide level2">
 <h2>A little more complex</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" data-code-line-numbers="1|2|3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a>x <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="co"># make x equal to 3</span></span>
-<span id="cb11-2"><a href=""></a>y <span class="ot">&lt;-</span> x <span class="sc">*</span> <span class="dv">5</span> <span class="co"># make y equal to 5 times the value of x</span></span>
-<span id="cb11-3"><a href=""></a>z <span class="ot">&lt;-</span> y <span class="sc">-</span> x <span class="co"># make z equal to the difference between y and x</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11" data-code-line-numbers="1|2|3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="" aria-label="1"></a>x <span class="ot">&lt;-</span> <span class="dv">3</span> <span class="co"># make x equal to 3</span></span>
+<span id="cb11-2"><a href="" aria-label="2"></a>y <span class="ot">&lt;-</span> x <span class="sc">*</span> <span class="dv">5</span> <span class="co"># make y equal to 5 times the value of x</span></span>
+<span id="cb11-3"><a href="" aria-label="3"></a>z <span class="ot">&lt;-</span> y <span class="sc">-</span> x <span class="co"># make z equal to the difference between y and x</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>What does <code>z</code> equal?</p>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>z</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="" aria-label="1"></a>z</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 12</code></pre>
 </div>
@@ -430,7 +436,7 @@ Freddie Heather
 <p>What does <code>x</code> equal?</p>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href=""></a>x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="" aria-label="1"></a>x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3</code></pre>
 </div>
@@ -445,9 +451,9 @@ Freddie Heather
 <li>The data type (e.g.&nbsp;numeric, character) of the object is called the class.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href=""></a>first_name <span class="ot">&lt;-</span> <span class="st">"Freddie"</span></span>
-<span id="cb16-2"><a href=""></a>last_name <span class="ot">&lt;-</span> <span class="st">"Heather"</span></span>
-<span id="cb16-3"><a href=""></a><span class="fu">paste</span>(<span class="st">"My name is"</span>, first_name, last_name)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="" aria-label="1"></a>first_name <span class="ot">&lt;-</span> <span class="st">"Freddie"</span></span>
+<span id="cb16-2"><a href="" aria-label="2"></a>last_name <span class="ot">&lt;-</span> <span class="st">"Heather"</span></span>
+<span id="cb16-3"><a href="" aria-label="3"></a><span class="fu">paste</span>(<span class="st">"My name is"</span>, first_name, last_name)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "My name is Freddie Heather"</code></pre>
 </div>
@@ -459,24 +465,24 @@ Freddie Heather
 <li>We can use the appropriately named <code>class()</code> function to see what the class of an object is</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href=""></a>x <span class="ot">&lt;-</span> <span class="dv">89</span></span>
-<span id="cb18-2"><a href=""></a>y <span class="ot">&lt;-</span> <span class="st">"hello there"</span></span>
-<span id="cb18-3"><a href=""></a>z <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="" aria-label="1"></a>x <span class="ot">&lt;-</span> <span class="dv">89</span></span>
+<span id="cb18-2"><a href="" aria-label="2"></a>y <span class="ot">&lt;-</span> <span class="st">"hello there"</span></span>
+<span id="cb18-3"><a href="" aria-label="3"></a>z <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href=""></a><span class="fu">class</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="" aria-label="1"></a><span class="fu">class</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "numeric"</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href=""></a><span class="fu">class</span>(y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="" aria-label="1"></a><span class="fu">class</span>(y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "character"</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href=""></a><span class="fu">class</span>(z)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="" aria-label="1"></a><span class="fu">class</span>(z)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "logical"</code></pre>
 </div>
@@ -489,10 +495,10 @@ Freddie Heather
 <li>E.g. you cannot multiply a numeric variable with character string</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href=""></a>x <span class="ot">&lt;-</span> <span class="dv">9</span></span>
-<span id="cb25-2"><a href=""></a>y <span class="ot">&lt;-</span> <span class="st">"oops"</span></span>
-<span id="cb25-3"><a href=""></a></span>
-<span id="cb25-4"><a href=""></a>x <span class="sc">*</span> y</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="" aria-label="1"></a>x <span class="ot">&lt;-</span> <span class="dv">9</span></span>
+<span id="cb25-2"><a href="" aria-label="2"></a>y <span class="ot">&lt;-</span> <span class="st">"oops"</span></span>
+<span id="cb25-3"><a href="" aria-label="3"></a></span>
+<span id="cb25-4"><a href="" aria-label="4"></a>x <span class="sc">*</span> y</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error in `x * y`:
 ! non-numeric argument to binary operator</code></pre>
@@ -536,8 +542,8 @@ Freddie Heather
 <section id="classes-of-vectors" class="slide level2">
 <h2>Classes of vectors</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href=""></a>s2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="st">"cat"</span>)</span>
-<span id="cb27-2"><a href=""></a><span class="fu">class</span>(s2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="" aria-label="1"></a>s2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="st">"cat"</span>)</span>
+<span id="cb27-2"><a href="" aria-label="2"></a><span class="fu">class</span>(s2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "character"</code></pre>
 </div>
@@ -549,7 +555,7 @@ Freddie Heather
 <li>We can use the <code>==</code> syntax to see if two things are equal</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href=""></a>(<span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span>) <span class="sc">==</span> <span class="dv">5</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="" aria-label="1"></a>(<span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span>) <span class="sc">==</span> <span class="dv">5</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] TRUE</code></pre>
 </div>
@@ -559,8 +565,8 @@ Freddie Heather
 <li><code>=</code> behaves similar to the assignment operator <code>&lt;-</code>, but avoid using it</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href=""></a>x <span class="ot">=</span> <span class="dv">5</span></span>
-<span id="cb31-2"><a href=""></a>x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="" aria-label="1"></a>x <span class="ot">=</span> <span class="dv">5</span></span>
+<span id="cb31-2"><a href="" aria-label="2"></a>x</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5</code></pre>
 </div>
@@ -578,7 +584,7 @@ Freddie Heather
 </ul>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href=""></a>(<span class="dv">5</span> <span class="sc">+</span> <span class="dv">10</span> <span class="sc">+</span> <span class="dv">3</span>) <span class="sc">/</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="" aria-label="1"></a>(<span class="dv">5</span> <span class="sc">+</span> <span class="dv">10</span> <span class="sc">+</span> <span class="dv">3</span>) <span class="sc">/</span> <span class="dv">3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 6</code></pre>
 </div>
@@ -591,7 +597,7 @@ Freddie Heather
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href=""></a><span class="fu">mean</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="" aria-label="1"></a><span class="fu">mean</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 6</code></pre>
 </div>
@@ -628,8 +634,8 @@ Freddie Heather
 <li>To install and load a package:</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href=""></a><span class="co">#install.packages("readr") # only need to do once on your computer (i.e., download the package)</span></span>
-<span id="cb37-2"><a href=""></a><span class="fu">library</span>(readr) <span class="co"># every time you run the script (i.e., load the package)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="" aria-label="1"></a><span class="co">#install.packages("readr") # only need to do once on your computer (i.e., download the package)</span></span>
+<span id="cb37-2"><a href="" aria-label="2"></a><span class="fu">library</span>(readr) <span class="co"># every time you run the script (i.e., load the package)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="pretend-to-collect-data" class="slide level2">
@@ -650,7 +656,7 @@ Freddie Heather
 <li><strong>Task:</strong> put this into an object and see what the class of the object is</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href=""></a><span class="fu">read.csv</span>(<span class="st">"cape_howe.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="" aria-label="1"></a><span class="fu">read.csv</span>(<span class="st">"cape_howe.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="reading-in-data-a-better-way" class="slide level2">
@@ -659,10 +665,24 @@ Freddie Heather
 <li>Read the data into R using the <code>read_csv()</code> function from the <code>readr</code> package</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href=""></a><span class="fu">library</span>(readr)</span>
-<span id="cb39-2"><a href=""></a><span class="fu">read_csv</span>(<span class="st">"cape_howe.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="" aria-label="1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb39-2"><a href="" aria-label="2"></a><span class="fu">read_csv</span>(<span class="st">"cape_howe.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p><code>{r, eval=TRUE, echo = FALSE}0 library(readr) read_csv("cape_howe.csv", n_max = 6)</code></p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 12
+  survey_id species_name  size_class n_500m2 survey_date site_code depth program
+      &lt;dbl&gt; &lt;chr&gt;              &lt;dbl&gt;   &lt;dbl&gt; &lt;date&gt;      &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;  
+1   2002715 Ophthalmolep…       25         3 2011-04-18  JBMP-S2    10.2 RLS    
+2   2002715 Pseudolabrus…        7.5       1 2011-04-18  JBMP-S2    10.2 RLS    
+3   2002715 Pempheris af…        5         2 2011-04-18  JBMP-S2    10.2 RLS    
+4   2002715 Pempheris af…        7.5      10 2011-04-18  JBMP-S2    10.2 RLS    
+5   2002715 Pempheris af…        7.5      10 2011-04-18  JBMP-S2    10.2 RLS    
+6   2002715 Trachinops t…        2.5      65 2011-04-18  JBMP-S2    10.2 RLS    
+# ℹ 4 more variables: latitude &lt;dbl&gt;, longitude &lt;dbl&gt;, ecoregion &lt;chr&gt;,
+#   method &lt;dbl&gt;</code></pre>
+</div>
+</div>
 <ul>
 <li>What class is this object?</li>
 </ul>
@@ -686,8 +706,8 @@ Freddie Heather
 <li>First six rows only</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href=""></a>fish_size <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"cape_howe.csv"</span>)</span>
-<span id="cb40-2"><a href=""></a><span class="fu">head</span>(fish_size)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="" aria-label="1"></a>fish_size <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"cape_howe.csv"</span>)</span>
+<span id="cb41-2"><a href="" aria-label="2"></a><span class="fu">head</span>(fish_size)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 12
   survey_id species_name  size_class n_500m2 survey_date site_code depth program
@@ -716,8 +736,8 @@ Freddie Heather
 <li>Using the <code>glimpse()</code> function from the <code>dplyr</code> package</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href=""></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb42-2"><a href=""></a><span class="fu">glimpse</span>(fish_size)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="" aria-label="1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb43-2"><a href="" aria-label="2"></a><span class="fu">glimpse</span>(fish_size)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 269,123
 Columns: 12
@@ -745,7 +765,7 @@ $ method       &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 <li>You don’t want to leave this in your script</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href=""></a><span class="fu">View</span>(<span class="fu">head</span>(<span class="at">x =</span> fish_size, <span class="at">n =</span> <span class="dv">100</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="" aria-label="1"></a><span class="fu">View</span>(<span class="fu">head</span>(<span class="at">x =</span> fish_size, <span class="at">n =</span> <span class="dv">100</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="tidyverse-modern-coding-in-r" class="slide level2">
@@ -755,8 +775,8 @@ $ method       &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 <li>There are some packages that are used so often, they form part of the <code>tidyverse</code> (a special collection of packages)</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href=""></a><span class="co"># install.packages("tidyverse")</span></span>
-<span id="cb45-2"><a href=""></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="" aria-label="1"></a><span class="co"># install.packages("tidyverse")</span></span>
+<span id="cb46-2"><a href="" aria-label="2"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>Have a look at <a href="https://www.tidyverse.org/" class="uri">https://www.tidyverse.org/</a></li>
@@ -779,19 +799,19 @@ $ method       &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 </div></div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="session_1_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="Session_1_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="session_1_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="session_1_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="session_1_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="session_1_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="session_1_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="Session_1_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="Session_1_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="Session_1_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="Session_1_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="Session_1_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="session_1_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="session_1_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="session_1_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="session_1_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="Session_1_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="Session_1_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="Session_1_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="Session_1_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
