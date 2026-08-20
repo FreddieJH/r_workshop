@@ -12,22 +12,22 @@ project:
 ## Recap questions
 
 ::: incremental
--   What is a vector?
--   What is an object?
--   What is an object class? - Name four classes
--   What is a function? - How do you identify them in code?
--   What does `<-` mean?
--   What does `==` mean?
--   What is the preferred file type for reading data in R?
--   What function(s) is used to read in csv data?
+- What is a vector?
+- What is an object?
+- What is an object class? - Name four classes
+- What is a function? - How do you identify them in code?
+- What does `<-` mean?
+- What does `==` mean?
+- What is the preferred file type for reading data in R?
+- What function(s) is used to read in csv data?
 :::
 
 ## Session 2
 
--   Data import
--   Data checking
--   Data manipulation
--   Data cleaning
+- Data import
+- Data checking
+- Data manipulation
+- Data cleaning
 
 ::: callout-tip
 ## Task
@@ -41,13 +41,13 @@ project:
 
 ## Download some example data
 
--   We will use Reef Life Survey data (a very small subset)
--   Data has location information, species information, and abundance information
+- We will use Reef Life Survey data (a very small subset)
+- Data has location information, species information, and abundance information
 
 ::: callout-tip
 ## Task
 
-1.  Download rls_example_canada.csv from <https://github.com/FreddieJH/r_workshop>
+1.  Download 'rls_example_canada.csv' - [Click here to download](https://raw.githubusercontent.com/FreddieJH/r_workshop/main/rls_example_canada.csv)
 2.  Store this csv file in your working directory
 3.  Read in the csv file, and assign it to an object
 :::
@@ -78,15 +78,15 @@ View(my_data)
 ::: callout-tip
 ## Task
 
--   Run the above functions. What do they do?
--   How many columns are in the dataset?
--   How many rows are in the dataset?
--   What is the class of the first column?
+- Run the above functions. What do they do?
+- How many columns are in the dataset?
+- How many rows are in the dataset?
+- What is the class of the first column?
 :::
 
 ## The pipe operator `%>%`
 
--   Say I have three <ins>fictional</ins> functions; `import()`, `clean()`, and `visualise()` and I want to apply them to some dataset `x`.
+- Say I have three <ins>fictional</ins> functions; `import()`, `clean()`, and `visualise()` and I want to apply them to some dataset `x`.
 
 ```{r }
 #| eval: false
@@ -96,7 +96,7 @@ View(my_data)
 output <- visualise(clean(import(x)))
 ```
 
--   Using the pipe operator
+- Using the pipe operator
 
 ```{r }
 #| eval: false
@@ -115,7 +115,7 @@ output <-
 
 ## Filtering your data
 
--   Say that I only care about the "Tappers Cove" site
+- Say that I only care about the "Tappers Cove" site
 
 ```{r }
 #| eval: false
@@ -137,17 +137,17 @@ Create a new object called `arctic_sites` which has only the rows where the 'Rea
 
 You can use other operators beyond just the `==` operator that tests for equality:
 
--   `>` means “greater than”
--   `<` means “less than”
--   `>=` means “greater than or equal to”
--   `<=` means “less than or equal to”
--   `!=` means “not equal to”
--   `&` means “and”
--   `|` means “or”
+- `>` means “greater than”
+- `<` means “less than”
+- `>=` means “greater than or equal to”
+- `<=` means “less than or equal to”
+- `!=` means “not equal to”
+- `&` means “and”
+- `|` means “or”
 
 ## Being more specific in your selection
 
--   Using `>`, `<`, `>=`, `!=`, `&`, `|`
+- Using `>`, `<`, `>=`, `!=`, `&`, `|`
 
 ```{r, eval = FALSE, echo = TRUE}
 # example of an OR statement
@@ -237,7 +237,7 @@ Create a new object called `cunner` which is only the species *Tautogolabrus ads
 
 ### Rename an existing column
 
--   Say we want to be clear about the unit in the column name
+- Say we want to be clear about the unit in the column name
 
 ```{r }
 #| eval: false
@@ -260,11 +260,12 @@ Rename the `visibility` column to something a bit more informative, maybe to inc
 :::
 
 ## `summarise`()
+
 ## `summarise`()
 
 ### Summarise some data (e.g. taking a mean)
 
--   similar to the `summarise()` function
+- similar to the `summarise()` function
 
 ```{r }
 #| eval: false
@@ -351,7 +352,6 @@ my_data %>%
 Looking only at *Tautogolabrus adspersus*, what is the most common site is it observed at?
 :::
 
-
 ## Base R vs. Tidyverse
 
 ```{r}
@@ -374,8 +374,6 @@ tribble(
   kable_styling(font_size = 20)
 
 ```
-
-
 
 ## Extra
 

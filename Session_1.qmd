@@ -324,7 +324,7 @@ library(readr) # every time you run the script (i.e., load the package)
 
 ## Pretend to collect data
 
-- Download 'cape_howe.csv' from: <https://github.com/FreddieJH/r_workshop>
+- Download 'cape_howe.csv' - [Click here to download](https://raw.githubusercontent.com/FreddieJH/r_workshop/main/cape_howe.csv)
 - Note it is already in .csv format (see next slide)
 - Let's pretend you went out and collected it
 - **Save this .csv file in your 'working directory'**
@@ -416,4 +416,4 @@ library(tidyverse)
 ## Next session:
 
 - Manipulating and cleaning the data
-- Today's slides are available at: <https://github.com/FreddieJH/r_workshop>
+- Today's slides are available at: <https://freddiejh.github.io/r_workshop/>

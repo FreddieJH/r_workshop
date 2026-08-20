@@ -16,14 +16,14 @@ project:
 ## Recap questions
 
 ::: incremental
--   How do I know if I am working in a project?
--   How would you import a CSV into R?
--   How would you check if the data is imported correctly?
--   How would you visualise your data? dbl-dbl, dbl-chr, dbl.
--   I want to remove rows. How?
--   I want to add a new column? e.g. log_x = log(x). How?
--   I want to calculate the mean for each level of a factor. How?
--   What goes inside the `aes()` function in `ggplot()`?
+- How do I know if I am working in a project?
+- How would you import a CSV into R?
+- How would you check if the data is imported correctly?
+- How would you visualise your data? dbl-dbl, dbl-chr, dbl.
+- I want to remove rows. How?
+- I want to add a new column? e.g. log_x = log(x). How?
+- I want to calculate the mean for each level of a factor. How?
+- What goes inside the `aes()` function in `ggplot()`?
 :::
 
 ## Today: Session 4
@@ -41,8 +41,8 @@ Using R markdown (.Rmd)
 
 ## Hypothesis
 
--   Your data? You probably have a hypothesis in mind
--   New data? Import, and check data first, then think of a hypothesis
+- Your data? You probably have a hypothesis in mind
+- New data? Import, and check data first, then think of a hypothesis
 
 ## R Scipt preamble
 
@@ -86,7 +86,6 @@ raw_dat <- tribble(
 write_csv(raw_dat, "analysis1.csv")
 ```
 
-
 ```{r }
 
 # imports a csv file and outputs a tibble
@@ -97,9 +96,9 @@ raw_dat <- read_csv("analysis1.csv")
 
 ## Data checking
 
--   Until now we have been using clean and tidy data
--   Normally, the excel file will have mistakes, we're only human. If I add white-space after a number in excel, the entire column will be a chr
--   Data checking is a very important step when using real data (esp. ecological data)
+- Until now we have been using clean and tidy data
+- Normally, the excel file will have mistakes, we're only human. If I add white-space after a number in excel, the entire column will be a chr
+- Data checking is a very important step when using real data (esp. ecological data)
 
 ```{r }
 
@@ -112,8 +111,8 @@ View(raw_dat)
 
 ## Initial clean
 
--   Avoid removing cols or rows in the initial clean
--   Convert data type `as.numeric()`, `as.character()`, `as.factor()` (look out for errors when converting)
+- Avoid removing cols or rows in the initial clean
+- Convert data type `as.numeric()`, `as.character()`, `as.factor()` (look out for errors when converting)
 
 ```{r }
 
@@ -126,8 +125,8 @@ clean_dat <-
 
 ## Data visualisation (one var)
 
--   Quick look at single variables
--   Play around with the variables, visualise as much as you can, this is also where you pick up errors
+- Quick look at single variables
+- Play around with the variables, visualise as much as you can, this is also where you pick up errors
 
 ```{r }
 
@@ -147,7 +146,7 @@ clean_dat %>%
 
 ## Data visualisation (two vars)
 
--   Quick look at correlations
+- Quick look at correlations
 
 ```{r }
 
@@ -169,10 +168,10 @@ clean_dat %>%
 
 ## Data manipulation
 
--   During the \[fictitious\] initial visualisation I noticed:
--   Abundance is very heavily skewed (I want to transform the data)
--   I found some outliers (I want to remove them)
--   `%in%` is like `==` but for multiple comparisons
+- During the \[fictitious\] initial visualisation I noticed:
+- Abundance is very heavily skewed (I want to transform the data)
+- I found some outliers (I want to remove them)
+- `%in%` is like `==` but for multiple comparisons
 
 ```{r }
 
@@ -186,7 +185,7 @@ plot_dat <-
 
 ## Data visualisation (again)
 
--   Now I've modified the data
+- Now I've modified the data
 
 ```{r }
 
@@ -200,8 +199,8 @@ plot_dat %>%
 
 ## Extra functions/arguments
 
--   `case_when()` is like `ifelse()` but more flexible
--   `stat_smooth()` puts a generic line through the data
+- `case_when()` is like `ifelse()` but more flexible
+- `stat_smooth()` puts a generic line through the data
 
 ```{r }
 
@@ -224,8 +223,8 @@ plot_dat %>%
 
 ## What next?
 
--   Are you happy with the plot_dat or are there more changes you want to make (e.g. you found more true-outliers, or you want to do more transformations)
--   If happy this is where you might begin statistical analyses
+- Are you happy with the plot_dat or are there more changes you want to make (e.g. you found more true-outliers, or you want to do more transformations)
+- If happy this is where you might begin statistical analyses
 
 # Your turn
 
@@ -284,7 +283,7 @@ ggplot() +
 
 ## Downloading big data
 
-Download parquet file from here: [AODN_output.parquet](https://github.com/FreddieJH/r_workshop/blob/main/AODN_output.parquet)
+Download parquet file (5 mb)- [Click here to download](https://raw.githubusercontent.com/FreddieJH/r_workshop/main/AODN_output.parquet)
 
 ```{r }
 

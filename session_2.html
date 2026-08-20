@@ -6,8 +6,8 @@
 <script src="Session_2_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="Session_2_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="Session_2_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="Session_2_files/libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<link href="Session_2_files/libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Freddie Heather">
   <title>Getting started with R</title>
@@ -17,10 +17,16 @@
   <link rel="stylesheet" href="Session_2_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="Session_2_files/libs/revealjs/dist/reveal.css">
   <style>
-    code{white-space: pre-wrap;}
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -95,7 +101,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="Session_2_files/libs/revealjs/dist/theme/quarto-534cd8e3a96973385dffff3f4709048d.css">
+  <link rel="stylesheet" href="Session_2_files/libs/revealjs/dist/theme/quarto-2740581606dc327e82f18f789b69d8a0.css">
   <link href="Session_2_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="Session_2_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="Session_2_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -203,7 +209,7 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Freddie Heather 
+Freddie Heather
 </div>
 </div>
 </div>
@@ -274,7 +280,7 @@ Freddie Heather
 </div>
 <div class="callout-content">
 <ol type="1">
-<li>Download rls_example_canada.csv from <a href="https://github.com/FreddieJH/r_workshop" class="uri">https://github.com/FreddieJH/r_workshop</a></li>
+<li>Download ‘rls_example_canada.csv’ - <a href="https://raw.githubusercontent.com/FreddieJH/r_workshop/main/rls_example_canada.csv">Click here to download</a></li>
 <li>Store this csv file in your working directory</li>
 <li>Read in the csv file, and assign it to an object</li>
 </ol>
@@ -290,13 +296,13 @@ Freddie Heather
 <section id="functions-to-look-at-your-data" class="slide level2">
 <h2>Functions to look at your data</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href=""></a>my_data</span>
-<span id="cb1-2"><a href=""></a><span class="fu">print</span>(my_data) <span class="co"># prints the data to the screen</span></span>
-<span id="cb1-3"><a href=""></a></span>
-<span id="cb1-4"><a href=""></a><span class="fu">head</span>(my_data)</span>
-<span id="cb1-5"><a href=""></a><span class="fu">glimpse</span>(my_data)</span>
-<span id="cb1-6"><a href=""></a><span class="fu">tail</span>(my_data)</span>
-<span id="cb1-7"><a href=""></a><span class="fu">View</span>(my_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="" aria-label="1"></a>my_data</span>
+<span id="cb1-2"><a href="" aria-label="2"></a><span class="fu">print</span>(my_data) <span class="co"># prints the data to the screen</span></span>
+<span id="cb1-3"><a href="" aria-label="3"></a></span>
+<span id="cb1-4"><a href="" aria-label="4"></a><span class="fu">head</span>(my_data)</span>
+<span id="cb1-5"><a href="" aria-label="5"></a><span class="fu">glimpse</span>(my_data)</span>
+<span id="cb1-6"><a href="" aria-label="6"></a><span class="fu">tail</span>(my_data)</span>
+<span id="cb1-7"><a href="" aria-label="7"></a><span class="fu">View</span>(my_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -323,19 +329,19 @@ Freddie Heather
 <li>Say I have three <ins>fictional</ins> functions; <code>import()</code>, <code>clean()</code>, and <code>visualise()</code> and I want to apply them to some dataset <code>x</code>.</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href=""></a><span class="co"># it's hard to read</span></span>
-<span id="cb2-2"><a href=""></a>output <span class="ot">&lt;-</span> <span class="fu">visualise</span>(<span class="fu">clean</span>(<span class="fu">import</span>(x)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="" aria-label="1"></a><span class="co"># it's hard to read</span></span>
+<span id="cb2-2"><a href="" aria-label="2"></a>output <span class="ot">&lt;-</span> <span class="fu">visualise</span>(<span class="fu">clean</span>(<span class="fu">import</span>(x)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>Using the pipe operator</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href=""></a><span class="co"># easier to read! (does exactly the same)</span></span>
-<span id="cb3-2"><a href=""></a>output <span class="ot">&lt;-</span></span>
-<span id="cb3-3"><a href=""></a>  x <span class="sc">%&gt;%</span></span>
-<span id="cb3-4"><a href=""></a>  <span class="fu">import</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb3-5"><a href=""></a>  <span class="fu">clean</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb3-6"><a href=""></a>  <span class="fu">visualise</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="" aria-label="1"></a><span class="co"># easier to read! (does exactly the same)</span></span>
+<span id="cb3-2"><a href="" aria-label="2"></a>output <span class="ot">&lt;-</span></span>
+<span id="cb3-3"><a href="" aria-label="3"></a>  x <span class="sc">%&gt;%</span></span>
+<span id="cb3-4"><a href="" aria-label="4"></a>  <span class="fu">import</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb3-5"><a href="" aria-label="5"></a>  <span class="fu">clean</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb3-6"><a href="" aria-label="6"></a>  <span class="fu">visualise</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section></section>
 <section>
@@ -349,9 +355,9 @@ Freddie Heather
 <li>Say that I only care about the “Tappers Cove” site</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href=""></a><span class="co"># Only Tappers cove rows</span></span>
-<span id="cb4-2"><a href=""></a>my_data <span class="sc">%&gt;%</span></span>
-<span id="cb4-3"><a href=""></a>  <span class="fu">filter</span>(site_name <span class="sc">==</span> <span class="st">"Tappers Cove"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="" aria-label="1"></a><span class="co"># Only Tappers cove rows</span></span>
+<span id="cb4-2"><a href="" aria-label="2"></a>my_data <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href="" aria-label="3"></a>  <span class="fu">filter</span>(site_name <span class="sc">==</span> <span class="st">"Tappers Cove"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -386,9 +392,9 @@ Freddie Heather
 <li>Using <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>!=</code>, <code>&amp;</code>, <code>|</code></li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href=""></a><span class="co"># example of an OR statement</span></span>
-<span id="cb5-2"><a href=""></a>my_data <span class="sc">%&gt;%</span></span>
-<span id="cb5-3"><a href=""></a>  <span class="fu">filter</span>(site_name <span class="sc">==</span> <span class="st">"Tappers Cove"</span> <span class="sc">|</span> site_name <span class="sc">==</span> <span class="st">"Middle Cove"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="" aria-label="1"></a><span class="co"># example of an OR statement</span></span>
+<span id="cb5-2"><a href="" aria-label="2"></a>my_data <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="" aria-label="3"></a>  <span class="fu">filter</span>(site_name <span class="sc">==</span> <span class="st">"Tappers Cove"</span> <span class="sc">|</span> site_name <span class="sc">==</span> <span class="st">"Middle Cove"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -412,27 +418,27 @@ Freddie Heather
 <section id="data-manipulation-functions-tidyverse" class="slide level2">
 <h2>Data manipulation functions (tidyverse)</h2>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href=""></a><span class="fu">library</span>(tidyverse) <span class="co"># where the functions are stored</span></span>
-<span id="cb6-2"><a href=""></a></span>
-<span id="cb6-3"><a href=""></a><span class="fu">filter</span>() <span class="co"># subsetting the data (e.g., order == "Aves")</span></span>
-<span id="cb6-4"><a href=""></a><span class="fu">select</span>() <span class="co"># Selecting a single or multiple columns</span></span>
-<span id="cb6-5"><a href=""></a><span class="fu">mutate</span>() <span class="co"># Creating a new column</span></span>
-<span id="cb6-6"><a href=""></a><span class="fu">rename</span>() <span class="co"># Renaming a column</span></span>
-<span id="cb6-7"><a href=""></a><span class="fu">summarise</span>() <span class="co"># Summarising a dataset</span></span>
-<span id="cb6-8"><a href=""></a></span>
-<span id="cb6-9"><a href=""></a><span class="fu">arrange</span>() <span class="co"># Ordering a column (E.g., sort by smallest arrival time)</span></span>
-<span id="cb6-10"><a href=""></a><span class="fu">arrange</span>(<span class="fu">desc</span>()) <span class="co"># ... or by largest arrival time</span></span>
-<span id="cb6-11"><a href=""></a><span class="fu">distinct</span>() <span class="co"># give me only the unique rows (no repeats)</span></span>
-<span id="cb6-12"><a href=""></a><span class="fu">pull</span>() <span class="co"># pull out a column and make it a vector</span></span>
-<span id="cb6-13"><a href=""></a><span class="fu">count</span>() <span class="co"># count the number of rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="" aria-label="1"></a><span class="fu">library</span>(tidyverse) <span class="co"># where the functions are stored</span></span>
+<span id="cb6-2"><a href="" aria-label="2"></a></span>
+<span id="cb6-3"><a href="" aria-label="3"></a><span class="fu">filter</span>() <span class="co"># subsetting the data (e.g., order == "Aves")</span></span>
+<span id="cb6-4"><a href="" aria-label="4"></a><span class="fu">select</span>() <span class="co"># Selecting a single or multiple columns</span></span>
+<span id="cb6-5"><a href="" aria-label="5"></a><span class="fu">mutate</span>() <span class="co"># Creating a new column</span></span>
+<span id="cb6-6"><a href="" aria-label="6"></a><span class="fu">rename</span>() <span class="co"># Renaming a column</span></span>
+<span id="cb6-7"><a href="" aria-label="7"></a><span class="fu">summarise</span>() <span class="co"># Summarising a dataset</span></span>
+<span id="cb6-8"><a href="" aria-label="8"></a></span>
+<span id="cb6-9"><a href="" aria-label="9"></a><span class="fu">arrange</span>() <span class="co"># Ordering a column (E.g., sort by smallest arrival time)</span></span>
+<span id="cb6-10"><a href="" aria-label="10"></a><span class="fu">arrange</span>(<span class="fu">desc</span>()) <span class="co"># ... or by largest arrival time</span></span>
+<span id="cb6-11"><a href="" aria-label="11"></a><span class="fu">distinct</span>() <span class="co"># give me only the unique rows (no repeats)</span></span>
+<span id="cb6-12"><a href="" aria-label="12"></a><span class="fu">pull</span>() <span class="co"># pull out a column and make it a vector</span></span>
+<span id="cb6-13"><a href="" aria-label="13"></a><span class="fu">count</span>() <span class="co"># count the number of rows</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="select" class="slide level2">
 <h2><code>select()</code></h2>
 <h3 id="selecting-a-single-or-multiple-columns">Selecting a single or multiple columns</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href=""></a>my_data <span class="sc">%&gt;%</span></span>
-<span id="cb7-2"><a href=""></a>  <span class="fu">select</span>(survey_id, species_name, total)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="" aria-label="1"></a>my_data <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a href="" aria-label="2"></a>  <span class="fu">select</span>(survey_id, species_name, total)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -452,17 +458,17 @@ Freddie Heather
 <h2><code>mutate()</code></h2>
 <h3 id="creating-a-new-column">Creating a new column</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href=""></a><span class="co"># base R</span></span>
-<span id="cb8-2"><a href=""></a><span class="co"># my_data$depth_cm &lt;- my_data$depth*10</span></span>
-<span id="cb8-3"><a href=""></a></span>
-<span id="cb8-4"><a href=""></a><span class="co"># tidyverse way</span></span>
-<span id="cb8-5"><a href=""></a>my_data <span class="sc">%&gt;%</span></span>
-<span id="cb8-6"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">depth_cm =</span> depth <span class="sc">*</span> <span class="dv">100</span>)</span>
-<span id="cb8-7"><a href=""></a></span>
-<span id="cb8-8"><a href=""></a><span class="co"># combining the two steps (select and mutate)</span></span>
-<span id="cb8-9"><a href=""></a>my_data <span class="sc">%&gt;%</span></span>
-<span id="cb8-10"><a href=""></a>  <span class="fu">select</span>(survey_id, site_code, depth, species_name, total) <span class="sc">%&gt;%</span></span>
-<span id="cb8-11"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">depth_cm =</span> depth <span class="sc">*</span> <span class="dv">100</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="" aria-label="1"></a><span class="co"># base R</span></span>
+<span id="cb8-2"><a href="" aria-label="2"></a><span class="co"># my_data$depth_cm &lt;- my_data$depth*10</span></span>
+<span id="cb8-3"><a href="" aria-label="3"></a></span>
+<span id="cb8-4"><a href="" aria-label="4"></a><span class="co"># tidyverse way</span></span>
+<span id="cb8-5"><a href="" aria-label="5"></a>my_data <span class="sc">%&gt;%</span></span>
+<span id="cb8-6"><a href="" aria-label="6"></a>  <span class="fu">mutate</span>(<span class="at">depth_cm =</span> depth <span class="sc">*</span> <span class="dv">100</span>)</span>
+<span id="cb8-7"><a href="" aria-label="7"></a></span>
+<span id="cb8-8"><a href="" aria-label="8"></a><span class="co"># combining the two steps (select and mutate)</span></span>
+<span id="cb8-9"><a href="" aria-label="9"></a>my_data <span class="sc">%&gt;%</span></span>
+<span id="cb8-10"><a href="" aria-label="10"></a>  <span class="fu">select</span>(survey_id, site_code, depth, species_name, total) <span class="sc">%&gt;%</span></span>
+<span id="cb8-11"><a href="" aria-label="11"></a>  <span class="fu">mutate</span>(<span class="at">depth_cm =</span> depth <span class="sc">*</span> <span class="dv">100</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -485,13 +491,13 @@ Freddie Heather
 <li>Say we want to be clear about the unit in the column name</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href=""></a><span class="co"># base R</span></span>
-<span id="cb9-2"><a href=""></a><span class="co"># note this will overwrite the object my_data</span></span>
-<span id="cb9-3"><a href=""></a><span class="co"># names(my_data)[names(my_data) == "depth"] &lt;- "depth_m"</span></span>
-<span id="cb9-4"><a href=""></a></span>
-<span id="cb9-5"><a href=""></a><span class="co"># tidyverse way (this won't overwrite)</span></span>
-<span id="cb9-6"><a href=""></a>my_data <span class="sc">%&gt;%</span></span>
-<span id="cb9-7"><a href=""></a>  <span class="fu">rename</span>(<span class="at">depth_m =</span> depth)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="" aria-label="1"></a><span class="co"># base R</span></span>
+<span id="cb9-2"><a href="" aria-label="2"></a><span class="co"># note this will overwrite the object my_data</span></span>
+<span id="cb9-3"><a href="" aria-label="3"></a><span class="co"># names(my_data)[names(my_data) == "depth"] &lt;- "depth_m"</span></span>
+<span id="cb9-4"><a href="" aria-label="4"></a></span>
+<span id="cb9-5"><a href="" aria-label="5"></a><span class="co"># tidyverse way (this won't overwrite)</span></span>
+<span id="cb9-6"><a href="" aria-label="6"></a>my_data <span class="sc">%&gt;%</span></span>
+<span id="cb9-7"><a href="" aria-label="7"></a>  <span class="fu">rename</span>(<span class="at">depth_m =</span> depth)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -517,11 +523,11 @@ Freddie Heather
 <li>similar to the <code>summarise()</code> function</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href=""></a>my_data <span class="sc">%&gt;%</span></span>
-<span id="cb10-2"><a href=""></a>  <span class="fu">select</span>(survey_id, site_code, depth, species_name, biomass) <span class="sc">%&gt;%</span></span>
-<span id="cb10-3"><a href=""></a>  <span class="fu">mutate</span>(<span class="at">depth_cm =</span> depth <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb10-4"><a href=""></a>  <span class="fu">rename</span>(<span class="at">depth_m =</span> depth) <span class="sc">%&gt;%</span></span>
-<span id="cb10-5"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">mean_biomass =</span> <span class="fu">mean</span>(biomass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="" aria-label="1"></a>my_data <span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a href="" aria-label="2"></a>  <span class="fu">select</span>(survey_id, site_code, depth, species_name, biomass) <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a href="" aria-label="3"></a>  <span class="fu">mutate</span>(<span class="at">depth_cm =</span> depth <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-4"><a href="" aria-label="4"></a>  <span class="fu">rename</span>(<span class="at">depth_m =</span> depth) <span class="sc">%&gt;%</span></span>
+<span id="cb10-5"><a href="" aria-label="5"></a>  <span class="fu">summarise</span>(<span class="at">mean_biomass =</span> <span class="fu">mean</span>(biomass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -542,15 +548,15 @@ Freddie Heather
 <h3 id="group-by-a-factor-for-analysis">Group by a factor for analysis</h3>
 <p>You may see this written as <code>group_by()</code>, it’s the same</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href=""></a><span class="co"># I want the mean abundance for each species at a survey</span></span>
-<span id="cb11-2"><a href=""></a>my_data <span class="sc">%&gt;%</span></span>
-<span id="cb11-3"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">mean_abun =</span> <span class="fu">mean</span>(total, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.by =</span> species_name)</span>
-<span id="cb11-4"><a href=""></a></span>
-<span id="cb11-5"><a href=""></a><span class="co"># is the same as this</span></span>
-<span id="cb11-6"><a href=""></a>my_data <span class="sc">%&gt;%</span></span>
-<span id="cb11-7"><a href=""></a>  <span class="fu">group_by</span>(species_name) <span class="sc">%&gt;%</span></span>
-<span id="cb11-8"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">mean_abun =</span> <span class="fu">mean</span>(total, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb11-9"><a href=""></a>  <span class="fu">ungroup</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="" aria-label="1"></a><span class="co"># I want the mean abundance for each species at a survey</span></span>
+<span id="cb11-2"><a href="" aria-label="2"></a>my_data <span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="" aria-label="3"></a>  <span class="fu">summarise</span>(<span class="at">mean_abun =</span> <span class="fu">mean</span>(total, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.by =</span> species_name)</span>
+<span id="cb11-4"><a href="" aria-label="4"></a></span>
+<span id="cb11-5"><a href="" aria-label="5"></a><span class="co"># is the same as this</span></span>
+<span id="cb11-6"><a href="" aria-label="6"></a>my_data <span class="sc">%&gt;%</span></span>
+<span id="cb11-7"><a href="" aria-label="7"></a>  <span class="fu">group_by</span>(species_name) <span class="sc">%&gt;%</span></span>
+<span id="cb11-8"><a href="" aria-label="8"></a>  <span class="fu">summarise</span>(<span class="at">mean_abun =</span> <span class="fu">mean</span>(total, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-9"><a href="" aria-label="9"></a>  <span class="fu">ungroup</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -570,9 +576,9 @@ Freddie Heather
 <h2><code>arrange()</code></h2>
 <h3 id="sorting-a-column-alphabetically-or-numerically">Sorting a column (alphabetically or numerically)</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href=""></a>my_data <span class="sc">%&gt;%</span></span>
-<span id="cb12-2"><a href=""></a>  <span class="fu">summarise</span>(<span class="at">mean_abun =</span> <span class="fu">mean</span>(total, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.by =</span> species_name) <span class="sc">%&gt;%</span></span>
-<span id="cb12-3"><a href=""></a>  <span class="fu">arrange</span>(mean_abun)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="" aria-label="1"></a>my_data <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="" aria-label="2"></a>  <span class="fu">summarise</span>(<span class="at">mean_abun =</span> <span class="fu">mean</span>(total, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.by =</span> species_name) <span class="sc">%&gt;%</span></span>
+<span id="cb12-3"><a href="" aria-label="3"></a>  <span class="fu">arrange</span>(mean_abun)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -592,8 +598,8 @@ Freddie Heather
 <h2><code>count()</code></h2>
 <h3 id="counting-the-number-of-occurrences">Counting the number of occurrences</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href=""></a>my_data <span class="sc">%&gt;%</span></span>
-<span id="cb13-2"><a href=""></a>  <span class="fu">count</span>(site_code)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="" aria-label="1"></a>my_data <span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a href="" aria-label="2"></a>  <span class="fu">count</span>(site_code)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
