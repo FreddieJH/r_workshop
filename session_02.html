@@ -326,11 +326,11 @@ Freddie Heather
 <section id="the-pipe-operator" class="slide level2">
 <h2>The pipe operator <code>%&gt;%</code></h2>
 <ul>
-<li>Say I have three <ins>fictional</ins> functions; <code>import()</code>, <code>clean()</code>, and <code>visualise()</code> and I want to apply them to some dataset <code>x</code>.</li>
+<li>Say I have three functions; <code>import()</code>, <code>clean()</code>, and <code>visualise()</code> and I want to apply them to some dataset <code>x</code>.</li>
 </ul>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="" aria-label="1"></a><span class="co"># it's hard to read</span></span>
-<span id="cb2-2"><a href="" aria-label="2"></a>output <span class="ot">&lt;-</span> <span class="fu">visualise</span>(<span class="fu">clean</span>(<span class="fu">import</span>(x)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-2"><a href="" aria-label="2"></a>output <span class="ot">&lt;-</span> <span class="fu">summarise</span>(<span class="fu">filter</span>(<span class="fu">read_csv</span>(<span class="st">"rls_example_canada.csv"</span>), depth <span class="sc">&gt;</span> <span class="dv">10</span>), <span class="at">mean_temp =</span> <span class="fu">mean</span>(biomass, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
 <li>Using the pipe operator</li>
@@ -338,15 +338,14 @@ Freddie Heather
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="" aria-label="1"></a><span class="co"># easier to read! (does exactly the same)</span></span>
 <span id="cb3-2"><a href="" aria-label="2"></a>output <span class="ot">&lt;-</span></span>
-<span id="cb3-3"><a href="" aria-label="3"></a>  x <span class="sc">%&gt;%</span></span>
-<span id="cb3-4"><a href="" aria-label="4"></a>  <span class="fu">import</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb3-5"><a href="" aria-label="5"></a>  <span class="fu">clean</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb3-6"><a href="" aria-label="6"></a>  <span class="fu">visualise</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb3-3"><a href="" aria-label="3"></a>  <span class="fu">read_csv</span>(<span class="st">"rls_example_canada.csv"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-4"><a href="" aria-label="4"></a>  <span class="fu">filter</span>(depth <span class="sc">&gt;</span> <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-5"><a href="" aria-label="5"></a>  <span class="fu">summarise</span>(<span class="at">mean_temp =</span> <span class="fu">mean</span>(temperature), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section></section>
 <section>
-<section id="data-manipululation" class="title-slide slide level1 center">
-<h1>Data manipululation</h1>
+<section id="data-manipulation" class="title-slide slide level1 center">
+<h1>Data manipulation</h1>
 
 </section>
 <section id="filtering-your-data" class="slide level2">
@@ -514,9 +513,6 @@ Freddie Heather
 </div>
 </section>
 <section id="summarise" class="slide level2">
-<h2><code>summarise</code>()</h2>
-</section>
-<section id="summarise-1" class="slide level2">
 <h2><code>summarise</code>()</h2>
 <h3 id="summarise-some-data-e.g.-taking-a-mean">Summarise some data (e.g.&nbsp;taking a mean)</h3>
 <ul>

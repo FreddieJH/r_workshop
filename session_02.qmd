@@ -86,32 +86,30 @@ View(my_data)
 
 ## The pipe operator `%>%`
 
-- Say I have three <ins>fictional</ins> functions; `import()`, `clean()`, and `visualise()` and I want to apply them to some dataset `x`.
+- Say I have three functions; `import()`, `clean()`, and `visualise()` and I want to apply them to some dataset `x`.
 
-```{r }
+```{r}
 #| eval: false
 #| echo: true
 
 # it's hard to read
-output <- visualise(clean(import(x)))
+output <- summarise(filter(read_csv("rls_example_canada.csv"), depth > 10), mean_temp = mean(biomass, na.rm = TRUE))
 ```
 
 - Using the pipe operator
 
-```{r }
+```{r}
 #| eval: false
 #| echo: true
 
 # easier to read! (does exactly the same)
 output <-
-  x %>%
-  import() %>%
-  clean() %>%
-  visualise()
-
+  read_csv("rls_example_canada.csv") %>% 
+  filter(depth > 10) %>%
+  summarise(mean_temp = mean(temperature), na.rm = TRUE)
 ```
 
-# Data manipululation
+# Data manipulation
 
 ## Filtering your data
 
@@ -258,8 +256,6 @@ my_data %>%
 
 Rename the `visibility` column to something a bit more informative, maybe to include the units?
 :::
-
-## `summarise`()
 
 ## `summarise`()
 
